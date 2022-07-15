@@ -1,0 +1,2258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+    
+      <link rel="icon" href="/favicon.png" />
+    
+
+    <title>
+        
+          Tensorflow联邦学习平台搭建 - Docs`Blog
+        
+    </title>
+
+    <!-- Spectre.css framework -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.5.9/spectre.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.5.9/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.5.9/spectre-icons.min.css">
+
+    <!-- theme css & js -->
+    
+<link rel="stylesheet" href="/css/book.css">
+
+    
+<link rel="stylesheet" href="/css/mdicon.css">
+
+    
+<script src="/js/book.js"></script>
+
+    
+<script src="/js/jquery.min.js"></script>
+
+<!--   之前的code复制按钮  
+<script src="/js/clipboard.min.js"></script>
+-->
+<!--    code-->
+    
+<link rel="stylesheet" href="/css/prism.css">
+
+    
+<script src="/js/prism.js"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script>
+
+    <!-- tocbot -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+
+
+    <!-- katex -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+
+    
+<!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'G-3FTL9QWCS6', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/zooming/2.1.1/zooming.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const zooming = new Zooming()
+    zooming.listen('.book-content img')
+})
+</script>
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+
+<div class="book-container">
+  <div class="book-sidebar">
+    <div class="book-brand">
+  <a href="/">
+    <img src="/favicon.png">
+    <span>DOCS`BLOG</span>
+  </a>
+</div>
+    <div class="tree" id="tree">
+    <input id="search-input" class="search-input" type="text" placeholder="search...">
+    
+
+    
+        <ul>
+            <li class="directory">
+                <a class="directory">
+                    <i class="material-icons">keyboard_arrow_right</i>
+                    Linux
+                </a>
+                
+        <ul>
+            <li class="directory">
+                <a class="directory">
+                    <i class="material-icons">keyboard_arrow_right</i>
+                    Centos
+                </a>
+                
+        <ul>
+            <li class="file">
+                <a href="/posts/f593e9b1.html">
+                    如何正确的升级node版本
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/a958f1c0.html">
+                    mysql开启binlog
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/989ce8de.html">
+                    安装gitla社区版
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/227d5864.html">
+                    mysql不同版本密码修改
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/94a8894b.html">
+                    yum安装mysql
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/ddac911d.html">
+                    Centos网卡异常解决方案
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+            </li>
+
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/f593e9b1.html">
+                    如何正确的升级node版本
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/6c7ba768.html">
+                    mysql版本导致登录失败
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/a958f1c0.html">
+                    mysql开启binlog
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/989ce8de.html">
+                    安装GitLabCE
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/227d5864.html">
+                    mysql不同版本密码修改
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/4ce19a20.html">
+                    vim如何复制到系统剪切板
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="directory">
+                <a class="directory">
+                    <i class="material-icons">keyboard_arrow_right</i>
+                    Tips
+                </a>
+                
+        <ul>
+            <li class="file">
+                <a href="/posts/4ce19a20.html">
+                    如何将Vim剪贴板里面的东西粘贴到Vim之外的地方
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/c2bdb00f.html">
+                    nvm安装和使用
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/c8f03141.html">
+                    不得不收藏的日常命令
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/ef074418.html">
+                    Screen使用
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/1c16840d.html">
+                    查看Linux端口占用并Kill掉
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/b2579617.html">
+                    SocketTimeout完美解决方案
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/6d271f4a.html">
+                    Node安装指定版本
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/8f994908.html">
+                    SFTP使用方法
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/d43cebaa.html">
+                    卸载删除windows服务
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/7ea9f75b.html">
+                    网站打开testing
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+            </li>
+
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/c2bdb00f.html">
+                    nvm安装和使用
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/94a8894b.html">
+                    yum安装mysql
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/c8f03141.html">
+                    不得不收藏的日常命令
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/1c16840d.html">
+                    查看Linux端口占用
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/5201ae1d.html">
+                    Linux过滤文件中无用的内容
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/b2d2ad38.html">
+                    Linux批量更改文件后缀名
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/da4bfcc1.html">
+                    Screen说明
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/b2579617.html">
+                    SocketTimeout完美解决方案
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/4d7b3137.html">
+                    如何在服务器查看公网ip
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/6d271f4a.html">
+                    Node安装指定版本
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/8f994908.html">
+                    sftp常用命令使用
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/d43cebaa.html">
+                    怎么卸载windows服务
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/ddac911d.html">
+                    Centos网卡异常解决方案
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+            </li>
+
+        </ul>
+    
+        <ul>
+            <li class="directory">
+                <a class="directory">
+                    <i class="material-icons">keyboard_arrow_right</i>
+                    DataBase
+                </a>
+                
+        <ul>
+            <li class="directory">
+                <a class="directory">
+                    <i class="material-icons">keyboard_arrow_right</i>
+                    Mysql
+                </a>
+                
+        <ul>
+            <li class="file">
+                <a href="/posts/null.html">
+                    Docker安装Mysql
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/3c10e2ca.html">
+                    Navicat链接Mysql
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+            </li>
+
+        </ul>
+    
+            </li>
+
+        </ul>
+    
+        <ul>
+            <li class="directory">
+                <a class="directory">
+                    <i class="material-icons">keyboard_arrow_right</i>
+                    Tools
+                </a>
+                
+        <ul>
+            <li class="directory">
+                <a class="directory">
+                    <i class="material-icons">keyboard_arrow_right</i>
+                    Docker
+                </a>
+                
+        <ul>
+            <li class="file">
+                <a href="/posts/null.html">
+                    Docker安装Mysql
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/e1edea63.html">
+                    docker服务重启
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/ad5641b0.html">
+                    Docker常用命令总结与介绍
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/8224ad28.html">
+                    compose使用介绍
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/3328c18c.html">
+                    Docker查看容器IP
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/8185c0b3.html">
+                    Docker删除镜像
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/ff40acb.html">
+                    Docker打包镜像
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/eeae9da3.html">
+                    DockerCP命令拷贝文件
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/dd0ea551.html">
+                    Docker中安装vim
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/6b788e8e.html">
+                    为什么使用Docker
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/ed05a2e1.html">
+                    MacOS安装Docker
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+            </li>
+
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/dbc6f637.html">
+                    sublime激活
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="directory">
+                <a class="directory">
+                    <i class="material-icons">keyboard_arrow_right</i>
+                    Obsidian
+                </a>
+                
+        <ul>
+            <li class="file">
+                <a href="/posts/d6428e0c.html">
+                    Obs中配置图床
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+            </li>
+
+        </ul>
+    
+        <ul>
+            <li class="directory">
+                <a class="directory">
+                    <i class="material-icons">keyboard_arrow_right</i>
+                    Mac
+                </a>
+                
+        <ul>
+            <li class="file">
+                <a href="/posts/a3ab6ab7.html">
+                    SublimeText快捷键
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/99c9d018.html">
+                    mac下iterm2终端安装rzsz命令方法
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/7a9c72b2.html">
+                    Mac安装Mysql
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/87c4f94b.html">
+                    alias
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+            </li>
+
+        </ul>
+    
+        <ul>
+            <li class="directory">
+                <a class="directory">
+                    <i class="material-icons">keyboard_arrow_right</i>
+                    Server
+                </a>
+                
+        <ul>
+            <li class="file">
+                <a href="/posts/7a9c72b2.html">
+                    Mac安装Mysql
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/b2579617.html">
+                    SocketTimeout完美解决方案
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/6d271f4a.html">
+                    Node安装指定版本
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/8f994908.html">
+                    SFTP使用方法
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/d43cebaa.html">
+                    卸载删除windows服务
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/73299399.html">
+                    JumpServer
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+            </li>
+
+        </ul>
+    
+        <ul>
+            <li class="directory">
+                <a class="directory">
+                    <i class="material-icons">keyboard_arrow_right</i>
+                    Git
+                </a>
+                
+        <ul>
+            <li class="file">
+                <a href="/posts/aed9e9a.html">
+                    Git克隆失败(-54)
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/27f6bca1.html">
+                    Git代码提交规范
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/3eb6a5c9.html">
+                    Gitlab
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+            </li>
+
+        </ul>
+    
+        <ul>
+            <li class="directory">
+                <a class="directory">
+                    <i class="material-icons">keyboard_arrow_right</i>
+                    Vmware
+                </a>
+                
+        <ul>
+            <li class="file">
+                <a href="/posts/ddac911d.html">
+                    Centos网卡异常解决方案
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+            </li>
+
+        </ul>
+    
+            </li>
+
+        </ul>
+    
+        <ul>
+            <li class="directory">
+                <a class="directory">
+                    <i class="material-icons">keyboard_arrow_right</i>
+                    Mysql
+                </a>
+                
+        <ul>
+            <li class="file">
+                <a href="/posts/6c7ba768.html">
+                    mysql版本导致登录失败
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+            </li>
+
+        </ul>
+    
+        <ul>
+            <li class="directory">
+                <a class="directory">
+                    <i class="material-icons">keyboard_arrow_right</i>
+                    Python
+                </a>
+                
+        <ul>
+            <li class="directory">
+                <a class="directory">
+                    <i class="material-icons">keyboard_arrow_right</i>
+                    pip
+                </a>
+                
+        <ul>
+            <li class="file">
+                <a href="/posts/74924737.html">
+                    Python获得24小时List的方法
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/4a2d1ba8.html">
+                    pip源管理
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/c8168d18.html">
+                    正则截取特定字符中间字符
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/86d8d5ed.html">
+                    xml_str转json
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/a55ee731.html">
+                    Python一键安装全部依赖包
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/55026eee.html">
+                    Python的Str和dict互转
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/8cb92695.html">
+                    批量修改文件名
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+            </li>
+
+        </ul>
+    
+        <ul>
+            <li class="directory">
+                <a class="directory">
+                    <i class="material-icons">keyboard_arrow_right</i>
+                    FastApi
+                </a>
+                
+        <ul>
+            <li class="file">
+                <a href="/posts/b3de806d.html">
+                    如何动态更新配置文件
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+            </li>
+
+        </ul>
+    
+        <ul>
+            <li class="directory">
+                <a class="directory">
+                    <i class="material-icons">keyboard_arrow_right</i>
+                    Tips
+                </a>
+                
+        <ul>
+            <li class="file">
+                <a href="/posts/b3de806d.html">
+                    Python使用信号量动态更新配置文件
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/a55ee731.html">
+                    Python一键安装全部依赖包
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/55026eee.html">
+                    Python的Str和dict互转
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/8cb92695.html">
+                    批量修改文件名
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+            </li>
+
+        </ul>
+    
+        <ul>
+            <li class="directory">
+                <a class="directory">
+                    <i class="material-icons">keyboard_arrow_right</i>
+                    Tensorflow
+                </a>
+                
+        <ul>
+            <li class="file active">
+                <a href="/posts/48120bab.html">
+                    Tensorflow联邦学习平台搭建
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+            </li>
+
+        </ul>
+    
+            </li>
+
+        </ul>
+    
+        <ul>
+            <li class="directory">
+                <a class="directory">
+                    <i class="material-icons">keyboard_arrow_right</i>
+                    Blog
+                </a>
+                
+        <ul>
+            <li class="file">
+                <a href="/posts/177b0cf5.html">
+                    mkdocs使用material主题美化
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="directory">
+                <a class="directory">
+                    <i class="material-icons">keyboard_arrow_right</i>
+                    MkDocs
+                </a>
+                
+        <ul>
+            <li class="file">
+                <a href="/posts/177b0cf5.html">
+                    mkdocs换主题
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/b553abaf.html">
+                    mkdocs静态博客
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+            </li>
+
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/b553abaf.html">
+                    MkDocs文档工具使用
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/db1fa1a3.html">
+                    使用docker安装codimd
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="directory">
+                <a class="directory">
+                    <i class="material-icons">keyboard_arrow_right</i>
+                    Dev
+                </a>
+                
+        <ul>
+            <li class="file">
+                <a href="/posts/db1fa1a3.html">
+                    CoidMD在线协作MD编辑器
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+            </li>
+
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/a56fd7be.html">
+                    mkdocs搭建使用
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/6374189d.html">
+                    MarkDown
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/90501bcc.html">
+                    Hexo站点
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+            </li>
+
+        </ul>
+    
+        <ul>
+            <li class="directory">
+                <a class="directory">
+                    <i class="material-icons">keyboard_arrow_right</i>
+                    Web
+                </a>
+                
+        <ul>
+            <li class="directory">
+                <a class="directory">
+                    <i class="material-icons">keyboard_arrow_right</i>
+                    Vite
+                </a>
+                
+        <ul>
+            <li class="file">
+                <a href="/posts/3749a5d6.html">
+                    搭建第一个Vite项目
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+            </li>
+
+        </ul>
+    
+        <ul>
+            <li class="directory">
+                <a class="directory">
+                    <i class="material-icons">keyboard_arrow_right</i>
+                    Vue
+                </a>
+                
+        <ul>
+            <li class="file">
+                <a href="/posts/ba702d25.html">
+                    vue-cli脚手架
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+            </li>
+
+        </ul>
+    
+            </li>
+
+        </ul>
+    
+        <ul>
+            <li class="directory">
+                <a class="directory">
+                    <i class="material-icons">keyboard_arrow_right</i>
+                    Apache
+                </a>
+                
+        <ul>
+            <li class="directory">
+                <a class="directory">
+                    <i class="material-icons">keyboard_arrow_right</i>
+                    Hive
+                </a>
+                
+        <ul>
+            <li class="file">
+                <a href="/posts/dad0c3fc.html">
+                    认识Hive
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/1a42f8cf.html">
+                    Hive分桶表
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/51c86388.html">
+                    HiveQL函数-09
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/5d6806ac.html">
+                    Hive参数优化
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/787960b2.html">
+                    Hive元数据
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/ffffb2e9.html">
+                    HiveQL索引
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/70c09e22.html">
+                    HiveQL视图
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/f0391331.html">
+                    HiveQL数据查询-04
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/e0c0edfd.html">
+                    HiveQL数据操作-03
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/fb9aadad.html">
+                    HiveQL数据定义-02
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/18bfcb46.html">
+                    Hive的简介-01
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/bbae3177.html">
+                    Hive修复分区
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+            </li>
+
+        </ul>
+    
+        <ul>
+            <li class="directory">
+                <a class="directory">
+                    <i class="material-icons">keyboard_arrow_right</i>
+                    Hadoop
+                </a>
+                
+        <ul>
+            <li class="file">
+                <a href="/posts/1e0caca5.html">
+                    Hadoop的基本操作
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/f23f9ebb.html">
+                    Cloudera登录使用
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/30eb9bf9.html">
+                    Cloudera平台搭建使用
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/3762b1a0.html">
+                    Amabri权限问题
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/cfccefb1.html">
+                    Ambari搭建集群
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+            </li>
+
+        </ul>
+    
+            </li>
+
+        </ul>
+    
+        <ul>
+            <li class="directory">
+                <a class="directory">
+                    <i class="material-icons">keyboard_arrow_right</i>
+                    商业化
+                </a>
+                
+        <ul>
+            <li class="directory">
+                <a class="directory">
+                    <i class="material-icons">keyboard_arrow_right</i>
+                    广告
+                </a>
+                
+        <ul>
+            <li class="file">
+                <a href="/posts/8ae47aa6.html">
+                    广告全链路
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/fca0e48c.html">
+                    互联网的半壁江山
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/b4bce7a2.html">
+                    互联网广告专业术语
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+            </li>
+
+        </ul>
+    
+            </li>
+
+        </ul>
+    
+        <ul>
+            <li class="directory">
+                <a class="directory">
+                    <i class="material-icons">keyboard_arrow_right</i>
+                    Docker
+                </a>
+                
+        <ul>
+            <li class="file">
+                <a href="/posts/e1edea63.html">
+                    Docker服务重启
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/ad5641b0.html">
+                    Docker快速使用
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/8224ad28.html">
+                    DockerCompose使用
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/21ba7853.html">
+                    安装DockerCompose
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/3328c18c.html">
+                    Docker查看容器IP
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/8185c0b3.html">
+                    Docker删除镜像
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/ff40acb.html">
+                    Docker打包镜像
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/eeae9da3.html">
+                    DockerCP命令拷贝文件
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/dd0ea551.html">
+                    Docker中安装vim
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/6b788e8e.html">
+                    为什么使用Docker
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/ed05a2e1.html">
+                    MacOS安装Docker
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+            </li>
+
+        </ul>
+    
+        <ul>
+            <li class="directory">
+                <a class="directory">
+                    <i class="material-icons">keyboard_arrow_right</i>
+                    Git
+                </a>
+                
+        <ul>
+            <li class="file">
+                <a href="/posts/aed9e9a.html">
+                    Git克隆失败(-54)
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+        <ul>
+            <li class="file">
+                <a href="/posts/27f6bca1.html">
+                    Git代码提交规范
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+            </li>
+
+        </ul>
+    
+        <ul>
+            <li class="directory">
+                <a class="directory">
+                    <i class="material-icons">keyboard_arrow_right</i>
+                    Other
+                </a>
+                
+        <ul>
+            <li class="directory">
+                <a class="directory">
+                    <i class="material-icons">keyboard_arrow_right</i>
+                    Feel
+                </a>
+                
+        <ul>
+            <li class="file">
+                <a href="/posts/f41c51aa.html">
+                    工作方式
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+            </li>
+
+        </ul>
+    
+        <ul>
+            <li class="directory">
+                <a class="directory">
+                    <i class="material-icons">keyboard_arrow_right</i>
+                    Web
+                </a>
+                
+        <ul>
+            <li class="file">
+                <a href="/posts/7ea9f75b.html">
+                    网站打开testing
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+            </li>
+
+        </ul>
+    
+            </li>
+
+        </ul>
+    
+        <ul>
+            <li class="directory">
+                <a class="directory">
+                    <i class="material-icons">keyboard_arrow_right</i>
+                    Java
+                </a>
+                
+        <ul>
+            <li class="directory">
+                <a class="directory">
+                    <i class="material-icons">keyboard_arrow_right</i>
+                    JavaSE
+                </a>
+                
+        <ul>
+            <li class="file">
+                <a href="/posts/17415.html">
+                    01、Java环境
+                </a>
+            </li>
+            <div class="article-toc" style="display: none;"></div>
+        </ul>
+    
+            </li>
+
+        </ul>
+    
+            </li>
+
+        </ul>
+    
+</div>
+
+
+
+<script src="/js/book-menu.js"></script>
+
+
+  </div>
+
+  <div class="sidebar-toggle" onclick="sidebar_toggle()" onmouseover="add_inner()" onmouseleave="remove_inner()">
+  <div class="sidebar-toggle-inner"></div>
+</div>
+
+<script>
+function add_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.add('show')
+}
+
+function remove_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.remove('show')
+}
+
+function sidebar_toggle() {
+    let sidebar_toggle = document.querySelector('.sidebar-toggle')
+    let sidebar = document.querySelector('.book-sidebar')
+    let content = document.querySelector('.off-canvas-content')
+    if (sidebar_toggle.classList.contains('extend')) { // show
+        sidebar_toggle.classList.remove('extend')
+        sidebar.classList.remove('hide')
+        content.classList.remove('extend')
+    }
+    else { // hide
+        sidebar_toggle.classList.add('extend')
+        sidebar.classList.add('hide')
+        content.classList.add('extend')
+    }
+}
+</script>
+
+
+  <div class="off-canvas-content">
+    <div class="columns">
+      <div class="column col-10 col-lg-12">
+        <div class="book-navbar">
+          <!-- For Responsive Layout -->
+
+<header class="navbar">
+  <section class="navbar-section">
+    <a onclick="open_sidebar()">
+      <i class="icon icon-menu"></i>
+    </a>
+  </section>
+</header>
+
+        </div>
+        <div class="book-content">
+          <div class="book-post">
+  <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="亲，这是一个无效的密码。请检查后再试。" data-whm="亲，这些解密的内容无法验证，但你仍然可以看一看。">
+  <script id="hbeData" type="hbeData" data-hmacdigest="0f3d8fd2883ba3c071cbad35acc22d5e3b0016d120d07f4af053235408debcd8">b1ff6791f93694ce15c2f912ce0991183c0ef86b336583d31a7538472d2435cc229c725791e3e45765387ac2fe56ce8ca5b9efd2dc81acbe21d9bfa34cedbcd040a054d9bf4cf13d7711fd2f618f54aa82fafa3b8d427c2337efd092fcec734a186ecd4724d95885c49c534c28d31770ea124ff54b51f2240da57b84209bd89919466c9b24ba8bef329f9631f68714bda4b22da8166d0d48e7aec00011f31ff85f4eb1f468e731056823bbd27f393cedb44890dde0471155c5828cb35fdf0309f1ad9e3e430f5e04896bef93970237c004ca5c8a23fe1e217d2346a1b53901339f2c32a85cac2b62e63a43f9ff481cccb6ee77045e39d91ed5617f6a11d9706a1cd3ecde9c629a01c9dacefd5d08df35c4481c4d6ac204b641a8db962c602905970d6c03bb45ba69b94a4b87dbcadcf4f986baf6ba7161ae696abf15df70a6675915ff1e2221d9d2c5201ae14fd78e42f5f7ca5e09a41692f3ed6a211b6c1113f2b3c62f42ba81c4df23169be821e54d382ed3ae3648274a35ead4dc5ec83f227ddda68d1931b313249caba9a2a48caba41163f6e9ad79a759dab14f50d39e9edc65df21e7b2022aa7684c799f07d2597e3cd609f4a36e1c3d354955daae4529bf52be8ce3d634f71e9ec761940b3bba2b8263c342dc28719213f47d859b8c3552adcead3827c0f9ed976c05d95b960a35f377314bd1fbe6613e1c2f61e4b913f6128fcf3559cd08f5cfadea5ce15bf449cd41c7675ae96be2a0d96b1cfcccad2ef1b2cd9b4e5ebd4086ced3687f8557107d77bef399146ed5dccf0c0745f2c33a6ac1cb4d9cc6acd811113842cfc0d8cd5615ecf4d730f39701704486841c769f940d2cdfcee3bf7589ed0ed48175c58c5ff68e3be5354e06b74c6e5a683977a4f92619ff5c7a432576ee7d9c32d1549dfc6792653d93aa2bdbb6e84540160052f6fa022e7dbcdef0bd78ff870cfdd5eeca2baaa15803649a11c9324e6e68da2748578ce8261ddb5c2e2211b567e91a1e4c812be068c85b7197d5b0678dba6ac24bd08e2933c639bd5d19cfccc4172f8b4eb21c5df7884dc0f6bb3b6b9e905b921cf561dcffbffea7a0d9b218eaa0609b43872fe253dc3847ae7977a227d600bbb24e3029f12d394e84fd428104d0ad7c37b4519250c6e3770ead79cfe885daf113401ef9f0e6fb833d83d59ea35dfd350bf7c37f3afa2b1034f1b55a2e47d6c8df223aef6a91f5c2fc13e845cf618c2a222697f190d3b420f752d987f1d5fd6eb47a04dc7797ae0ecd19165aa058ddf3e2fcb1c07d0884bc9a2881ab1316a94c4ccbd1d638ee5f1aec8cf40019baa2b1be3120f07ebc512d39b1e6cfa70c3235361a024710fed6acbadd2f61c6f1011e7b178629db7cfaba8d9b1d0b867d3f28d890e24a6f97d095cf781353db22bc1746b15cff2858cd386e794223e47861d3653f9cb224a382a07e4d52600bd685a8d8024f14a648da848ce1990ec22f9c14fd004b57184d092a519869d82a2296b0e36cf90a691ae05b0587a0b3324ea6334c83d683ee06701b69430ede856874dcc9ec05cc3800f54441e3a088e70b7473baf1f9ad146e544b8296acb291a79c1d562b5dd83da499af39ee3ef5c244beaad8f7742f38a026af4a4c9f03a9a4682e5dee1206d26a3628cec817bd080463a92b699920b3ac5d98f583bb6eb49248a7823a96ac1b2c3137c9240cea3c429c81eb0e4e059a202129505edfcacdc35d6ec35c894735007e87c8cb47854d40328f6c5b5e62439ba1de824e6f02cd5fb8ab8cfd39d3661c1f23dd67e4acdcea8052b2d25d9599f2895838ea550269cdc17261b64ae21f4db40b05b1c2463376d377c8e3863dbd5bd61d70184cb1956ee41f7ed3621bf60f4b7c26ca8147553c266f3677e86d1afdf80fa51da6d3bb02a818b606f8b93124ac0d22b95f6676a0fb7b67e4b0ff5ac0ce2c57178a54132c1f082faeba8aa1d2310fae6a6a596951e9a7dd0d9f31e30316fe347ff4539cff53a021af7b7911b3f723e1f74d080cae3af93f6f41fac455335545ba9470b772ee97034a9b63d5241e13d9421c2f825c93e18f02d4e2670b0c17e3f5f172944f86c87a324db6aabbfa4e996d80ac242d5d4b77d2d86946adf3fbd03d1c36ac3a766b59e8f92b7833d04de7dce1be0bb7dfaf312282e06c83bc7575d644c235e22478feb8c8a98395aef5642da0027ad8ceedd76c430d9e38c0120d03b1e807a32eb16fbbbbd2a73d97ecb7d45f8ca031a66b7c7adb6edabf0598f1c875f1354471de3941ac2d51b01a1d7e77451f59d48dea67bc0c8068000a23c70765736c893922e03b118c21ed501997dd25109b51c1cb85c65f8d26ae8d80dd6d6f9bebfaac3dfe0bd7f90f02f3287afe88bd5a93d5ef105bd7b1dd44f45d0df843615cde88bedeab3faa793532a048b3de44eaf4ce6a67cb9ec882b911cb45495049d44bcdfe5411636dc71526d2b6985988f3c3db08d95538056fc60c7dfbbefb0f1a0d2e2b535753cf687e8eb8226f43b73992d5bbfa61e0b6eee617dad6445ce637f6cbcdff31feeef087e66762e852773e0cf87ec2752e6a82289c9edd9f2dee12d262e17333a1473627612a60e7c065d340c3eb47e3d6b81eedadaf08ac79dcd90d9d7129bf086c8905a45efb36c287ae5ca9092f595a470b3e5f1f6286ec839e84175b4e7e02880ad318bb356c86cfb63c31a49d572eaa8e0057b1d3d3f7958dc8d7b5f0c946d84aab5b174bedc7dc65f1324b5d34acf0efca417b37e890e060ebf9c7f472f00551269ab195eab24f9fc71b79e16bb361a9c6338f7b844aa7f47450a6447c28f9485a951c08ede8bbc77e472c4591c4c170315f0fda9b8b1c5582c48c814fe334c224797f0e74b6cdc6f2af72110cd4cf29f6204e8fff26a5654b01c31954a3ef605a1af2266c5955916d73fe2a74d43a565bd50ab02b70c019c4c16f4438b0bc419830ef69c1bdab93764b18ae63ce45264c3ea329ae4e31e4d78ac2660e73994d7e61f9515c72b676fb53d8ddb8df20a7e2444580e5fdee5c601fea9174b1e85eb48fd6e47cfae9237bde28317cdb16c330ef6e1139ebd8ef01997a165fd3a66ea03b9cd00f80d23bed044371f3a0d8832f43725aef4ebbc5e5786a595b9d16bf9d66d5334f4e4e4a57e184f6427f5bbd259c822a623f7a9be0fc5f4a6abb55f7133599358b42b02670b648a2e13f7c45443b83efaa5d456fc354a66db4bc21a3c6545d2a242f05375e375222eaf3b22baa020b7c8c90f83ce1f0a590bd987272c5cd67bc68606a6b65b6afc170ed5eb81e70677b30f92a4ac0a17fc356bf7529d904e612f516826652853fe2bd3d3e1af658ef179bd6e66f2c1b80574f2df72d012e50e58067faf7e47c52637438916499b1cb072fb4713f0b8e56711fe3b8e9f14a1cf4b718bf2a6dd3fb8dc9e104b846d7ea3855a576a91784c99ea5be0b1520c0b27e9d8f0edd9efe482ca67b6075ed5c132999e22ab9ca35f04143f640951e8bad7f8ed95175c1078bad2e71583691539395898db4f3eaae4139a80274b8f315337bec987a076d82509f60e0264e9d6b1179e035bffee388ce866afdf5fd22bffc7906120855b7ce6440e9cf433e45380957009cc0e806e26923cf141ff998cd03a9487bd4c18b988988d2dca2275afd4c56dfd3de559f7ef192f8e26341f43ddfb0439cd0d6f3ef6763bd36f35be5e484dfbda86e3826148d74d90dacf6bbcfeeacfc4cb0863e35c527b5b9e0fc5aaccbec9e632965fe135a9d014852e8d4890e92d7395511fc2108072f150b6b771d8b7eb75a95fd51bf1037a07cf9028fb224e560e2993840411ff833a3da65cd1408d579d99d3be5e83b4630081dfcf3895a9e1dacd0c69a547d1392e4a4726be8549d56d61fd21ab85ed7083375df4ac66ddd0247a567b94e4d545354e8a1a0c467438bb2ed7f1f703d7dfb95e7687384d9cacf0737aff37b5d95733019a7876949a3ad028443502bbbf4f27e85805f1351be4584aa82b6161377337b98924a8cf532c674f6afc10e3137b9e1e704757aa31466dc405e9a3f704d63ed0471810d3f6aeed3a08ffa8065bd91e9d0d6c492ac616fd42e406a54794209000731eae18818e63ad0b8284b43d3eea0efeb5fc60a366e5f3a61c160cab017aafad44187ecf8b0d5901861c4d6c7723bbfa635d2fdf84b801f11e51c078f42351eb2ad0daba2bc156714efee0eb96df15c6bef2a96d5cb53df95dd37113eca604ab4acd790c3de63fde19f20f046bf2751269519d4526258b80fb3c24ecdb4ec46a84122bd9c05e2940a862af57d4644257241de34cab2854b64a2c529f0eaa9b62ee09eb2f0728bbb7081b479a9cc40625b73a345be79301dc566d8600ac3bc70434aff88dc2eed734b1d8d1875956304ff2dee98a3e79a689991a15e8c4fd04d10820e931bdd3448283cc1e7caa57021639cf394e863e1e6d4b988378b16e1289c710b649b451db918a973efa8f8ebb3cd4200d86ea74fffe99d14d46d8b2a9e961eb8458fec59e6916ed510b68949818ff3f4642712d3327789573b17bf6d2f3443d7dc41a3cc5a1c1710e47438d69927848cf4b7f6af8b95b417c135babb459dea3aab67da5ac2a333e8ae4320f60f869ccc31118c7f9e43fc631920b9c13a608dae74e22175306e2d1309d395234631f04776780015aa2d2bbf7f9a5e575389da537bbd85acaa59ef65a6bf647709fdd5a9db7eec0cddb4f0395b600c59b8980a4b4c9e1b83f1c9ad16c15bd2b14d938ebbfc6edf40bb4768b3b2ad040143a41fd0ec678c0362d46e68388e8efaa2ac1e2f94a0c1a6583c2dbd3b3aaac736da2075cb76405c519c7c9cb779c5b51cb03825ba1a19bea2b0300c1b0b7f10656a06cea4b087000154c27be5d3e1412440439e1b62462a4db435c758fea2a830ba28fa295abc00e82cb8595896c10b12e35a30c7f5670254aa0d7fec1762845e9d40782d63ee2aee116505e7bed55e9bf2b2223c0daeb839a24a6eecaa27d7ae06f891f2dd7f2473ef06e06638de1518b5e5384499fdede1464cd15b810012f16e4fffb7e3730a4c02d35788e688eb1b227287256c79d8c08b866df76da29d456b1b2e1577a64eb20ef70a05eae56ff28abeeb8bd1bacada1d491bba72b7dac63c2a4de809d907f4f8199234b0bbd316f362e458d18631027eafc7972bbe5fbcee61b0f0741d741dc1826ff8e4e0a9c7be399575980c544566e401184852d12efc3fa0f156a7ad361d740cd0232e6383cd38c875f11f9ad6102e5edf83d9d199a9df805b74cd71d16f207473ea11214c002cc281e9e15075145106b5b50f953888b148f956899b0e7989d07fa4c1441793e3dbea2e27e15bc866f5fba43aca66f89a154726b6fc84ae5e9d395e3bd3206209bef080a10aeb3d10430f9c1453487a433661826b04c49860cecc5984908773823329b3715994c9c38b03259aa32f59ef7da6d4c62759198bc18880cfc1737567b15314e5fcaa7670615a14abea723ca4114655ceba3d7e9523afa14216b161c20c01f7fa001074d10f715f4960869a3ef6e2168f18d4436388dd29ac0a0444a181dd4d28e169715ad5dd916f535c0d195fa235784ec05d7cc592deed861daaeccfb5d594d911942c966c76f36fe4b082351f5e068d961ebb7095e38befb05f89495f4a0f990ee56e80e8edabb5e4711a64705c7899b3ddbca64f364f3e22d7e771ee5fcbeab7925ebf6a0fb42fbfbf1db2a8694604ed78d61cf5a02c1817eccf18724473e769d268f9c2b84388810824f90c00e3dfb0d1d7d2fab7c08c4f9566eea64c9527902fd75b37db5c244780483ae3745267bb646cf3d110b0ecd8ffae68ebd68e8081343e25ae8aabae6ff9928b8f5932849c0da81578ae5e8e48b53fdca2c66bc8a83fcbf72daed9c262bb108a0b81e90031d15493980aa5e55a7467d45910cc057579facf1974357589055fce4249808f0bbe9d4fc92262b84473512e2736987c68352861f6faede53fe2f91b932d78ea7826aa5ee077243fad327b1e2abc5e926223e57022e6d3f97992eabd5b3dc6d00a3dadb5bf1923f3c74af06c7dedbde673810a64a5f785aa5abf25a9357982386bba3207918f85bf0e1fd78169d0b2900fe8ce55e6f4f8b2e5395561ed9aa3c1f3f9e101e9b9170e6260266cde97d5c16cf4474b4ac2c506630f2165d14a8788f4d16d4910b490290896df595c188b4271878d499b2d002c846314df3e25cf13ab2ee698ca6673b3b998b61bd183bc3c7ee3ae95a226bd1757f7046e1ebed3a0b512d3e2cdaf4906158e36defb46810da42a1321536f6832355deb49dd4605c457c6e94b9dd8db2b93b5e523745f9a251838349e408a95702dca1831ab73ccb2ef719e40e8f9b3ad5e96e1a6d4d839ede8a3977b6757cc3bfb8e12fad5eeb7e6ed115c9df4f16f4a64dfb5bf33b8a35f38bf7308847b9e0946917fc3578789cd9128d95221714cb0bc4ba0257ef4b969cdedca4dea584c946054478df4685c782418ba682f2100f44cd8bdd1bea6f52e8bb22fa83951e6c38ee5c31114e1012c52b9eb01fdb65513e25684df2cfd7ceb5439dc436ded26377d3da4573d4b2e5460604ae2872f0fb4c0cb0eb099ffad8d7c94511a9a1fa19962189935e9f16b30b9ab9d51cf123b248a486783b6fec57a433d783da8995f89e8b3f81c29222b05f30363d4fe55ca7057e415bb6f327a033907483b497c367ea9d26ebb77c9ac6d6a65ffc92c1ce8df82cf9ff376b56319930845c6080d6da1d7cc9123f52e4e8397338b4471160b4ea42f32826fc098cc39ad4faa36dd3c0302c6fe774cf290895f1423aafcf9c4b795fce44aedfdd15ba4eda4a4f33b86b98c2e162463e4e9475725884ad5ef1cd776ee165f87db6d5e6ea7cf87f9dce316b50c109fc6912449b7baf9591addc0454133f8365fff43e0942333a1fde4345a0e735507d4a5ba3890312fada884da786d3ebaf2d3fee48280e387e14ed804579f1807acb705e14775f8a39c762df889069622d09e0444df0717f0ab1471b46b47b7d4607ff422c2b8df9775ebe9e54f6d902da7fb3d3cc159012f78e82c8547c6657b6963bf115ca95cd5e1267b4ec27b5f5b0ff980740ab06044c68ed45290ca6ef2113d4e2f1b4677e4fd3902a164c970c6be1153e24e8e313d3c441c346879383bac299fb7689f62b510d58522b35e3bc7f4b45548c0c723c56cd55908e0c749f21837130dad8d4e9b14243e4bbe827a97d31c11a529b96dd7cfd26df1873d92c363b578e090e2173895344fa12ccc1edc47aa6496ce602f5a39e38b8c9cb41e433984f60b76856415c2a543f06a6b9cc01babc271dc3583e21cebbb3b0de1623525bfce5afb7ce9ad0fc12443b9cbaa79b52685156d7bda1f1eb67a892b77a6f42a9e3ad3b8e41223dff1abedb4caed63865ad0a1f590af7cdc35778e05ef9ef4ed8fecf7fa6051e57f0de1130151d04015a5e2021c2784af7eaf91178fb7169d595ad7d9eaffbd8bec318fb1b18d9d0247fb839a8b6dd286ae4e021cb2af1c4093c9c6d3ca4437c2a5e730244a310901e023d5dbfb4f86b6e00d814d239eacab9f02d05afdb97955f1cfa6e38a988f35eacd6a5590c12c90ab976bdee2d60639905590551bdf55ac1d90c82c493c89c4f3a2f70e26a9d60a229177646bd19a09f0e66eb80eaac181d0d2c7410d167086684fd5a03c3659cf809f7c761da9e837c5613d6c86e2c41e30db8fd09b690185d99fce93e9bc9300e30cc89e4325f8842707b559e9119b378b3812f5c669573aef98173763e89713c34eca190efb2b4d011e8c8a1ec0e361c4119a7027aeeec3ceba547fb832041fe91893266abce28c073ef2b934c7758a3a739540818361467c5e0c0bf71a55fac2d5c93eeb5ad7704118fcd21fd8e7338ffaef1a267abb7093545d38240abc0633c4efbfd48021a19b1a299885cd37a0c5388b68f55fd517149075ecd7ab70ad7048891a726760a16076e43c4739afa263d6bda6adc1ba495710c769ab3573e79e830e9808ddedb785ef7d192a39a990d7eb67deebcc108634254c6e8f81650777088d59b25cc31162cf1cf14fe5ad20c111a9d23b4af83ee04b0da461080f1a7714a817363aed22f4fa56ea500225b3e16f01b6b89c64c4151dce2b2681b64bb9e6c7b5370b78b3999b2d053c55e04610799e83ea73723278613c3826fe12ed1c48c8124e190068d45f9012b8389393eddba4e8a3a3cb0432e460e4286498a5287b783f928e0b2177da2f2379468bd90efe4413094f6116a4f1daeaaaf69e207adc78667966c1bf48204be24a954cb5edbda217910b4776d461a7c978ce04c090d8336d0c2b8a4b44310905c5e302077993083691ede22276898f1f7bd5cd58f08b29b796ae8d49bf36cacae551db4968290fba0447baa75fd2fc0e80c6eca91d8094f8c983a157cf90d7a982a1631ba4aeaabf3d7979395dfb90241cd8e33a44c4411576fca20d76a7816ce7d15d9722aa6c8892544d0036c101ebfeae3c27df775a3c1f67226196bf80e01e06102612cc4e652945b377c6354d94b7e1c1a85660bf3d615aca14b5197d9ec080e7621662ae716ba3a554fe474dbada7aa412e4741bf2978ee3f422246d092a0853c963d9c48a2193e8003d03944093c444a9baa0bffe18073e458b9c15cf855786a66bcd43b8557179672397fc47e6da230639aefed768cb490bedd171d096a5218e2139a9733f5885892c6cd18b9637ed01027bfe7881aa34ad6189858e6e7d207ff50dc490d96fa52ed1d533b909444e603cd0e7b67737a6d16dfa39a1dabad30c8da288f027784964747668eeb3621f6d9a8f54be1035eaaec1b2d048bbeca74ad3050569a644d6a6a4d457fb28251962f79df27acd3b44abe67a9f0275894e945d</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-blink">
+      <input class="hbe hbe-input-field hbe-input-field-blink" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-blink" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-blink" data-content="你好，这篇文章需要密码">你好，这篇文章需要密码</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
+</div>
+
+<!--上一篇 下一篇-->
+
+
+  <div class="paginator">
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+         <!-- 先找到与当前文字相同的目录 -->
+        
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+           <!-- 在找到当前文章所在的 index -->
+          
+          
+            
+            
+
+
+            
+
+          
+            
+            
+
+
+            
+
+          
+            
+            
+
+
+            
+
+          
+            
+            
+
+
+            
+
+          
+            
+            
+
+
+            
+
+          
+            
+            
+
+
+            
+
+          
+            
+            
+
+
+            
+
+          
+            
+            
+
+
+             <!-- 下一篇文章 -->
+            <div class="next">
+<!--              <span>下一章</span>-->
+              <span class="material-icons left"> ⇦ </span>
+
+              <a href="/posts/a55ee731.html"> Python一键安装全部依赖包</a>
+            </div>
+            
+
+          
+            
+            
+
+
+            
+
+          
+            
+              <!-- 上一篇文章 -->
+            <div class="prev">
+<!--              <span>上一章</span>-->
+              <a href="/posts/55026eee.html"> Python的Str和dict互转</a>
+              <span class="material-icons right"> ⇨ </span>
+            </div>
+            
+
+
+            
+
+          
+            
+            
+
+
+            
+
+          
+            
+            
+
+
+            
+
+          
+            
+            
+
+
+            
+
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+  </div>
+
+
+
+
+  <div class="book-comments">
+    
+
+
+    <script src="https://giscus.app/client.js"
+            data-repo="A2Data/itdocs_giscus"
+            data-repo-id="R_kgDOHPLRRw"
+            data-category="Announcements"
+            data-category-id="DIC_kwDOHPLRR84COyJ5"
+            data-mapping="pathname"
+            data-reactions-enabled="1"
+            data-emit-metadata="0"
+            data-input-position="top"
+            data-theme="light"
+            data-lang="zh-CN"
+            data-loading="lazy"
+            crossorigin="anonymous"
+            async>
+    </script>
+
+
+
+
+
+
+  </div>
+
+
+
+<script src="/js/book-post.js"></script>
+
+
+
+<div class="book-footer">
+  <div class="pure">
+    <script src="https://pv.sohu.com/cityjson?ie=utf-8"></script>
+    <script>
+      var getOSAndBrowser = function () {
+        var os = navigator.platform;
+        var userAgent = navigator.userAgent;
+        var info = "";
+        var tempArray = "";
+        if (os.indexOf("Win") > -1) {
+          if (userAgent.indexOf("Windows NT 5.0") > -1) {
+            info += "Win2000"
+          } else if (userAgent.indexOf("Windows NT 5.1") > -1) {
+            info += "WinXP"
+          } else if (userAgent.indexOf("Windows NT 5.2") > -1) {
+            info += "Win2003"
+          }
+          else if (userAgent.indexOf("Windows NT 6.0") > -1) {
+            info += "WindowsVista"
+          } else if (userAgent.indexOf("Windows NT 6.1") > -1 || userAgent.indexOf("Windows 7") > -1) {
+            info += "Win7"
+          } else if (userAgent.indexOf("Windows NT 6.2") > -1 || userAgent.indexOf("Windows 8") > -1) {
+            info += "Win8"
+          }
+          else if (userAgent.indexOf("Windows NT 6.3") > -1 || userAgent.indexOf("Windows 8.1") > -1) {
+            info += "Win8.1"
+          } else if (userAgent.indexOf("Windows NT 10.0") > -1 || userAgent.indexOf("Windows 10") > -1) {
+            info += "Win10"
+          } else {
+            info += "Other"
+          }
+        } else if (os.indexOf("Mac") > -1) {
+          info += "Mac"
+        } else if (os.indexOf("X11") > -1) {
+          info += "Unix"
+        } else if (os.indexOf("Linux") > -1) {
+          info += "Linux"
+        } else { info += "Other" } info += "/";
+        var isOpera = userAgent.indexOf("Opera") > -1;
+        var isIE = userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1 && !isOpera;
+        var isEdge = userAgent.toLowerCase().indexOf("edge") > -1 && !isIE;
+        var isIE11 = (userAgent.toLowerCase().indexOf("trident") > -1 && userAgent.indexOf("rv") > -1);
+        if (/[Ff]irefox(\/\d+\.\d+)/.test(userAgent)) {
+          tempArray = /([Ff]irefox)\/(\d+\.\d+)/.exec(userAgent);
+          info += tempArray[1] + tempArray[2]
+        } else if (isIE) {
+          var version = "";
+          var reIE = new RegExp("MSIE (\\d+\\.\\d+);");
+          reIE.test(userAgent);
+          var fIEVersion = parseFloat(RegExp["$1"]);
+          if (fIEVersion == 7) {
+            version = "IE7"
+          } else if (fIEVersion == 8) {
+            version = "IE8"
+          } else if (fIEVersion == 9) { version = "IE9" } else if (fIEVersion == 10) { version = "IE10" } else { version = "0" } info += version
+        } else if (isEdge) { info += "Edge" } else if (isIE11) { info += "IE11" } else if (/[Cc]hrome\/\d+/.test(userAgent)) { tempArray = /([Cc]hrome)\/(\d+)/.exec(userAgent); info += tempArray[1] + tempArray[2] } else if (/[Vv]ersion\/\d+\.\d+\.\d+(\.\d)* *[Ss]afari/.test(userAgent)) { tempArray = /[Vv]ersion\/(\d+\.\d+\.\d+)(\.\d)* *([Ss]afari)/.exec(userAgent); info += tempArray[3] + tempArray[1] } else if (/[Oo]pera.+[Vv]ersion\/\d+\.\d+/.test(userAgent)) { tempArray = /([Oo]pera).+[Vv]ersion\/(\d+)\.\d+/.exec(userAgent); info += tempArray[1] + tempArray[2] } else { info += "unknown" } return info
+      };
+      document.write("欢迎来自" + returnCitySN["cname"] + "的朋友");
+      document.write(" <br> 您的 IP 是:" + returnCitySN["cip"]);
+      document.write(",您使用的是:" + getOSAndBrowser());
+    </script>
+  </div>
+  <div>
+    <span id="timeDate"></span>
+    <i class="fa fa-heartbeat" aria-hidden="true" style="color:rgba(255,0,0,.9)" ></i>
+    <span id="times"></span>
+    <i class="fa fa-heartbeat" aria-hidden="true" style="color:rgba(255,0,0,.9)" ></i>
+    <script>
+      var now = new Date();
+      function createtime() {
+        var grt= new Date("07/21/2021 00:00:00");  //在此处修改你的建站时间，格式：月/日/年 时:分:秒
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        // document.getElementById("timeDate").innerHTML = "本站已运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = "本站已运行 "+dnum+" 天 "+ hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+      }
+      setInterval("createtime()",250);
+    </script>
+
+  </div>
+  <div class="github-badge">
+    <a style="color: #fff" rel="license" href="https://www.a2data.cn/" target="_blank" title="DataScience提供内容创作">
+      <span class="badge-subject">Copyright©2021</span><span class="badge-value bg-blueviolet">DataBricks</span></a>
+  </div>
+  <div class="github-badge">
+    <a style="color: #fff" rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="本站点采用知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议进行许可">
+      <span class="badge-subject"><i class="fa fa-copyright"></i></span><span class="badge-value bg-lightgrey">BY-NC-SA 4.0</span></a>
+  </div>
+  <div class="github-badge">
+    <a style="color: #fff" rel="license" href="https://beian.miit.gov.cn/" target="_blank" title="[互联网文档]">
+      <span class="badge-subject">京ICP</span><span class="badge-value bg-red">备20010978号-3</span></a>
+  </div>
+</div>
+
+<script>
+  function listennSidebarTOC() {
+    const navItems = document.querySelectorAll(".toc li");
+    if (!navItems.length) return;
+    const sections = [...navItems].map((element) => {
+      const link = element.querySelector(".toc-link");
+      const target = document.getElementById(
+              decodeURI(link.getAttribute("href")).replace("#", "")
+      );
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        window.scrollTo({
+          top: target.offsetTop,
+          behavior: "smooth"
+        });
+      });
+      return target;
+    });
+
+    function activateNavByIndex(target) {
+      if (target.classList.contains("active-current")) return;
+
+      document.querySelectorAll(".toc .active").forEach((element) => {
+        element.classList.remove("active", "active-current");
+      });
+      target.classList.add("active", "active-current");
+      $('.toc-link').removeClass('active_b');
+      let parent = target.parentNode;
+      while (!parent.matches(".toc")) {
+        if (parent.matches("li")) parent.classList.add("active");
+        parent = parent.parentNode;
+      }
+    }
+
+    function findIndex(entries) {
+      let index = 0;
+      let entry = entries[index];
+      if (entry.boundingClientRect.top > 0) {
+        index = sections.indexOf(entry.target);
+        return index === 0 ? 0 : index - 1;
+      }
+      for (; index < entries.length; index++) {
+        if (entries[index].boundingClientRect.top <= 0) {
+          entry = entries[index];
+        } else {
+          return sections.indexOf(entry.target);
+        }
+      }
+      return sections.indexOf(entry.target);
+    }
+
+    function createIntersectionObserver(marginTop) {
+      marginTop = Math.floor(marginTop + 10000);
+      let intersectionObserver = new IntersectionObserver(
+              (entries, observe) => {
+                let scrollHeight = document.documentElement.scrollHeight;
+                if (scrollHeight > marginTop) {
+                  observe.disconnect();
+                  createIntersectionObserver(scrollHeight);
+                  return;
+                }
+                let index = findIndex(entries);
+                activateNavByIndex(navItems[index]);
+              },
+              {
+                rootMargin: marginTop + "px 0px -100% 0px",
+                threshold: 0,
+              }
+      );
+      sections.forEach((element) => {
+        element && intersectionObserver.observe(element);
+      });
+    }
+    createIntersectionObserver(document.documentElement.scrollHeight);
+  }
+
+  document.addEventListener("DOMContentLoaded", listennSidebarTOC);
+  document.addEventListener("pjax:success", listennSidebarTOC);
+</script>
+
+<style>
+  .github-badge {
+    display:inline-block;
+    border-radius:4px;
+    text-shadow:none;
+    font-size:13px;
+    color:#fff;
+    line-height:15px;
+    background-color:#ABBAC3;
+    margin-bottom:5px;
+  }
+  .github-badge .badge-subject {
+    display:inline-block;
+    background-color:#4D4D4D;
+    padding:4px 4px 4px 6px;
+    border-top-left-radius:4px;
+    border-bottom-left-radius:4px;
+  }
+  .github-badge .badge-value {
+    display:inline-block;
+    padding:4px 6px 4px 4px;
+    border-top-right-radius:4px;
+    border-bottom-right-radius:4px;
+  }
+  .github-badge .bg-brightgreen {
+    background-color:#4DC820 !important;
+  }
+  .github-badge .bg-orange {
+    background-color:#FFA500 !important;
+  }
+  .github-badge .bg-yellow {
+    background-color:#D8B024 !important;
+  }
+  .github-badge .bg-blueviolet {
+    background-color:#8833D7 !important;
+  }
+  .github-badge .bg-pink {
+    background-color:#F26BAE !important;
+  }
+  .github-badge .bg-red {
+    background-color:#e05d44 !important;
+  }
+  .github-badge .bg-blue {
+    background-color:#007EC6 !important;
+  }
+  .github-badge .bg-lightgrey {
+    background-color:#9F9F9F !important;
+  }
+  .github-badge .bg-grey, .github-badge .bg-gray {
+    background-color:#555 !important;
+  }
+  .github-badge .bg-lightgrey, .github-badge .bg-lightgray {
+    background-color:#9f9f9f !important;
+  }
+</style>
+
+        </div>
+      </div>
+      <div class="column col-2 hide-lg">
+        <div class="book-post-info">
+  
+    <div class="book-post-meta">
+
+  <div class="author">
+
+    <!-- Author image -->
+    <div class="author-img">
+      
+        <figure class="avatar avatar-lg">
+          <img src="/jack.png" alt="...">
+        </figure>
+      
+    </div>
+
+    <!-- Author title -->
+    <div class="author-title">
+      <div>JackFeng</div>
+      <div>2021-07-08</div>
+    </div>
+  </div>
+
+  
+    <div class="divider"></div>
+
+    <div class="link">
+      <a class="category-link" href="/categories/Python/">Python</a>
+
+      <a class="tag-none-link" href="/tags/plan/" rel="tag">plan</a>
+    </div>
+
+  
+
+  <div class="divider"></div>
+</div>
+
+  
+  <div class="book-tocbot">
+</div>
+<div class="book-tocbot-menu">
+  <a class="book-toc-expand" onclick="expand_toc()">Expand all</a>
+  <a onclick="go_top()">Back to top</a>
+  <a onclick="go_bottom()">Go to bottom</a>
+</div>
+
+
+<script src="/js/book-toc.js"></script>
+
+
+</div>
+
+      </div>
+    </div>
+  </div>
+
+  <a class="off-canvas-overlay" onclick="hide_canvas()"></a>
+</div>
+
+<script>(function (w, d, s, id) {
+            if (typeof (w.webpushr) !== 'undefined') return; w.webpushr = w.webpushr || function () { (w.webpushr.q = w.webpushr.q || []).push(arguments) }; var js, fjs = d.getElementsByTagName(s)[0]; js = d.createElement(s); js.id = id; js.async = 1; js.src = "https://cdn.webpushr.com/app.min.js";fjs.parentNode.appendChild(js);}(window, document, 'script', 'webpushr-jssdk'));webpushr('setup', { 'key': 'BFx7WHz0rVpOVN8atT9J94hKkLItiL6wLbP5k5sJJtdQyWv9pryOWtscXADG3vfDUZzp89H1H3q34GSQXcr23Gw' });</script></body>
+</html>
+
+
+<script src="/js/book.js"></script>
+
+
+<link rel="stylesheet" href="/css/prism.css">
+
+
+<script src="/js/prism.js"></script>
+
+
+
+
+<!--动态线条-->
+<!--<script src="https://cdn.jsdelivr.net/gh/wallleap/cdn/js/canvas-nest.min.js"></script>-->
+
+<!--彩带-->
+<!--<script src="https://cdn.jsdelivr.net/gh/wallleap/cdn/js/piao.js"></script>-->
