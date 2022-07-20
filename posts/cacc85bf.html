@@ -11,7 +11,7 @@
 
     <title>
         
-          Linux过滤文件中无用的内容 - Docs`Blog
+          Docker安装Mysql - Docs`Blog
         
     </title>
 
@@ -206,7 +206,7 @@ document.addEventListener('DOMContentLoaded', function () {
         </ul>
     
         <ul>
-            <li class="file active">
+            <li class="file">
                 <a href="/posts/5201ae1d.html">
                     Linux过滤文件中无用的内容
                 </a>
@@ -482,7 +482,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 </a>
                 
         <ul>
-            <li class="file">
+            <li class="file active">
                 <a href="/posts/cacc85bf.html">
                     Docker安装Mysql
                 </a>
@@ -1411,63 +1411,52 @@ function sidebar_toggle() {
         </div>
         <div class="book-content">
           <div class="book-post">
-  <h2 id="使用-grep-v-跟正则">使用 grep -v 跟正则</h2>
-<p>grep -v后跟正则，表示过滤匹配到的内容。</p>
-<ul>
-<li>'-'表示过滤带有-的行</li>
-<li>'^$'表示过滤空行。</li>
-</ul>
-<h2 id="查看文件">查看文件</h2>
-<pre class="line-numbers language-none"><code class="language-none">(base) jackfeng@fengyinjiedeMacBook-Pro test % cat re.txt
-aaaa
-abcdsaa
-a-2-12-31-
-bbbbbbb
-
-cccccc
-ddddd
-1234131
----------
-databricks
----------
-datasciece<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="过滤文件">过滤文件</h2>
-<p>过滤带有-的行</p>
-<pre class="line-numbers language-none"><code class="language-none">
-aaaa
-abcdsaa
-bbbbbbb
-
-cccccc
-ddddd
-1234131
-databricks
-datasciece<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="过滤空行">过滤空行</h2>
-<pre class="line-numbers language-none"><code class="language-none">(base) jackfeng@fengyinjiedeMacBook-Pro test % cat re.txt | grep -v &#39;^$&#39;
-aaaa
-abcdsaa
-a-2-12-31-
-bbbbbbb
-cccccc
-ddddd
-1234131
----------
-databricks
----------
-datasciece
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="组合过滤">组合过滤</h2>
-<pre class="line-numbers language-none"><code class="language-none">(base) jackfeng@fengyinjiedeMacBook-Pro test % cat re.txt | grep -v &#39;^$&#39; | grep -v &#39;-&#39;
-aaaa
-abcdsaa
-bbbbbbb
-cccccc
-ddddd
-1234131
-databricks
-datasciece
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  <h1 id="安装mysql">安装mysql</h1>
+<pre class="line-numbers language-none"><code class="language-none">docker 安装 mysql<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h1 id="拉取mysql镜像">拉取mysql镜像</h1>
+<p>docker pull mysql:latest</p>
+<h1 id="查看拉取镜像">查看拉取镜像</h1>
+<p>docker images</p>
+<h1 id="启动">启动</h1>
+<p>docker run --name mysql8.0 --restart always -p 3308:3306 -e MYSQL_ROOT_PASSWORD=data-2022 -d mysql</p>
+<p>因为mysql8+版本的加密方式是caching_sha2_password，所以Navicate无法远程登陆，Navicate的加密方式是mysql_native_password。</p>
+<p>进入mysql<br>
+docker exec -it mysql8.0 /bin/bash</p>
+<p>use mysql;<br>
+ALTER USER ‘root’@‘%’ IDENTIFIED WITH mysql_native_password BY ‘data-2022’;</p>
+<p>ALTER USER ‘root’@‘%’ IDENTIFIED WITH mysql_native_password BY ‘[your password]’;</p>
+<h1 id="安装wiki">安装wiki</h1>
+<h1 id="新建用户">新建用户</h1>
+<p>create user ‘wiki’@‘localhost’ identified by ‘[your password]’;<br>
+create user ‘wiki’@‘%’ identified by ‘[your password]’;</p>
+<p>create user ‘wiki’@‘localhost’ identified by ‘itdocs2022’;<br>
+create user ‘wiki’@‘%’ identified by ‘itdocs2022’;</p>
+<h1 id="新建数据库">新建数据库</h1>
+<p>CREATE DATABASE <code>wiki</code>;</p>
+<h1 id="为用户添加权限">为用户添加权限</h1>
+<p>grant all privileges on wiki.* to ‘wiki’@‘localhost’;<br>
+grant all privileges on wiki.* to ‘wiki’@‘%’;<br>
+flush privileges;</p>
+<h1 id="搜索wiki镜像">搜索wiki镜像</h1>
+<p>docker search wiki</p>
+<h1 id="拉取镜像">拉取镜像</h1>
+<p>docker pull requarks/wiki</p>
+<h1 id="拉取最新的">拉取最新的</h1>
+<p>docker pull  <a target="_blank" rel="noopener" href="http://ghcr.io/requarks/wiki:2">ghcr.io/requarks/wiki:2</a></p>
+<h1 id="开启服务">开启服务</h1>
+<p>docker run -d -p 8083:3000 --name wiki --restart unless-stopped <br>
+-e “DB_TYPE=mysql” -e “DB_HOST=[your ip]” <br>
+-e “DB_PORT=3308” -e “DB_USER=wiki” -e “[your password]” -e “DB_NAME=wiki” <br>
+requarks/wiki</p>
+<p>docker run -d -p 8083:3000 --name wiki --restart unless-stopped <br>
+-e “DB_TYPE=mysql” -e “DB_HOST=172.17.0.3” <br>
+-e “DB_PORT=3308” -e “DB_USER=wiki” -e “DB_PASS”=“itdocs2022” -e “DB_NAME=wiki” <br>
+requarks/wiki</p>
+<p>docker run -d -p 8083:3000 --name wiki --restart unless-stopped -e “DB_TYPE=mysql” -e “DB_HOST=db” -e “DB_PORT=3308” -e “DB_USER=wiki” -e “DB_PASS=itdocs2022” -e “DB_NAME=wiki” requarks/wiki</p>
+<p>172.17.0.3</p>
+<p>docker run -d -p 8083:3000 --name wiki --restart unless-stopped -e “DB_TYPE=mysql” -e “DB_HOST=172.17.0.3” -e “DB_PORT=3308” -e “DB_USER=wikijs” -e “DB_PASS=itdocs2022” -e “DB_NAME=wiki” <a target="_blank" rel="noopener" href="http://ghcr.io/requarks/wiki:2">ghcr.io/requarks/wiki:2</a></p>
+<p>docker run -d -p 8083:3000 --name wiki --restart unless-stopped -e “DB_TYPE=mysql” -e “DB_HOST=db” -e “DB_PORT=3308” -e “DB_USER=wikijs” -e “DB_PASS=itdocs2022” -e “DB_NAME=wiki” <a target="_blank" rel="noopener" href="http://ghcr.io/requarks/wiki:2">ghcr.io/requarks/wiki:2</a></p>
+<p>192.168.6.7:8083</p>
 
 </div>
 
@@ -1509,52 +1498,8 @@ datasciece
       
     
       
-        
-      
-    
-      
-        
-      
-    
-      
          <!-- 先找到与当前文字相同的目录 -->
         
-        
-          
-          
-        
-          
-          
-        
-          
-          
-        
-          
-          
-        
-          
-          
-        
-          
-          
-        
-          
-          
-        
-          
-          
-        
-          
-          
-        
-          
-          
-        
-          
-          
-        
-          
-          
         
           
            <!-- 在找到当前文章所在的 index -->
@@ -1567,155 +1512,16 @@ datasciece
             
 
           
-            
-            
-
-
-            
-
-          
-            
-            
-
-
-            
-
-          
-            
-            
-
-
-            
-
-          
-            
-            
-
-
-            
-
-          
-            
-            
-
-
-            
-
-          
-            
-            
-
-
-            
-
-          
-            
-            
-
-
-            
-
-          
-            
-            
-
-
-            
-
-          
-            
-            
-
-
-            
-
-          
-            
-            
-
-
-            
-
-          
-            
-            
-
-
-             <!-- 下一篇文章 -->
-            <div class="next">
-<!--              <span>下一章</span>-->
-              <span class="material-icons left"> ⇦ </span>
-
-              <a href="/posts/1c16840d.html"> 查看Linux端口占用,并kill掉相关进程</a>
-            </div>
-            
-
-          
-            
-            
-
-
-            
-
-          
-            
-              <!-- 上一篇文章 -->
-            <div class="prev">
-<!--              <span>上一章</span>-->
-              <a href="/posts/b2d2ad38.html"> Linux批量更改文件后缀名</a>
-              <span class="material-icons right"> ⇨ </span>
-            </div>
-            
-
-
-            
-
-          
-            
-            
-
-
-            
-
-          
-            
-            
-
-
-            
-
-          
-            
-            
-
-
-            
-
-          
-            
-            
-
-
-            
-
-          
           
         
-          
-          
         
-          
-          
+      
+    
+      
         
-          
-          
-        
-          
-          
-        
-          
-          
-        
+      
+    
+      
         
       
     
@@ -2025,7 +1831,7 @@ datasciece
     <!-- Author title -->
     <div class="author-title">
       <div>JackFeng</div>
-      <div>2021-07-15</div>
+      <div>2022-04-28</div>
     </div>
   </div>
 
@@ -2033,9 +1839,9 @@ datasciece
     <div class="divider"></div>
 
     <div class="link">
-      <a class="category-link" href="/categories/Linux/">Linux</a>
+      <a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
 
-      
+      <a class="tag-none-link" href="/tags/Mysql/" rel="tag">Mysql</a>
     </div>
 
   
