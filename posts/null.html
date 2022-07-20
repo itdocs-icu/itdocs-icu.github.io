@@ -11,7 +11,7 @@
 
     <title>
         
-          Docker安装Mysql - Docs`Blog
+          mysql忘记密码修改 - Docs`Blog
         
     </title>
 
@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
         <ul>
             <li class="file">
-                <a href="/posts/989ce8de.html">
+                <a href="/posts/null.html">
                     安装GitLabCE
                 </a>
             </li>
@@ -482,7 +482,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 </a>
                 
         <ul>
-            <li class="file active">
+            <li class="file">
                 <a href="/posts/null.html">
                     Docker安装Mysql
                 </a>
@@ -509,8 +509,8 @@ document.addEventListener('DOMContentLoaded', function () {
         </ul>
     
         <ul>
-            <li class="file">
-                <a href="/posts/227d5864.html">
+            <li class="file active">
+                <a href="/posts/null.html">
                     mysql不同版本密码修改
                 </a>
             </li>
@@ -1411,53 +1411,119 @@ function sidebar_toggle() {
         </div>
         <div class="book-content">
           <div class="book-post">
-  <h1 id="安装mysql">安装mysql</h1>
-<pre class="line-numbers language-none"><code class="language-none">docker 安装 mysql<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h1 id="拉取mysql镜像">拉取mysql镜像</h1>
-<p>docker pull mysql:latest</p>
-<h1 id="查看拉取镜像">查看拉取镜像</h1>
-<p>docker images</p>
-<h1 id="启动">启动</h1>
-<p>docker run --name mysql8.0 --restart always -p 3308:3306 -e MYSQL_ROOT_PASSWORD=data-2022 -d mysql</p>
-<p>因为mysql8+版本的加密方式是caching_sha2_password，所以Navicate无法远程登陆，Navicate的加密方式是mysql_native_password。</p>
-<p>进入mysql<br>
-docker exec -it mysql8.0 /bin/bash</p>
-<p>use mysql;<br>
-ALTER USER ‘root’@‘%’ IDENTIFIED WITH mysql_native_password BY ‘data-2022’;</p>
-<p>ALTER USER ‘root’@‘%’ IDENTIFIED WITH mysql_native_password BY ‘[your password]’;</p>
-<h1 id="安装wiki">安装wiki</h1>
-<h1 id="新建用户">新建用户</h1>
-<p>create user ‘wiki’@‘localhost’ identified by ‘[your password]’;<br>
-create user ‘wiki’@‘%’ identified by ‘[your password]’;</p>
-<p>create user ‘wiki’@‘localhost’ identified by ‘itdocs2022’;<br>
-create user ‘wiki’@‘%’ identified by ‘itdocs2022’;</p>
-<h1 id="新建数据库">新建数据库</h1>
-<p>CREATE DATABASE <code>wiki</code>;</p>
-<h1 id="为用户添加权限">为用户添加权限</h1>
-<p>grant all privileges on wiki.* to ‘wiki’@‘localhost’;<br>
-grant all privileges on wiki.* to ‘wiki’@‘%’;<br>
-flush privileges;</p>
-<h1 id="搜索wiki镜像">搜索wiki镜像</h1>
-<p>docker search wiki</p>
-<h1 id="拉取镜像">拉取镜像</h1>
-<p>docker pull requarks/wiki</p>
-<h1 id="拉取最新的">拉取最新的</h1>
-<p>docker pull  <a target="_blank" rel="noopener" href="http://ghcr.io/requarks/wiki:2">ghcr.io/requarks/wiki:2</a></p>
-<h1 id="开启服务">开启服务</h1>
-<p>docker run -d -p 8083:3000 --name wiki --restart unless-stopped <br>
--e “DB_TYPE=mysql” -e “DB_HOST=[your ip]” <br>
--e “DB_PORT=3308” -e “DB_USER=wiki” -e “[your password]” -e “DB_NAME=wiki” <br>
-requarks/wiki</p>
-<p>docker run -d -p 8083:3000 --name wiki --restart unless-stopped <br>
--e “DB_TYPE=mysql” -e “DB_HOST=172.17.0.3” <br>
--e “DB_PORT=3308” -e “DB_USER=wiki” -e “DB_PASS”=“itdocs2022” -e “DB_NAME=wiki” <br>
-requarks/wiki</p>
-<p>docker run -d -p 8083:3000 --name wiki --restart unless-stopped -e “DB_TYPE=mysql” -e “DB_HOST=db” -e “DB_PORT=3308” -e “DB_USER=wiki” -e “DB_PASS=itdocs2022” -e “DB_NAME=wiki” requarks/wiki</p>
-<p>172.17.0.3</p>
-<p>docker run -d -p 8083:3000 --name wiki --restart unless-stopped -e “DB_TYPE=mysql” -e “DB_HOST=172.17.0.3” -e “DB_PORT=3308” -e “DB_USER=wikijs” -e “DB_PASS=itdocs2022” -e “DB_NAME=wiki” <a target="_blank" rel="noopener" href="http://ghcr.io/requarks/wiki:2">ghcr.io/requarks/wiki:2</a></p>
-<p>docker run -d -p 8083:3000 --name wiki --restart unless-stopped -e “DB_TYPE=mysql” -e “DB_HOST=db” -e “DB_PORT=3308” -e “DB_USER=wikijs” -e “DB_PASS=itdocs2022” -e “DB_NAME=wiki” <a target="_blank" rel="noopener" href="http://ghcr.io/requarks/wiki:2">ghcr.io/requarks/wiki:2</a></p>
-<p>192.168.6.7:8083</p>
+  <h2 id="Mysql密码修改">Mysql密码修改</h2>
+<blockquote>
+<p>对于这个问题，想必大家都会经常遇到。 因为当你的数据库掌握的多了之后，就容易忘记。 这不 把阿里云和腾讯云的数据库密码忘记了。<br>
+<code>由于mysql更新较快</code>，<code>8.0</code>对比<code>5.7</code>很多操作有了变化，特别修改密码，和忘记密码这一块已经和以前完全不一样了。</p>
+</blockquote>
+<h3 id="Mysql8-0-版本">Mysql8.0 版本</h3>
+<h4 id="修改配置">修改配置</h4>
+<p>在 my.cnf 文件中添加 skip-grant-tables，然后systemctl restart mysqld</p>
+<pre class="line-numbers language-none"><code class="language-none"># 编辑
+vim &#x2F;etc&#x2F;my.cnf
 
+# 添加
+skip-grant-tables
+
+# 重启
+systemctl restart mysqld<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="免密登录">免密登录</h4>
+<p>直接mysql 登录，此时不需要填写密码。</p>
+<pre class="line-numbers language-none"><code class="language-none">mysql<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/itdocs-icu/img/img/20211201144106.png" alt=""></p>
+<h4 id="清空密码">清空密码</h4>
+<p>清空root用户密码。</p>
+<pre class="line-numbers language-none"><code class="language-none">update mysql.user set authentication_string&#x3D;&#39;&#39;  where user&#x3D;&#39;root&#39;; <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/itdocs-icu/img/img/20211201144329.png" alt=""></p>
+<h4 id="注释掉配置-重启">注释掉配置 重启</h4>
+<pre class="line-numbers language-none"><code class="language-none">vim &#x2F;etc&#x2F;
+
+#注释掉
+#skip-grant-tables
+
+#重启mysql
+
+systemctl restart mysqld<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="无密码登录">无密码登录</h4>
+<p><code>无密码登录到root模式。</code></p>
+<pre class="line-numbers language-none"><code class="language-none">mysql -uroot <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="修改密码">修改密码</h4>
+<pre class="line-numbers language-none"><code class="language-none">
+# 查看
+select user,host from mysql.user where user&#x3D;&#39;root&#39;;
+
+# 修改到mysql库下
+use mysql;
+
+# 本地
+alter user &#39;root&#39;@&#39;localhost&#39; identified by &#39;123456&#39;;
+
+# 远程
+alter user &#39;root&#39;@&#39;%&#39; identified by &#39;123456&#39;;
+
+# 如果版本升级链接不上 可用这个方式 改密码。
+ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED WITH mysql_native_password BY &#39;你的密码&#39;;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="修改密码规则限制">修改密码规则限制</h4>
+<p>如果遇到</p>
+<p><code>ERROR 1820 (HY000): You must reset your password using ALTER USER statement before executing this statement.</code></p>
+<p><code>ERROR 1819 (HY000): Your password does not satisfy the current policy requirements</code></p>
+<pre class="line-numbers language-none"><code class="language-none"># 查看规则
+SHOW VARIABLES LIKE &#39;validate_password%&#39;;
+
+# 5.0 是&#96;_&#96; 链接 8.0 改为 &#96;.&#96;
+
+
+set global validate_password.policy&#x3D;LOW;
+set global validate_password.length &#x3D;1;
+
+# validate_password_policy取值
+- 0 or LOW     只验证长度
+- 1 or MEDIUM  验证长度、数字、大小写、特殊字符
+- 2 or STRONG  验证长度、数字、大小写、特殊字符、字典文件
+
+FLUSH PRIVILEGES;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="远程登录">远程登录</h4>
+<pre class="line-numbers language-none"><code class="language-none">update mysql.user set host&#x3D;&#39;%&#39; where user&#x3D;&#39;root&#39;;
+
+
+# 刷新权限
+flush privileges; 
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/itdocs-icu/img/img/20211201152640.png" alt=""></p>
+<h4 id="整体步骤">整体步骤</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/itdocs-icu/img/img/20211201153703.png" alt=""></p>
+<h3 id="Mysql5-7版本">Mysql5.7版本</h3>
+<h4 id="同理关闭密码校验">同理关闭密码校验</h4>
+<p>在 my.cnf 文件中添加 skip-grant-tables，然后systemctl restart mysqld</p>
+<pre class="line-numbers language-none"><code class="language-none"># 编辑
+vim &#x2F;etc&#x2F;my.cnf
+
+# 添加
+skip-grant-tables
+
+# 重启
+systemctl restart mysqld<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="修改密码-v2">修改密码</h4>
+<pre class="line-numbers language-none"><code class="language-none">use mysql;
+
+FLUSH PRIVILEGES;
+
+set password for &#39;root&#39;@&#39;localhost&#39;&#x3D;password(&#39;itdocs&#39;);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="远程登录-v2">远程登录</h4>
+<pre class="line-numbers language-none"><code class="language-none">
+GRANT ALL PRIVILEGES ON *.* TO &#39;root&#39;@&#39;%&#39;IDENTIFIED BY &#39;itdocs&#39; WITH GRANT OPTION;
+
+flush privileges;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/itdocs-icu/img/img/20211201153202.png" alt=""></p>
+<h4 id="关闭配置">关闭配置</h4>
+<pre class="line-numbers language-none"><code class="language-none"># 注释掉配置
+vim &#x2F;etc&#x2F;my.cnf
+
+# 重启服务
+systemctl restart mysqld<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </div>
 
 <!--上一篇 下一篇-->
@@ -1498,8 +1564,25 @@ requarks/wiki</p>
       
     
       
+        
+      
+    
+      
+        
+      
+    
+      
          <!-- 先找到与当前文字相同的目录 -->
         
+        
+          
+          
+        
+          
+          
+        
+          
+          
         
           
            <!-- 在找到当前文章所在的 index -->
@@ -1512,16 +1595,182 @@ requarks/wiki</p>
             
 
           
+            
+            
+
+
+            
+
+          
+            
+            
+
+
+             <!-- 下一篇文章 -->
+            <div class="next">
+<!--              <span>下一章</span>-->
+              <span class="material-icons left"> ⇦ </span>
+
+              <a href="/posts/989ce8de.html"> 安装GitLabCE</a>
+            </div>
+            
+
+          
+            
+            
+
+
+            
+
+          
+            
+              <!-- 上一篇文章 -->
+            <div class="prev">
+<!--              <span>上一章</span>-->
+              <a href="/posts/4ce19a20.html"> vim如何复制到系统剪切板</a>
+              <span class="material-icons right"> ⇨ </span>
+            </div>
+            
+
+
+            
+
+          
+            
+            
+
+
+            
+
+          
+            
+            
+
+
+            
+
+          
+            
+            
+
+
+            
+
+          
+            
+            
+
+
+            
+
+          
+            
+            
+
+
+            
+
+          
+            
+            
+
+
+            
+
+          
+            
+            
+
+
+            
+
+          
+            
+            
+
+
+            
+
+          
+            
+            
+
+
+            
+
+          
+            
+            
+
+
+            
+
+          
+            
+            
+
+
+            
+
+          
+            
+            
+
+
+            
+
+          
+            
+            
+
+
+            
+
+          
           
         
+          
+          
         
-      
-    
-      
+          
+          
         
-      
-    
-      
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
+          
+          
+        
         
       
     
@@ -1831,7 +2080,7 @@ requarks/wiki</p>
     <!-- Author title -->
     <div class="author-title">
       <div>JackFeng</div>
-      <div>2022-04-28</div>
+      <div>2021-12-01</div>
     </div>
   </div>
 
@@ -1839,9 +2088,9 @@ requarks/wiki</p>
     <div class="divider"></div>
 
     <div class="link">
-      <a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+      <a class="category-link" href="/categories/Linux/">Linux</a>
 
-      <a class="tag-none-link" href="/tags/Mysql/" rel="tag">Mysql</a>
+      
     </div>
 
   
