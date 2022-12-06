@@ -723,7 +723,7 @@
   
     <li class="md-nav__item">
       <a href="../schema-extra-example/" class="md-nav__link">
-        概图的更多信息 - 示例
+        声明请求的示例数据
       </a>
     </li>
   
@@ -959,7 +959,7 @@
   
     <li class="md-nav__item">
       <a href="../dependencies/classes-as-dependencies/" class="md-nav__link">
-        用类定义依赖项
+        类为依赖项
       </a>
     </li>
   
@@ -1015,7 +1015,7 @@
   
     <li class="md-nav__item">
       <a href="../dependencies/dependencies-with-yield/" class="md-nav__link">
-        生成器依赖项
+        `yield` 生成器依赖项
       </a>
     </li>
   
@@ -2282,7 +2282,10 @@
 <p>我们不建议使用 <code>GET</code>，因此，在 Swagger UI 交互文档中不会显示有关 <code>GET</code> 的内容，而且代理协议也不一定支持 <code>GET</code>。</p>
 </div>
 <h2 id="pydantic-basemodel">导入 Pydantic 的 <code>BaseModel</code><a class="headerlink" href="#pydantic-basemodel" title="Permanent link">&para;</a></h2>
-<p>从 <code>pydantic</code> 中导入 <code>BaseModel</code>：</p>
+<p>首先，从 <code>pydantic</code> 中导入 <code>BaseModel</code>：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python 3.6 and above</label><label for="__tabbed_1_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
@@ -2303,9 +2306,35 @@
 <span class="k">async</span> <span class="k">def</span> <span class="nf">create_item</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">item</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="hll"><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+</span>
+
+<span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">price</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">tax</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/items/&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">create_item</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">item</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <h2 id="_2">创建数据模型<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>把数据模型声明为继承 <code>BaseModel</code> 的类。</p>
 <p>使用 Python 标准类型声明所有属性：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python 3.6 and above</label><label for="__tabbed_2_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
@@ -2326,6 +2355,29 @@
 <span class="k">async</span> <span class="k">def</span> <span class="nf">create_item</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">item</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+
+<span class="hll"><span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+</span><span class="hll">    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+</span><span class="hll">    <span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+</span><span class="hll">    <span class="n">price</span><span class="p">:</span> <span class="nb">float</span>
+</span><span class="hll">    <span class="n">tax</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/items/&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">create_item</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">item</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <p>与声明查询参数一样，包含默认值的模型属性是可选的，否则就是必选的。默认值为 <code>None</code> 的模型属性也是可选的。</p>
 <p>例如，上述模型声明如下 JSON <strong>对象</strong>（即 Python <strong>字典</strong>）：</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
@@ -2343,6 +2395,9 @@
 </code></pre></div>
 <h2 id="_3">声明请求体参数<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>使用与声明路径和查询参数相同的方式声明请求体，把请求体添加至<strong>路径操作</strong>：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python 3.6 and above</label><label for="__tabbed_3_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
@@ -2363,6 +2418,29 @@
 <span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">create_item</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">):</span>
 </span>    <span class="k">return</span> <span class="n">item</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+
+<span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">price</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">tax</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/items/&quot;</span><span class="p">)</span>
+<span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">create_item</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">):</span>
+</span>    <span class="k">return</span> <span class="n">item</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <p>……此处，请求体参数的类型为 <code>Item</code> 模型。</p>
 <h2 id="_4">结论<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>仅使用 Python 类型声明，<strong>FastAPI</strong> 就可以：</p>
@@ -2382,20 +2460,20 @@
 </ul>
 <h2 id="api">API 文档<a class="headerlink" href="#api" title="Permanent link">&para;</a></h2>
 <p>Pydantic 模型的 JSON 概图是 OpenAPI 生成的概图部件，可在 API 文档中显示：</p>
-<p><img src="/img/tutorial/body/image01.png"></p>
+<p><img src="https://fastapi.tiangolo.com/img/tutorial/body/image01.png"></p>
 <p>而且，还会用于 API 文档中使用了概图的<strong>路径操作</strong>：</p>
-<p><img src="/img/tutorial/body/image02.png"></p>
+<p><img src="https://fastapi.tiangolo.com/img/tutorial/body/image02.png"></p>
 <h2 id="_5">编辑器支持<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>在编辑器中，函数内部均可使用类型提示、代码补全（如果接收的不是 Pydantic 模型，而是<strong>字典</strong>，就没有这样的支持）：</p>
-<p><img src="/img/tutorial/body/image03.png"></p>
+<p><img src="https://fastapi.tiangolo.com/img/tutorial/body/image03.png"></p>
 <p>还支持检查错误的类型操作：</p>
-<p><img src="/img/tutorial/body/image04.png"></p>
+<p><img src="https://fastapi.tiangolo.com/img/tutorial/body/image04.png"></p>
 <p>这并非偶然，整个 <strong>FastAPI</strong> 框架都是围绕这种思路精心设计的。</p>
 <p>并且，在 FastAPI 的设计阶段，我们就已经进行了全面测试，以确保 FastAPI 可以获得所有编辑器的支持。</p>
 <p>我们还改进了 Pydantic，让它也支持这些功能。</p>
 <p>虽然上面的截图取自 <a href="https://code.visualstudio.com" class="external-link" target="_blank">Visual Studio Code</a>。</p>
 <p>但 <a href="https://www.jetbrains.com/pycharm/" class="external-link" target="_blank">PyCharm</a> 和大多数 Python 编辑器也支持同样的功能：</p>
-<p><img src="/img/tutorial/body/image05.png"></p>
+<p><img src="https://fastapi.tiangolo.com/img/tutorial/body/image05.png"></p>
 <div class="admonition tip">
 <p class="admonition-title">提示</p>
 <p>使用 <a href="https://www.jetbrains.com/pycharm/" class="external-link" target="_blank">PyCharm</a> 编辑器时，推荐安装 <a href="https://github.com/koxudaxi/pydantic-pycharm-plugin/" class="external-link" target="_blank">Pydantic PyCharm 插件</a>。</p>
@@ -2410,6 +2488,9 @@
 </div>
 <h2 id="_6">使用模型<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <p>在<strong>路径操作</strong>函数内部直接访问模型对象的属性：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Python 3.6 and above</label><label for="__tabbed_4_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
@@ -2434,9 +2515,39 @@
 </span>        <span class="n">item_dict</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;price_with_tax&quot;</span><span class="p">:</span> <span class="n">price_with_tax</span><span class="p">})</span>
     <span class="k">return</span> <span class="n">item_dict</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+
+<span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">price</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">tax</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/items/&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">create_item</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">):</span>
+    <span class="n">item_dict</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">dict</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">tax</span><span class="p">:</span>
+<span class="hll">        <span class="n">price_with_tax</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">price</span> <span class="o">+</span> <span class="n">item</span><span class="o">.</span><span class="n">tax</span>
+</span>        <span class="n">item_dict</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;price_with_tax&quot;</span><span class="p">:</span> <span class="n">price_with_tax</span><span class="p">})</span>
+    <span class="k">return</span> <span class="n">item_dict</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <h2 id="_7">请求体 + 路径参数<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <p><strong>FastAPI</strong> 支持同时声明路径参数和请求体。</p>
-<p><strong>FastAPI</strong> 能识别与<strong><em>路径参数</em></strong>匹配的函数参数，还能识别从<strong>请求体</strong>中获取的类型为 Pydantic 模型的函数参数。</p>
+<p><strong>FastAPI</strong> 能识别与<strong>路径参数</strong>匹配的函数参数，还能识别从<strong>请求体</strong>中获取的类型为 Pydantic 模型的函数参数。</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Python 3.6 and above</label><label for="__tabbed_5_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
@@ -2457,9 +2568,35 @@
 </span><span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">create_item</span><span class="p">(</span><span class="n">item_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">):</span>
 </span>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="n">item_id</span><span class="p">,</span> <span class="o">**</span><span class="n">item</span><span class="o">.</span><span class="n">dict</span><span class="p">()}</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+
+<span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">price</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">tax</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="hll"><span class="nd">@app</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s2">&quot;/items/</span><span class="si">{item_id}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">create_item</span><span class="p">(</span><span class="n">item_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">):</span>
+</span>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="n">item_id</span><span class="p">,</span> <span class="o">**</span><span class="n">item</span><span class="o">.</span><span class="n">dict</span><span class="p">()}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <h2 id="_8">请求体 + 路径参数 + 查询参数<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
-<p><strong>FastAPI</strong> 支持同时声明<strong>请求体</strong>、<strong><em>路径参数</em></strong>和<strong><em>查询参数</em></strong>。</p>
+<p><strong>FastAPI</strong> 支持同时声明<strong>请求体</strong>、<strong>路径参数</strong>和<strong>查询参数</strong>。</p>
 <p><strong>FastAPI</strong> 能够正确识别这三种参数，并从正确的位置获取数据。</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Python 3.6 and above</label><label for="__tabbed_6_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
@@ -2483,6 +2620,32 @@
         <span class="n">result</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="n">q</span><span class="p">})</span>
     <span class="k">return</span> <span class="n">result</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+
+<span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">price</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">tax</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s2">&quot;/items/</span><span class="si">{item_id}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">create_item</span><span class="p">(</span><span class="n">item_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">,</span> <span class="n">q</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+</span>    <span class="n">result</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="n">item_id</span><span class="p">,</span> <span class="o">**</span><span class="n">item</span><span class="o">.</span><span class="n">dict</span><span class="p">()}</span>
+    <span class="k">if</span> <span class="n">q</span><span class="p">:</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="n">q</span><span class="p">})</span>
+    <span class="k">return</span> <span class="n">result</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <p>函数参数按如下规则进行识别：</p>
 <ul>
 <li><strong>路径</strong>中声明了相同参数的参数，是路径参数</li>

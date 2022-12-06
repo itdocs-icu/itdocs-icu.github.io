@@ -619,7 +619,7 @@
   
     <li class="md-nav__item">
       <a href="../schema-extra-example/" class="md-nav__link">
-        概图的更多信息 - 示例
+        声明请求的示例数据
       </a>
     </li>
   
@@ -817,6 +817,19 @@
     tags 参数
   </a>
   
+    <nav class="md-nav" aria-label="tags 参数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enums" class="md-nav__link">
+    使用 Enums 的标签
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -828,7 +841,7 @@
       
         <li class="md-nav__item">
   <a href="#docstring" class="md-nav__link">
-    文档字符串（docstring）
+    文档字符串 ~ docstring
   </a>
   
 </li>
@@ -938,7 +951,7 @@
   
     <li class="md-nav__item">
       <a href="../dependencies/classes-as-dependencies/" class="md-nav__link">
-        用类定义依赖项
+        类为依赖项
       </a>
     </li>
   
@@ -994,7 +1007,7 @@
   
     <li class="md-nav__item">
       <a href="../dependencies/dependencies-with-yield/" class="md-nav__link">
-        生成器依赖项
+        `yield` 生成器依赖项
       </a>
     </li>
   
@@ -2177,6 +2190,19 @@
     tags 参数
   </a>
   
+    <nav class="md-nav" aria-label="tags 参数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enums" class="md-nav__link">
+    使用 Enums 的标签
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2188,7 +2214,7 @@
       
         <li class="md-nav__item">
   <a href="#docstring" class="md-nav__link">
-    文档字符串（docstring）
+    文档字符串 ~ docstring
   </a>
   
 </li>
@@ -2232,12 +2258,15 @@
 <p><strong>路径操作装饰器</strong>支持多种配置参数。</p>
 <div class="admonition warning">
 <p class="admonition-title">警告</p>
-<p>注意：以下参数应直接传递给<strong><em>路径操作装饰器</em></strong>，不能传递给<strong>路径操作函数</strong>。</p>
+<p>注意：以下参数应直接传递给<strong>路径操作装饰器</strong>，不能传递给<strong>路径操作函数</strong>。</p>
 </div>
 <h2 id="status_code"><code>status_code</code> 状态码<a class="headerlink" href="#status_code" title="Permanent link">&para;</a></h2>
 <p><code>status_code</code> 用于定义<strong>路径操作</strong>响应中的 HTTP 状态码。</p>
-<p>可以直接传递 <code>int</code> 代码， 比如 <code>404</code>。</p>
+<p>可以直接传递 <code>int</code> 代码， 如 <code>404</code>。</p>
 <p>如果记不住数字码的涵义，也可以用 <code>status</code> 的快捷常量：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python 3.6 and above</label><label for="__tabbed_1_2">Python 3.9 and above</label><label for="__tabbed_1_3">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Set</span><span class="p">,</span> <span class="n">Union</span>
 
 <span class="hll"><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">status</span>
@@ -2258,6 +2287,51 @@
 </span><span class="k">async</span> <span class="k">def</span> <span class="nf">create_item</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">item</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+
+<span class="hll"><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">status</span>
+</span><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">description</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">price</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">tax</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">tags</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+
+<span class="hll"><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/items/&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">Item</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_201_CREATED</span><span class="p">)</span>
+</span><span class="k">async</span> <span class="k">def</span> <span class="nf">create_item</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">item</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="hll"><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">status</span>
+</span><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">price</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">tax</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">tags</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+
+<span class="hll"><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/items/&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">Item</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_201_CREATED</span><span class="p">)</span>
+</span><span class="k">async</span> <span class="k">def</span> <span class="nf">create_item</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">item</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <p>状态码在响应中使用，并会被添加到 OpenAPI 概图。</p>
 <div class="admonition note">
 <p class="admonition-title">技术细节</p>
@@ -2266,6 +2340,9 @@
 </div>
 <h2 id="tags"><code>tags</code> 参数<a class="headerlink" href="#tags" title="Permanent link">&para;</a></h2>
 <p><code>tags</code> 参数的值是由 <code>str</code> 组成的 <code>list</code> （一般只有一个 <code>str</code> ），<code>tags</code> 用于为<strong>路径操作</strong>添加标签：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python 3.6 and above</label><label for="__tabbed_2_2">Python 3.9 and above</label><label for="__tabbed_2_3">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Set</span><span class="p">,</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
@@ -2296,10 +2373,103 @@
 </span><span class="k">async</span> <span class="k">def</span> <span class="nf">read_users</span><span class="p">():</span>
     <span class="k">return</span> <span class="p">[{</span><span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;johndoe&quot;</span><span class="p">}]</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+
+<span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">description</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">price</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">tax</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">tags</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+
+<span class="hll"><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/items/&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">Item</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;items&quot;</span><span class="p">])</span>
+</span><span class="k">async</span> <span class="k">def</span> <span class="nf">create_item</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">item</span>
+
+
+<span class="hll"><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/&quot;</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;items&quot;</span><span class="p">])</span>
+</span><span class="k">async</span> <span class="k">def</span> <span class="nf">read_items</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">[{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Foo&quot;</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mi">42</span><span class="p">}]</span>
+
+
+<span class="hll"><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/users/&quot;</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;users&quot;</span><span class="p">])</span>
+</span><span class="k">async</span> <span class="k">def</span> <span class="nf">read_users</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">[{</span><span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;johndoe&quot;</span><span class="p">}]</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">price</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">tax</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">tags</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+
+<span class="hll"><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/items/&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">Item</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;items&quot;</span><span class="p">])</span>
+</span><span class="k">async</span> <span class="k">def</span> <span class="nf">create_item</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">item</span>
+
+
+<span class="hll"><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/&quot;</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;items&quot;</span><span class="p">])</span>
+</span><span class="k">async</span> <span class="k">def</span> <span class="nf">read_items</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">[{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Foo&quot;</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mi">42</span><span class="p">}]</span>
+
+
+<span class="hll"><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/users/&quot;</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;users&quot;</span><span class="p">])</span>
+</span><span class="k">async</span> <span class="k">def</span> <span class="nf">read_users</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">[{</span><span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;johndoe&quot;</span><span class="p">}]</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <p>OpenAPI 概图会自动添加标签，供 API 文档接口使用：</p>
-<p><img src="/img/tutorial/path-operation-configuration/image01.png"></p>
+<p><img src="https://fastapi.tiangolo.com/img/tutorial/path-operation-configuration/image01.png"></p>
+<h3 id="enums">使用 Enums 的标签<a class="headerlink" href="#enums" title="Permanent link">&para;</a></h3>
+<p>大型应用中可能会有<strong>多个标签</strong>，需要确保为相关的<strong>路径操作</strong>使用<strong>相同的标签</strong>。</p>
+<p>此时，把多个标签存储为 <code>Enum</code> 类型是个不错的方法。</p>
+<p><strong>FastAPI</strong> 支持的方式与使用字符串的方式相同：</p>
+<div class="highlight"><pre><span></span><code><span class="hll"><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
+</span>
+<span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="hll"><span class="k">class</span> <span class="nc">Tags</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+</span><span class="hll">    <span class="n">items</span> <span class="o">=</span> <span class="s2">&quot;items&quot;</span>
+</span><span class="hll">    <span class="n">users</span> <span class="o">=</span> <span class="s2">&quot;users&quot;</span>
+</span>
+
+<span class="hll"><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/&quot;</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="n">Tags</span><span class="o">.</span><span class="n">items</span><span class="p">])</span>
+</span><span class="k">async</span> <span class="k">def</span> <span class="nf">get_items</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">[</span><span class="s2">&quot;Portal gun&quot;</span><span class="p">,</span> <span class="s2">&quot;Plumbus&quot;</span><span class="p">]</span>
+
+
+<span class="hll"><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/users/&quot;</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="n">Tags</span><span class="o">.</span><span class="n">users</span><span class="p">])</span>
+</span><span class="k">async</span> <span class="k">def</span> <span class="nf">read_users</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">[</span><span class="s2">&quot;Rick&quot;</span><span class="p">,</span> <span class="s2">&quot;Morty&quot;</span><span class="p">]</span>
+</code></pre></div>
 <h2 id="summary-description"><code>summary</code> 和 <code>description</code> 参数<a class="headerlink" href="#summary-description" title="Permanent link">&para;</a></h2>
-<p>路径装饰器还支持 <code>summary</code> 和 <code>description</code> 这两个参数：</p>
+<p>路径装饰器还支持 <code>summary</code> 和 <code>description</code> 参数：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python 3.6 and above</label><label for="__tabbed_3_2">Python 3.9 and above</label><label for="__tabbed_3_3">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Set</span><span class="p">,</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
@@ -2325,9 +2495,67 @@
 <span class="k">async</span> <span class="k">def</span> <span class="nf">create_item</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">item</span>
 </code></pre></div>
-<h2 id="docstring">文档字符串（<code>docstring</code>）<a class="headerlink" href="#docstring" title="Permanent link">&para;</a></h2>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+
+<span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">description</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">price</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">tax</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">tags</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+    <span class="s2">&quot;/items/&quot;</span><span class="p">,</span>
+    <span class="n">response_model</span><span class="o">=</span><span class="n">Item</span><span class="p">,</span>
+<span class="hll">    <span class="n">summary</span><span class="o">=</span><span class="s2">&quot;Create an item&quot;</span><span class="p">,</span>
+</span><span class="hll">    <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Create an item with all the information, name, description, price, tax and a set of unique tags&quot;</span><span class="p">,</span>
+</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">create_item</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">item</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">price</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">tax</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">tags</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+    <span class="s2">&quot;/items/&quot;</span><span class="p">,</span>
+    <span class="n">response_model</span><span class="o">=</span><span class="n">Item</span><span class="p">,</span>
+<span class="hll">    <span class="n">summary</span><span class="o">=</span><span class="s2">&quot;Create an item&quot;</span><span class="p">,</span>
+</span><span class="hll">    <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Create an item with all the information, name, description, price, tax and a set of unique tags&quot;</span><span class="p">,</span>
+</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">create_item</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">item</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="docstring">文档字符串 ~ <code>docstring</code><a class="headerlink" href="#docstring" title="Permanent link">&para;</a></h2>
 <p>描述内容比较长且占用多行时，可以在函数的 <abbr title="函数中作为第一个表达式，用于文档目的的一个多行字符串（并没有被分配个任何变量）">docstring</abbr> 中声明<strong>路径操作</strong>的描述，<strong>FastAPI</strong> 支持从文档字符串中读取描述内容。</p>
 <p>文档字符串支持 <a href="https://en.wikipedia.org/wiki/Markdown" class="external-link" target="_blank">Markdown</a>，能正确解析和显示 Markdown 的内容，但要注意文档字符串的缩进。</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Python 3.6 and above</label><label for="__tabbed_4_2">Python 3.9 and above</label><label for="__tabbed_4_3">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Set</span><span class="p">,</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
@@ -2357,10 +2585,76 @@
 </span><span class="hll"><span class="sd">    &quot;&quot;&quot;</span>
 </span>    <span class="k">return</span> <span class="n">item</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+
+<span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">description</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">price</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">tax</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">tags</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/items/&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">Item</span><span class="p">,</span> <span class="n">summary</span><span class="o">=</span><span class="s2">&quot;Create an item&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">create_item</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">):</span>
+<span class="hll">    <span class="sd">&quot;&quot;&quot;</span>
+</span><span class="hll"><span class="sd">    Create an item with all the information:</span>
+</span><span class="hll">
+</span><span class="hll"><span class="sd">    - **name**: each item must have a name</span>
+</span><span class="hll"><span class="sd">    - **description**: a long description</span>
+</span><span class="hll"><span class="sd">    - **price**: required</span>
+</span><span class="hll"><span class="sd">    - **tax**: if the item doesn&#39;t have tax, you can omit this</span>
+</span><span class="hll"><span class="sd">    - **tags**: a set of unique tag strings for this item</span>
+</span><span class="hll"><span class="sd">    &quot;&quot;&quot;</span>
+</span>    <span class="k">return</span> <span class="n">item</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">price</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">tax</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">tags</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/items/&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">Item</span><span class="p">,</span> <span class="n">summary</span><span class="o">=</span><span class="s2">&quot;Create an item&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">create_item</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">):</span>
+<span class="hll">    <span class="sd">&quot;&quot;&quot;</span>
+</span><span class="hll"><span class="sd">    Create an item with all the information:</span>
+</span><span class="hll">
+</span><span class="hll"><span class="sd">    - **name**: each item must have a name</span>
+</span><span class="hll"><span class="sd">    - **description**: a long description</span>
+</span><span class="hll"><span class="sd">    - **price**: required</span>
+</span><span class="hll"><span class="sd">    - **tax**: if the item doesn&#39;t have tax, you can omit this</span>
+</span><span class="hll"><span class="sd">    - **tags**: a set of unique tag strings for this item</span>
+</span><span class="hll"><span class="sd">    &quot;&quot;&quot;</span>
+</span>    <span class="k">return</span> <span class="n">item</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <p>下图为 Markdown 文本在 API 文档中的显示效果：</p>
-<p><img src="/img/tutorial/path-operation-configuration/image02.png"></p>
+<p><img src="https://fastapi.tiangolo.com/img/tutorial/path-operation-configuration/image02.png"></p>
 <h2 id="_2">响应描述<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p><code>response_description</code> 参数用于定义响应的描述说明：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Python 3.6 and above</label><label for="__tabbed_5_2">Python 3.9 and above</label><label for="__tabbed_5_3">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Set</span><span class="p">,</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
@@ -2395,6 +2689,79 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">item</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+
+<span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">description</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">price</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">tax</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">tags</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+    <span class="s2">&quot;/items/&quot;</span><span class="p">,</span>
+    <span class="n">response_model</span><span class="o">=</span><span class="n">Item</span><span class="p">,</span>
+    <span class="n">summary</span><span class="o">=</span><span class="s2">&quot;Create an item&quot;</span><span class="p">,</span>
+<span class="hll">    <span class="n">response_description</span><span class="o">=</span><span class="s2">&quot;The created item&quot;</span><span class="p">,</span>
+</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">create_item</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create an item with all the information:</span>
+
+<span class="sd">    - **name**: each item must have a name</span>
+<span class="sd">    - **description**: a long description</span>
+<span class="sd">    - **price**: required</span>
+<span class="sd">    - **tax**: if the item doesn&#39;t have tax, you can omit this</span>
+<span class="sd">    - **tags**: a set of unique tag strings for this item</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">item</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">price</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">tax</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">tags</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+    <span class="s2">&quot;/items/&quot;</span><span class="p">,</span>
+    <span class="n">response_model</span><span class="o">=</span><span class="n">Item</span><span class="p">,</span>
+    <span class="n">summary</span><span class="o">=</span><span class="s2">&quot;Create an item&quot;</span><span class="p">,</span>
+<span class="hll">    <span class="n">response_description</span><span class="o">=</span><span class="s2">&quot;The created item&quot;</span><span class="p">,</span>
+</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">create_item</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create an item with all the information:</span>
+
+<span class="sd">    - **name**: each item must have a name</span>
+<span class="sd">    - **description**: a long description</span>
+<span class="sd">    - **price**: required</span>
+<span class="sd">    - **tax**: if the item doesn&#39;t have tax, you can omit this</span>
+<span class="sd">    - **tags**: a set of unique tag strings for this item</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">item</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <div class="admonition info">
 <p class="admonition-title">说明</p>
 <p>注意，<code>response_description</code> 只用于描述响应，<code>description</code> 一般则用于描述<strong>路径操作</strong>。</p>
@@ -2404,7 +2771,7 @@
 <p>OpenAPI 规定每个<strong>路径操作</strong>都要有响应描述。</p>
 <p>如果没有定义响应描述，<strong>FastAPI</strong> 则自动生成内容为 "Successful response" 的响应描述。</p>
 </div>
-<p><img src="/img/tutorial/path-operation-configuration/image03.png"></p>
+<p><img src="https://fastapi.tiangolo.com/img/tutorial/path-operation-configuration/image03.png"></p>
 <h2 id="_3">弃用<strong>路径操作</strong><a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p><code>deprecated</code> 参数可以把<strong>路径操作</strong>标记为<abbr title="过时，建议不要使用">弃用</abbr>，无需直接删除：</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
@@ -2427,11 +2794,11 @@
     <span class="k">return</span> <span class="p">[{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="s2">&quot;Foo&quot;</span><span class="p">}]</span>
 </code></pre></div>
 <p>API 文档会把该路径操作标记为弃用：</p>
-<p><img src="/img/tutorial/path-operation-configuration/image04.png"></p>
+<p><img src="https://fastapi.tiangolo.com/img/tutorial/path-operation-configuration/image04.png"></p>
 <p>下图显示了正常<strong>路径操作</strong>与弃用<strong>路径操作</strong> 的区别：</p>
-<p><img src="/img/tutorial/path-operation-configuration/image05.png"></p>
+<p><img src="https://fastapi.tiangolo.com/img/tutorial/path-operation-configuration/image05.png"></p>
 <h2 id="_4">小结<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<p>通过传递参数给<strong>路径操作装饰器</strong> ，即可轻松地配置<strong>路径操作</strong>、添加元数据。</p>
+<p>把参数传递给<strong>路径操作装饰器</strong>，即可轻松地配置<strong>路径操作</strong>、添加元数据。</p>
 
               
             </article>

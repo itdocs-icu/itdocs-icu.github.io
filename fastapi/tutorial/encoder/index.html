@@ -619,7 +619,7 @@
   
     <li class="md-nav__item">
       <a href="../schema-extra-example/" class="md-nav__link">
-        概图的更多信息 - 示例
+        声明请求的示例数据
       </a>
     </li>
   
@@ -896,7 +896,7 @@
   
     <li class="md-nav__item">
       <a href="../dependencies/classes-as-dependencies/" class="md-nav__link">
-        用类定义依赖项
+        类为依赖项
       </a>
     </li>
   
@@ -952,7 +952,7 @@
   
     <li class="md-nav__item">
       <a href="../dependencies/dependencies-with-yield/" class="md-nav__link">
-        生成器依赖项
+        `yield` 生成器依赖项
       </a>
     </li>
   
@@ -2155,6 +2155,9 @@
 <p>同理，该数据库也不能接收 Pydantic 模型（带属性的对象），只能接收<strong>字典</strong>。</p>
 <p>接收 Pydantic 模型要使用 <code>jsonable_encoder</code>。</p>
 <p><code>jsonable_encoder</code> 函数接收 Pydantic 模型等对象，然后返回兼容 JSON 的数据：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python 3.6 and above</label><label for="__tabbed_1_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
@@ -2179,13 +2182,41 @@
 <span class="hll">    <span class="n">json_compatible_item_data</span> <span class="o">=</span> <span class="n">jsonable_encoder</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
 </span>    <span class="n">fake_db</span><span class="p">[</span><span class="nb">id</span><span class="p">]</span> <span class="o">=</span> <span class="n">json_compatible_item_data</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="hll"><span class="kn">from</span> <span class="nn">fastapi.encoders</span> <span class="kn">import</span> <span class="n">jsonable_encoder</span>
+</span><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="n">fake_db</span> <span class="o">=</span> <span class="p">{}</span>
+
+
+<span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">title</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">timestamp</span><span class="p">:</span> <span class="n">datetime</span>
+    <span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s2">&quot;/items/</span><span class="si">{id}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">update_item</span><span class="p">(</span><span class="nb">id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">):</span>
+<span class="hll">    <span class="n">json_compatible_item_data</span> <span class="o">=</span> <span class="n">jsonable_encoder</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</span>    <span class="n">fake_db</span><span class="p">[</span><span class="nb">id</span><span class="p">]</span> <span class="o">=</span> <span class="n">json_compatible_item_data</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <p>本例把 Pydantic 模型转换为<strong>字典</strong>，并把 <code>datetime</code> 转换为<strong>字符串</strong>。</p>
 <p>该函数的输出结果可以用 Python 的 <a href="https://docs.python.org/3/library/json.html#json.dumps" class="external-link" target="_blank"><code>json.dumps()</code></a> 编码。</p>
 <p><code>jsonable_encoder</code> 函数返回的不是包含 JSON 数据的长字符串，而是返回值与子值都兼容 JSON 的 Python 标准数据结构，比如<strong>字典</strong>。</p>
 <div class="admonition note">
 <p class="admonition-title">笔记</p>
-</div>
 <p>虽然，<code>jsonable_encoder</code> 用于在 <strong>FastAPI</strong> 内部转换数据，但在其他场景下也可以使用。</p>
+</div>
 
               
             </article>

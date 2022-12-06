@@ -688,7 +688,7 @@
   
     <li class="md-nav__item">
       <a href="../schema-extra-example/" class="md-nav__link">
-        概图的更多信息 - 示例
+        声明请求的示例数据
       </a>
     </li>
   
@@ -924,7 +924,7 @@
   
     <li class="md-nav__item">
       <a href="../dependencies/classes-as-dependencies/" class="md-nav__link">
-        用类定义依赖项
+        类为依赖项
       </a>
     </li>
   
@@ -980,7 +980,7 @@
   
     <li class="md-nav__item">
       <a href="../dependencies/dependencies-with-yield/" class="md-nav__link">
-        生成器依赖项
+        `yield` 生成器依赖项
       </a>
     </li>
   
@@ -2250,6 +2250,9 @@
 </ul>
 <h2 id="_3">可选参数<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>同理，把默认值设为 <code>None</code> 即可声明<strong>可选的</strong>查询参数：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python 3.6 and above</label><label for="__tabbed_1_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
@@ -2263,18 +2266,32 @@
         <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="n">item_id</span><span class="p">,</span> <span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="n">q</span><span class="p">}</span>
     <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="n">item_id</span><span class="p">}</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/</span><span class="si">{item_id}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">read_item</span><span class="p">(</span><span class="n">item_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">q</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+</span>    <span class="k">if</span> <span class="n">q</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="n">item_id</span><span class="p">,</span> <span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="n">q</span><span class="p">}</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="n">item_id</span><span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <p>本例中，查询参数 <code>q</code> 是可选的，默认值为 <code>None</code>。</p>
 <div class="admonition check">
 <p class="admonition-title">检查</p>
 <p>注意，<strong>FastAPI</strong> 可以识别出 <code>item_id</code> 是路径参数，<code>q</code> 不是路径参数，而是查询参数。</p>
 </div>
-<div class="admonition note">
-<p class="admonition-title">笔记</p>
-<p>因为默认值为 <code>= None</code>，FastAPI 把 <code>q</code> 识别为可选参数。</p>
-<p>FastAPI 不使用 <code>Optional[str]</code> 中的 <code>Optional</code>（只使用 <code>str</code>），但 <code>Optional[str]</code> 可以帮助编辑器发现代码中的错误。</p>
-</div>
 <h2 id="_4">查询参数类型转换<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>参数还可以声明为 <code>bool</code> 类型，FastAPI 会自动转换参数类型：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python 3.6 and above</label><label for="__tabbed_2_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
@@ -2293,6 +2310,27 @@
         <span class="p">)</span>
     <span class="k">return</span> <span class="n">item</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/</span><span class="si">{item_id}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">read_item</span><span class="p">(</span><span class="n">item_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">q</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">short</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+</span>    <span class="n">item</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="n">item_id</span><span class="p">}</span>
+    <span class="k">if</span> <span class="n">q</span><span class="p">:</span>
+        <span class="n">item</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="n">q</span><span class="p">})</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">short</span><span class="p">:</span>
+        <span class="n">item</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+            <span class="p">{</span><span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;This is an amazing item that has a long description&quot;</span><span class="p">}</span>
+        <span class="p">)</span>
+    <span class="k">return</span> <span class="n">item</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <p>本例中，访问：</p>
 <div class="highlight"><pre><span></span><code>http://127.0.0.1:8000/items/foo?short=1
 </code></pre></div>
@@ -2313,6 +2351,9 @@
 <p><strong>FastAPI</strong> 可以识别同时声明的多个路径参数和查询参数。</p>
 <p>而且声明查询参数的顺序并不重要。</p>
 <p>FastAPI 通过参数名进行检测：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python 3.6 and above</label><label for="__tabbed_3_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
@@ -2333,6 +2374,29 @@
         <span class="p">)</span>
     <span class="k">return</span> <span class="n">item</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="hll"><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/users/</span><span class="si">{user_id}</span><span class="s2">/items/</span><span class="si">{item_id}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span class="k">async</span> <span class="k">def</span> <span class="nf">read_user_item</span><span class="p">(</span>
+<span class="hll">    <span class="n">user_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">item_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">q</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">short</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+</span><span class="p">):</span>
+    <span class="n">item</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="n">item_id</span><span class="p">,</span> <span class="s2">&quot;owner_id&quot;</span><span class="p">:</span> <span class="n">user_id</span><span class="p">}</span>
+    <span class="k">if</span> <span class="n">q</span><span class="p">:</span>
+        <span class="n">item</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="n">q</span><span class="p">})</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">short</span><span class="p">:</span>
+        <span class="n">item</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+            <span class="p">{</span><span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;This is an amazing item that has a long description&quot;</span><span class="p">}</span>
+        <span class="p">)</span>
+    <span class="k">return</span> <span class="n">item</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <h2 id="_6">必选查询参数<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <p>为不是路径参数的参数声明默认值（至此，仅有查询参数），该参数就<strong>不是必选</strong>的了。</p>
 <p>如果只想把参数设为<strong>可选</strong>，但又不想指定参数的值，则要把默认值设为 <code>None</code>。</p>
@@ -2375,6 +2439,9 @@
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <p>当然，把一些参数定义为必选，为另一些参数设置默认值，再把其他参数定义为可选，这些操作都是可以的：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Python 3.6 and above</label><label for="__tabbed_4_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
@@ -2389,6 +2456,23 @@
     <span class="n">item</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="n">item_id</span><span class="p">,</span> <span class="s2">&quot;needy&quot;</span><span class="p">:</span> <span class="n">needy</span><span class="p">,</span> <span class="s2">&quot;skip&quot;</span><span class="p">:</span> <span class="n">skip</span><span class="p">,</span> <span class="s2">&quot;limit&quot;</span><span class="p">:</span> <span class="n">limit</span><span class="p">}</span>
     <span class="k">return</span> <span class="n">item</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/</span><span class="si">{item_id}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">read_user_item</span><span class="p">(</span>
+<span class="hll">    <span class="n">item_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">needy</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">skip</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">limit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+</span><span class="p">):</span>
+    <span class="n">item</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="n">item_id</span><span class="p">,</span> <span class="s2">&quot;needy&quot;</span><span class="p">:</span> <span class="n">needy</span><span class="p">,</span> <span class="s2">&quot;skip&quot;</span><span class="p">:</span> <span class="n">skip</span><span class="p">,</span> <span class="s2">&quot;limit&quot;</span><span class="p">:</span> <span class="n">limit</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">item</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <p>本例中有 3 个查询参数：</p>
 <ul>
 <li><code>needy</code>，必选的 <code>str</code> 类型参数</li>

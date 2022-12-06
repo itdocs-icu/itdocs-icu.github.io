@@ -617,7 +617,7 @@
   
     <li class="md-nav__item">
       <a href="../../../tutorial/schema-extra-example/" class="md-nav__link">
-        概图的更多信息 - 示例
+        声明请求的示例数据
       </a>
     </li>
   
@@ -853,7 +853,7 @@
   
     <li class="md-nav__item">
       <a href="../../../tutorial/dependencies/classes-as-dependencies/" class="md-nav__link">
-        用类定义依赖项
+        类为依赖项
       </a>
     </li>
   
@@ -909,7 +909,7 @@
   
     <li class="md-nav__item">
       <a href="../../../tutorial/dependencies/dependencies-with-yield/" class="md-nav__link">
-        生成器依赖项
+        `yield` 生成器依赖项
       </a>
     </li>
   
@@ -2720,9 +2720,9 @@
 <p>因为声明了作用域，所以登录或授权时会在 API 文档中显示。</p>
 <p>此处，选择给予访问权限的作用域： <code>me</code> 和 <code>items</code>。</p>
 <p>这也是使用脸书、谷歌、GitHub 登录时的授权机制。</p>
-<p><img src="/img/tutorial/security/image11.png"></p>
+<p><img src="https://fastapi.tiangolo.com/img/tutorial/security/image11.png"></p>
 <h2 id="jwt-token">JWT Token 作用域<a class="headerlink" href="#jwt-token" title="Permanent link">&para;</a></h2>
-<p>现在，修改 Token <em>路径操作</em>，返回请求的作用域。</p>
+<p>现在，修改 Token 路径操作，返回请求的作用域。</p>
 <p>此处仍然使用 <code>OAuth2PasswordRequestForm</code>。它包含类型为<strong>字符串列表</strong>的 <code>scopes</code> 属性，且 <code>scopes</code> 属性中包含要在请求里接收的每个作用域。</p>
 <p>这样，返回的 JWT Token 中就包含了作用域。</p>
 <div class="admonition danger">
@@ -3854,13 +3854,13 @@
 <p>因为 <code>SecurityScopes</code> 包含所有由依赖项声明的作用域，可以在核心依赖函数中用它验证所需作用域的 Token，然后再在不同的<strong>路径操作</strong>中声明不同作用域需求。</p>
 <p>它们会为每个<strong>路径操作</strong>进行单独检查。</p>
 <h2 id="_4">查看文档<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<p>打开 API 文档，进行身份验证，并指定要授权的作用域。</p>
-<p><img src="/img/tutorial/security/image11.png"></p>
+<p>打开 API 文档，进行身份验证，指定要授权的作用域。</p>
+<p><img src="https://fastapi.tiangolo.com/img/tutorial/security/image11.png"></p>
 <p>没有选择任何作用域，也可以进行<strong>身份验证</strong>，但访问 <code>/uses/me</code> 或 <code>/users/me/items</code> 时，会显示没有足够的权限。但仍可以访问 <code>/status/</code>。</p>
 <p>如果选择了作用域 <code>me</code>，但没有选择作用域 <code>items</code>，则可以访问 <code>/users/me/</code>，但不能访问 <code>/users/me/items</code>。</p>
 <p>这就是通过用户提供的 Token 使用第三方应用访问这些<strong>路径操作</strong>时会发生的情况，具体怎样取决于用户授予第三方应用的权限。</p>
 <h2 id="_5">关于第三方集成<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<p>本例使用 OAuth2 <strong>密码</strong>流。</p>
+<p>本例使用 OAuth2 <strong>密码流</strong>。</p>
 <p>这种方式适用于登录我们自己的应用，最好使用我们自己的前端。</p>
 <p>因为我们能控制自己的前端应用，可以信任它接收 <code>username</code> 与 <code>password</code>。</p>
 <p>但如果构建的是连接其他应用的 OAuth2 应用，比如具有与脸书、谷歌、GitHub 相同功能的第三方身份验证应用。那您就应该使用其他安全流。</p>

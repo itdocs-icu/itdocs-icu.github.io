@@ -619,7 +619,7 @@
   
     <li class="md-nav__item">
       <a href="../schema-extra-example/" class="md-nav__link">
-        概图的更多信息 - 示例
+        声明请求的示例数据
       </a>
     </li>
   
@@ -806,13 +806,40 @@
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    多文件上传
+    可选文件上传
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uploadfile_1" class="md-nav__link">
+    UploadFile 时附加元数据
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
+    多文件上传
+  </a>
+  
+    <nav class="md-nav" aria-label="多文件上传">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    多文件上传时的附加元数据
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
     小结
   </a>
   
@@ -944,7 +971,7 @@
   
     <li class="md-nav__item">
       <a href="../dependencies/classes-as-dependencies/" class="md-nav__link">
-        用类定义依赖项
+        类为依赖项
       </a>
     </li>
   
@@ -1000,7 +1027,7 @@
   
     <li class="md-nav__item">
       <a href="../dependencies/dependencies-with-yield/" class="md-nav__link">
-        生成器依赖项
+        `yield` 生成器依赖项
       </a>
     </li>
   
@@ -2214,13 +2241,40 @@
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    多文件上传
+    可选文件上传
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uploadfile_1" class="md-nav__link">
+    UploadFile 时附加元数据
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
+    多文件上传
+  </a>
+  
+    <nav class="md-nav" aria-label="多文件上传">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    多文件上传时的附加元数据
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
     小结
   </a>
   
@@ -2244,9 +2298,9 @@
 <p><code>File</code> 用于定义客户端的上传文件。</p>
 <div class="admonition info">
 <p class="admonition-title">说明</p>
-<p>上传文件以<strong>表单数据</strong>形式发送。</p>
-<p>因此接收上传文件，要预先安装 <a href="https://andrew-d.github.io/python-multipart/" class="external-link" target="_blank"><code>python-multipart</code></a>。</p>
-<p>例如： <code>pip install python-multipart</code>。</p>
+<p>接收上传文件，首先要安装 <a href="https://andrew-d.github.io/python-multipart/" class="external-link" target="_blank"><code>python-multipart</code></a>。</p>
+<p>安装命令： <code>pip install python-multipart</code>。</p>
+<p>这是因为上传文件发送的是<strong>表单数据</strong>。</p>
 </div>
 <h2 id="file">导入 <code>File</code><a class="headerlink" href="#file" title="Permanent link">&para;</a></h2>
 <p>从 <code>fastapi</code> 导入 <code>File</code> 和 <code>UploadFile</code>：</p>
@@ -2311,14 +2365,15 @@
 </code></pre></div>
 <p><code>UploadFile</code> 与 <code>bytes</code> 相比有更多优势：</p>
 <ul>
+<li>不必非要把 <code>File()</code> 作为参数的默认值。</li>
 <li>使用 <code>spooled</code> 文件：<ul>
 <li>存储在内存的文件超出最大上限时，FastAPI 会把文件存入磁盘</li>
 </ul>
 </li>
-<li>这种方式更适于处理图像、视频、二进制文件等大型文件，好处是不会占用所有内存</li>
-<li>可获取上传文件的元数据</li>
-<li>自带 <a href="https://docs.python.org/zh-cn/3/glossary.html#term-file-like-object" class="external-link" target="_blank">file-like</a> <code>async</code> 接口</li>
-<li>暴露的 Python <a href="https://docs.python.org/zh-cn/3/library/tempfile.html#tempfile.SpooledTemporaryFile" class="external-link" target="_blank"><code>SpooledTemporaryFile</code></a> 对象，可直接传递给其他预期<strong>file-like</strong>对象的库</li>
+<li>这种方式更适于处理图像、视频、二进制文件等大型文件，好处是不会占用所有内存。</li>
+<li>可获取上传文件的元数据。</li>
+<li>自带 <a href="https://docs.python.org/zh-cn/3/glossary.html#term-file-like-object" class="external-link" target="_blank">file-like</a> <code>async</code> 接口。</li>
+<li>暴露的 Python <a href="https://docs.python.org/zh-cn/3/library/tempfile.html#tempfile.SpooledTemporaryFile" class="external-link" target="_blank"><code>SpooledTemporaryFile</code></a> 对象，可直接传递给其他预期<strong>file-like</strong>对象的库。</li>
 </ul>
 <h3 id="uploadfile"><code>UploadFile</code><a class="headerlink" href="#uploadfile" title="Permanent link">&para;</a></h3>
 <p><code>UploadFile</code> 的属性如下：</p>
@@ -2367,10 +2422,83 @@
 <p>可在一个<strong>路径操作</strong>中声明多个 <code>File</code> 和 <code>Form</code> 参数，但不能同时声明要接收 JSON 的 <code>Body</code> 字段。因为此时请求体的编码是 <code>multipart/form-data</code>，不是 <code>application/json</code>。</p>
 <p>这不是 <strong>FastAPI</strong> 的问题，而是 HTTP 协议的规定。</p>
 </div>
-<h2 id="_3">多文件上传<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_3">可选文件上传<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>使用标准的类型注释，并把默认值设置为 <code>None</code>，可以把文件设置为可选：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python 3.6 and above</label><label for="__tabbed_1_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+
+<span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">File</span><span class="p">,</span> <span class="n">UploadFile</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/files/&quot;</span><span class="p">)</span>
+<span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">create_file</span><span class="p">(</span><span class="n">file</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">bytes</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)):</span>
+</span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">file</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;No file sent&quot;</span><span class="p">}</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;file_size&quot;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">file</span><span class="p">)}</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/uploadfile/&quot;</span><span class="p">)</span>
+<span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">create_upload_file</span><span class="p">(</span><span class="n">file</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">UploadFile</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+</span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">file</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;No upload file sent&quot;</span><span class="p">}</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;filename&quot;</span><span class="p">:</span> <span class="n">file</span><span class="o">.</span><span class="n">filename</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">File</span><span class="p">,</span> <span class="n">UploadFile</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/files/&quot;</span><span class="p">)</span>
+<span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">create_file</span><span class="p">(</span><span class="n">file</span><span class="p">:</span> <span class="nb">bytes</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)):</span>
+</span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">file</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;No file sent&quot;</span><span class="p">}</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;file_size&quot;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">file</span><span class="p">)}</span>
+
+
+<span class="hll"><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/uploadfile/&quot;</span><span class="p">)</span>
+</span><span class="k">async</span> <span class="k">def</span> <span class="nf">create_upload_file</span><span class="p">(</span><span class="n">file</span><span class="p">:</span> <span class="n">UploadFile</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">file</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;No upload file sent&quot;</span><span class="p">}</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;filename&quot;</span><span class="p">:</span> <span class="n">file</span><span class="o">.</span><span class="n">filename</span><span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="uploadfile_1"><code>UploadFile</code> 时附加元数据<a class="headerlink" href="#uploadfile_1" title="Permanent link">&para;</a></h2>
+<p>在 <code>File()</code> 中使用 <code>UploadFile</code>， 例如，设置附加的元数据：</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">File</span><span class="p">,</span> <span class="n">UploadFile</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/files/&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">create_file</span><span class="p">(</span><span class="n">file</span><span class="p">:</span> <span class="nb">bytes</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;A file read as bytes&quot;</span><span class="p">)):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;file_size&quot;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">file</span><span class="p">)}</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/uploadfile/&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">create_upload_file</span><span class="p">(</span>
+<span class="hll">    <span class="n">file</span><span class="p">:</span> <span class="n">UploadFile</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;A file read as UploadFile&quot;</span><span class="p">),</span>
+</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;filename&quot;</span><span class="p">:</span> <span class="n">file</span><span class="o">.</span><span class="n">filename</span><span class="p">}</span>
+</code></pre></div>
+<h2 id="_4">多文件上传<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>FastAPI 支持同时上传多个文件。</p>
 <p>使用同一个<strong>表单字段</strong>可以发送含多个文件的<strong>表单数据</strong>。</p>
 <p>上传多个文件时，要声明含 <code>bytes</code> 或 <code>UploadFile</code> 的列表（<code>List</code>）：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python 3.6 and above</label><label for="__tabbed_2_2">Python 3.9 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">File</span><span class="p">,</span> <span class="n">UploadFile</span>
@@ -2405,13 +2533,134 @@
 <span class="s2">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">HTMLResponse</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="n">content</span><span class="p">)</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">File</span><span class="p">,</span> <span class="n">UploadFile</span>
+<span class="kn">from</span> <span class="nn">fastapi.responses</span> <span class="kn">import</span> <span class="n">HTMLResponse</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/files/&quot;</span><span class="p">)</span>
+<span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">create_files</span><span class="p">(</span><span class="n">files</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">bytes</span><span class="p">]</span> <span class="o">=</span> <span class="n">File</span><span class="p">()):</span>
+</span>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;file_sizes&quot;</span><span class="p">:</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">file</span><span class="p">)</span> <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">]}</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/uploadfiles/&quot;</span><span class="p">)</span>
+<span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">create_upload_files</span><span class="p">(</span><span class="n">files</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">UploadFile</span><span class="p">]):</span>
+</span>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;filenames&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">file</span><span class="o">.</span><span class="n">filename</span> <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">]}</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&lt;body&gt;</span>
+<span class="s2">&lt;form action=&quot;/files/&quot; enctype=&quot;multipart/form-data&quot; method=&quot;post&quot;&gt;</span>
+<span class="s2">&lt;input name=&quot;files&quot; type=&quot;file&quot; multiple&gt;</span>
+<span class="s2">&lt;input type=&quot;submit&quot;&gt;</span>
+<span class="s2">&lt;/form&gt;</span>
+<span class="s2">&lt;form action=&quot;/uploadfiles/&quot; enctype=&quot;multipart/form-data&quot; method=&quot;post&quot;&gt;</span>
+<span class="s2">&lt;input name=&quot;files&quot; type=&quot;file&quot; multiple&gt;</span>
+<span class="s2">&lt;input type=&quot;submit&quot;&gt;</span>
+<span class="s2">&lt;/form&gt;</span>
+<span class="s2">&lt;/body&gt;</span>
+<span class="s2">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">HTMLResponse</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="n">content</span><span class="p">)</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <p>接收的也是含 <code>bytes</code> 或 <code>UploadFile</code> 的列表。</p>
 <div class="admonition note">
 <p class="admonition-title">技术细节</p>
 <p>您也可以使用 <code>from starlette.responses import HTMLResponse</code>。</p>
 <p><code>fastapi.responses</code> 其实与 <code>starlette.responses</code> 相同，只是为了方便开发者调用。实际上，大多数 <strong>FastAPI</strong> 的响应都直接从 Starlette 调用。</p>
 </div>
-<h2 id="_4">小结<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="_5">多文件上传时的附加元数据<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>同上，可以使用 <code>File()</code> 设置多个附加参数，甚至是 <code>UploadFile</code>:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python 3.6 and above</label><label for="__tabbed_3_2">Python 3.9 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+
+<span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">File</span><span class="p">,</span> <span class="n">UploadFile</span>
+<span class="kn">from</span> <span class="nn">fastapi.responses</span> <span class="kn">import</span> <span class="n">HTMLResponse</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/files/&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">create_files</span><span class="p">(</span>
+    <span class="n">files</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">bytes</span><span class="p">]</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Multiple files as bytes&quot;</span><span class="p">),</span>
+<span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;file_sizes&quot;</span><span class="p">:</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">file</span><span class="p">)</span> <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">]}</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/uploadfiles/&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">create_upload_files</span><span class="p">(</span>
+<span class="hll">    <span class="n">files</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">UploadFile</span><span class="p">]</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Multiple files as UploadFile&quot;</span><span class="p">),</span>
+</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;filenames&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">file</span><span class="o">.</span><span class="n">filename</span> <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">]}</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&lt;body&gt;</span>
+<span class="s2">&lt;form action=&quot;/files/&quot; enctype=&quot;multipart/form-data&quot; method=&quot;post&quot;&gt;</span>
+<span class="s2">&lt;input name=&quot;files&quot; type=&quot;file&quot; multiple&gt;</span>
+<span class="s2">&lt;input type=&quot;submit&quot;&gt;</span>
+<span class="s2">&lt;/form&gt;</span>
+<span class="s2">&lt;form action=&quot;/uploadfiles/&quot; enctype=&quot;multipart/form-data&quot; method=&quot;post&quot;&gt;</span>
+<span class="s2">&lt;input name=&quot;files&quot; type=&quot;file&quot; multiple&gt;</span>
+<span class="s2">&lt;input type=&quot;submit&quot;&gt;</span>
+<span class="s2">&lt;/form&gt;</span>
+<span class="s2">&lt;/body&gt;</span>
+<span class="s2">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">HTMLResponse</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="n">content</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">File</span><span class="p">,</span> <span class="n">UploadFile</span>
+<span class="kn">from</span> <span class="nn">fastapi.responses</span> <span class="kn">import</span> <span class="n">HTMLResponse</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/files/&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">create_files</span><span class="p">(</span>
+    <span class="n">files</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">bytes</span><span class="p">]</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Multiple files as bytes&quot;</span><span class="p">),</span>
+<span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;file_sizes&quot;</span><span class="p">:</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">file</span><span class="p">)</span> <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">]}</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/uploadfiles/&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">create_upload_files</span><span class="p">(</span>
+<span class="hll">    <span class="n">files</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">UploadFile</span><span class="p">]</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Multiple files as UploadFile&quot;</span><span class="p">),</span>
+</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;filenames&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">file</span><span class="o">.</span><span class="n">filename</span> <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">]}</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">&lt;body&gt;</span>
+<span class="s2">&lt;form action=&quot;/files/&quot; enctype=&quot;multipart/form-data&quot; method=&quot;post&quot;&gt;</span>
+<span class="s2">&lt;input name=&quot;files&quot; type=&quot;file&quot; multiple&gt;</span>
+<span class="s2">&lt;input type=&quot;submit&quot;&gt;</span>
+<span class="s2">&lt;/form&gt;</span>
+<span class="s2">&lt;form action=&quot;/uploadfiles/&quot; enctype=&quot;multipart/form-data&quot; method=&quot;post&quot;&gt;</span>
+<span class="s2">&lt;input name=&quot;files&quot; type=&quot;file&quot; multiple&gt;</span>
+<span class="s2">&lt;input type=&quot;submit&quot;&gt;</span>
+<span class="s2">&lt;/form&gt;</span>
+<span class="s2">&lt;/body&gt;</span>
+<span class="s2">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">HTMLResponse</span><span class="p">(</span><span class="n">content</span><span class="o">=</span><span class="n">content</span><span class="p">)</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="_6">小结<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <p>本节介绍了如何用 <code>File</code> 把上传文件声明为（表单数据的）输入参数。</p>
 
               

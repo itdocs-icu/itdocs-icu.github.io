@@ -619,7 +619,7 @@
   
     <li class="md-nav__item">
       <a href="../../schema-extra-example/" class="md-nav__link">
-        概图的更多信息 - 示例
+        声明请求的示例数据
       </a>
     </li>
   
@@ -855,7 +855,7 @@
   
     <li class="md-nav__item">
       <a href="../../dependencies/classes-as-dependencies/" class="md-nav__link">
-        用类定义依赖项
+        类为依赖项
       </a>
     </li>
   
@@ -911,7 +911,7 @@
   
     <li class="md-nav__item">
       <a href="../../dependencies/dependencies-with-yield/" class="md-nav__link">
-        生成器依赖项
+        `yield` 生成器依赖项
       </a>
     </li>
   
@@ -2432,9 +2432,9 @@
 <p><strong>作用域</strong>只是不带空格的字符串。</p>
 <p>常用于声明指定安全权限，例如：</p>
 <ul>
-<li>常见用例为，<code>users:read</code> 或 <code>users:write</code></li>
-<li>脸书和 Instagram 使用 <code>instagram_basic</code></li>
-<li>谷歌使用 <code>https://www.googleapis.com/auth/drive</code></li>
+<li>常见用例为，<code>users:read</code> 或 <code>users:write</code>。</li>
+<li>脸书和 Instagram 使用 <code>instagram_basic</code>。</li>
+<li>谷歌使用 <code>https://www.googleapis.com/auth/drive</code>。</li>
 </ul>
 <div class="admonition info">
 <p class="admonition-title">说明</p>
@@ -2447,6 +2447,9 @@
 <p>接下来，使用 <strong>FastAPI</strong> 工具获取用户名与密码。</p>
 <h3 id="oauth2passwordrequestform"><code>OAuth2PasswordRequestForm</code><a class="headerlink" href="#oauth2passwordrequestform" title="Permanent link">&para;</a></h3>
 <p>首先，导入 <code>OAuth2PasswordRequestForm</code>，然后，在 <code>/token</code> <em>路径操作</em> 中，用 <code>Depends</code> 把该类作为依赖项。</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python 3.6 and above</label><label for="__tabbed_1_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">HTTPException</span><span class="p">,</span> <span class="n">status</span>
@@ -2538,6 +2541,100 @@
 <span class="k">async</span> <span class="k">def</span> <span class="nf">read_users_me</span><span class="p">(</span><span class="n">current_user</span><span class="p">:</span> <span class="n">User</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_current_active_user</span><span class="p">)):</span>
     <span class="k">return</span> <span class="n">current_user</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">HTTPException</span><span class="p">,</span> <span class="n">status</span>
+<span class="hll"><span class="kn">from</span> <span class="nn">fastapi.security</span> <span class="kn">import</span> <span class="n">OAuth2PasswordBearer</span><span class="p">,</span> <span class="n">OAuth2PasswordRequestForm</span>
+</span><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="n">fake_users_db</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;johndoe&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;johndoe&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;full_name&quot;</span><span class="p">:</span> <span class="s2">&quot;John Doe&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;johndoe@example.com&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;hashed_password&quot;</span><span class="p">:</span> <span class="s2">&quot;fakehashedsecret&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;disabled&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;alice&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;alice&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;full_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice Wonderson&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;alice@example.com&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;hashed_password&quot;</span><span class="p">:</span> <span class="s2">&quot;fakehashedsecret2&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;disabled&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">fake_hash_password</span><span class="p">(</span><span class="n">password</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s2">&quot;fakehashed&quot;</span> <span class="o">+</span> <span class="n">password</span>
+
+
+<span class="n">oauth2_scheme</span> <span class="o">=</span> <span class="n">OAuth2PasswordBearer</span><span class="p">(</span><span class="n">tokenUrl</span><span class="o">=</span><span class="s2">&quot;token&quot;</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">username</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">email</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">full_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">disabled</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<span class="k">class</span> <span class="nc">UserInDB</span><span class="p">(</span><span class="n">User</span><span class="p">):</span>
+    <span class="n">hashed_password</span><span class="p">:</span> <span class="nb">str</span>
+
+
+<span class="k">def</span> <span class="nf">get_user</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">username</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">username</span> <span class="ow">in</span> <span class="n">db</span><span class="p">:</span>
+        <span class="n">user_dict</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="n">username</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">UserInDB</span><span class="p">(</span><span class="o">**</span><span class="n">user_dict</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">fake_decode_token</span><span class="p">(</span><span class="n">token</span><span class="p">):</span>
+    <span class="c1"># This doesn&#39;t provide any security at all</span>
+    <span class="c1"># Check the next version</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">get_user</span><span class="p">(</span><span class="n">fake_users_db</span><span class="p">,</span> <span class="n">token</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">user</span>
+
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">get_current_user</span><span class="p">(</span><span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">oauth2_scheme</span><span class="p">)):</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">fake_decode_token</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">user</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span>
+            <span class="n">status_code</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_401_UNAUTHORIZED</span><span class="p">,</span>
+            <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;Invalid authentication credentials&quot;</span><span class="p">,</span>
+            <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;WWW-Authenticate&quot;</span><span class="p">:</span> <span class="s2">&quot;Bearer&quot;</span><span class="p">},</span>
+        <span class="p">)</span>
+    <span class="k">return</span> <span class="n">user</span>
+
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">get_current_active_user</span><span class="p">(</span><span class="n">current_user</span><span class="p">:</span> <span class="n">User</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_current_user</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">current_user</span><span class="o">.</span><span class="n">disabled</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;Inactive user&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">current_user</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/token&quot;</span><span class="p">)</span>
+<span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">login</span><span class="p">(</span><span class="n">form_data</span><span class="p">:</span> <span class="n">OAuth2PasswordRequestForm</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">()):</span>
+</span>    <span class="n">user_dict</span> <span class="o">=</span> <span class="n">fake_users_db</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">form_data</span><span class="o">.</span><span class="n">username</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">user_dict</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;Incorrect username or password&quot;</span><span class="p">)</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">UserInDB</span><span class="p">(</span><span class="o">**</span><span class="n">user_dict</span><span class="p">)</span>
+    <span class="n">hashed_password</span> <span class="o">=</span> <span class="n">fake_hash_password</span><span class="p">(</span><span class="n">form_data</span><span class="o">.</span><span class="n">password</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">hashed_password</span> <span class="o">==</span> <span class="n">user</span><span class="o">.</span><span class="n">hashed_password</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;Incorrect username or password&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;access_token&quot;</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="p">,</span> <span class="s2">&quot;token_type&quot;</span><span class="p">:</span> <span class="s2">&quot;bearer&quot;</span><span class="p">}</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/users/me&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">read_users_me</span><span class="p">(</span><span class="n">current_user</span><span class="p">:</span> <span class="n">User</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_current_active_user</span><span class="p">)):</span>
+    <span class="k">return</span> <span class="n">current_user</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <p><code>OAuth2PasswordRequestForm</code> 是用以下几项内容声明表单请求体的类依赖项：</p>
 <ul>
 <li><code>username</code></li>
@@ -2547,12 +2644,12 @@
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">提示</p>
-<p>实际上，OAuth2 规范<em>要求</em> <code>grant_type</code> 字段使用固定值 <code>password</code>，但 <code>OAuth2PasswordRequestForm</code> 没有作强制约束。</p>
+<p>实际上，OAuth2 规范<strong>要求</strong> <code>grant_type</code> 字段使用固定值 <code>password</code>，但 <code>OAuth2PasswordRequestForm</code> 没有作强制约束。</p>
 <p>如需强制使用固定值 <code>password</code>，则不要用 <code>OAuth2PasswordRequestForm</code>，而是用 <code>OAuth2PasswordRequestFormStrict</code>。</p>
 </div>
 <ul>
-<li>可选的 <code>client_id</code>（本例未使用）</li>
-<li>可选的 <code>client_secret</code>（本例未使用）</li>
+<li>可选的 <code>client_id</code>（本例未使用）。</li>
+<li>可选的 <code>client_secret</code>（本例未使用）。</li>
 </ul>
 <div class="admonition info">
 <p class="admonition-title">说明</p>
@@ -2570,6 +2667,9 @@
 <p>现在，即可使用表单字段 <code>username</code>，从（伪）数据库中获取用户数据。</p>
 <p>如果不存在指定用户，则返回错误消息，提示<strong>用户名或密码错误</strong>。</p>
 <p>本例使用 <code>HTTPException</code> 异常显示此错误：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python 3.6 and above</label><label for="__tabbed_2_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="hll"><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">HTTPException</span><span class="p">,</span> <span class="n">status</span>
@@ -2661,6 +2761,100 @@
 <span class="k">async</span> <span class="k">def</span> <span class="nf">read_users_me</span><span class="p">(</span><span class="n">current_user</span><span class="p">:</span> <span class="n">User</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_current_active_user</span><span class="p">)):</span>
     <span class="k">return</span> <span class="n">current_user</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="hll"><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">HTTPException</span><span class="p">,</span> <span class="n">status</span>
+</span><span class="kn">from</span> <span class="nn">fastapi.security</span> <span class="kn">import</span> <span class="n">OAuth2PasswordBearer</span><span class="p">,</span> <span class="n">OAuth2PasswordRequestForm</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="n">fake_users_db</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;johndoe&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;johndoe&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;full_name&quot;</span><span class="p">:</span> <span class="s2">&quot;John Doe&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;johndoe@example.com&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;hashed_password&quot;</span><span class="p">:</span> <span class="s2">&quot;fakehashedsecret&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;disabled&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;alice&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;alice&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;full_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice Wonderson&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;alice@example.com&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;hashed_password&quot;</span><span class="p">:</span> <span class="s2">&quot;fakehashedsecret2&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;disabled&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">fake_hash_password</span><span class="p">(</span><span class="n">password</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s2">&quot;fakehashed&quot;</span> <span class="o">+</span> <span class="n">password</span>
+
+
+<span class="n">oauth2_scheme</span> <span class="o">=</span> <span class="n">OAuth2PasswordBearer</span><span class="p">(</span><span class="n">tokenUrl</span><span class="o">=</span><span class="s2">&quot;token&quot;</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">username</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">email</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">full_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">disabled</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<span class="k">class</span> <span class="nc">UserInDB</span><span class="p">(</span><span class="n">User</span><span class="p">):</span>
+    <span class="n">hashed_password</span><span class="p">:</span> <span class="nb">str</span>
+
+
+<span class="k">def</span> <span class="nf">get_user</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">username</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">username</span> <span class="ow">in</span> <span class="n">db</span><span class="p">:</span>
+        <span class="n">user_dict</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="n">username</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">UserInDB</span><span class="p">(</span><span class="o">**</span><span class="n">user_dict</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">fake_decode_token</span><span class="p">(</span><span class="n">token</span><span class="p">):</span>
+    <span class="c1"># This doesn&#39;t provide any security at all</span>
+    <span class="c1"># Check the next version</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">get_user</span><span class="p">(</span><span class="n">fake_users_db</span><span class="p">,</span> <span class="n">token</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">user</span>
+
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">get_current_user</span><span class="p">(</span><span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">oauth2_scheme</span><span class="p">)):</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">fake_decode_token</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">user</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span>
+            <span class="n">status_code</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_401_UNAUTHORIZED</span><span class="p">,</span>
+            <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;Invalid authentication credentials&quot;</span><span class="p">,</span>
+            <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;WWW-Authenticate&quot;</span><span class="p">:</span> <span class="s2">&quot;Bearer&quot;</span><span class="p">},</span>
+        <span class="p">)</span>
+    <span class="k">return</span> <span class="n">user</span>
+
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">get_current_active_user</span><span class="p">(</span><span class="n">current_user</span><span class="p">:</span> <span class="n">User</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_current_user</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">current_user</span><span class="o">.</span><span class="n">disabled</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;Inactive user&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">current_user</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/token&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">login</span><span class="p">(</span><span class="n">form_data</span><span class="p">:</span> <span class="n">OAuth2PasswordRequestForm</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">()):</span>
+<span class="hll">    <span class="n">user_dict</span> <span class="o">=</span> <span class="n">fake_users_db</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">form_data</span><span class="o">.</span><span class="n">username</span><span class="p">)</span>
+</span><span class="hll">    <span class="k">if</span> <span class="ow">not</span> <span class="n">user_dict</span><span class="p">:</span>
+</span><span class="hll">        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;Incorrect username or password&quot;</span><span class="p">)</span>
+</span>    <span class="n">user</span> <span class="o">=</span> <span class="n">UserInDB</span><span class="p">(</span><span class="o">**</span><span class="n">user_dict</span><span class="p">)</span>
+    <span class="n">hashed_password</span> <span class="o">=</span> <span class="n">fake_hash_password</span><span class="p">(</span><span class="n">form_data</span><span class="o">.</span><span class="n">password</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">hashed_password</span> <span class="o">==</span> <span class="n">user</span><span class="o">.</span><span class="n">hashed_password</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;Incorrect username or password&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;access_token&quot;</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="p">,</span> <span class="s2">&quot;token_type&quot;</span><span class="p">:</span> <span class="s2">&quot;bearer&quot;</span><span class="p">}</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/users/me&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">read_users_me</span><span class="p">(</span><span class="n">current_user</span><span class="p">:</span> <span class="n">User</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_current_active_user</span><span class="p">)):</span>
+    <span class="k">return</span> <span class="n">current_user</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <h3 id="_2">校验密码<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>至此，我们已经从数据库中获取了用户数据，但尚未校验密码。</p>
 <p>接下来，首先把数据放入 Pydantic 的 <code>UserInDB</code> 模型。</p>
@@ -2673,6 +2867,9 @@
 <h5 id="_4">为什么使用密码哈希<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h5>
 <p>原因很简单。如果数据库被盗，窃贼无法获取用户的明文密码，得到的只是哈希值。</p>
 <p>这样一来，窃贼就无法在其他应用中使用窃取的密码，要知道，很多用户在所有系统中都使用相同的密码，风险超大。</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python 3.6 and above</label><label for="__tabbed_3_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">HTTPException</span><span class="p">,</span> <span class="n">status</span>
@@ -2764,9 +2961,103 @@
 <span class="k">async</span> <span class="k">def</span> <span class="nf">read_users_me</span><span class="p">(</span><span class="n">current_user</span><span class="p">:</span> <span class="n">User</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_current_active_user</span><span class="p">)):</span>
     <span class="k">return</span> <span class="n">current_user</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">HTTPException</span><span class="p">,</span> <span class="n">status</span>
+<span class="kn">from</span> <span class="nn">fastapi.security</span> <span class="kn">import</span> <span class="n">OAuth2PasswordBearer</span><span class="p">,</span> <span class="n">OAuth2PasswordRequestForm</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="n">fake_users_db</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;johndoe&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;johndoe&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;full_name&quot;</span><span class="p">:</span> <span class="s2">&quot;John Doe&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;johndoe@example.com&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;hashed_password&quot;</span><span class="p">:</span> <span class="s2">&quot;fakehashedsecret&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;disabled&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;alice&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;alice&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;full_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice Wonderson&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;alice@example.com&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;hashed_password&quot;</span><span class="p">:</span> <span class="s2">&quot;fakehashedsecret2&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;disabled&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">fake_hash_password</span><span class="p">(</span><span class="n">password</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s2">&quot;fakehashed&quot;</span> <span class="o">+</span> <span class="n">password</span>
+
+
+<span class="n">oauth2_scheme</span> <span class="o">=</span> <span class="n">OAuth2PasswordBearer</span><span class="p">(</span><span class="n">tokenUrl</span><span class="o">=</span><span class="s2">&quot;token&quot;</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">username</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">email</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">full_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">disabled</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<span class="k">class</span> <span class="nc">UserInDB</span><span class="p">(</span><span class="n">User</span><span class="p">):</span>
+    <span class="n">hashed_password</span><span class="p">:</span> <span class="nb">str</span>
+
+
+<span class="k">def</span> <span class="nf">get_user</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">username</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">username</span> <span class="ow">in</span> <span class="n">db</span><span class="p">:</span>
+        <span class="n">user_dict</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="n">username</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">UserInDB</span><span class="p">(</span><span class="o">**</span><span class="n">user_dict</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">fake_decode_token</span><span class="p">(</span><span class="n">token</span><span class="p">):</span>
+    <span class="c1"># This doesn&#39;t provide any security at all</span>
+    <span class="c1"># Check the next version</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">get_user</span><span class="p">(</span><span class="n">fake_users_db</span><span class="p">,</span> <span class="n">token</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">user</span>
+
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">get_current_user</span><span class="p">(</span><span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">oauth2_scheme</span><span class="p">)):</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">fake_decode_token</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">user</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span>
+            <span class="n">status_code</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_401_UNAUTHORIZED</span><span class="p">,</span>
+            <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;Invalid authentication credentials&quot;</span><span class="p">,</span>
+            <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;WWW-Authenticate&quot;</span><span class="p">:</span> <span class="s2">&quot;Bearer&quot;</span><span class="p">},</span>
+        <span class="p">)</span>
+    <span class="k">return</span> <span class="n">user</span>
+
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">get_current_active_user</span><span class="p">(</span><span class="n">current_user</span><span class="p">:</span> <span class="n">User</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_current_user</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">current_user</span><span class="o">.</span><span class="n">disabled</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;Inactive user&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">current_user</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/token&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">login</span><span class="p">(</span><span class="n">form_data</span><span class="p">:</span> <span class="n">OAuth2PasswordRequestForm</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">()):</span>
+    <span class="n">user_dict</span> <span class="o">=</span> <span class="n">fake_users_db</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">form_data</span><span class="o">.</span><span class="n">username</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">user_dict</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;Incorrect username or password&quot;</span><span class="p">)</span>
+<span class="hll">    <span class="n">user</span> <span class="o">=</span> <span class="n">UserInDB</span><span class="p">(</span><span class="o">**</span><span class="n">user_dict</span><span class="p">)</span>
+</span><span class="hll">    <span class="n">hashed_password</span> <span class="o">=</span> <span class="n">fake_hash_password</span><span class="p">(</span><span class="n">form_data</span><span class="o">.</span><span class="n">password</span><span class="p">)</span>
+</span><span class="hll">    <span class="k">if</span> <span class="ow">not</span> <span class="n">hashed_password</span> <span class="o">==</span> <span class="n">user</span><span class="o">.</span><span class="n">hashed_password</span><span class="p">:</span>
+</span><span class="hll">        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;Incorrect username or password&quot;</span><span class="p">)</span>
+</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;access_token&quot;</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="p">,</span> <span class="s2">&quot;token_type&quot;</span><span class="p">:</span> <span class="s2">&quot;bearer&quot;</span><span class="p">}</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/users/me&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">read_users_me</span><span class="p">(</span><span class="n">current_user</span><span class="p">:</span> <span class="n">User</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_current_active_user</span><span class="p">)):</span>
+    <span class="k">return</span> <span class="n">current_user</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <h4 id="user_dict">关于 <code>**user_dict</code><a class="headerlink" href="#user_dict" title="Permanent link">&para;</a></h4>
 <p><code>UserInDB(**user_dict)</code> 是指：</p>
-<p><em>直接把 <code>user_dict</code> 的键与值当作关键字参数传递，等效于：</em></p>
+<p><strong>直接把 <code>user_dict</code> 的键与值当作关键字参数传递，等效于</strong>：</p>
 <div class="highlight"><pre><span></span><code><span class="n">UserInDB</span><span class="p">(</span>
     <span class="n">username</span> <span class="o">=</span> <span class="n">user_dict</span><span class="p">[</span><span class="s2">&quot;username&quot;</span><span class="p">],</span>
     <span class="n">email</span> <span class="o">=</span> <span class="n">user_dict</span><span class="p">[</span><span class="s2">&quot;email&quot;</span><span class="p">],</span>
@@ -2789,6 +3080,9 @@
 <p>下一章介绍使用哈希密码和 <abbr title="JSON Web Tokens">JWT</abbr> Token 的真正安全机制。</p>
 <p>但现在，仅关注所需的特定细节。</p>
 </div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Python 3.6 and above</label><label for="__tabbed_4_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">HTTPException</span><span class="p">,</span> <span class="n">status</span>
@@ -2880,6 +3174,100 @@
 <span class="k">async</span> <span class="k">def</span> <span class="nf">read_users_me</span><span class="p">(</span><span class="n">current_user</span><span class="p">:</span> <span class="n">User</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_current_active_user</span><span class="p">)):</span>
     <span class="k">return</span> <span class="n">current_user</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">HTTPException</span><span class="p">,</span> <span class="n">status</span>
+<span class="kn">from</span> <span class="nn">fastapi.security</span> <span class="kn">import</span> <span class="n">OAuth2PasswordBearer</span><span class="p">,</span> <span class="n">OAuth2PasswordRequestForm</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="n">fake_users_db</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;johndoe&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;johndoe&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;full_name&quot;</span><span class="p">:</span> <span class="s2">&quot;John Doe&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;johndoe@example.com&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;hashed_password&quot;</span><span class="p">:</span> <span class="s2">&quot;fakehashedsecret&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;disabled&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;alice&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;alice&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;full_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice Wonderson&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;alice@example.com&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;hashed_password&quot;</span><span class="p">:</span> <span class="s2">&quot;fakehashedsecret2&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;disabled&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">fake_hash_password</span><span class="p">(</span><span class="n">password</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s2">&quot;fakehashed&quot;</span> <span class="o">+</span> <span class="n">password</span>
+
+
+<span class="n">oauth2_scheme</span> <span class="o">=</span> <span class="n">OAuth2PasswordBearer</span><span class="p">(</span><span class="n">tokenUrl</span><span class="o">=</span><span class="s2">&quot;token&quot;</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">username</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">email</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">full_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">disabled</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<span class="k">class</span> <span class="nc">UserInDB</span><span class="p">(</span><span class="n">User</span><span class="p">):</span>
+    <span class="n">hashed_password</span><span class="p">:</span> <span class="nb">str</span>
+
+
+<span class="k">def</span> <span class="nf">get_user</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">username</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">username</span> <span class="ow">in</span> <span class="n">db</span><span class="p">:</span>
+        <span class="n">user_dict</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="n">username</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">UserInDB</span><span class="p">(</span><span class="o">**</span><span class="n">user_dict</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">fake_decode_token</span><span class="p">(</span><span class="n">token</span><span class="p">):</span>
+    <span class="c1"># This doesn&#39;t provide any security at all</span>
+    <span class="c1"># Check the next version</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">get_user</span><span class="p">(</span><span class="n">fake_users_db</span><span class="p">,</span> <span class="n">token</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">user</span>
+
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">get_current_user</span><span class="p">(</span><span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">oauth2_scheme</span><span class="p">)):</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">fake_decode_token</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">user</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span>
+            <span class="n">status_code</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_401_UNAUTHORIZED</span><span class="p">,</span>
+            <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;Invalid authentication credentials&quot;</span><span class="p">,</span>
+            <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;WWW-Authenticate&quot;</span><span class="p">:</span> <span class="s2">&quot;Bearer&quot;</span><span class="p">},</span>
+        <span class="p">)</span>
+    <span class="k">return</span> <span class="n">user</span>
+
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">get_current_active_user</span><span class="p">(</span><span class="n">current_user</span><span class="p">:</span> <span class="n">User</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_current_user</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">current_user</span><span class="o">.</span><span class="n">disabled</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;Inactive user&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">current_user</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/token&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">login</span><span class="p">(</span><span class="n">form_data</span><span class="p">:</span> <span class="n">OAuth2PasswordRequestForm</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">()):</span>
+    <span class="n">user_dict</span> <span class="o">=</span> <span class="n">fake_users_db</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">form_data</span><span class="o">.</span><span class="n">username</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">user_dict</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;Incorrect username or password&quot;</span><span class="p">)</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">UserInDB</span><span class="p">(</span><span class="o">**</span><span class="n">user_dict</span><span class="p">)</span>
+    <span class="n">hashed_password</span> <span class="o">=</span> <span class="n">fake_hash_password</span><span class="p">(</span><span class="n">form_data</span><span class="o">.</span><span class="n">password</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">hashed_password</span> <span class="o">==</span> <span class="n">user</span><span class="o">.</span><span class="n">hashed_password</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;Incorrect username or password&quot;</span><span class="p">)</span>
+
+<span class="hll">    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;access_token&quot;</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="p">,</span> <span class="s2">&quot;token_type&quot;</span><span class="p">:</span> <span class="s2">&quot;bearer&quot;</span><span class="p">}</span>
+</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/users/me&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">read_users_me</span><span class="p">(</span><span class="n">current_user</span><span class="p">:</span> <span class="n">User</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_current_active_user</span><span class="p">)):</span>
+    <span class="k">return</span> <span class="n">current_user</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <div class="admonition tip">
 <p class="admonition-title">提示</p>
 <p>按规范的要求，应像本示例一样，返回带有 <code>access_token</code> 和 <code>token_type</code> 的 JSON 对象。</p>
@@ -2893,6 +3281,9 @@
 <p>为此，要再创建一个依赖项 <code>get_current_active_user</code>，此依赖项以 <code>get_current_user</code> 依赖项为基础。</p>
 <p>如果用户不存在，或状态为未激活，这两个依赖项都返回 HTTP 错误。</p>
 <p>因此，在端点中，只有当用户存在、通过身份验证、且状态为激活时，才能提取该用户：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Python 3.6 and above</label><label for="__tabbed_5_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">HTTPException</span><span class="p">,</span> <span class="n">status</span>
@@ -2959,8 +3350,8 @@
 </span><span class="hll">            <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;WWW-Authenticate&quot;</span><span class="p">:</span> <span class="s2">&quot;Bearer&quot;</span><span class="p">},</span>
 </span><span class="hll">        <span class="p">)</span>
 </span><span class="hll">    <span class="k">return</span> <span class="n">user</span>
-</span><span class="hll">
 </span>
+
 <span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">get_current_active_user</span><span class="p">(</span><span class="n">current_user</span><span class="p">:</span> <span class="n">User</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_current_user</span><span class="p">)):</span>
 </span><span class="hll">    <span class="k">if</span> <span class="n">current_user</span><span class="o">.</span><span class="n">disabled</span><span class="p">:</span>
 </span><span class="hll">        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;Inactive user&quot;</span><span class="p">)</span>
@@ -2984,6 +3375,100 @@
 <span class="k">async</span> <span class="k">def</span> <span class="nf">read_users_me</span><span class="p">(</span><span class="n">current_user</span><span class="p">:</span> <span class="n">User</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_current_active_user</span><span class="p">)):</span>
 <span class="hll">    <span class="k">return</span> <span class="n">current_user</span>
 </span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">HTTPException</span><span class="p">,</span> <span class="n">status</span>
+<span class="kn">from</span> <span class="nn">fastapi.security</span> <span class="kn">import</span> <span class="n">OAuth2PasswordBearer</span><span class="p">,</span> <span class="n">OAuth2PasswordRequestForm</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="n">fake_users_db</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;johndoe&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;johndoe&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;full_name&quot;</span><span class="p">:</span> <span class="s2">&quot;John Doe&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;johndoe@example.com&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;hashed_password&quot;</span><span class="p">:</span> <span class="s2">&quot;fakehashedsecret&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;disabled&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;alice&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;alice&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;full_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice Wonderson&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;alice@example.com&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;hashed_password&quot;</span><span class="p">:</span> <span class="s2">&quot;fakehashedsecret2&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;disabled&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">fake_hash_password</span><span class="p">(</span><span class="n">password</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s2">&quot;fakehashed&quot;</span> <span class="o">+</span> <span class="n">password</span>
+
+
+<span class="n">oauth2_scheme</span> <span class="o">=</span> <span class="n">OAuth2PasswordBearer</span><span class="p">(</span><span class="n">tokenUrl</span><span class="o">=</span><span class="s2">&quot;token&quot;</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">username</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">email</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">full_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">disabled</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<span class="k">class</span> <span class="nc">UserInDB</span><span class="p">(</span><span class="n">User</span><span class="p">):</span>
+    <span class="n">hashed_password</span><span class="p">:</span> <span class="nb">str</span>
+
+
+<span class="k">def</span> <span class="nf">get_user</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">username</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">username</span> <span class="ow">in</span> <span class="n">db</span><span class="p">:</span>
+        <span class="n">user_dict</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="n">username</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">UserInDB</span><span class="p">(</span><span class="o">**</span><span class="n">user_dict</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">fake_decode_token</span><span class="p">(</span><span class="n">token</span><span class="p">):</span>
+    <span class="c1"># This doesn&#39;t provide any security at all</span>
+    <span class="c1"># Check the next version</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">get_user</span><span class="p">(</span><span class="n">fake_users_db</span><span class="p">,</span> <span class="n">token</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">user</span>
+
+<span class="hll">
+</span><span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">get_current_user</span><span class="p">(</span><span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">oauth2_scheme</span><span class="p">)):</span>
+</span><span class="hll">    <span class="n">user</span> <span class="o">=</span> <span class="n">fake_decode_token</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+</span><span class="hll">    <span class="k">if</span> <span class="ow">not</span> <span class="n">user</span><span class="p">:</span>
+</span><span class="hll">        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span>
+</span><span class="hll">            <span class="n">status_code</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_401_UNAUTHORIZED</span><span class="p">,</span>
+</span><span class="hll">            <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;Invalid authentication credentials&quot;</span><span class="p">,</span>
+</span><span class="hll">            <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;WWW-Authenticate&quot;</span><span class="p">:</span> <span class="s2">&quot;Bearer&quot;</span><span class="p">},</span>
+</span><span class="hll">        <span class="p">)</span>
+</span><span class="hll">    <span class="k">return</span> <span class="n">user</span>
+</span>
+
+<span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">get_current_active_user</span><span class="p">(</span><span class="n">current_user</span><span class="p">:</span> <span class="n">User</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_current_user</span><span class="p">)):</span>
+</span><span class="hll">    <span class="k">if</span> <span class="n">current_user</span><span class="o">.</span><span class="n">disabled</span><span class="p">:</span>
+</span><span class="hll">        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;Inactive user&quot;</span><span class="p">)</span>
+</span><span class="hll">    <span class="k">return</span> <span class="n">current_user</span>
+</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/token&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">login</span><span class="p">(</span><span class="n">form_data</span><span class="p">:</span> <span class="n">OAuth2PasswordRequestForm</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">()):</span>
+    <span class="n">user_dict</span> <span class="o">=</span> <span class="n">fake_users_db</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">form_data</span><span class="o">.</span><span class="n">username</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">user_dict</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;Incorrect username or password&quot;</span><span class="p">)</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">UserInDB</span><span class="p">(</span><span class="o">**</span><span class="n">user_dict</span><span class="p">)</span>
+    <span class="n">hashed_password</span> <span class="o">=</span> <span class="n">fake_hash_password</span><span class="p">(</span><span class="n">form_data</span><span class="o">.</span><span class="n">password</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">hashed_password</span> <span class="o">==</span> <span class="n">user</span><span class="o">.</span><span class="n">hashed_password</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;Incorrect username or password&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;access_token&quot;</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="p">,</span> <span class="s2">&quot;token_type&quot;</span><span class="p">:</span> <span class="s2">&quot;bearer&quot;</span><span class="p">}</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/users/me&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">read_users_me</span><span class="p">(</span><span class="n">current_user</span><span class="p">:</span> <span class="n">User</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_current_active_user</span><span class="p">)):</span>
+<span class="hll">    <span class="k">return</span> <span class="n">current_user</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
 <div class="admonition info">
 <p class="admonition-title">说明</p>
 <p>此处返回值为 <code>Bearer</code> 的响应头 <code>WWW-Authenticate</code> 也是规范的一部分。</p>

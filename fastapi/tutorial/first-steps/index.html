@@ -811,7 +811,7 @@
   
     <li class="md-nav__item">
       <a href="../schema-extra-example/" class="md-nav__link">
-        概图的更多信息 - 示例
+        声明请求的示例数据
       </a>
     </li>
   
@@ -1047,7 +1047,7 @@
   
     <li class="md-nav__item">
       <a href="../dependencies/classes-as-dependencies/" class="md-nav__link">
-        用类定义依赖项
+        类为依赖项
       </a>
     </li>
   
@@ -1103,7 +1103,7 @@
   
     <li class="md-nav__item">
       <a href="../dependencies/dependencies-with-yield/" class="md-nav__link">
-        生成器依赖项
+        `yield` 生成器依赖项
       </a>
     </li>
   
@@ -2713,7 +2713,7 @@
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">笔记</p>
-<p>如果不清楚普通函数与异步函数的区别，请参阅<a class="internal-link" href="https://fastapi.tiangolo.com/async/#in-a-hurry" target="_blank">异步：<strong><em>等不及了？</em></strong></a>一节中的内容。</p>
+<p>如果不清楚普通函数与异步函数的区别，请参阅<a class="internal-link" href="https://fastapi.tiangolo.com/async/#in-a-hurry" target="_blank">异步：等不及了？</a>一节中的内容。</p>
 </div>
 <h3 id="_11">第五步：返回内容<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
@@ -2730,11 +2730,11 @@
 <p>还有很多能自动转换为 JSON 的对象与模型（比如 ORM 等）。您可以尝试使用最喜欢的对象，FastAPI 很可能已经为其提供支持了。</p>
 <h2 id="_12">小结<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
 <ul>
-<li>导入 <code>FastAPI</code></li>
-<li>创建 <code>app</code> 实例</li>
-<li>编写<strong><em>路径操作装饰器</em></strong>（如 <code>@app.get("/")</code>）</li>
-<li>编写<strong>路径操作函数</strong>（如 <code>def root(): ...</code>）</li>
-<li>运行开发服务器（如 <code>uvicorn main:app --reload</code>）</li>
+<li>导入 <code>FastAPI</code>。</li>
+<li>创建 <code>app</code> 实例。</li>
+<li>编写<strong>路径操作装饰器</strong>，（如 <code>@app.get("/")</code>。</li>
+<li>编写<strong>路径操作函数</strong>，如 <code>def root(): ...</code>。</li>
+<li>运行开发服务器，如 <code>uvicorn main:app --reload</code>。</li>
 </ul>
 
               

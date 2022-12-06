@@ -619,7 +619,7 @@
   
     <li class="md-nav__item">
       <a href="../schema-extra-example/" class="md-nav__link">
-        概图的更多信息 - 示例
+        声明请求的示例数据
       </a>
     </li>
   
@@ -910,7 +910,7 @@
   
     <li class="md-nav__item">
       <a href="../dependencies/classes-as-dependencies/" class="md-nav__link">
-        用类定义依赖项
+        类为依赖项
       </a>
     </li>
   
@@ -966,7 +966,7 @@
   
     <li class="md-nav__item">
       <a href="../dependencies/dependencies-with-yield/" class="md-nav__link">
-        生成器依赖项
+        `yield` 生成器依赖项
       </a>
     </li>
   
@@ -2176,6 +2176,9 @@
 <p>定义 <code>Cookie</code> 参数与定义 <code>Query</code> 和 <code>Path</code> 参数一样。</p>
 <h2 id="cookie_1">导入 <code>Cookie</code><a class="headerlink" href="#cookie_1" title="Permanent link">&para;</a></h2>
 <p>首先，导入 <code>Cookie</code>：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python 3.6 and above</label><label for="__tabbed_1_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="hll"><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Cookie</span><span class="p">,</span> <span class="n">FastAPI</span>
@@ -2187,9 +2190,26 @@
 <span class="k">async</span> <span class="k">def</span> <span class="nf">read_items</span><span class="p">(</span><span class="n">ads_id</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="n">Cookie</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)):</span>
     <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;ads_id&quot;</span><span class="p">:</span> <span class="n">ads_id</span><span class="p">}</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="hll"><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Cookie</span><span class="p">,</span> <span class="n">FastAPI</span>
+</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">read_items</span><span class="p">(</span><span class="n">ads_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="n">Cookie</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;ads_id&quot;</span><span class="p">:</span> <span class="n">ads_id</span><span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <h2 id="cookie_2">声明 <code>Cookie</code> 参数<a class="headerlink" href="#cookie_2" title="Permanent link">&para;</a></h2>
 <p>声明 <code>Cookie</code> 参数的方式与声明 <code>Query</code> 和 <code>Path</code> 参数相同。</p>
 <p>第一个值是默认值，还可以传递所有验证参数或注释参数：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python 3.6 and above</label><label for="__tabbed_2_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Cookie</span><span class="p">,</span> <span class="n">FastAPI</span>
@@ -2201,6 +2221,20 @@
 <span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">read_items</span><span class="p">(</span><span class="n">ads_id</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="n">Cookie</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)):</span>
 </span>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;ads_id&quot;</span><span class="p">:</span> <span class="n">ads_id</span><span class="p">}</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Cookie</span><span class="p">,</span> <span class="n">FastAPI</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/&quot;</span><span class="p">)</span>
+<span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">read_items</span><span class="p">(</span><span class="n">ads_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="n">Cookie</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)):</span>
+</span>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;ads_id&quot;</span><span class="p">:</span> <span class="n">ads_id</span><span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <div class="admonition note">
 <p class="admonition-title">技术细节</p>
 <p><code>Cookie</code> 、<code>Path</code> 、<code>Query</code> 是<strong>兄弟类</strong>，都继承自共用的 <code>Param</code> 类。</p>

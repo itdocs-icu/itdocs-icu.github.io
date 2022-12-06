@@ -619,7 +619,7 @@
   
     <li class="md-nav__item">
       <a href="../../schema-extra-example/" class="md-nav__link">
-        概图的更多信息 - 示例
+        声明请求的示例数据
       </a>
     </li>
   
@@ -855,7 +855,7 @@
   
     <li class="md-nav__item">
       <a href="../../dependencies/classes-as-dependencies/" class="md-nav__link">
-        用类定义依赖项
+        类为依赖项
       </a>
     </li>
   
@@ -911,7 +911,7 @@
   
     <li class="md-nav__item">
       <a href="../../dependencies/dependencies-with-yield/" class="md-nav__link">
-        生成器依赖项
+        `yield` 生成器依赖项
       </a>
     </li>
   
@@ -2296,7 +2296,7 @@
 <h2 id="_2">运行<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <div class="admonition info">
 <p class="admonition-title">说明</p>
-<p>先安装 <a href="https://andrew-d.github.io/python-multipart/" class="external-link" target="_blank"><code>python-multipart</code></a>。</p>
+<p>首先，安装 <a href="https://andrew-d.github.io/python-multipart/" class="external-link" target="_blank"><code>python-multipart</code></a>。</p>
 <p>安装命令： <code>pip install python-multipart</code>。</p>
 <p>这是因为 <strong>OAuth2</strong> 使用<strong>表单数据</strong>发送 <code>username</code> 与 <code>password</code>。</p>
 </div>
@@ -2313,14 +2313,14 @@
 <h2 id="_3">查看文档<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>打开 API 文档： <a href="http://127.0.0.1:8000/docs" class="external-link" target="_blank">http://127.0.0.1:8000/docs。</a></p>
 <p>界面如下图所示：</p>
-<p><img src="/img/tutorial/security/image01.png"></p>
+<p><img src="https://fastapi.tiangolo.com/img/tutorial/security/image01.png"></p>
 <div class="admonition check">
 <p class="admonition-title">Authorize 按钮！</p>
 <p>页面右上角出现了一个「<strong>Authorize</strong>」按钮。</p>
 <p><strong>路径操作</strong>的右上角也出现了一个可以点击的小锁图标。</p>
 </div>
 <p>点击 <strong>Authorize</strong> 按钮，弹出授权表单，输入 <code>username</code> 与 <code>password</code> 及其他可选字段：</p>
-<p><img src="/img/tutorial/security/image02.png"></p>
+<p><img src="https://fastapi.tiangolo.com/img/tutorial/security/image02.png"></p>
 <div class="admonition note">
 <p class="admonition-title">笔记</p>
 <p>目前，在表单中输入内容不会有任何反应，后文会介绍相关内容。</p>
@@ -2419,7 +2419,7 @@
 <p>如果没有找到 <code>Authorization</code> 请求头，或请求头的值不是 <code>Bearer＋Token</code>，FastAPI 就会直接返回 401 错误状态码（<code>UNAUTHORIZED</code>）。</p>
 <p>开发者不需要检查错误信息，查看 Token 是否存在，只要该函数能够执行，函数中就会包含 Token 字符串。</p>
 <p>正如下图所示，API 文档已经包含了这项功能：</p>
-<p><img src="/img/tutorial/security/image03.png"></p>
+<p><img src="https://fastapi.tiangolo.com/img/tutorial/security/image03.png"></p>
 <p>目前，暂时还没有实现验证 Token 是否有效的功能，不过后文很快就会介绍的。</p>
 <h2 id="_7">小结<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <p>看到了吧，只要多写三四行代码，就可以添加基础的安全表单。</p>

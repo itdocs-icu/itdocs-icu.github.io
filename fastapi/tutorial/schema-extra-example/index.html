@@ -17,7 +17,7 @@
     
     
       
-        <title>概图的更多信息 - 示例 - FastAPI</title>
+        <title>声明请求的示例数据 - FastAPI</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#-" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -169,7 +169,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              概图的更多信息 - 示例
+              声明请求的示例数据
             
           </span>
         </div>
@@ -628,12 +628,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          概图的更多信息 - 示例
+          声明请求的示例数据
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        概图的更多信息 - 示例
+        声明请求的示例数据
       </a>
       
         
@@ -681,7 +681,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     文档中的示例
   </a>
   
@@ -695,8 +695,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    文档中显示的多个示例
+  <a href="#_3" class="md-nav__link">
+    文档中的多个示例
   </a>
   
 </li>
@@ -707,7 +707,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     技术细节
   </a>
   
@@ -951,7 +951,7 @@
   
     <li class="md-nav__item">
       <a href="../dependencies/classes-as-dependencies/" class="md-nav__link">
-        用类定义依赖项
+        类为依赖项
       </a>
     </li>
   
@@ -1007,7 +1007,7 @@
   
     <li class="md-nav__item">
       <a href="../dependencies/dependencies-with-yield/" class="md-nav__link">
-        生成器依赖项
+        `yield` 生成器依赖项
       </a>
     </li>
   
@@ -2208,7 +2208,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     文档中的示例
   </a>
   
@@ -2222,8 +2222,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    文档中显示的多个示例
+  <a href="#_3" class="md-nav__link">
+    文档中的多个示例
   </a>
   
 </li>
@@ -2234,7 +2234,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     技术细节
   </a>
   
@@ -2254,11 +2254,14 @@
                 
 
 
-<h1 id="-">概图的更多信息 - 示例<a class="headerlink" href="#-" title="Permanent link">&para;</a></h1>
+<h1 id="_1">声明请求的示例数据<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>FastAPI 支持为应用中的数据声明示例。</p>
 <p>以下是几种实现的方式。</p>
 <h2 id="pydantic-schema_extra">Pydantic 的 <code>schema_extra</code><a class="headerlink" href="#pydantic-schema_extra" title="Permanent link">&para;</a></h2>
 <p>使用 <code>Config</code> 与 <code>schema_extra</code> 为 Pydantic 模型声明 <code>example</code>， 详见 <a href="https://pydantic-docs.helpmanual.io/usage/schema/#schema-customization" class="external-link" target="_blank">Pydantic 文档：自定义概图</a>：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python 3.6 and above</label><label for="__tabbed_1_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
@@ -2289,7 +2292,40 @@
     <span class="n">results</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="n">item_id</span><span class="p">,</span> <span class="s2">&quot;item&quot;</span><span class="p">:</span> <span class="n">item</span><span class="p">}</span>
     <span class="k">return</span> <span class="n">results</span>
 </code></pre></div>
-<p>输出的 <strong>JSON Schema</strong> 中会为模型添加这些附加信息，并在 API 文档中显示。</p>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">price</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">tax</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="hll">    <span class="k">class</span> <span class="nc">Config</span><span class="p">:</span>
+</span><span class="hll">        <span class="n">schema_extra</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class="hll">            <span class="s2">&quot;example&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class="hll">                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Foo&quot;</span><span class="p">,</span>
+</span><span class="hll">                <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;A very nice Item&quot;</span><span class="p">,</span>
+</span><span class="hll">                <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mf">35.4</span><span class="p">,</span>
+</span><span class="hll">                <span class="s2">&quot;tax&quot;</span><span class="p">:</span> <span class="mf">3.2</span><span class="p">,</span>
+</span><span class="hll">            <span class="p">}</span>
+</span><span class="hll">        <span class="p">}</span>
+</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s2">&quot;/items/</span><span class="si">{item_id}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">update_item</span><span class="p">(</span><span class="n">item_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">):</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="n">item_id</span><span class="p">,</span> <span class="s2">&quot;item&quot;</span><span class="p">:</span> <span class="n">item</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">results</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>输出的 <strong>JSON Schema</strong> 中会为模型添加这些附加信息，并显示在 API 文档中。</p>
 <div class="admonition tip">
 <p class="admonition-title">提示</p>
 <p>同样，可以扩展 JSON Schema，并添加更多自定义信息。</p>
@@ -2298,6 +2334,9 @@
 <h2 id="field">更多 <code>Field</code> 参数<a class="headerlink" href="#field" title="Permanent link">&para;</a></h2>
 <p>向 Pydantic 模型的 <code>Field()</code> 传递参数，可以为 <strong>JSON Schema</strong> 声明更多信息。</p>
 <p>使用 <code>Field()</code> 为字段添加 <code>example</code>：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python 3.6 and above</label><label for="__tabbed_2_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
@@ -2318,12 +2357,35 @@
     <span class="n">results</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="n">item_id</span><span class="p">,</span> <span class="s2">&quot;item&quot;</span><span class="p">:</span> <span class="n">item</span><span class="p">}</span>
     <span class="k">return</span> <span class="n">results</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="hll"><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">Field</span>
+</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<span class="hll">    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">example</span><span class="o">=</span><span class="s2">&quot;Foo&quot;</span><span class="p">)</span>
+</span><span class="hll">    <span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">example</span><span class="o">=</span><span class="s2">&quot;A very nice Item&quot;</span><span class="p">)</span>
+</span><span class="hll">    <span class="n">price</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">example</span><span class="o">=</span><span class="mf">35.4</span><span class="p">)</span>
+</span><span class="hll">    <span class="n">tax</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">example</span><span class="o">=</span><span class="mf">3.2</span><span class="p">)</span>
+</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s2">&quot;/items/</span><span class="si">{item_id}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">update_item</span><span class="p">(</span><span class="n">item_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">):</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="n">item_id</span><span class="p">,</span> <span class="s2">&quot;item&quot;</span><span class="p">:</span> <span class="n">item</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">results</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <div class="admonition warning">
 <p class="admonition-title">警告</p>
-<p>注意，传递的这些参数不添加验证，只添加供存档使用的额外信息。</p>
+<p>注意，传递的这些参数不添加验证，只添加供文档使用的额外信息。</p>
 </div>
 <h2 id="openapi-example-examples">OpenAPI 中的 <code>example</code> 与 <code>examples</code><a class="headerlink" href="#openapi-example-examples" title="Permanent link">&para;</a></h2>
-<p>使用以下任意函数时：</p>
+<p>使用以下函数时：</p>
 <ul>
 <li><code>Path()</code></li>
 <li><code>Query()</code></li>
@@ -2335,7 +2397,10 @@
 </ul>
 <p>还可以通过声明数据的 <code>example</code>，或一组 <code>examples</code> 向 <strong>OpenAPI</strong> 添加更多信息。</p>
 <h3 id="body-example">在 <code>Body</code> 中使用 <code>example</code><a class="headerlink" href="#body-example" title="Permanent link">&para;</a></h3>
-<p>下列代码向 <code>Body()</code>  传递<code>example</code> 数据：</p>
+<p>下列代码向 <code>Body()</code> 传递<code>example</code> 数据：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python 3.6 and above</label><label for="__tabbed_3_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Body</span><span class="p">,</span> <span class="n">FastAPI</span>
@@ -2355,30 +2420,66 @@
 <span class="k">async</span> <span class="k">def</span> <span class="nf">update_item</span><span class="p">(</span>
     <span class="n">item_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
     <span class="n">item</span><span class="p">:</span> <span class="n">Item</span> <span class="o">=</span> <span class="n">Body</span><span class="p">(</span>
-        <span class="n">example</span><span class="o">=</span><span class="p">{</span>
-<span class="hll">            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Foo&quot;</span><span class="p">,</span>
+<span class="hll">        <span class="n">example</span><span class="o">=</span><span class="p">{</span>
+</span><span class="hll">            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Foo&quot;</span><span class="p">,</span>
 </span><span class="hll">            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;A very nice Item&quot;</span><span class="p">,</span>
 </span><span class="hll">            <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mf">35.4</span><span class="p">,</span>
 </span><span class="hll">            <span class="s2">&quot;tax&quot;</span><span class="p">:</span> <span class="mf">3.2</span><span class="p">,</span>
 </span><span class="hll">        <span class="p">},</span>
-</span><span class="hll">    <span class="p">),</span>
-</span><span class="p">):</span>
+</span>    <span class="p">),</span>
+<span class="p">):</span>
     <span class="n">results</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="n">item_id</span><span class="p">,</span> <span class="s2">&quot;item&quot;</span><span class="p">:</span> <span class="n">item</span><span class="p">}</span>
     <span class="k">return</span> <span class="n">results</span>
 </code></pre></div>
-<h3 id="_1">文档中的示例<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Body</span><span class="p">,</span> <span class="n">FastAPI</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">price</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">tax</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s2">&quot;/items/</span><span class="si">{item_id}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">update_item</span><span class="p">(</span>
+    <span class="n">item_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">item</span><span class="p">:</span> <span class="n">Item</span> <span class="o">=</span> <span class="n">Body</span><span class="p">(</span>
+<span class="hll">        <span class="n">example</span><span class="o">=</span><span class="p">{</span>
+</span><span class="hll">            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Foo&quot;</span><span class="p">,</span>
+</span><span class="hll">            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;A very nice Item&quot;</span><span class="p">,</span>
+</span><span class="hll">            <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mf">35.4</span><span class="p">,</span>
+</span><span class="hll">            <span class="s2">&quot;tax&quot;</span><span class="p">:</span> <span class="mf">3.2</span><span class="p">,</span>
+</span><span class="hll">        <span class="p">},</span>
+</span>    <span class="p">),</span>
+<span class="p">):</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="n">item_id</span><span class="p">,</span> <span class="s2">&quot;item&quot;</span><span class="p">:</span> <span class="n">item</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">results</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="_2">文档中的示例<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>上述示例代码在文档 <code>/docs</code> 中的显示效果如下：</p>
-<p><img src="/img/tutorial/body-fields/image01.png"></p>
+<p><img src="https://fastapi.tiangolo.com/img/tutorial/body-fields/image01.png"></p>
 <h3 id="body-examples">在<code>Body</code> 中使用 <code>examples</code><a class="headerlink" href="#body-examples" title="Permanent link">&para;</a></h3>
 <p>除了单个的 <code>example</code>，还可以使用 <code>dict</code> 传递 <code>examples</code>，以此来显示多个示例，这些示例信息也会被添加至 <strong>OpenAPI</strong>。</p>
-<p><code>dict</code> 通过<em>键</em>识别示例，这些示例的值也是 <code>dict</code>。</p>
+<p><code>dict</code> 通过<strong>键</strong>识别示例，这些示例的值也是 <code>dict</code>。</p>
 <p><code>examples</code> 的 <code>dict</code> 包含下列内容：</p>
 <ul>
-<li><code>summary</code>：示例简述</li>
-<li><code>description</code>：支持 Markdown 格式的较长描述</li>
-<li><code>value</code>：实际显示的示例，可以是 <code>dict</code></li>
-<li><code>externalValue</code>：<code>value</code> 的备选项，指向示例的 URL。但可能有些工具不支持</li>
+<li><code>summary</code>：示例简述。</li>
+<li><code>description</code>：支持 Markdown 格式的较长描述。</li>
+<li><code>value</code>：实际显示的示例，可以是<strong>字典</strong>。</li>
+<li><code>externalValue</code>：<code>value</code> 的备选项，指向示例的 URL，但可能有些工具不支持。</li>
 </ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Python 3.6 and above</label><label for="__tabbed_4_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Body</span><span class="p">,</span> <span class="n">FastAPI</span>
@@ -2399,8 +2500,8 @@
     <span class="o">*</span><span class="p">,</span>
     <span class="n">item_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
     <span class="n">item</span><span class="p">:</span> <span class="n">Item</span> <span class="o">=</span> <span class="n">Body</span><span class="p">(</span>
-        <span class="n">examples</span><span class="o">=</span><span class="p">{</span>
-<span class="hll">            <span class="s2">&quot;normal&quot;</span><span class="p">:</span> <span class="p">{</span>
+<span class="hll">        <span class="n">examples</span><span class="o">=</span><span class="p">{</span>
+</span><span class="hll">            <span class="s2">&quot;normal&quot;</span><span class="p">:</span> <span class="p">{</span>
 </span><span class="hll">                <span class="s2">&quot;summary&quot;</span><span class="p">:</span> <span class="s2">&quot;A normal example&quot;</span><span class="p">,</span>
 </span><span class="hll">                <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;A **normal** item works correctly.&quot;</span><span class="p">,</span>
 </span><span class="hll">                <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -2426,15 +2527,70 @@
 </span><span class="hll">                <span class="p">},</span>
 </span><span class="hll">            <span class="p">},</span>
 </span><span class="hll">        <span class="p">},</span>
-</span><span class="hll">    <span class="p">),</span>
-</span><span class="p">):</span>
+</span>    <span class="p">),</span>
+<span class="p">):</span>
     <span class="n">results</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="n">item_id</span><span class="p">,</span> <span class="s2">&quot;item&quot;</span><span class="p">:</span> <span class="n">item</span><span class="p">}</span>
     <span class="k">return</span> <span class="n">results</span>
 </code></pre></div>
-<h3 id="_2">文档中显示的多个示例<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Body</span><span class="p">,</span> <span class="n">FastAPI</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">price</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">tax</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s2">&quot;/items/</span><span class="si">{item_id}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">update_item</span><span class="p">(</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">item_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">item</span><span class="p">:</span> <span class="n">Item</span> <span class="o">=</span> <span class="n">Body</span><span class="p">(</span>
+<span class="hll">        <span class="n">examples</span><span class="o">=</span><span class="p">{</span>
+</span><span class="hll">            <span class="s2">&quot;normal&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class="hll">                <span class="s2">&quot;summary&quot;</span><span class="p">:</span> <span class="s2">&quot;A normal example&quot;</span><span class="p">,</span>
+</span><span class="hll">                <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;A **normal** item works correctly.&quot;</span><span class="p">,</span>
+</span><span class="hll">                <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class="hll">                    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Foo&quot;</span><span class="p">,</span>
+</span><span class="hll">                    <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;A very nice Item&quot;</span><span class="p">,</span>
+</span><span class="hll">                    <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mf">35.4</span><span class="p">,</span>
+</span><span class="hll">                    <span class="s2">&quot;tax&quot;</span><span class="p">:</span> <span class="mf">3.2</span><span class="p">,</span>
+</span><span class="hll">                <span class="p">},</span>
+</span><span class="hll">            <span class="p">},</span>
+</span><span class="hll">            <span class="s2">&quot;converted&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class="hll">                <span class="s2">&quot;summary&quot;</span><span class="p">:</span> <span class="s2">&quot;An example with converted data&quot;</span><span class="p">,</span>
+</span><span class="hll">                <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;FastAPI can convert price `strings` to actual `numbers` automatically&quot;</span><span class="p">,</span>
+</span><span class="hll">                <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class="hll">                    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Bar&quot;</span><span class="p">,</span>
+</span><span class="hll">                    <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="s2">&quot;35.4&quot;</span><span class="p">,</span>
+</span><span class="hll">                <span class="p">},</span>
+</span><span class="hll">            <span class="p">},</span>
+</span><span class="hll">            <span class="s2">&quot;invalid&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class="hll">                <span class="s2">&quot;summary&quot;</span><span class="p">:</span> <span class="s2">&quot;Invalid data is rejected with an error&quot;</span><span class="p">,</span>
+</span><span class="hll">                <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="p">{</span>
+</span><span class="hll">                    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Baz&quot;</span><span class="p">,</span>
+</span><span class="hll">                    <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="s2">&quot;thirty five point four&quot;</span><span class="p">,</span>
+</span><span class="hll">                <span class="p">},</span>
+</span><span class="hll">            <span class="p">},</span>
+</span><span class="hll">        <span class="p">},</span>
+</span>    <span class="p">),</span>
+<span class="p">):</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="n">item_id</span><span class="p">,</span> <span class="s2">&quot;item&quot;</span><span class="p">:</span> <span class="n">item</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">results</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="_3">文档中的多个示例<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p><code>Body()</code> 中包含 <code>examples</code> 时，在文档 <code>/docs</code> 中的显示如下图：</p>
-<p><img src="/img/tutorial/body-fields/image02.png"></p>
-<h2 id="_3">技术细节<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p><img src="https://fastapi.tiangolo.com/img/tutorial/body-fields/image02.png"></p>
+<h2 id="_4">技术细节<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">警告</p>
 <p>与 <strong>JSON Schema</strong> 和 <strong>OpenAPI</strong> 相关的技术细节很多。</p>
@@ -2444,7 +2600,7 @@
 <p>Pydantic 模型的 <strong>JSON Schema</strong> 包含在 API 的 <strong>OpenAPI</strong> 中，并在文档中显示。</p>
 <p>实际上，<strong>JSON Schema</strong> 标准中没有 <code>example</code>。新版 JSON Schema 中定义了 <a href="https://json-schema.org/draft/2019-09/json-schema-validation.html#rfc.section.9.5" class="external-link" target="_blank"><code>examples</code></a> 字段，但  OpenAPI 3.0.3 基于的旧版 JSON Schema 没有<code>examples</code> 字段。</p>
 <p>因此，OpenAPI 3.0.3 定义了自己的 <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md#fixed-fields-20" class="external-link" target="_blank"><code>example</code></a>，供新版  <strong>JSON Schema</strong> 使用（但它用的只是 <code>example</code>，不是 <code>examples</code>）。同样，（使用 Swagger UI 的）API 文档中用的也是 <code>example</code>。</p>
-<p><code>example</code> 不是 JSON Schema 的组件，但它是 OpenAPI 为  JSON Schema 定制的组件，因此，文档中使用 <code>example</code>。</p>
+<p><code>example</code> 不是 JSON Schema 的组件，但它是 OpenAPI 为 JSON Schema 定制的组件，因此，文档中使用 <code>example</code>。</p>
 <p>但在（<code>Query()</code>、<code>Body()</code> 等）其他工具中使用 <code>example</code> 或 <code>examples</code> 时，这些描述数据的示例不会被添加至 JSON Schema（包括 OpenAPI 自己的 JSON Schema），而是被直接添加至 OpenAPI 的<strong>路径操作</strong>声明里（OpenAPI 使用 JSON Schema 外部的组件）。</p>
 <p>对于 <code>Path()</code>、<code>Query()</code>、<code>Header()</code>、<code>Cookie()</code>，<code>example</code> 或 <code>examples</code> 被添加至 <a href="https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.3.md#parameter-object" class="external-link" target="_blank">OpenAPI 定义中的<code>Parameter Object</code>（规范）</a>。</p>
 <p>对于 <code>Body()</code>、<code>File()</code>、<code>Form()</code>，<code>example</code> 或 <code>examples</code> 被添加至 <a href="https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.3.md#mediaTypeObject" class="external-link" target="_blank">OpenAPI 定义中<code>content</code> 字段里的 <code>Request Body Object</code> 中的 <code>Media Type Object</code>（规范）</a>。</p>

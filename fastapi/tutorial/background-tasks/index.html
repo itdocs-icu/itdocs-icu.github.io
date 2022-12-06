@@ -619,7 +619,7 @@
   
     <li class="md-nav__item">
       <a href="../schema-extra-example/" class="md-nav__link">
-        概图的更多信息 - 示例
+        声明请求的示例数据
       </a>
     </li>
   
@@ -855,7 +855,7 @@
   
     <li class="md-nav__item">
       <a href="../dependencies/classes-as-dependencies/" class="md-nav__link">
-        用类定义依赖项
+        类为依赖项
       </a>
     </li>
   
@@ -911,7 +911,7 @@
   
     <li class="md-nav__item">
       <a href="../dependencies/dependencies-with-yield/" class="md-nav__link">
-        生成器依赖项
+        `yield` 生成器依赖项
       </a>
     </li>
   
@@ -2310,6 +2310,9 @@
 <h2 id="_4">依赖注入<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>依赖注入系统中也可以使用 <code>BackgroundTasks</code>，可以在不同层级声明 <code>BackgroundTasks</code> 类型的参数：<strong>路径操作函数</strong>、依赖项、子依赖项等。</p>
 <p><strong>FastAPI</strong> 知道怎样为不同情况执行不同的操作，以及如何复用相同对象，以便把所有后台任务合并为一体，并在后台运行：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python 3.6 and above</label><label for="__tabbed_1_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">BackgroundTasks</span><span class="p">,</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span>
@@ -2337,6 +2340,36 @@
 <span class="hll">    <span class="n">background_tasks</span><span class="o">.</span><span class="n">add_task</span><span class="p">(</span><span class="n">write_log</span><span class="p">,</span> <span class="n">message</span><span class="p">)</span>
 </span>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Message sent&quot;</span><span class="p">}</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">BackgroundTasks</span><span class="p">,</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">write_log</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;log.txt&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;a&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">log</span><span class="p">:</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+
+
+<span class="hll"><span class="k">def</span> <span class="nf">get_query</span><span class="p">(</span><span class="n">background_tasks</span><span class="p">:</span> <span class="n">BackgroundTasks</span><span class="p">,</span> <span class="n">q</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+</span>    <span class="k">if</span> <span class="n">q</span><span class="p">:</span>
+<span class="hll">        <span class="n">message</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;found query: </span><span class="si">{</span><span class="n">q</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+</span>        <span class="n">background_tasks</span><span class="o">.</span><span class="n">add_task</span><span class="p">(</span><span class="n">write_log</span><span class="p">,</span> <span class="n">message</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">q</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/send-notification/</span><span class="si">{email}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">send_notification</span><span class="p">(</span>
+<span class="hll">    <span class="n">email</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">background_tasks</span><span class="p">:</span> <span class="n">BackgroundTasks</span><span class="p">,</span> <span class="n">q</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_query</span><span class="p">)</span>
+</span><span class="p">):</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;message to </span><span class="si">{</span><span class="n">email</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="hll">    <span class="n">background_tasks</span><span class="o">.</span><span class="n">add_task</span><span class="p">(</span><span class="n">write_log</span><span class="p">,</span> <span class="n">message</span><span class="p">)</span>
+</span>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Message sent&quot;</span><span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <p>本例中，响应发送后会把所有信息写入 <code>log.txt</code>。</p>
 <p>如果请求中包含查询，该查询也会被后台任务写入日志。</p>
 <p>然后，<strong>路径操作函数</strong>中生成的另一个后台任务会使用 <code>email</code> 路径参数写入信息。</p>

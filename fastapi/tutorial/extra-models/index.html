@@ -619,7 +619,7 @@
   
     <li class="md-nav__item">
       <a href="../schema-extra-example/" class="md-nav__link">
-        概图的更多信息 - 示例
+        声明请求的示例数据
       </a>
     </li>
   
@@ -787,6 +787,19 @@
     Union 或者 anyOf
   </a>
   
+    <nav class="md-nav" aria-label="Union 或者 anyOf">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#union-in-python-310" class="md-nav__link">
+    Union in Python 3.10
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -798,7 +811,7 @@
       
         <li class="md-nav__item">
   <a href="#dict_2" class="md-nav__link">
-    任意 dict 构成的响应
+    dict 的响应
   </a>
   
 </li>
@@ -978,7 +991,7 @@
   
     <li class="md-nav__item">
       <a href="../dependencies/classes-as-dependencies/" class="md-nav__link">
-        用类定义依赖项
+        类为依赖项
       </a>
     </li>
   
@@ -1034,7 +1047,7 @@
   
     <li class="md-nav__item">
       <a href="../dependencies/dependencies-with-yield/" class="md-nav__link">
-        生成器依赖项
+        `yield` 生成器依赖项
       </a>
     </li>
   
@@ -2271,6 +2284,19 @@
     Union 或者 anyOf
   </a>
   
+    <nav class="md-nav" aria-label="Union 或者 anyOf">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#union-in-python-310" class="md-nav__link">
+    Union in Python 3.10
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2282,7 +2308,7 @@
       
         <li class="md-nav__item">
   <a href="#dict_2" class="md-nav__link">
-    任意 dict 构成的响应
+    dict 的响应
   </a>
   
 </li>
@@ -2312,9 +2338,9 @@
 <p>书接上文，多个关联模型这种情况很常见。</p>
 <p>特别是用户模型，因为：</p>
 <ul>
-<li><strong>输入模型</strong>应该含密码</li>
-<li><strong>输出模型</strong>不应含密码</li>
-<li><strong>数据库模型</strong>需要加密的密码</li>
+<li><strong>输入模型</strong>应该含密码。</li>
+<li><strong>输出模型</strong>不应含密码。</li>
+<li><strong>数据库模型</strong>需要加密的密码。</li>
 </ul>
 <div class="admonition danger">
 <p class="admonition-title">危险</p>
@@ -2323,6 +2349,9 @@
 </div>
 <h2 id="_2">多个模型<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>下面的代码展示了不同模型处理密码字段的方式，及使用位置的大致思路：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python 3.6 and above</label><label for="__tabbed_1_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
@@ -2367,6 +2396,53 @@
 </span>    <span class="n">user_saved</span> <span class="o">=</span> <span class="n">fake_save_user</span><span class="p">(</span><span class="n">user_in</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">user_saved</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">EmailStr</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="hll"><span class="k">class</span> <span class="nc">UserIn</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+</span>    <span class="n">username</span><span class="p">:</span> <span class="nb">str</span>
+<span class="hll">    <span class="n">password</span><span class="p">:</span> <span class="nb">str</span>
+</span>    <span class="n">email</span><span class="p">:</span> <span class="n">EmailStr</span>
+    <span class="n">full_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<span class="hll"><span class="k">class</span> <span class="nc">UserOut</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+</span>    <span class="n">username</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">email</span><span class="p">:</span> <span class="n">EmailStr</span>
+    <span class="n">full_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<span class="hll"><span class="k">class</span> <span class="nc">UserInDB</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+</span>    <span class="n">username</span><span class="p">:</span> <span class="nb">str</span>
+<span class="hll">    <span class="n">hashed_password</span><span class="p">:</span> <span class="nb">str</span>
+</span>    <span class="n">email</span><span class="p">:</span> <span class="n">EmailStr</span>
+    <span class="n">full_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<span class="hll"><span class="k">def</span> <span class="nf">fake_password_hasher</span><span class="p">(</span><span class="n">raw_password</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+</span><span class="hll">    <span class="k">return</span> <span class="s2">&quot;supersecret&quot;</span> <span class="o">+</span> <span class="n">raw_password</span>
+</span>
+
+<span class="hll"><span class="k">def</span> <span class="nf">fake_save_user</span><span class="p">(</span><span class="n">user_in</span><span class="p">:</span> <span class="n">UserIn</span><span class="p">):</span>
+</span><span class="hll">    <span class="n">hashed_password</span> <span class="o">=</span> <span class="n">fake_password_hasher</span><span class="p">(</span><span class="n">user_in</span><span class="o">.</span><span class="n">password</span><span class="p">)</span>
+</span><span class="hll">    <span class="n">user_in_db</span> <span class="o">=</span> <span class="n">UserInDB</span><span class="p">(</span><span class="o">**</span><span class="n">user_in</span><span class="o">.</span><span class="n">dict</span><span class="p">(),</span> <span class="n">hashed_password</span><span class="o">=</span><span class="n">hashed_password</span><span class="p">)</span>
+</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;User saved! ..not really&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">user_in_db</span>
+
+
+<span class="hll"><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/user/&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">UserOut</span><span class="p">)</span>
+</span><span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">create_user</span><span class="p">(</span><span class="n">user_in</span><span class="p">:</span> <span class="n">UserIn</span><span class="p">):</span>
+</span>    <span class="n">user_saved</span> <span class="o">=</span> <span class="n">fake_save_user</span><span class="p">(</span><span class="n">user_in</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">user_saved</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <h3 id="user_indict"><code>**user_in.dict()</code> 简介<a class="headerlink" href="#user_indict" title="Permanent link">&para;</a></h3>
 <h4 id="pydantic-dict">Pydantic 的 <code>.dict()</code><a class="headerlink" href="#pydantic-dict" title="Permanent link">&para;</a></h4>
 <p><code>user_in</code> 是类 <code>UserIn</code> 的 Pydantic 模型。</p>
@@ -2444,8 +2520,10 @@
 <p>FastAPI 可以做得更好。</p>
 <p>声明 <code>UserBase</code> 模型作为其他模型的基类。然后，用该类衍生出继承其属性（类型声明、验证等）的子类。</p>
 <p>所有数据转换、校验、文档等功能仍将正常运行。</p>
-<p>这样，就可以仅声明模型之间的差异部分（具有明文的 <code>password</code>、具有 <code>hashed_password</code> 以及不包括密码）。</p>
-<p>通过这种方式，可以只声明模型之间的区别（分别包含明文密码、哈希密码，以及无密码的模型）。</p>
+<p>这样，就可以仅声明模型之间的差异部分（明文密码、哈希密码及无密码）。</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python 3.6 and above</label><label for="__tabbed_2_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
@@ -2488,6 +2566,51 @@
     <span class="n">user_saved</span> <span class="o">=</span> <span class="n">fake_save_user</span><span class="p">(</span><span class="n">user_in</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">user_saved</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">EmailStr</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="hll"><span class="k">class</span> <span class="nc">UserBase</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+</span>    <span class="n">username</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">email</span><span class="p">:</span> <span class="n">EmailStr</span>
+    <span class="n">full_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<span class="hll"><span class="k">class</span> <span class="nc">UserIn</span><span class="p">(</span><span class="n">UserBase</span><span class="p">):</span>
+</span><span class="hll">    <span class="n">password</span><span class="p">:</span> <span class="nb">str</span>
+</span>
+
+<span class="hll"><span class="k">class</span> <span class="nc">UserOut</span><span class="p">(</span><span class="n">UserBase</span><span class="p">):</span>
+</span><span class="hll">    <span class="k">pass</span>
+</span>
+
+<span class="hll"><span class="k">class</span> <span class="nc">UserInDB</span><span class="p">(</span><span class="n">UserBase</span><span class="p">):</span>
+</span><span class="hll">    <span class="n">hashed_password</span><span class="p">:</span> <span class="nb">str</span>
+</span>
+
+<span class="k">def</span> <span class="nf">fake_password_hasher</span><span class="p">(</span><span class="n">raw_password</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s2">&quot;supersecret&quot;</span> <span class="o">+</span> <span class="n">raw_password</span>
+
+
+<span class="k">def</span> <span class="nf">fake_save_user</span><span class="p">(</span><span class="n">user_in</span><span class="p">:</span> <span class="n">UserIn</span><span class="p">):</span>
+    <span class="n">hashed_password</span> <span class="o">=</span> <span class="n">fake_password_hasher</span><span class="p">(</span><span class="n">user_in</span><span class="o">.</span><span class="n">password</span><span class="p">)</span>
+    <span class="n">user_in_db</span> <span class="o">=</span> <span class="n">UserInDB</span><span class="p">(</span><span class="o">**</span><span class="n">user_in</span><span class="o">.</span><span class="n">dict</span><span class="p">(),</span> <span class="n">hashed_password</span><span class="o">=</span><span class="n">hashed_password</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;User saved! ..not really&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">user_in_db</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/user/&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">UserOut</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">create_user</span><span class="p">(</span><span class="n">user_in</span><span class="p">:</span> <span class="n">UserIn</span><span class="p">):</span>
+    <span class="n">user_saved</span> <span class="o">=</span> <span class="n">fake_save_user</span><span class="p">(</span><span class="n">user_in</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">user_saved</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <h2 id="union-anyof"><code>Union</code> 或者 <code>anyOf</code><a class="headerlink" href="#union-anyof" title="Permanent link">&para;</a></h2>
 <p>响应可以声明为两种类型的 <code>Union</code> 类型，即该响应可以是两种类型中的任意类型。</p>
 <p>在 OpenAPI 中可以使用 <code>anyOf</code> 定义。</p>
@@ -2496,6 +2619,9 @@
 <p class="admonition-title">笔记</p>
 <p>定义 <a href="https://pydantic-docs.helpmanual.io/usage/types/#unions" class="external-link" target="_blank"><code>Union</code></a> 类型时，要把详细的类型写在前面，然后是不太详细的类型。下例中，更详细的 <code>PlaneItem</code> 位于 <code>Union[PlaneItem，CarItem]</code> 中的 <code>CarItem</code> 之前。</p>
 </div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python 3.6 and above</label><label for="__tabbed_3_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="hll"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 </span>
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
@@ -2532,9 +2658,60 @@
 </span><span class="k">async</span> <span class="k">def</span> <span class="nf">read_item</span><span class="p">(</span><span class="n">item_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">items</span><span class="p">[</span><span class="n">item_id</span><span class="p">]</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="hll"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+</span>
+<span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="k">class</span> <span class="nc">BaseItem</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">description</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="nb">type</span><span class="p">:</span> <span class="nb">str</span>
+
+
+<span class="hll"><span class="k">class</span> <span class="nc">CarItem</span><span class="p">(</span><span class="n">BaseItem</span><span class="p">):</span>
+</span><span class="hll">    <span class="nb">type</span> <span class="o">=</span> <span class="s2">&quot;car&quot;</span>
+</span>
+
+<span class="hll"><span class="k">class</span> <span class="nc">PlaneItem</span><span class="p">(</span><span class="n">BaseItem</span><span class="p">):</span>
+</span><span class="hll">    <span class="nb">type</span> <span class="o">=</span> <span class="s2">&quot;plane&quot;</span>
+</span><span class="hll">    <span class="n">size</span><span class="p">:</span> <span class="nb">int</span>
+</span>
+
+<span class="n">items</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;item1&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;All my friends drive a low rider&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;car&quot;</span><span class="p">},</span>
+    <span class="s2">&quot;item2&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Music is my aeroplane, it&#39;s my aeroplane&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;plane&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;size&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+
+
+<span class="hll"><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/</span><span class="si">{item_id}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">Union</span><span class="p">[</span><span class="n">PlaneItem</span><span class="p">,</span> <span class="n">CarItem</span><span class="p">])</span>
+</span><span class="k">async</span> <span class="k">def</span> <span class="nf">read_item</span><span class="p">(</span><span class="n">item_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">items</span><span class="p">[</span><span class="n">item_id</span><span class="p">]</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="union-in-python-310"><code>Union</code> in Python 3.10<a class="headerlink" href="#union-in-python-310" title="Permanent link">&para;</a></h3>
+<p>In this example we pass <code>Union[PlaneItem, CarItem]</code> as the value of the argument <code>response_model</code>.</p>
+<p>Because we are passing it as a <strong>value to an argument</strong> instead of putting it in a <strong>type annotation</strong>, we have to use <code>Union</code> even in Python 3.10.</p>
+<p>If it was in a type annotation we could have used the vertical bar, as:</p>
+<div class="highlight"><pre><span></span><code><span class="n">some_variable</span><span class="p">:</span> <span class="n">PlaneItem</span> <span class="o">|</span> <span class="n">CarItem</span>
+</code></pre></div>
+<p>But if we put that in <code>response_model=PlaneItem | CarItem</code> we would get an error, because Python would try to perform an <strong>invalid operation</strong> between <code>PlaneItem</code> and <code>CarItem</code> instead of interpreting that as a type annotation.</p>
 <h2 id="_4">模型列表<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>使用同样的方式也可以声明由对象列表构成的响应。</p>
 <p>为此，请使用标准的 Python <code>typing.List</code>：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Python 3.6 and above</label><label for="__tabbed_4_2">Python 3.9 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="hll"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
 </span>
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
@@ -2558,10 +2735,39 @@
 </span><span class="k">async</span> <span class="k">def</span> <span class="nf">read_items</span><span class="p">():</span>
     <span class="k">return</span> <span class="n">items</span>
 </code></pre></div>
-<h2 id="dict_2">任意 <code>dict</code> 构成的响应<a class="headerlink" href="#dict_2" title="Permanent link">&para;</a></h2>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">description</span><span class="p">:</span> <span class="nb">str</span>
+
+
+<span class="n">items</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Foo&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;There comes my hero&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Red&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;It&#39;s my aeroplane&quot;</span><span class="p">},</span>
+<span class="p">]</span>
+
+
+<span class="hll"><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="nb">list</span><span class="p">[</span><span class="n">Item</span><span class="p">])</span>
+</span><span class="k">async</span> <span class="k">def</span> <span class="nf">read_items</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">items</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="dict_2"><code>dict</code> 的响应<a class="headerlink" href="#dict_2" title="Permanent link">&para;</a></h2>
 <p>任意的 <code>dict</code> 都能用于声明响应，只要声明键和值的类型，无需使用 Pydantic 模型。</p>
 <p>事先不知道可用的字段 / 属性名时（Pydantic 模型必须知道字段是什么），这种方式特别有用。</p>
 <p>此时，可以使用 <code>typing.Dict</code>：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Python 3.6 and above</label><label for="__tabbed_5_2">Python 3.9 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="hll"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
 </span>
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
@@ -2573,6 +2779,20 @@
 </span><span class="k">async</span> <span class="k">def</span> <span class="nf">read_keyword_weights</span><span class="p">():</span>
     <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;foo&quot;</span><span class="p">:</span> <span class="mf">2.3</span><span class="p">,</span> <span class="s2">&quot;bar&quot;</span><span class="p">:</span> <span class="mf">3.4</span><span class="p">}</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="hll"><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/keyword-weights/&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">])</span>
+</span><span class="k">async</span> <span class="k">def</span> <span class="nf">read_keyword_weights</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;foo&quot;</span><span class="p">:</span> <span class="mf">2.3</span><span class="p">,</span> <span class="s2">&quot;bar&quot;</span><span class="p">:</span> <span class="mf">3.4</span><span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <h2 id="_5">小结<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>针对不同场景，可以随意使用不同的 Pydantic 模型继承定义的基类。</p>
 <p>实体必须具有不同的<strong>状态</strong>时，不必为不同状态的实体单独定义数据模型。例如，用户<strong>实体</strong>就有包含 <code>password</code>、包含 <code>password_hash</code> 以及不含密码等多种状态。</p>

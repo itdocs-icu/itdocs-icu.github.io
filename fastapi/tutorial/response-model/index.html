@@ -619,7 +619,7 @@
   
     <li class="md-nav__item">
       <a href="../schema-extra-example/" class="md-nav__link">
-        概图的更多信息 - 示例
+        声明请求的示例数据
       </a>
     </li>
   
@@ -977,7 +977,7 @@
   
     <li class="md-nav__item">
       <a href="../dependencies/classes-as-dependencies/" class="md-nav__link">
-        用类定义依赖项
+        类为依赖项
       </a>
     </li>
   
@@ -1033,7 +1033,7 @@
   
     <li class="md-nav__item">
       <a href="../dependencies/dependencies-with-yield/" class="md-nav__link">
-        生成器依赖项
+        `yield` 生成器依赖项
       </a>
     </li>
   
@@ -2454,8 +2454,8 @@
 <div class="admonition info">
 <p class="admonition-title">说明</p>
 <p>要使用 <code>EmailStr</code>，首先要安装 <a href="https://github.com/JoshData/python-email-validator" class="external-link" target="_blank"><code>email_validator</code></a>。</p>
-<p>如 <code>pip install email-validator</code>，</p>
-<p>或 <code>pip install pydantic[email]</code>。</p>
+<p>如 <code>pip install email-validator</code>，
+或 <code>pip install pydantic[email]</code>。</p>
 </div>
 <p>使用此模型声明输入对象，并使用同一个模型声明输出对象：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python 3.6 and above</label><label for="__tabbed_3_2">Python 3.10 and above</label></div>
@@ -2508,7 +2508,7 @@
 <p>本例中，因为是用户本人发送密码，这种操作没什么问题。</p>
 <p>但如果在其他<strong>路径操作</strong>中使用同一个模型，就会把用户的密码发送给每一个客户端。</p>
 <div class="admonition danger">
-<p class="admonition-title">警告</p>
+<p class="admonition-title">危险</p>
 <p>永远不要存储用户的明文密码，也不要在响应中发送密码。</p>
 </div>
 <h2 id="_3">添加输出模型<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>

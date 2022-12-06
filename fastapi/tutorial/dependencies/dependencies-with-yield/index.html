@@ -17,7 +17,7 @@
     
     
       
-        <title>生成器依赖项 - FastAPI</title>
+        <title>`yield` 生成器依赖项 - FastAPI</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#yield" class="md-skip">
           跳转至
         </a>
       
@@ -169,7 +169,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              生成器依赖项
+              `yield` 生成器依赖项
             
           </span>
         </div>
@@ -619,7 +619,7 @@
   
     <li class="md-nav__item">
       <a href="../../schema-extra-example/" class="md-nav__link">
-        概图的更多信息 - 示例
+        声明请求的示例数据
       </a>
     </li>
   
@@ -857,7 +857,7 @@
   
     <li class="md-nav__item">
       <a href="../classes-as-dependencies/" class="md-nav__link">
-        用类定义依赖项
+        类为依赖项
       </a>
     </li>
   
@@ -922,12 +922,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          生成器依赖项
+          `yield` 生成器依赖项
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        生成器依赖项
+        `yield` 生成器依赖项
       </a>
       
         
@@ -946,7 +946,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     数据库生成器依赖项
   </a>
   
@@ -960,7 +960,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     子生成器依赖项
   </a>
   
@@ -974,7 +974,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     上下文管理器
   </a>
   
@@ -982,14 +982,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     什么是上下文管理器
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     在生成器依赖项中使用上下文管理器
   </a>
   
@@ -2174,7 +2174,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     数据库生成器依赖项
   </a>
   
@@ -2188,7 +2188,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     子生成器依赖项
   </a>
   
@@ -2202,7 +2202,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     上下文管理器
   </a>
   
@@ -2210,14 +2210,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     什么是上下文管理器
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     在生成器依赖项中使用上下文管理器
   </a>
   
@@ -2242,7 +2242,7 @@
                 
 
 
-<h1 id="_1">生成器依赖项<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h1 id="yield"><code>yield</code> 生成器依赖项<a class="headerlink" href="#yield" title="Permanent link">&para;</a></h1>
 <p>FastAPI 可以让依赖项执行<abbr title='也称为 "exit"、"cleanup"、"teardown"、"close"、"context managers" 等等'>完毕后</abbr>，再执行更多操作。</p>
 <p>为了实现这种操作，要把依赖项中的 <code>return</code> 替换为 <code>yield</code> ，并在之后写上附加操作。</p>
 <div class="admonition tip">
@@ -2265,7 +2265,7 @@
 </ul>
 <p>实际上，FastAPI 内部使用的就是这两个装饰器。</p>
 </div>
-<h2 id="_2">数据库生成器依赖项<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_1">数据库生成器依赖项<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>开发者可以使用<strong>生成器依赖项</strong>创建数据库会话，并在会话结束后关闭会话。</p>
 <p>发送响应前，只会执行 <code>yield</code> 语句及该语句之前的代码：</p>
 <div class="highlight"><pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">get_db</span><span class="p">():</span>
@@ -2308,7 +2308,7 @@
 <span class="hll">    <span class="k">finally</span><span class="p">:</span>
 </span>        <span class="n">db</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </code></pre></div>
-<h2 id="_3">子生成器依赖项<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_2">子生成器依赖项<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>生成器依赖项支持子依赖项及任意层级的子依赖项<strong>树</strong>，且每个子依赖项都可以使用 <code>yield</code>。</p>
 <p><strong>FastAPI</strong> 将确保生成器依赖项中的<strong>退出代码</strong>以正确的顺序运行。</p>
 <p>例如，<code>dependency_c</code> 依赖于 <code>dependency_b</code>，而 <code>dependency_b</code> 又依赖于 <code>dependency_a</code>：</p>
@@ -2436,8 +2436,8 @@ participant tasks as 后台任务
 <p>上图显示的是 <code>HTTPException</code>, 但是也可以触发创建了<a class="internal-link" href="../../handling-errors/#install-custom-exception-handlers" target="_blank">自定义异常处理器</a>的任何其他异常。该异常不是由依赖项的退出代码处理，而是由自定义异常处理器处理。</p>
 <p>但是，如果触发的不是由异常处理器处理的异常，则依赖项的退出代码将处理该异常。</p>
 </div>
-<h2 id="_4">上下文管理器<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<h3 id="_5">什么是<strong>上下文管理器</strong><a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<h2 id="_3">上下文管理器<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h3 id="_4">什么是<strong>上下文管理器</strong><a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p><strong>上下文管理器</strong>是指可以在 <code>with</code> 语句中使用的任意 Python 对象。</p>
 <p>比如，<a href="https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files" class="external-link" target="_blank">使用 <code>with</code> 读取文件</a>：</p>
 <div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;./somefile.txt&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -2447,7 +2447,7 @@ participant tasks as 后台任务
 <p>在底层，<code>open("./somefile.txt")</code> 创建了一个<strong>上下文管理器</strong>对象。</p>
 <p><code>with</code> 代码块运行完毕时，即使触发了异常，也一定会关闭文件。</p>
 <p>创建生成器依赖项，<strong>FastAPI</strong> 会在内部把该依赖项转换为上下文管理器，并将之与其他相关工具组合在一起。</p>
-<h3 id="_6">在生成器依赖项中使用上下文管理器<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<h3 id="_5">在生成器依赖项中使用上下文管理器<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <div class="admonition warning">
 <p class="admonition-title">警告</p>
 <p>下述内容有点<strong>难度</strong>。</p>

@@ -619,7 +619,7 @@
   
     <li class="md-nav__item">
       <a href="../../schema-extra-example/" class="md-nav__link">
-        概图的更多信息 - 示例
+        声明请求的示例数据
       </a>
     </li>
   
@@ -855,7 +855,7 @@
   
     <li class="md-nav__item">
       <a href="../../dependencies/classes-as-dependencies/" class="md-nav__link">
-        用类定义依赖项
+        类为依赖项
       </a>
     </li>
   
@@ -911,7 +911,7 @@
   
     <li class="md-nav__item">
       <a href="../../dependencies/dependencies-with-yield/" class="md-nav__link">
-        生成器依赖项
+        `yield` 生成器依赖项
       </a>
     </li>
   
@@ -2249,6 +2249,9 @@
 <h2 id="_2">创建用户模型<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>首先，创建 Pydantic 用户模型。</p>
 <p>与使用 Pydantic 声明请求体相同，并且可在任何位置使用：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python 3.6 and above</label><label for="__tabbed_1_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span>
@@ -2282,11 +2285,50 @@
 <span class="k">async</span> <span class="k">def</span> <span class="nf">read_users_me</span><span class="p">(</span><span class="n">current_user</span><span class="p">:</span> <span class="n">User</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_current_user</span><span class="p">)):</span>
     <span class="k">return</span> <span class="n">current_user</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span>
+<span class="kn">from</span> <span class="nn">fastapi.security</span> <span class="kn">import</span> <span class="n">OAuth2PasswordBearer</span>
+<span class="hll"><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+<span class="n">oauth2_scheme</span> <span class="o">=</span> <span class="n">OAuth2PasswordBearer</span><span class="p">(</span><span class="n">tokenUrl</span><span class="o">=</span><span class="s2">&quot;token&quot;</span><span class="p">)</span>
+
+
+<span class="hll"><span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+</span><span class="hll">    <span class="n">username</span><span class="p">:</span> <span class="nb">str</span>
+</span><span class="hll">    <span class="n">email</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+</span><span class="hll">    <span class="n">full_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+</span><span class="hll">    <span class="n">disabled</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+</span>
+
+<span class="k">def</span> <span class="nf">fake_decode_token</span><span class="p">(</span><span class="n">token</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">User</span><span class="p">(</span>
+        <span class="n">username</span><span class="o">=</span><span class="n">token</span> <span class="o">+</span> <span class="s2">&quot;fakedecoded&quot;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s2">&quot;john@example.com&quot;</span><span class="p">,</span> <span class="n">full_name</span><span class="o">=</span><span class="s2">&quot;John Doe&quot;</span>
+    <span class="p">)</span>
+
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">get_current_user</span><span class="p">(</span><span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">oauth2_scheme</span><span class="p">)):</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">fake_decode_token</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">user</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/users/me&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">read_users_me</span><span class="p">(</span><span class="n">current_user</span><span class="p">:</span> <span class="n">User</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_current_user</span><span class="p">)):</span>
+    <span class="k">return</span> <span class="n">current_user</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <h2 id="get_current_user">创建 <code>get_current_user</code> 依赖项<a class="headerlink" href="#get_current_user" title="Permanent link">&para;</a></h2>
 <p>创建 <code>get_current_user</code> 依赖项。</p>
 <p>还记得依赖项支持子依赖项吗？</p>
 <p><code>get_current_user</code> 使用 <code>oauth2_scheme</code> 作为依赖项。</p>
 <p>与之前直接在路径操作中的做法相同，新的 <code>get_current_user</code> 依赖项从子依赖项 <code>oauth2_scheme</code> 中接收 <code>str</code> 类型的 <code>token</code>：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python 3.6 and above</label><label for="__tabbed_2_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span>
@@ -2320,8 +2362,47 @@
 <span class="k">async</span> <span class="k">def</span> <span class="nf">read_users_me</span><span class="p">(</span><span class="n">current_user</span><span class="p">:</span> <span class="n">User</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_current_user</span><span class="p">)):</span>
     <span class="k">return</span> <span class="n">current_user</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span>
+<span class="kn">from</span> <span class="nn">fastapi.security</span> <span class="kn">import</span> <span class="n">OAuth2PasswordBearer</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+<span class="n">oauth2_scheme</span> <span class="o">=</span> <span class="n">OAuth2PasswordBearer</span><span class="p">(</span><span class="n">tokenUrl</span><span class="o">=</span><span class="s2">&quot;token&quot;</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">username</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">email</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">full_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">disabled</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<span class="k">def</span> <span class="nf">fake_decode_token</span><span class="p">(</span><span class="n">token</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">User</span><span class="p">(</span>
+        <span class="n">username</span><span class="o">=</span><span class="n">token</span> <span class="o">+</span> <span class="s2">&quot;fakedecoded&quot;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s2">&quot;john@example.com&quot;</span><span class="p">,</span> <span class="n">full_name</span><span class="o">=</span><span class="s2">&quot;John Doe&quot;</span>
+    <span class="p">)</span>
+
+
+<span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">get_current_user</span><span class="p">(</span><span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">oauth2_scheme</span><span class="p">)):</span>
+</span>    <span class="n">user</span> <span class="o">=</span> <span class="n">fake_decode_token</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">user</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/users/me&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">read_users_me</span><span class="p">(</span><span class="n">current_user</span><span class="p">:</span> <span class="n">User</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_current_user</span><span class="p">)):</span>
+    <span class="k">return</span> <span class="n">current_user</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <h2 id="_3">获取用户<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p><code>get_current_user</code> 使用创建的（伪）工具函数，该函数接收 <code>str</code> 类型的 Token，并返回 Pydantic 的 <code>User</code> 模型：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python 3.6 and above</label><label for="__tabbed_3_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span>
@@ -2355,8 +2436,47 @@
 <span class="k">async</span> <span class="k">def</span> <span class="nf">read_users_me</span><span class="p">(</span><span class="n">current_user</span><span class="p">:</span> <span class="n">User</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_current_user</span><span class="p">)):</span>
     <span class="k">return</span> <span class="n">current_user</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span>
+<span class="kn">from</span> <span class="nn">fastapi.security</span> <span class="kn">import</span> <span class="n">OAuth2PasswordBearer</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+<span class="n">oauth2_scheme</span> <span class="o">=</span> <span class="n">OAuth2PasswordBearer</span><span class="p">(</span><span class="n">tokenUrl</span><span class="o">=</span><span class="s2">&quot;token&quot;</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">username</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">email</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">full_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">disabled</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<span class="hll"><span class="k">def</span> <span class="nf">fake_decode_token</span><span class="p">(</span><span class="n">token</span><span class="p">):</span>
+</span><span class="hll">    <span class="k">return</span> <span class="n">User</span><span class="p">(</span>
+</span><span class="hll">        <span class="n">username</span><span class="o">=</span><span class="n">token</span> <span class="o">+</span> <span class="s2">&quot;fakedecoded&quot;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s2">&quot;john@example.com&quot;</span><span class="p">,</span> <span class="n">full_name</span><span class="o">=</span><span class="s2">&quot;John Doe&quot;</span>
+</span><span class="hll">    <span class="p">)</span>
+</span>
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">get_current_user</span><span class="p">(</span><span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">oauth2_scheme</span><span class="p">)):</span>
+<span class="hll">    <span class="n">user</span> <span class="o">=</span> <span class="n">fake_decode_token</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+</span><span class="hll">    <span class="k">return</span> <span class="n">user</span>
+</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/users/me&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">read_users_me</span><span class="p">(</span><span class="n">current_user</span><span class="p">:</span> <span class="n">User</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_current_user</span><span class="p">)):</span>
+    <span class="k">return</span> <span class="n">current_user</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <h2 id="_4">注入当前用户<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>在<strong>路径操作</strong> 的 <code>Depends</code> 中使用 <code>get_current_user</code>：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Python 3.6 and above</label><label for="__tabbed_4_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span>
@@ -2390,6 +2510,42 @@
 <span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">read_users_me</span><span class="p">(</span><span class="n">current_user</span><span class="p">:</span> <span class="n">User</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_current_user</span><span class="p">)):</span>
 </span>    <span class="k">return</span> <span class="n">current_user</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span>
+<span class="kn">from</span> <span class="nn">fastapi.security</span> <span class="kn">import</span> <span class="n">OAuth2PasswordBearer</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+<span class="n">oauth2_scheme</span> <span class="o">=</span> <span class="n">OAuth2PasswordBearer</span><span class="p">(</span><span class="n">tokenUrl</span><span class="o">=</span><span class="s2">&quot;token&quot;</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">username</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">email</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">full_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">disabled</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<span class="k">def</span> <span class="nf">fake_decode_token</span><span class="p">(</span><span class="n">token</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">User</span><span class="p">(</span>
+        <span class="n">username</span><span class="o">=</span><span class="n">token</span> <span class="o">+</span> <span class="s2">&quot;fakedecoded&quot;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s2">&quot;john@example.com&quot;</span><span class="p">,</span> <span class="n">full_name</span><span class="o">=</span><span class="s2">&quot;John Doe&quot;</span>
+    <span class="p">)</span>
+
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">get_current_user</span><span class="p">(</span><span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">oauth2_scheme</span><span class="p">)):</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">fake_decode_token</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">user</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/users/me&quot;</span><span class="p">)</span>
+<span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">read_users_me</span><span class="p">(</span><span class="n">current_user</span><span class="p">:</span> <span class="n">User</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_current_user</span><span class="p">)):</span>
+</span>    <span class="k">return</span> <span class="n">current_user</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <p>注意，此处把 <code>current_user</code> 的类型声明为 Pydantic 的 <code>User</code> 模型。</p>
 <p>这有助于在函数内部使用代码补全和类型检查。</p>
 <div class="admonition tip">
@@ -2418,6 +2574,9 @@
 <p>但是，就算有数千个端点（<em>路径操作</em>），它们都可以使用同一个安全系统。</p>
 <p>而且，所有端点（或它们的任何部件）都可以利用这些依赖项或任何其他依赖项。</p>
 <p>所有<strong>路径操作</strong>只需 3 行代码就可以了：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Python 3.6 and above</label><label for="__tabbed_5_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span>
@@ -2451,6 +2610,42 @@
 </span><span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">read_users_me</span><span class="p">(</span><span class="n">current_user</span><span class="p">:</span> <span class="n">User</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_current_user</span><span class="p">)):</span>
 </span><span class="hll">    <span class="k">return</span> <span class="n">current_user</span>
 </span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span>
+<span class="kn">from</span> <span class="nn">fastapi.security</span> <span class="kn">import</span> <span class="n">OAuth2PasswordBearer</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+<span class="n">oauth2_scheme</span> <span class="o">=</span> <span class="n">OAuth2PasswordBearer</span><span class="p">(</span><span class="n">tokenUrl</span><span class="o">=</span><span class="s2">&quot;token&quot;</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">username</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">email</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">full_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">disabled</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<span class="k">def</span> <span class="nf">fake_decode_token</span><span class="p">(</span><span class="n">token</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">User</span><span class="p">(</span>
+        <span class="n">username</span><span class="o">=</span><span class="n">token</span> <span class="o">+</span> <span class="s2">&quot;fakedecoded&quot;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s2">&quot;john@example.com&quot;</span><span class="p">,</span> <span class="n">full_name</span><span class="o">=</span><span class="s2">&quot;John Doe&quot;</span>
+    <span class="p">)</span>
+
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">get_current_user</span><span class="p">(</span><span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">oauth2_scheme</span><span class="p">)):</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">fake_decode_token</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">user</span>
+
+
+<span class="hll"><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/users/me&quot;</span><span class="p">)</span>
+</span><span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">read_users_me</span><span class="p">(</span><span class="n">current_user</span><span class="p">:</span> <span class="n">User</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_current_user</span><span class="p">)):</span>
+</span><span class="hll">    <span class="k">return</span> <span class="n">current_user</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
 <h2 id="_7">小结<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <p>现在，我们可以直接在<strong>路径操作函数</strong>中获取当前用户。</p>
 <p>至此，安全的内容已经讲了一半。</p>

@@ -619,7 +619,7 @@
   
     <li class="md-nav__item">
       <a href="../schema-extra-example/" class="md-nav__link">
-        概图的更多信息 - 示例
+        声明请求的示例数据
       </a>
     </li>
   
@@ -981,7 +981,7 @@
   
     <li class="md-nav__item">
       <a href="classes-as-dependencies/" class="md-nav__link">
-        用类定义依赖项
+        类为依赖项
       </a>
     </li>
   
@@ -1037,7 +1037,7 @@
   
     <li class="md-nav__item">
       <a href="dependencies-with-yield/" class="md-nav__link">
-        生成器依赖项
+        `yield` 生成器依赖项
       </a>
     </li>
   
@@ -2332,6 +2332,9 @@
 <h3 id="_3">创建依赖项<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>首先，要关注的是依赖项。</p>
 <p>依赖项是使用与<strong>路径操作函数</strong>相同参数的函数：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python 3.6 and above</label><label for="__tabbed_1_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span>
@@ -2341,9 +2344,9 @@
 
 <span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">common_parameters</span><span class="p">(</span>
 </span><span class="hll">    <span class="n">q</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">skip</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">limit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span>
-</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="n">q</span><span class="p">,</span> <span class="s2">&quot;skip&quot;</span><span class="p">:</span> <span class="n">skip</span><span class="p">,</span> <span class="s2">&quot;limit&quot;</span><span class="p">:</span> <span class="n">limit</span><span class="p">}</span>
-
+</span><span class="hll"><span class="p">):</span>
+</span><span class="hll">    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="n">q</span><span class="p">,</span> <span class="s2">&quot;skip&quot;</span><span class="p">:</span> <span class="n">skip</span><span class="p">,</span> <span class="s2">&quot;limit&quot;</span><span class="p">:</span> <span class="n">limit</span><span class="p">}</span>
+</span>
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/&quot;</span><span class="p">)</span>
 <span class="k">async</span> <span class="k">def</span> <span class="nf">read_items</span><span class="p">(</span><span class="n">commons</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">common_parameters</span><span class="p">)):</span>
@@ -2354,7 +2357,30 @@
 <span class="k">async</span> <span class="k">def</span> <span class="nf">read_users</span><span class="p">(</span><span class="n">commons</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">common_parameters</span><span class="p">)):</span>
     <span class="k">return</span> <span class="n">commons</span>
 </code></pre></div>
-<p>大功告成。</p>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">common_parameters</span><span class="p">(</span><span class="n">q</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">skip</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">limit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">):</span>
+</span><span class="hll">    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="n">q</span><span class="p">,</span> <span class="s2">&quot;skip&quot;</span><span class="p">:</span> <span class="n">skip</span><span class="p">,</span> <span class="s2">&quot;limit&quot;</span><span class="p">:</span> <span class="n">limit</span><span class="p">}</span>
+</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">read_items</span><span class="p">(</span><span class="n">commons</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">common_parameters</span><span class="p">)):</span>
+    <span class="k">return</span> <span class="n">commons</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/users/&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">read_users</span><span class="p">(</span><span class="n">commons</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">common_parameters</span><span class="p">)):</span>
+    <span class="k">return</span> <span class="n">commons</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>搞定收工。</p>
 <p>只用了<strong>2 行</strong>代码。</p>
 <p>依赖项函数的形式和结构与<strong>路径操作函数</strong>一样。</p>
 <p>因此，依赖项就相当于没有<strong>装饰器</strong>（即，没有 <code>@app.get("/some-path")</code> ）的路径操作函数。</p>
@@ -2367,6 +2393,9 @@
 </ul>
 <p>依赖项函数返回的是包含这些值的<strong>字典</strong>。</p>
 <h3 id="depends">导入 <code>Depends</code><a class="headerlink" href="#depends" title="Permanent link">&para;</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python 3.6 and above</label><label for="__tabbed_2_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="hll"><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span>
@@ -2389,8 +2418,34 @@
 <span class="k">async</span> <span class="k">def</span> <span class="nf">read_users</span><span class="p">(</span><span class="n">commons</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">common_parameters</span><span class="p">)):</span>
     <span class="k">return</span> <span class="n">commons</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="hll"><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span>
+</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">common_parameters</span><span class="p">(</span><span class="n">q</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">skip</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">limit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="n">q</span><span class="p">,</span> <span class="s2">&quot;skip&quot;</span><span class="p">:</span> <span class="n">skip</span><span class="p">,</span> <span class="s2">&quot;limit&quot;</span><span class="p">:</span> <span class="n">limit</span><span class="p">}</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">read_items</span><span class="p">(</span><span class="n">commons</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">common_parameters</span><span class="p">)):</span>
+    <span class="k">return</span> <span class="n">commons</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/users/&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">read_users</span><span class="p">(</span><span class="n">commons</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">common_parameters</span><span class="p">)):</span>
+    <span class="k">return</span> <span class="n">commons</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <h3 id="_4">声明依赖项<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>与在<strong>路径操作函数</strong>中使用 <code>Body</code>、<code>Query</code> 等参数的方式相同，声明依赖项使用 <code>Depends</code> 和一个新的参数：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python 3.6 and above</label><label for="__tabbed_3_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span>
@@ -2403,16 +2458,39 @@
 <span class="p">):</span>
     <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="n">q</span><span class="p">,</span> <span class="s2">&quot;skip&quot;</span><span class="p">:</span> <span class="n">skip</span><span class="p">,</span> <span class="s2">&quot;limit&quot;</span><span class="p">:</span> <span class="n">limit</span><span class="p">}</span>
 
-<span class="hll">
-</span><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/&quot;</span><span class="p">)</span>
-<span class="k">async</span> <span class="k">def</span> <span class="nf">read_items</span><span class="p">(</span><span class="n">commons</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">common_parameters</span><span class="p">)):</span>
-    <span class="k">return</span> <span class="n">commons</span>
 
-<span class="hll">
-</span><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/users/&quot;</span><span class="p">)</span>
-<span class="k">async</span> <span class="k">def</span> <span class="nf">read_users</span><span class="p">(</span><span class="n">commons</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">common_parameters</span><span class="p">)):</span>
-    <span class="k">return</span> <span class="n">commons</span>
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/&quot;</span><span class="p">)</span>
+<span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">read_items</span><span class="p">(</span><span class="n">commons</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">common_parameters</span><span class="p">)):</span>
+</span>    <span class="k">return</span> <span class="n">commons</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/users/&quot;</span><span class="p">)</span>
+<span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">read_users</span><span class="p">(</span><span class="n">commons</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">common_parameters</span><span class="p">)):</span>
+</span>    <span class="k">return</span> <span class="n">commons</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">common_parameters</span><span class="p">(</span><span class="n">q</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">skip</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">limit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="n">q</span><span class="p">,</span> <span class="s2">&quot;skip&quot;</span><span class="p">:</span> <span class="n">skip</span><span class="p">,</span> <span class="s2">&quot;limit&quot;</span><span class="p">:</span> <span class="n">limit</span><span class="p">}</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/&quot;</span><span class="p">)</span>
+<span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">read_items</span><span class="p">(</span><span class="n">commons</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">common_parameters</span><span class="p">)):</span>
+</span>    <span class="k">return</span> <span class="n">commons</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/users/&quot;</span><span class="p">)</span>
+<span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">read_users</span><span class="p">(</span><span class="n">commons</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">common_parameters</span><span class="p">)):</span>
+</span>    <span class="k">return</span> <span class="n">commons</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <p>虽然，在路径操作函数的参数中使用 <code>Depends</code> 的方式与 <code>Body</code>、<code>Query</code> 相同，但 <code>Depends</code> 的工作方式略有不同。</p>
 <p>这里只能传给 Depends 一个参数。</p>
 <p>且该参数必须是可调用对象，比如函数。</p>
@@ -2453,7 +2531,7 @@ common_parameters --&gt; read_users</code></pre>
 <h2 id="openapi">与 OpenAPI 集成<a class="headerlink" href="#openapi" title="Permanent link">&para;</a></h2>
 <p>依赖项及子依赖项的所有请求声明、验证和需求都可以集成至同一个 OpenAPI 概图。</p>
 <p>所以，交互文档里也会显示依赖项的所有信息：</p>
-<p><img src="/img/tutorial/dependencies/image01.png"></p>
+<p><img src="https://fastapi.tiangolo.com/img/tutorial/dependencies/image01.png"></p>
 <h2 id="_5">简单用法<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>观察一下就会发现，只要<strong>路径</strong>和<em>操作</em>匹配，就可以使用声明的路径操作函数。然后，<strong>FastAPI</strong> 会用正确的参数调用函数，并提取请求中的数据。</p>
 <p>实际上，所有（或大多数）网络框架的工作方式都是这样的。</p>
@@ -2485,9 +2563,9 @@ common_parameters --&gt; read_users</code></pre>
 </ul>
 <h2 id="_6">简单而强大<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <p>虽然，<strong>层级式依赖注入系统</strong>的定义与使用十分简单，但它却非常强大。</p>
-<p>比如，可以定义依赖其他依赖项的依赖项。</p>
+<p>例如，可以定义依赖其他依赖项的依赖项。</p>
 <p>最后，依赖项层级树构建后，<strong>依赖注入系统</strong>会处理所有依赖项及其子依赖项，并为每一步操作提供（注入）结果。</p>
-<p>比如，下面有 4 个 API 路径操作（<em>端点</em>）：</p>
+<p>例如，下面有 4 个 API 端点（<strong>路径操作</strong>）：</p>
 <ul>
 <li><code>/items/public/</code></li>
 <li><code>/items/private/</code></li>
@@ -2516,7 +2594,7 @@ active_user --&gt; private
 admin_user --&gt; activate_user
 paying_user --&gt; pro_items</code></pre>
 <h2 id="openapi_1">与 <strong>OpenAPI</strong> 集成<a class="headerlink" href="#openapi_1" title="Permanent link">&para;</a></h2>
-<p>声明需求时，依赖项还会把参数、验证等功能添加至路径操作。</p>
+<p>声明需求时，依赖项还会把参数、验证等功能添加至<strong>路径操作</strong>。</p>
 <p><strong>FastAPI</strong> 负责把它们全部添加到 OpenAPI 概图，并在 API 文档中显示。</p>
 
               
@@ -2551,13 +2629,13 @@ paying_user --&gt; pro_items</code></pre>
       
       
         
-        <a href="classes-as-dependencies/" class="md-footer__link md-footer__link--next" aria-label="下一页: 用类定义依赖项" rel="next">
+        <a href="classes-as-dependencies/" class="md-footer__link md-footer__link--next" aria-label="下一页: 类为依赖项" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 下一页
               </span>
-              用类定义依赖项
+              类为依赖项
             </div>
           </div>
           <div class="md-footer__button md-icon">

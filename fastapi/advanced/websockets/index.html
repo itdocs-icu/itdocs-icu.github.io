@@ -617,7 +617,7 @@
   
     <li class="md-nav__item">
       <a href="../../tutorial/schema-extra-example/" class="md-nav__link">
-        概图的更多信息 - 示例
+        声明请求的示例数据
       </a>
     </li>
   
@@ -853,7 +853,7 @@
   
     <li class="md-nav__item">
       <a href="../../tutorial/dependencies/classes-as-dependencies/" class="md-nav__link">
-        用类定义依赖项
+        类为依赖项
       </a>
     </li>
   
@@ -909,7 +909,7 @@
   
     <li class="md-nav__item">
       <a href="../../tutorial/dependencies/dependencies-with-yield/" class="md-nav__link">
-        生成器依赖项
+        `yield` 生成器依赖项
       </a>
     </li>
   
@@ -2472,13 +2472,13 @@
 
 <p>打开浏览器 <a href="http://127.0.0.1:8000" class="external-link" target="_blank">http://127.0.0.1:8000。</a></p>
 <p>可以看到如下简单页面：</p>
-<p><img src="/img/tutorial/websockets/image01.png"></p>
+<p><img src="https://fastapi.tiangolo.com/img/tutorial/websockets/image01.png"></p>
 <p>在输入框中输入并发送信息：</p>
-<p><img src="/img/tutorial/websockets/image02.png"></p>
+<p><img src="https://fastapi.tiangolo.com/img/tutorial/websockets/image02.png"></p>
 <p><strong>FastAPI</strong> 应用使用 WebSocket 返回如下响应：</p>
-<p><img src="/img/tutorial/websockets/image03.png"></p>
+<p><img src="https://fastapi.tiangolo.com/img/tutorial/websockets/image03.png"></p>
 <p>发送与接收信息：</p>
-<p><img src="/img/tutorial/websockets/image04.png"></p>
+<p><img src="https://fastapi.tiangolo.com/img/tutorial/websockets/image04.png"></p>
 <p>所有操作都使用同一个 WebSocket 连接。</p>
 <h2 id="depends">使用 <code>Depends</code> 等函数<a class="headerlink" href="#depends" title="Permanent link">&para;</a></h2>
 <p>在 WebSocket 端点中，从 <code>fastapi</code> 导入并使用以下函数：</p>
@@ -2611,7 +2611,7 @@
 <p>注意，查询 <code>token</code> 由依赖项处理。</p>
 </div>
 <p>使用该依赖项可以连接 WebSocket，然后发送与接收信息：</p>
-<p><img src="/img/tutorial/websockets/image05.png"></p>
+<p><img src="https://fastapi.tiangolo.com/img/tutorial/websockets/image05.png"></p>
 <h2 id="_4">处理断开连接与多个客户端<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>WebSocket 连接关闭时， <code>await websocket.receive_text()</code> 触发 <code>WebSocketDisconnect</code> 异常，然后就可以像本例一样捕获和处理异常。</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>

@@ -619,7 +619,7 @@
   
     <li class="md-nav__item">
       <a href="../schema-extra-example/" class="md-nav__link">
-        概图的更多信息 - 示例
+        声明请求的示例数据
       </a>
     </li>
   
@@ -924,7 +924,7 @@
   
     <li class="md-nav__item">
       <a href="../dependencies/classes-as-dependencies/" class="md-nav__link">
-        用类定义依赖项
+        类为依赖项
       </a>
     </li>
   
@@ -980,7 +980,7 @@
   
     <li class="md-nav__item">
       <a href="../dependencies/dependencies-with-yield/" class="md-nav__link">
-        生成器依赖项
+        `yield` 生成器依赖项
       </a>
     </li>
   
@@ -2204,6 +2204,9 @@
 <p>定义 <code>Header</code> 参数的方式与定义 <code>Query</code>、<code>Path</code>、<code>Cookie</code> 参数相同。</p>
 <h2 id="header_1">导入 <code>Header</code><a class="headerlink" href="#header_1" title="Permanent link">&para;</a></h2>
 <p>首先，导入 <code>Header</code>：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python 3.6 and above</label><label for="__tabbed_1_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="hll"><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">Header</span>
@@ -2215,9 +2218,26 @@
 <span class="k">async</span> <span class="k">def</span> <span class="nf">read_items</span><span class="p">(</span><span class="n">user_agent</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="n">Header</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)):</span>
     <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;User-Agent&quot;</span><span class="p">:</span> <span class="n">user_agent</span><span class="p">}</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="hll"><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">Header</span>
+</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">read_items</span><span class="p">(</span><span class="n">user_agent</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="n">Header</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;User-Agent&quot;</span><span class="p">:</span> <span class="n">user_agent</span><span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <h2 id="header_2">声明 <code>Header</code> 参数<a class="headerlink" href="#header_2" title="Permanent link">&para;</a></h2>
 <p>然后，使用和 <code>Path</code>、<code>Query</code>、<code>Cookie</code> 一样的结构定义 header 参数。</p>
 <p>第一个值是默认值，还可以传递所有验证参数或注释参数：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python 3.6 and above</label><label for="__tabbed_2_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">Header</span>
@@ -2229,6 +2249,20 @@
 <span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">read_items</span><span class="p">(</span><span class="n">user_agent</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="n">Header</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)):</span>
 </span>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;User-Agent&quot;</span><span class="p">:</span> <span class="n">user_agent</span><span class="p">}</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">Header</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/&quot;</span><span class="p">)</span>
+<span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">read_items</span><span class="p">(</span><span class="n">user_agent</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="n">Header</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)):</span>
+</span>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;User-Agent&quot;</span><span class="p">:</span> <span class="n">user_agent</span><span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <div class="admonition note">
 <p class="admonition-title">技术细节</p>
 <p><code>Header</code> 是 <code>Path</code>、<code>Query</code>、<code>Cookie</code> 的<strong>兄弟类</strong>，都继承自共用的 <code>Param</code> 类。</p>
@@ -2246,6 +2280,9 @@
 <p>同时，HTTP 的请求头不区分大小写，可以使用 Python 标准样式（即 <strong>snake_case</strong>）进行声明。</p>
 <p>因此，可以像在 Python 代码中一样使用 <code>user_agent</code> ，无需把首字母大写为 <code>User_Agent</code> 等形式。</p>
 <p>如需禁用下划线自动转换为连字符，可以把 <code>Header</code> 的 <code>convert_underscores</code> 参数设置为 <code>False</code>：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python 3.6 and above</label><label for="__tabbed_3_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">Header</span>
@@ -2259,6 +2296,22 @@
 </span><span class="p">):</span>
     <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;strange_header&quot;</span><span class="p">:</span> <span class="n">strange_header</span><span class="p">}</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">Header</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">read_items</span><span class="p">(</span>
+<span class="hll">    <span class="n">strange_header</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="n">Header</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">convert_underscores</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;strange_header&quot;</span><span class="p">:</span> <span class="n">strange_header</span><span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <div class="admonition warning">
 <p class="admonition-title">警告</p>
 <p>注意，使用 <code>convert_underscores = False</code> 要慎重，有些 HTTP 代理和服务器不支持使用带有下划线的请求头。</p>
@@ -2268,6 +2321,9 @@
 <p>类型声明中可以使用 <code>list</code> 定义多个请求头。</p>
 <p>使用 Python <code>list</code> 可以接收重复请求头所有的值。</p>
 <p>例如，声明 <code>X-Token</code> 多次出现的请求头，可以写成这样：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Python 3.6 and above</label><label for="__tabbed_4_2">Python 3.9 and above</label><label for="__tabbed_4_3">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">Header</span>
@@ -2279,6 +2335,33 @@
 <span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">read_items</span><span class="p">(</span><span class="n">x_token</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="n">Header</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)):</span>
 </span>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;X-Token values&quot;</span><span class="p">:</span> <span class="n">x_token</span><span class="p">}</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+
+<span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">Header</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/&quot;</span><span class="p">)</span>
+<span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">read_items</span><span class="p">(</span><span class="n">x_token</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="n">Header</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)):</span>
+</span>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;X-Token values&quot;</span><span class="p">:</span> <span class="n">x_token</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">Header</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/&quot;</span><span class="p">)</span>
+<span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">read_items</span><span class="p">(</span><span class="n">x_token</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="n">Header</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)):</span>
+</span>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;X-Token values&quot;</span><span class="p">:</span> <span class="n">x_token</span><span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <p>与<strong>路径操作</strong>通信时，以下面的方式发送两个 HTTP 请求头：</p>
 <div class="highlight"><pre><span></span><code>X-Token: foo
 X-Token: bar

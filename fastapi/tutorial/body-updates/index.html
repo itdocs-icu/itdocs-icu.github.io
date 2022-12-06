@@ -619,7 +619,7 @@
   
     <li class="md-nav__item">
       <a href="../schema-extra-example/" class="md-nav__link">
-        概图的更多信息 - 示例
+        声明请求的示例数据
       </a>
     </li>
   
@@ -943,7 +943,7 @@
   
     <li class="md-nav__item">
       <a href="../dependencies/classes-as-dependencies/" class="md-nav__link">
-        用类定义依赖项
+        类为依赖项
       </a>
     </li>
   
@@ -999,7 +999,7 @@
   
     <li class="md-nav__item">
       <a href="../dependencies/dependencies-with-yield/" class="md-nav__link">
-        生成器依赖项
+        `yield` 生成器依赖项
       </a>
     </li>
   
@@ -2242,6 +2242,9 @@
 <h2 id="put">用 <code>PUT</code> 更新数据<a class="headerlink" href="#put" title="Permanent link">&para;</a></h2>
 <p>更新数据可以使用 <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods/PUT" class="external-link" target="_blank">HTTP <code>PUT</code></a>。</p>
 <p>把输入数据转换为 JSON 数据（例如，使用 NoSQL 数据库时），可以使用 <code>jsonable_encoder</code>。例如，把 <code>datetime</code> 转换为 <code>str</code>。</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python 3.6 and above</label><label for="__tabbed_1_2">Python 3.9 and above</label><label for="__tabbed_1_3">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
@@ -2277,6 +2280,81 @@
 </span><span class="hll">    <span class="n">items</span><span class="p">[</span><span class="n">item_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">update_item_encoded</span>
 </span><span class="hll">    <span class="k">return</span> <span class="n">update_item_encoded</span>
 </span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+
+<span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">from</span> <span class="nn">fastapi.encoders</span> <span class="kn">import</span> <span class="n">jsonable_encoder</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">description</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">price</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">tax</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">10.5</span>
+    <span class="n">tags</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+
+<span class="n">items</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;foo&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Foo&quot;</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mf">50.2</span><span class="p">},</span>
+    <span class="s2">&quot;bar&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Bar&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The bartenders&quot;</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mi">62</span><span class="p">,</span> <span class="s2">&quot;tax&quot;</span><span class="p">:</span> <span class="mf">20.2</span><span class="p">},</span>
+    <span class="s2">&quot;baz&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Baz&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mf">50.2</span><span class="p">,</span> <span class="s2">&quot;tax&quot;</span><span class="p">:</span> <span class="mf">10.5</span><span class="p">,</span> <span class="s2">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[]},</span>
+<span class="p">}</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/</span><span class="si">{item_id}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">Item</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">read_item</span><span class="p">(</span><span class="n">item_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">items</span><span class="p">[</span><span class="n">item_id</span><span class="p">]</span>
+
+
+<span class="hll"><span class="nd">@app</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s2">&quot;/items/</span><span class="si">{item_id}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">Item</span><span class="p">)</span>
+</span><span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">update_item</span><span class="p">(</span><span class="n">item_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">):</span>
+</span><span class="hll">    <span class="n">update_item_encoded</span> <span class="o">=</span> <span class="n">jsonable_encoder</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</span><span class="hll">    <span class="n">items</span><span class="p">[</span><span class="n">item_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">update_item_encoded</span>
+</span><span class="hll">    <span class="k">return</span> <span class="n">update_item_encoded</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">from</span> <span class="nn">fastapi.encoders</span> <span class="kn">import</span> <span class="n">jsonable_encoder</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">price</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">tax</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">10.5</span>
+    <span class="n">tags</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+
+<span class="n">items</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;foo&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Foo&quot;</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mf">50.2</span><span class="p">},</span>
+    <span class="s2">&quot;bar&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Bar&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The bartenders&quot;</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mi">62</span><span class="p">,</span> <span class="s2">&quot;tax&quot;</span><span class="p">:</span> <span class="mf">20.2</span><span class="p">},</span>
+    <span class="s2">&quot;baz&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Baz&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mf">50.2</span><span class="p">,</span> <span class="s2">&quot;tax&quot;</span><span class="p">:</span> <span class="mf">10.5</span><span class="p">,</span> <span class="s2">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[]},</span>
+<span class="p">}</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/</span><span class="si">{item_id}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">Item</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">read_item</span><span class="p">(</span><span class="n">item_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">items</span><span class="p">[</span><span class="n">item_id</span><span class="p">]</span>
+
+
+<span class="hll"><span class="nd">@app</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s2">&quot;/items/</span><span class="si">{item_id}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">Item</span><span class="p">)</span>
+</span><span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">update_item</span><span class="p">(</span><span class="n">item_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">):</span>
+</span><span class="hll">    <span class="n">update_item_encoded</span> <span class="o">=</span> <span class="n">jsonable_encoder</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</span><span class="hll">    <span class="n">items</span><span class="p">[</span><span class="n">item_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">update_item_encoded</span>
+</span><span class="hll">    <span class="k">return</span> <span class="n">update_item_encoded</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
 <p><code>PUT</code> 用于接收替换现有数据的数据。</p>
 <h3 id="_1">关于更新数据的警告<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <p>用 <code>PUT</code> 把数据项 <code>bar</code> 更新为以下内容时：</p>
@@ -2303,6 +2381,9 @@
 <p>比如，<code>item.dict(exclude_unset=True)</code>。</p>
 <p>这段代码生成的 <code>dict</code> 只包含创建 <code>item</code> 模型时显式设置的数据，不包含默认值。</p>
 <p>然后，再用它生成一个只含已设置（在请求中所发送）数据，且省略了默认值的 <code>dict</code>：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python 3.6 and above</label><label for="__tabbed_2_2">Python 3.9 and above</label><label for="__tabbed_2_3">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
@@ -2341,9 +2422,93 @@
     <span class="n">items</span><span class="p">[</span><span class="n">item_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">jsonable_encoder</span><span class="p">(</span><span class="n">updated_item</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">updated_item</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+
+<span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">from</span> <span class="nn">fastapi.encoders</span> <span class="kn">import</span> <span class="n">jsonable_encoder</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">description</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">price</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">tax</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">10.5</span>
+    <span class="n">tags</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+
+<span class="n">items</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;foo&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Foo&quot;</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mf">50.2</span><span class="p">},</span>
+    <span class="s2">&quot;bar&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Bar&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The bartenders&quot;</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mi">62</span><span class="p">,</span> <span class="s2">&quot;tax&quot;</span><span class="p">:</span> <span class="mf">20.2</span><span class="p">},</span>
+    <span class="s2">&quot;baz&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Baz&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mf">50.2</span><span class="p">,</span> <span class="s2">&quot;tax&quot;</span><span class="p">:</span> <span class="mf">10.5</span><span class="p">,</span> <span class="s2">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[]},</span>
+<span class="p">}</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/</span><span class="si">{item_id}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">Item</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">read_item</span><span class="p">(</span><span class="n">item_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">items</span><span class="p">[</span><span class="n">item_id</span><span class="p">]</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="s2">&quot;/items/</span><span class="si">{item_id}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">Item</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">update_item</span><span class="p">(</span><span class="n">item_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">):</span>
+    <span class="n">stored_item_data</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="n">item_id</span><span class="p">]</span>
+    <span class="n">stored_item_model</span> <span class="o">=</span> <span class="n">Item</span><span class="p">(</span><span class="o">**</span><span class="n">stored_item_data</span><span class="p">)</span>
+<span class="hll">    <span class="n">update_data</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">dict</span><span class="p">(</span><span class="n">exclude_unset</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span>    <span class="n">updated_item</span> <span class="o">=</span> <span class="n">stored_item_model</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">update</span><span class="o">=</span><span class="n">update_data</span><span class="p">)</span>
+    <span class="n">items</span><span class="p">[</span><span class="n">item_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">jsonable_encoder</span><span class="p">(</span><span class="n">updated_item</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">updated_item</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">from</span> <span class="nn">fastapi.encoders</span> <span class="kn">import</span> <span class="n">jsonable_encoder</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">price</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">tax</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">10.5</span>
+    <span class="n">tags</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+
+<span class="n">items</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;foo&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Foo&quot;</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mf">50.2</span><span class="p">},</span>
+    <span class="s2">&quot;bar&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Bar&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The bartenders&quot;</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mi">62</span><span class="p">,</span> <span class="s2">&quot;tax&quot;</span><span class="p">:</span> <span class="mf">20.2</span><span class="p">},</span>
+    <span class="s2">&quot;baz&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Baz&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mf">50.2</span><span class="p">,</span> <span class="s2">&quot;tax&quot;</span><span class="p">:</span> <span class="mf">10.5</span><span class="p">,</span> <span class="s2">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[]},</span>
+<span class="p">}</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/</span><span class="si">{item_id}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">Item</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">read_item</span><span class="p">(</span><span class="n">item_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">items</span><span class="p">[</span><span class="n">item_id</span><span class="p">]</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="s2">&quot;/items/</span><span class="si">{item_id}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">Item</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">update_item</span><span class="p">(</span><span class="n">item_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">):</span>
+    <span class="n">stored_item_data</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="n">item_id</span><span class="p">]</span>
+    <span class="n">stored_item_model</span> <span class="o">=</span> <span class="n">Item</span><span class="p">(</span><span class="o">**</span><span class="n">stored_item_data</span><span class="p">)</span>
+<span class="hll">    <span class="n">update_data</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">dict</span><span class="p">(</span><span class="n">exclude_unset</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span>    <span class="n">updated_item</span> <span class="o">=</span> <span class="n">stored_item_model</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">update</span><span class="o">=</span><span class="n">update_data</span><span class="p">)</span>
+    <span class="n">items</span><span class="p">[</span><span class="n">item_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">jsonable_encoder</span><span class="p">(</span><span class="n">updated_item</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">updated_item</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <h3 id="pydantic-update">使用 Pydantic 的 <code>update</code> 参数<a class="headerlink" href="#pydantic-update" title="Permanent link">&para;</a></h3>
 <p>接下来，用 <code>.copy()</code> 为已有模型创建调用 <code>update</code> 参数的副本，该参数为包含更新数据的 <code>dict</code>。</p>
 <p>例如，<code>stored_item_model.copy(update=update_data)</code>：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python 3.6 and above</label><label for="__tabbed_3_2">Python 3.9 and above</label><label for="__tabbed_3_3">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
@@ -2382,24 +2547,108 @@
 </span>    <span class="n">items</span><span class="p">[</span><span class="n">item_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">jsonable_encoder</span><span class="p">(</span><span class="n">updated_item</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">updated_item</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+
+<span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">from</span> <span class="nn">fastapi.encoders</span> <span class="kn">import</span> <span class="n">jsonable_encoder</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">description</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">price</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">tax</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">10.5</span>
+    <span class="n">tags</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+
+<span class="n">items</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;foo&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Foo&quot;</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mf">50.2</span><span class="p">},</span>
+    <span class="s2">&quot;bar&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Bar&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The bartenders&quot;</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mi">62</span><span class="p">,</span> <span class="s2">&quot;tax&quot;</span><span class="p">:</span> <span class="mf">20.2</span><span class="p">},</span>
+    <span class="s2">&quot;baz&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Baz&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mf">50.2</span><span class="p">,</span> <span class="s2">&quot;tax&quot;</span><span class="p">:</span> <span class="mf">10.5</span><span class="p">,</span> <span class="s2">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[]},</span>
+<span class="p">}</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/</span><span class="si">{item_id}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">Item</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">read_item</span><span class="p">(</span><span class="n">item_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">items</span><span class="p">[</span><span class="n">item_id</span><span class="p">]</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="s2">&quot;/items/</span><span class="si">{item_id}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">Item</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">update_item</span><span class="p">(</span><span class="n">item_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">):</span>
+    <span class="n">stored_item_data</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="n">item_id</span><span class="p">]</span>
+    <span class="n">stored_item_model</span> <span class="o">=</span> <span class="n">Item</span><span class="p">(</span><span class="o">**</span><span class="n">stored_item_data</span><span class="p">)</span>
+    <span class="n">update_data</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">dict</span><span class="p">(</span><span class="n">exclude_unset</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="hll">    <span class="n">updated_item</span> <span class="o">=</span> <span class="n">stored_item_model</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">update</span><span class="o">=</span><span class="n">update_data</span><span class="p">)</span>
+</span>    <span class="n">items</span><span class="p">[</span><span class="n">item_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">jsonable_encoder</span><span class="p">(</span><span class="n">updated_item</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">updated_item</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">from</span> <span class="nn">fastapi.encoders</span> <span class="kn">import</span> <span class="n">jsonable_encoder</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">price</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">tax</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">10.5</span>
+    <span class="n">tags</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+
+<span class="n">items</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;foo&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Foo&quot;</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mf">50.2</span><span class="p">},</span>
+    <span class="s2">&quot;bar&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Bar&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The bartenders&quot;</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mi">62</span><span class="p">,</span> <span class="s2">&quot;tax&quot;</span><span class="p">:</span> <span class="mf">20.2</span><span class="p">},</span>
+    <span class="s2">&quot;baz&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Baz&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mf">50.2</span><span class="p">,</span> <span class="s2">&quot;tax&quot;</span><span class="p">:</span> <span class="mf">10.5</span><span class="p">,</span> <span class="s2">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[]},</span>
+<span class="p">}</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/</span><span class="si">{item_id}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">Item</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">read_item</span><span class="p">(</span><span class="n">item_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">items</span><span class="p">[</span><span class="n">item_id</span><span class="p">]</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="s2">&quot;/items/</span><span class="si">{item_id}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">Item</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">update_item</span><span class="p">(</span><span class="n">item_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">):</span>
+    <span class="n">stored_item_data</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="n">item_id</span><span class="p">]</span>
+    <span class="n">stored_item_model</span> <span class="o">=</span> <span class="n">Item</span><span class="p">(</span><span class="o">**</span><span class="n">stored_item_data</span><span class="p">)</span>
+    <span class="n">update_data</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">dict</span><span class="p">(</span><span class="n">exclude_unset</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="hll">    <span class="n">updated_item</span> <span class="o">=</span> <span class="n">stored_item_model</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">update</span><span class="o">=</span><span class="n">update_data</span><span class="p">)</span>
+</span>    <span class="n">items</span><span class="p">[</span><span class="n">item_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">jsonable_encoder</span><span class="p">(</span><span class="n">updated_item</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">updated_item</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <h3 id="_2">更新部分数据小结<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>简而言之，更新部分数据应：</p>
 <ul>
 <li>使用 <code>PATCH</code>，而不是 <code>PUT</code> （可选，也可以用 <code>PUT</code>）</li>
 <li>提取存储的数据</li>
 <li>把数据放入 Pydantic 模型</li>
-<li>（使用 <code>exclude_unset</code> 参数）生成不含输入模型默认值的 <code>dict</code> <ul>
+<li>（使用 <code>exclude_unset</code> 参数）生成不含输入模型默认值的 <code>dict</code><ul>
 <li>只更新用户设置过的值，不用模型中的默认值覆盖已存储的值</li>
 </ul>
 </li>
 <li>（使用 <code>update</code> 参数）为已存储的模型创建副本，用接收的数据更新其属性</li>
 <li>把模型副本转换为可存入数据库的形式（比如，使用 <code>jsonable_encoder</code>）<ul>
-<li>这种方式与 Pydantic 模型的 <code>.dict()</code> 方法类似，但能确保把值转换为适配 JSON 的数据类型，例如， 把 <code>datetime</code> 转换为 <code>str</code> </li>
+<li>这种方式与 Pydantic 模型的 <code>.dict()</code> 方法类似，但能确保把值转换为适配 JSON 的数据类型，例如， 把 <code>datetime</code> 转换为 <code>str</code></li>
 </ul>
 </li>
 <li>把数据保存至数据库</li>
 <li>返回更新后的模型</li>
 </ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Python 3.6 and above</label><label for="__tabbed_4_2">Python 3.9 and above</label><label for="__tabbed_4_3">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
@@ -2438,10 +2687,91 @@
 </span><span class="hll">    <span class="n">items</span><span class="p">[</span><span class="n">item_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">jsonable_encoder</span><span class="p">(</span><span class="n">updated_item</span><span class="p">)</span>
 </span><span class="hll">    <span class="k">return</span> <span class="n">updated_item</span>
 </span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+
+<span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">from</span> <span class="nn">fastapi.encoders</span> <span class="kn">import</span> <span class="n">jsonable_encoder</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">description</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">price</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">tax</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">10.5</span>
+    <span class="n">tags</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+
+<span class="n">items</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;foo&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Foo&quot;</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mf">50.2</span><span class="p">},</span>
+    <span class="s2">&quot;bar&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Bar&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The bartenders&quot;</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mi">62</span><span class="p">,</span> <span class="s2">&quot;tax&quot;</span><span class="p">:</span> <span class="mf">20.2</span><span class="p">},</span>
+    <span class="s2">&quot;baz&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Baz&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mf">50.2</span><span class="p">,</span> <span class="s2">&quot;tax&quot;</span><span class="p">:</span> <span class="mf">10.5</span><span class="p">,</span> <span class="s2">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[]},</span>
+<span class="p">}</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/</span><span class="si">{item_id}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">Item</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">read_item</span><span class="p">(</span><span class="n">item_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">items</span><span class="p">[</span><span class="n">item_id</span><span class="p">]</span>
+
+
+<span class="hll"><span class="nd">@app</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="s2">&quot;/items/</span><span class="si">{item_id}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">Item</span><span class="p">)</span>
+</span><span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">update_item</span><span class="p">(</span><span class="n">item_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">):</span>
+</span><span class="hll">    <span class="n">stored_item_data</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="n">item_id</span><span class="p">]</span>
+</span><span class="hll">    <span class="n">stored_item_model</span> <span class="o">=</span> <span class="n">Item</span><span class="p">(</span><span class="o">**</span><span class="n">stored_item_data</span><span class="p">)</span>
+</span><span class="hll">    <span class="n">update_data</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">dict</span><span class="p">(</span><span class="n">exclude_unset</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span><span class="hll">    <span class="n">updated_item</span> <span class="o">=</span> <span class="n">stored_item_model</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">update</span><span class="o">=</span><span class="n">update_data</span><span class="p">)</span>
+</span><span class="hll">    <span class="n">items</span><span class="p">[</span><span class="n">item_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">jsonable_encoder</span><span class="p">(</span><span class="n">updated_item</span><span class="p">)</span>
+</span><span class="hll">    <span class="k">return</span> <span class="n">updated_item</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">from</span> <span class="nn">fastapi.encoders</span> <span class="kn">import</span> <span class="n">jsonable_encoder</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">price</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">tax</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">10.5</span>
+    <span class="n">tags</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+
+<span class="n">items</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;foo&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Foo&quot;</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mf">50.2</span><span class="p">},</span>
+    <span class="s2">&quot;bar&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Bar&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The bartenders&quot;</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mi">62</span><span class="p">,</span> <span class="s2">&quot;tax&quot;</span><span class="p">:</span> <span class="mf">20.2</span><span class="p">},</span>
+    <span class="s2">&quot;baz&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Baz&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mf">50.2</span><span class="p">,</span> <span class="s2">&quot;tax&quot;</span><span class="p">:</span> <span class="mf">10.5</span><span class="p">,</span> <span class="s2">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[]},</span>
+<span class="p">}</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/</span><span class="si">{item_id}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">Item</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">read_item</span><span class="p">(</span><span class="n">item_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">items</span><span class="p">[</span><span class="n">item_id</span><span class="p">]</span>
+
+
+<span class="hll"><span class="nd">@app</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="s2">&quot;/items/</span><span class="si">{item_id}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">Item</span><span class="p">)</span>
+</span><span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">update_item</span><span class="p">(</span><span class="n">item_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">):</span>
+</span><span class="hll">    <span class="n">stored_item_data</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="n">item_id</span><span class="p">]</span>
+</span><span class="hll">    <span class="n">stored_item_model</span> <span class="o">=</span> <span class="n">Item</span><span class="p">(</span><span class="o">**</span><span class="n">stored_item_data</span><span class="p">)</span>
+</span><span class="hll">    <span class="n">update_data</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">dict</span><span class="p">(</span><span class="n">exclude_unset</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span><span class="hll">    <span class="n">updated_item</span> <span class="o">=</span> <span class="n">stored_item_model</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">update</span><span class="o">=</span><span class="n">update_data</span><span class="p">)</span>
+</span><span class="hll">    <span class="n">items</span><span class="p">[</span><span class="n">item_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">jsonable_encoder</span><span class="p">(</span><span class="n">updated_item</span><span class="p">)</span>
+</span><span class="hll">    <span class="k">return</span> <span class="n">updated_item</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
 <div class="admonition tip">
 <p class="admonition-title">提示</p>
-<p>实际上，HTTP <code>PUT</code> 也可以完成相同的操作。
-但因为 <code>PATCH</code> 就是为了这种用例而创建的，因此以该操作为例。</p>
+<p>实际上，HTTP <code>PUT</code> 也可以完成相同的操作。</p>
+<p>但因为 <code>PATCH</code> 就是为了这种用例而创建的，因此以该操作为例。</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">笔记</p>

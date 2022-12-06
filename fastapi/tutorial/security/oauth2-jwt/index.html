@@ -619,7 +619,7 @@
   
     <li class="md-nav__item">
       <a href="../../schema-extra-example/" class="md-nav__link">
-        概图的更多信息 - 示例
+        声明请求的示例数据
       </a>
     </li>
   
@@ -855,7 +855,7 @@
   
     <li class="md-nav__item">
       <a href="../../dependencies/classes-as-dependencies/" class="md-nav__link">
-        用类定义依赖项
+        类为依赖项
       </a>
     </li>
   
@@ -911,7 +911,7 @@
   
     <li class="md-nav__item">
       <a href="../../dependencies/dependencies-with-yield/" class="md-nav__link">
-        生成器依赖项
+        `yield` 生成器依赖项
       </a>
     </li>
   
@@ -1132,7 +1132,7 @@
       
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    检查
+    查看文档
   </a>
   
 </li>
@@ -2305,7 +2305,7 @@
       
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    检查
+    查看文档
   </a>
   
 </li>
@@ -2409,6 +2409,9 @@
 <p>接下来，创建三个工具函数，其中一个函数用于哈希用户的密码。</p>
 <p>第一个函数用于校验接收的密码是否匹配存储的哈希值。</p>
 <p>第三个函数用于身份验证，并返回用户。</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python 3.6 and above</label><label for="__tabbed_1_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
@@ -2548,6 +2551,149 @@
 <span class="k">async</span> <span class="k">def</span> <span class="nf">read_own_items</span><span class="p">(</span><span class="n">current_user</span><span class="p">:</span> <span class="n">User</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_current_active_user</span><span class="p">)):</span>
     <span class="k">return</span> <span class="p">[{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="s2">&quot;Foo&quot;</span><span class="p">,</span> <span class="s2">&quot;owner&quot;</span><span class="p">:</span> <span class="n">current_user</span><span class="o">.</span><span class="n">username</span><span class="p">}]</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+
+<span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">HTTPException</span><span class="p">,</span> <span class="n">status</span>
+<span class="kn">from</span> <span class="nn">fastapi.security</span> <span class="kn">import</span> <span class="n">OAuth2PasswordBearer</span><span class="p">,</span> <span class="n">OAuth2PasswordRequestForm</span>
+<span class="kn">from</span> <span class="nn">jose</span> <span class="kn">import</span> <span class="n">JWTError</span><span class="p">,</span> <span class="n">jwt</span>
+<span class="hll"><span class="kn">from</span> <span class="nn">passlib.context</span> <span class="kn">import</span> <span class="n">CryptContext</span>
+</span><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="c1"># to get a string like this run:</span>
+<span class="c1"># openssl rand -hex 32</span>
+<span class="n">SECRET_KEY</span> <span class="o">=</span> <span class="s2">&quot;09d25e094faa6ca2556c818166b7a9563b93f7099f6f0f4caa6cf63b88e8d3e7&quot;</span>
+<span class="n">ALGORITHM</span> <span class="o">=</span> <span class="s2">&quot;HS256&quot;</span>
+<span class="n">ACCESS_TOKEN_EXPIRE_MINUTES</span> <span class="o">=</span> <span class="mi">30</span>
+
+
+<span class="n">fake_users_db</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;johndoe&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;johndoe&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;full_name&quot;</span><span class="p">:</span> <span class="s2">&quot;John Doe&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;johndoe@example.com&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;hashed_password&quot;</span><span class="p">:</span> <span class="s2">&quot;$2b$12$EixZaYVK1fsbw1ZfbX3OXePaWxn96p36WQoeG6Lruj3vjPGga31lW&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;disabled&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+
+<span class="k">class</span> <span class="nc">Token</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">access_token</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">token_type</span><span class="p">:</span> <span class="nb">str</span>
+
+
+<span class="k">class</span> <span class="nc">TokenData</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">username</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">username</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">email</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">full_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">disabled</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<span class="k">class</span> <span class="nc">UserInDB</span><span class="p">(</span><span class="n">User</span><span class="p">):</span>
+    <span class="n">hashed_password</span><span class="p">:</span> <span class="nb">str</span>
+
+
+<span class="hll"><span class="n">pwd_context</span> <span class="o">=</span> <span class="n">CryptContext</span><span class="p">(</span><span class="n">schemes</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;bcrypt&quot;</span><span class="p">],</span> <span class="n">deprecated</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">)</span>
+</span>
+<span class="n">oauth2_scheme</span> <span class="o">=</span> <span class="n">OAuth2PasswordBearer</span><span class="p">(</span><span class="n">tokenUrl</span><span class="o">=</span><span class="s2">&quot;token&quot;</span><span class="p">)</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="hll"><span class="k">def</span> <span class="nf">verify_password</span><span class="p">(</span><span class="n">plain_password</span><span class="p">,</span> <span class="n">hashed_password</span><span class="p">):</span>
+</span><span class="hll">    <span class="k">return</span> <span class="n">pwd_context</span><span class="o">.</span><span class="n">verify</span><span class="p">(</span><span class="n">plain_password</span><span class="p">,</span> <span class="n">hashed_password</span><span class="p">)</span>
+</span>
+
+<span class="hll"><span class="k">def</span> <span class="nf">get_password_hash</span><span class="p">(</span><span class="n">password</span><span class="p">):</span>
+</span><span class="hll">    <span class="k">return</span> <span class="n">pwd_context</span><span class="o">.</span><span class="n">hash</span><span class="p">(</span><span class="n">password</span><span class="p">)</span>
+</span>
+
+<span class="k">def</span> <span class="nf">get_user</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">username</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">username</span> <span class="ow">in</span> <span class="n">db</span><span class="p">:</span>
+        <span class="n">user_dict</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="n">username</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">UserInDB</span><span class="p">(</span><span class="o">**</span><span class="n">user_dict</span><span class="p">)</span>
+
+
+<span class="hll"><span class="k">def</span> <span class="nf">authenticate_user</span><span class="p">(</span><span class="n">fake_db</span><span class="p">,</span> <span class="n">username</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">password</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+</span><span class="hll">    <span class="n">user</span> <span class="o">=</span> <span class="n">get_user</span><span class="p">(</span><span class="n">fake_db</span><span class="p">,</span> <span class="n">username</span><span class="p">)</span>
+</span><span class="hll">    <span class="k">if</span> <span class="ow">not</span> <span class="n">user</span><span class="p">:</span>
+</span><span class="hll">        <span class="k">return</span> <span class="kc">False</span>
+</span><span class="hll">    <span class="k">if</span> <span class="ow">not</span> <span class="n">verify_password</span><span class="p">(</span><span class="n">password</span><span class="p">,</span> <span class="n">user</span><span class="o">.</span><span class="n">hashed_password</span><span class="p">):</span>
+</span><span class="hll">        <span class="k">return</span> <span class="kc">False</span>
+</span><span class="hll">    <span class="k">return</span> <span class="n">user</span>
+</span>
+
+<span class="k">def</span> <span class="nf">create_access_token</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">expires_delta</span><span class="p">:</span> <span class="n">timedelta</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="n">to_encode</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">expires_delta</span><span class="p">:</span>
+        <span class="n">expire</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span> <span class="o">+</span> <span class="n">expires_delta</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">expire</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+    <span class="n">to_encode</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;exp&quot;</span><span class="p">:</span> <span class="n">expire</span><span class="p">})</span>
+    <span class="n">encoded_jwt</span> <span class="o">=</span> <span class="n">jwt</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">to_encode</span><span class="p">,</span> <span class="n">SECRET_KEY</span><span class="p">,</span> <span class="n">algorithm</span><span class="o">=</span><span class="n">ALGORITHM</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">encoded_jwt</span>
+
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">get_current_user</span><span class="p">(</span><span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">oauth2_scheme</span><span class="p">)):</span>
+    <span class="n">credentials_exception</span> <span class="o">=</span> <span class="n">HTTPException</span><span class="p">(</span>
+        <span class="n">status_code</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_401_UNAUTHORIZED</span><span class="p">,</span>
+        <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;Could not validate credentials&quot;</span><span class="p">,</span>
+        <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;WWW-Authenticate&quot;</span><span class="p">:</span> <span class="s2">&quot;Bearer&quot;</span><span class="p">},</span>
+    <span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">payload</span> <span class="o">=</span> <span class="n">jwt</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="n">SECRET_KEY</span><span class="p">,</span> <span class="n">algorithms</span><span class="o">=</span><span class="p">[</span><span class="n">ALGORITHM</span><span class="p">])</span>
+        <span class="n">username</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">payload</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;sub&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">username</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">credentials_exception</span>
+        <span class="n">token_data</span> <span class="o">=</span> <span class="n">TokenData</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">JWTError</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">credentials_exception</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">get_user</span><span class="p">(</span><span class="n">fake_users_db</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="n">token_data</span><span class="o">.</span><span class="n">username</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">user</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">credentials_exception</span>
+    <span class="k">return</span> <span class="n">user</span>
+
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">get_current_active_user</span><span class="p">(</span><span class="n">current_user</span><span class="p">:</span> <span class="n">User</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_current_user</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">current_user</span><span class="o">.</span><span class="n">disabled</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;Inactive user&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">current_user</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/token&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">Token</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">login_for_access_token</span><span class="p">(</span><span class="n">form_data</span><span class="p">:</span> <span class="n">OAuth2PasswordRequestForm</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">()):</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">authenticate_user</span><span class="p">(</span><span class="n">fake_users_db</span><span class="p">,</span> <span class="n">form_data</span><span class="o">.</span><span class="n">username</span><span class="p">,</span> <span class="n">form_data</span><span class="o">.</span><span class="n">password</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">user</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span>
+            <span class="n">status_code</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_401_UNAUTHORIZED</span><span class="p">,</span>
+            <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;Incorrect username or password&quot;</span><span class="p">,</span>
+            <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;WWW-Authenticate&quot;</span><span class="p">:</span> <span class="s2">&quot;Bearer&quot;</span><span class="p">},</span>
+        <span class="p">)</span>
+    <span class="n">access_token_expires</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="n">ACCESS_TOKEN_EXPIRE_MINUTES</span><span class="p">)</span>
+    <span class="n">access_token</span> <span class="o">=</span> <span class="n">create_access_token</span><span class="p">(</span>
+        <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;sub&quot;</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="p">},</span> <span class="n">expires_delta</span><span class="o">=</span><span class="n">access_token_expires</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;access_token&quot;</span><span class="p">:</span> <span class="n">access_token</span><span class="p">,</span> <span class="s2">&quot;token_type&quot;</span><span class="p">:</span> <span class="s2">&quot;bearer&quot;</span><span class="p">}</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/users/me/&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">User</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">read_users_me</span><span class="p">(</span><span class="n">current_user</span><span class="p">:</span> <span class="n">User</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_current_active_user</span><span class="p">)):</span>
+    <span class="k">return</span> <span class="n">current_user</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/users/me/items/&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">read_own_items</span><span class="p">(</span><span class="n">current_user</span><span class="p">:</span> <span class="n">User</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_current_active_user</span><span class="p">)):</span>
+    <span class="k">return</span> <span class="p">[{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="s2">&quot;Foo&quot;</span><span class="p">,</span> <span class="s2">&quot;owner&quot;</span><span class="p">:</span> <span class="n">current_user</span><span class="o">.</span><span class="n">username</span><span class="p">}]</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <div class="admonition note">
 <p class="admonition-title">笔记</p>
 <p>查看新的（伪）数据库 <code>fake_users_db</code>，就能看到哈希后的密码：<code>"$2b$12$EixZaYVK1fsbw1ZfbX3OXePaWxn96p36WQoeG6Lruj3vjPGga31lW"</code>。</p>
@@ -2570,6 +2716,9 @@
 <p>创建设置 Token 过期时间的变量。</p>
 <p>定义 Token 端点响应时使用的 Pydantic 模型。</p>
 <p>创建生成新的访问 Token 的工具函数。</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python 3.6 and above</label><label for="__tabbed_2_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
@@ -2709,10 +2858,156 @@
 <span class="k">async</span> <span class="k">def</span> <span class="nf">read_own_items</span><span class="p">(</span><span class="n">current_user</span><span class="p">:</span> <span class="n">User</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_current_active_user</span><span class="p">)):</span>
     <span class="k">return</span> <span class="p">[{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="s2">&quot;Foo&quot;</span><span class="p">,</span> <span class="s2">&quot;owner&quot;</span><span class="p">:</span> <span class="n">current_user</span><span class="o">.</span><span class="n">username</span><span class="p">}]</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+
+<span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">HTTPException</span><span class="p">,</span> <span class="n">status</span>
+<span class="kn">from</span> <span class="nn">fastapi.security</span> <span class="kn">import</span> <span class="n">OAuth2PasswordBearer</span><span class="p">,</span> <span class="n">OAuth2PasswordRequestForm</span>
+<span class="hll"><span class="kn">from</span> <span class="nn">jose</span> <span class="kn">import</span> <span class="n">JWTError</span><span class="p">,</span> <span class="n">jwt</span>
+</span><span class="kn">from</span> <span class="nn">passlib.context</span> <span class="kn">import</span> <span class="n">CryptContext</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="c1"># to get a string like this run:</span>
+<span class="c1"># openssl rand -hex 32</span>
+<span class="hll"><span class="n">SECRET_KEY</span> <span class="o">=</span> <span class="s2">&quot;09d25e094faa6ca2556c818166b7a9563b93f7099f6f0f4caa6cf63b88e8d3e7&quot;</span>
+</span><span class="hll"><span class="n">ALGORITHM</span> <span class="o">=</span> <span class="s2">&quot;HS256&quot;</span>
+</span><span class="hll"><span class="n">ACCESS_TOKEN_EXPIRE_MINUTES</span> <span class="o">=</span> <span class="mi">30</span>
+</span>
+
+<span class="n">fake_users_db</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;johndoe&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;johndoe&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;full_name&quot;</span><span class="p">:</span> <span class="s2">&quot;John Doe&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;johndoe@example.com&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;hashed_password&quot;</span><span class="p">:</span> <span class="s2">&quot;$2b$12$EixZaYVK1fsbw1ZfbX3OXePaWxn96p36WQoeG6Lruj3vjPGga31lW&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;disabled&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+
+<span class="hll"><span class="k">class</span> <span class="nc">Token</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+</span><span class="hll">    <span class="n">access_token</span><span class="p">:</span> <span class="nb">str</span>
+</span><span class="hll">    <span class="n">token_type</span><span class="p">:</span> <span class="nb">str</span>
+</span>
+
+<span class="k">class</span> <span class="nc">TokenData</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">username</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">username</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">email</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">full_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">disabled</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<span class="k">class</span> <span class="nc">UserInDB</span><span class="p">(</span><span class="n">User</span><span class="p">):</span>
+    <span class="n">hashed_password</span><span class="p">:</span> <span class="nb">str</span>
+
+
+<span class="n">pwd_context</span> <span class="o">=</span> <span class="n">CryptContext</span><span class="p">(</span><span class="n">schemes</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;bcrypt&quot;</span><span class="p">],</span> <span class="n">deprecated</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">)</span>
+
+<span class="n">oauth2_scheme</span> <span class="o">=</span> <span class="n">OAuth2PasswordBearer</span><span class="p">(</span><span class="n">tokenUrl</span><span class="o">=</span><span class="s2">&quot;token&quot;</span><span class="p">)</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">verify_password</span><span class="p">(</span><span class="n">plain_password</span><span class="p">,</span> <span class="n">hashed_password</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">pwd_context</span><span class="o">.</span><span class="n">verify</span><span class="p">(</span><span class="n">plain_password</span><span class="p">,</span> <span class="n">hashed_password</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">get_password_hash</span><span class="p">(</span><span class="n">password</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">pwd_context</span><span class="o">.</span><span class="n">hash</span><span class="p">(</span><span class="n">password</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">get_user</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">username</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">username</span> <span class="ow">in</span> <span class="n">db</span><span class="p">:</span>
+        <span class="n">user_dict</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="n">username</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">UserInDB</span><span class="p">(</span><span class="o">**</span><span class="n">user_dict</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">authenticate_user</span><span class="p">(</span><span class="n">fake_db</span><span class="p">,</span> <span class="n">username</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">password</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">get_user</span><span class="p">(</span><span class="n">fake_db</span><span class="p">,</span> <span class="n">username</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">user</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">verify_password</span><span class="p">(</span><span class="n">password</span><span class="p">,</span> <span class="n">user</span><span class="o">.</span><span class="n">hashed_password</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">return</span> <span class="n">user</span>
+
+
+<span class="hll"><span class="k">def</span> <span class="nf">create_access_token</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">expires_delta</span><span class="p">:</span> <span class="n">timedelta</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+</span><span class="hll">    <span class="n">to_encode</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</span><span class="hll">    <span class="k">if</span> <span class="n">expires_delta</span><span class="p">:</span>
+</span><span class="hll">        <span class="n">expire</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span> <span class="o">+</span> <span class="n">expires_delta</span>
+</span><span class="hll">    <span class="k">else</span><span class="p">:</span>
+</span><span class="hll">        <span class="n">expire</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+</span><span class="hll">    <span class="n">to_encode</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;exp&quot;</span><span class="p">:</span> <span class="n">expire</span><span class="p">})</span>
+</span><span class="hll">    <span class="n">encoded_jwt</span> <span class="o">=</span> <span class="n">jwt</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">to_encode</span><span class="p">,</span> <span class="n">SECRET_KEY</span><span class="p">,</span> <span class="n">algorithm</span><span class="o">=</span><span class="n">ALGORITHM</span><span class="p">)</span>
+</span><span class="hll">    <span class="k">return</span> <span class="n">encoded_jwt</span>
+</span>
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">get_current_user</span><span class="p">(</span><span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">oauth2_scheme</span><span class="p">)):</span>
+    <span class="n">credentials_exception</span> <span class="o">=</span> <span class="n">HTTPException</span><span class="p">(</span>
+        <span class="n">status_code</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_401_UNAUTHORIZED</span><span class="p">,</span>
+        <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;Could not validate credentials&quot;</span><span class="p">,</span>
+        <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;WWW-Authenticate&quot;</span><span class="p">:</span> <span class="s2">&quot;Bearer&quot;</span><span class="p">},</span>
+    <span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">payload</span> <span class="o">=</span> <span class="n">jwt</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="n">SECRET_KEY</span><span class="p">,</span> <span class="n">algorithms</span><span class="o">=</span><span class="p">[</span><span class="n">ALGORITHM</span><span class="p">])</span>
+        <span class="n">username</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">payload</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;sub&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">username</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">credentials_exception</span>
+        <span class="n">token_data</span> <span class="o">=</span> <span class="n">TokenData</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">JWTError</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">credentials_exception</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">get_user</span><span class="p">(</span><span class="n">fake_users_db</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="n">token_data</span><span class="o">.</span><span class="n">username</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">user</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">credentials_exception</span>
+    <span class="k">return</span> <span class="n">user</span>
+
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">get_current_active_user</span><span class="p">(</span><span class="n">current_user</span><span class="p">:</span> <span class="n">User</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_current_user</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">current_user</span><span class="o">.</span><span class="n">disabled</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;Inactive user&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">current_user</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/token&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">Token</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">login_for_access_token</span><span class="p">(</span><span class="n">form_data</span><span class="p">:</span> <span class="n">OAuth2PasswordRequestForm</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">()):</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">authenticate_user</span><span class="p">(</span><span class="n">fake_users_db</span><span class="p">,</span> <span class="n">form_data</span><span class="o">.</span><span class="n">username</span><span class="p">,</span> <span class="n">form_data</span><span class="o">.</span><span class="n">password</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">user</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span>
+            <span class="n">status_code</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_401_UNAUTHORIZED</span><span class="p">,</span>
+            <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;Incorrect username or password&quot;</span><span class="p">,</span>
+            <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;WWW-Authenticate&quot;</span><span class="p">:</span> <span class="s2">&quot;Bearer&quot;</span><span class="p">},</span>
+        <span class="p">)</span>
+    <span class="n">access_token_expires</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="n">ACCESS_TOKEN_EXPIRE_MINUTES</span><span class="p">)</span>
+    <span class="n">access_token</span> <span class="o">=</span> <span class="n">create_access_token</span><span class="p">(</span>
+        <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;sub&quot;</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="p">},</span> <span class="n">expires_delta</span><span class="o">=</span><span class="n">access_token_expires</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;access_token&quot;</span><span class="p">:</span> <span class="n">access_token</span><span class="p">,</span> <span class="s2">&quot;token_type&quot;</span><span class="p">:</span> <span class="s2">&quot;bearer&quot;</span><span class="p">}</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/users/me/&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">User</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">read_users_me</span><span class="p">(</span><span class="n">current_user</span><span class="p">:</span> <span class="n">User</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_current_active_user</span><span class="p">)):</span>
+    <span class="k">return</span> <span class="n">current_user</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/users/me/items/&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">read_own_items</span><span class="p">(</span><span class="n">current_user</span><span class="p">:</span> <span class="n">User</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_current_active_user</span><span class="p">)):</span>
+    <span class="k">return</span> <span class="p">[{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="s2">&quot;Foo&quot;</span><span class="p">,</span> <span class="s2">&quot;owner&quot;</span><span class="p">:</span> <span class="n">current_user</span><span class="o">.</span><span class="n">username</span><span class="p">}]</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <h2 id="_4">更新依赖项<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>更新 <code>get_current_user</code> 以接收与之前相同的 Token，但这里用的是 JWT Token。</p>
 <p>解码并校验接收到的 Token，然后，返回当前用户。</p>
 <p>如果 Token 无效，则直接返回 HTTP 错误。</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python 3.6 and above</label><label for="__tabbed_3_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
@@ -2852,9 +3147,155 @@
 <span class="k">async</span> <span class="k">def</span> <span class="nf">read_own_items</span><span class="p">(</span><span class="n">current_user</span><span class="p">:</span> <span class="n">User</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_current_active_user</span><span class="p">)):</span>
     <span class="k">return</span> <span class="p">[{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="s2">&quot;Foo&quot;</span><span class="p">,</span> <span class="s2">&quot;owner&quot;</span><span class="p">:</span> <span class="n">current_user</span><span class="o">.</span><span class="n">username</span><span class="p">}]</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+
+<span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">HTTPException</span><span class="p">,</span> <span class="n">status</span>
+<span class="kn">from</span> <span class="nn">fastapi.security</span> <span class="kn">import</span> <span class="n">OAuth2PasswordBearer</span><span class="p">,</span> <span class="n">OAuth2PasswordRequestForm</span>
+<span class="kn">from</span> <span class="nn">jose</span> <span class="kn">import</span> <span class="n">JWTError</span><span class="p">,</span> <span class="n">jwt</span>
+<span class="kn">from</span> <span class="nn">passlib.context</span> <span class="kn">import</span> <span class="n">CryptContext</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="c1"># to get a string like this run:</span>
+<span class="c1"># openssl rand -hex 32</span>
+<span class="n">SECRET_KEY</span> <span class="o">=</span> <span class="s2">&quot;09d25e094faa6ca2556c818166b7a9563b93f7099f6f0f4caa6cf63b88e8d3e7&quot;</span>
+<span class="n">ALGORITHM</span> <span class="o">=</span> <span class="s2">&quot;HS256&quot;</span>
+<span class="n">ACCESS_TOKEN_EXPIRE_MINUTES</span> <span class="o">=</span> <span class="mi">30</span>
+
+
+<span class="n">fake_users_db</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;johndoe&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;johndoe&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;full_name&quot;</span><span class="p">:</span> <span class="s2">&quot;John Doe&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;johndoe@example.com&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;hashed_password&quot;</span><span class="p">:</span> <span class="s2">&quot;$2b$12$EixZaYVK1fsbw1ZfbX3OXePaWxn96p36WQoeG6Lruj3vjPGga31lW&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;disabled&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+
+<span class="k">class</span> <span class="nc">Token</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">access_token</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">token_type</span><span class="p">:</span> <span class="nb">str</span>
+
+
+<span class="k">class</span> <span class="nc">TokenData</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">username</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">username</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">email</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">full_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">disabled</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<span class="k">class</span> <span class="nc">UserInDB</span><span class="p">(</span><span class="n">User</span><span class="p">):</span>
+    <span class="n">hashed_password</span><span class="p">:</span> <span class="nb">str</span>
+
+
+<span class="n">pwd_context</span> <span class="o">=</span> <span class="n">CryptContext</span><span class="p">(</span><span class="n">schemes</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;bcrypt&quot;</span><span class="p">],</span> <span class="n">deprecated</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">)</span>
+
+<span class="n">oauth2_scheme</span> <span class="o">=</span> <span class="n">OAuth2PasswordBearer</span><span class="p">(</span><span class="n">tokenUrl</span><span class="o">=</span><span class="s2">&quot;token&quot;</span><span class="p">)</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">verify_password</span><span class="p">(</span><span class="n">plain_password</span><span class="p">,</span> <span class="n">hashed_password</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">pwd_context</span><span class="o">.</span><span class="n">verify</span><span class="p">(</span><span class="n">plain_password</span><span class="p">,</span> <span class="n">hashed_password</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">get_password_hash</span><span class="p">(</span><span class="n">password</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">pwd_context</span><span class="o">.</span><span class="n">hash</span><span class="p">(</span><span class="n">password</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">get_user</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">username</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">username</span> <span class="ow">in</span> <span class="n">db</span><span class="p">:</span>
+        <span class="n">user_dict</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="n">username</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">UserInDB</span><span class="p">(</span><span class="o">**</span><span class="n">user_dict</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">authenticate_user</span><span class="p">(</span><span class="n">fake_db</span><span class="p">,</span> <span class="n">username</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">password</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">get_user</span><span class="p">(</span><span class="n">fake_db</span><span class="p">,</span> <span class="n">username</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">user</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">verify_password</span><span class="p">(</span><span class="n">password</span><span class="p">,</span> <span class="n">user</span><span class="o">.</span><span class="n">hashed_password</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">return</span> <span class="n">user</span>
+
+
+<span class="k">def</span> <span class="nf">create_access_token</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">expires_delta</span><span class="p">:</span> <span class="n">timedelta</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="n">to_encode</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">expires_delta</span><span class="p">:</span>
+        <span class="n">expire</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span> <span class="o">+</span> <span class="n">expires_delta</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">expire</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+    <span class="n">to_encode</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;exp&quot;</span><span class="p">:</span> <span class="n">expire</span><span class="p">})</span>
+    <span class="n">encoded_jwt</span> <span class="o">=</span> <span class="n">jwt</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">to_encode</span><span class="p">,</span> <span class="n">SECRET_KEY</span><span class="p">,</span> <span class="n">algorithm</span><span class="o">=</span><span class="n">ALGORITHM</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">encoded_jwt</span>
+
+
+<span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">get_current_user</span><span class="p">(</span><span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">oauth2_scheme</span><span class="p">)):</span>
+</span><span class="hll">    <span class="n">credentials_exception</span> <span class="o">=</span> <span class="n">HTTPException</span><span class="p">(</span>
+</span><span class="hll">        <span class="n">status_code</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_401_UNAUTHORIZED</span><span class="p">,</span>
+</span><span class="hll">        <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;Could not validate credentials&quot;</span><span class="p">,</span>
+</span><span class="hll">        <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;WWW-Authenticate&quot;</span><span class="p">:</span> <span class="s2">&quot;Bearer&quot;</span><span class="p">},</span>
+</span><span class="hll">    <span class="p">)</span>
+</span><span class="hll">    <span class="k">try</span><span class="p">:</span>
+</span><span class="hll">        <span class="n">payload</span> <span class="o">=</span> <span class="n">jwt</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="n">SECRET_KEY</span><span class="p">,</span> <span class="n">algorithms</span><span class="o">=</span><span class="p">[</span><span class="n">ALGORITHM</span><span class="p">])</span>
+</span><span class="hll">        <span class="n">username</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">payload</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;sub&quot;</span><span class="p">)</span>
+</span><span class="hll">        <span class="k">if</span> <span class="n">username</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span><span class="hll">            <span class="k">raise</span> <span class="n">credentials_exception</span>
+</span><span class="hll">        <span class="n">token_data</span> <span class="o">=</span> <span class="n">TokenData</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">)</span>
+</span><span class="hll">    <span class="k">except</span> <span class="n">JWTError</span><span class="p">:</span>
+</span><span class="hll">        <span class="k">raise</span> <span class="n">credentials_exception</span>
+</span><span class="hll">    <span class="n">user</span> <span class="o">=</span> <span class="n">get_user</span><span class="p">(</span><span class="n">fake_users_db</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="n">token_data</span><span class="o">.</span><span class="n">username</span><span class="p">)</span>
+</span><span class="hll">    <span class="k">if</span> <span class="n">user</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span><span class="hll">        <span class="k">raise</span> <span class="n">credentials_exception</span>
+</span><span class="hll">    <span class="k">return</span> <span class="n">user</span>
+</span>
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">get_current_active_user</span><span class="p">(</span><span class="n">current_user</span><span class="p">:</span> <span class="n">User</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_current_user</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">current_user</span><span class="o">.</span><span class="n">disabled</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;Inactive user&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">current_user</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/token&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">Token</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">login_for_access_token</span><span class="p">(</span><span class="n">form_data</span><span class="p">:</span> <span class="n">OAuth2PasswordRequestForm</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">()):</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">authenticate_user</span><span class="p">(</span><span class="n">fake_users_db</span><span class="p">,</span> <span class="n">form_data</span><span class="o">.</span><span class="n">username</span><span class="p">,</span> <span class="n">form_data</span><span class="o">.</span><span class="n">password</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">user</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span>
+            <span class="n">status_code</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_401_UNAUTHORIZED</span><span class="p">,</span>
+            <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;Incorrect username or password&quot;</span><span class="p">,</span>
+            <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;WWW-Authenticate&quot;</span><span class="p">:</span> <span class="s2">&quot;Bearer&quot;</span><span class="p">},</span>
+        <span class="p">)</span>
+    <span class="n">access_token_expires</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="n">ACCESS_TOKEN_EXPIRE_MINUTES</span><span class="p">)</span>
+    <span class="n">access_token</span> <span class="o">=</span> <span class="n">create_access_token</span><span class="p">(</span>
+        <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;sub&quot;</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="p">},</span> <span class="n">expires_delta</span><span class="o">=</span><span class="n">access_token_expires</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;access_token&quot;</span><span class="p">:</span> <span class="n">access_token</span><span class="p">,</span> <span class="s2">&quot;token_type&quot;</span><span class="p">:</span> <span class="s2">&quot;bearer&quot;</span><span class="p">}</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/users/me/&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">User</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">read_users_me</span><span class="p">(</span><span class="n">current_user</span><span class="p">:</span> <span class="n">User</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_current_active_user</span><span class="p">)):</span>
+    <span class="k">return</span> <span class="n">current_user</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/users/me/items/&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">read_own_items</span><span class="p">(</span><span class="n">current_user</span><span class="p">:</span> <span class="n">User</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_current_active_user</span><span class="p">)):</span>
+    <span class="k">return</span> <span class="p">[{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="s2">&quot;Foo&quot;</span><span class="p">,</span> <span class="s2">&quot;owner&quot;</span><span class="p">:</span> <span class="n">current_user</span><span class="o">.</span><span class="n">username</span><span class="p">}]</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <h2 id="token">更新 <code>/token</code> 路径操作<a class="headerlink" href="#token" title="Permanent link">&para;</a></h2>
 <p>用 Token 过期时间创建 <code>timedelta</code> 对象。</p>
 <p>创建并返回真正的 JWT 访问 Token。</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Python 3.6 and above</label><label for="__tabbed_4_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
@@ -2994,6 +3435,149 @@
 <span class="k">async</span> <span class="k">def</span> <span class="nf">read_own_items</span><span class="p">(</span><span class="n">current_user</span><span class="p">:</span> <span class="n">User</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_current_active_user</span><span class="p">)):</span>
     <span class="k">return</span> <span class="p">[{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="s2">&quot;Foo&quot;</span><span class="p">,</span> <span class="s2">&quot;owner&quot;</span><span class="p">:</span> <span class="n">current_user</span><span class="o">.</span><span class="n">username</span><span class="p">}]</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+
+<span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">HTTPException</span><span class="p">,</span> <span class="n">status</span>
+<span class="kn">from</span> <span class="nn">fastapi.security</span> <span class="kn">import</span> <span class="n">OAuth2PasswordBearer</span><span class="p">,</span> <span class="n">OAuth2PasswordRequestForm</span>
+<span class="kn">from</span> <span class="nn">jose</span> <span class="kn">import</span> <span class="n">JWTError</span><span class="p">,</span> <span class="n">jwt</span>
+<span class="kn">from</span> <span class="nn">passlib.context</span> <span class="kn">import</span> <span class="n">CryptContext</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="c1"># to get a string like this run:</span>
+<span class="c1"># openssl rand -hex 32</span>
+<span class="n">SECRET_KEY</span> <span class="o">=</span> <span class="s2">&quot;09d25e094faa6ca2556c818166b7a9563b93f7099f6f0f4caa6cf63b88e8d3e7&quot;</span>
+<span class="n">ALGORITHM</span> <span class="o">=</span> <span class="s2">&quot;HS256&quot;</span>
+<span class="n">ACCESS_TOKEN_EXPIRE_MINUTES</span> <span class="o">=</span> <span class="mi">30</span>
+
+
+<span class="n">fake_users_db</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;johndoe&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;johndoe&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;full_name&quot;</span><span class="p">:</span> <span class="s2">&quot;John Doe&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;johndoe@example.com&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;hashed_password&quot;</span><span class="p">:</span> <span class="s2">&quot;$2b$12$EixZaYVK1fsbw1ZfbX3OXePaWxn96p36WQoeG6Lruj3vjPGga31lW&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;disabled&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+
+<span class="k">class</span> <span class="nc">Token</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">access_token</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">token_type</span><span class="p">:</span> <span class="nb">str</span>
+
+
+<span class="k">class</span> <span class="nc">TokenData</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">username</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">username</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">email</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">full_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">disabled</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<span class="k">class</span> <span class="nc">UserInDB</span><span class="p">(</span><span class="n">User</span><span class="p">):</span>
+    <span class="n">hashed_password</span><span class="p">:</span> <span class="nb">str</span>
+
+
+<span class="n">pwd_context</span> <span class="o">=</span> <span class="n">CryptContext</span><span class="p">(</span><span class="n">schemes</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;bcrypt&quot;</span><span class="p">],</span> <span class="n">deprecated</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">)</span>
+
+<span class="n">oauth2_scheme</span> <span class="o">=</span> <span class="n">OAuth2PasswordBearer</span><span class="p">(</span><span class="n">tokenUrl</span><span class="o">=</span><span class="s2">&quot;token&quot;</span><span class="p">)</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">verify_password</span><span class="p">(</span><span class="n">plain_password</span><span class="p">,</span> <span class="n">hashed_password</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">pwd_context</span><span class="o">.</span><span class="n">verify</span><span class="p">(</span><span class="n">plain_password</span><span class="p">,</span> <span class="n">hashed_password</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">get_password_hash</span><span class="p">(</span><span class="n">password</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">pwd_context</span><span class="o">.</span><span class="n">hash</span><span class="p">(</span><span class="n">password</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">get_user</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">username</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">username</span> <span class="ow">in</span> <span class="n">db</span><span class="p">:</span>
+        <span class="n">user_dict</span> <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="n">username</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">UserInDB</span><span class="p">(</span><span class="o">**</span><span class="n">user_dict</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">authenticate_user</span><span class="p">(</span><span class="n">fake_db</span><span class="p">,</span> <span class="n">username</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">password</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">get_user</span><span class="p">(</span><span class="n">fake_db</span><span class="p">,</span> <span class="n">username</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">user</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">verify_password</span><span class="p">(</span><span class="n">password</span><span class="p">,</span> <span class="n">user</span><span class="o">.</span><span class="n">hashed_password</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">return</span> <span class="n">user</span>
+
+
+<span class="k">def</span> <span class="nf">create_access_token</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">expires_delta</span><span class="p">:</span> <span class="n">timedelta</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="n">to_encode</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">expires_delta</span><span class="p">:</span>
+        <span class="n">expire</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span> <span class="o">+</span> <span class="n">expires_delta</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">expire</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+    <span class="n">to_encode</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;exp&quot;</span><span class="p">:</span> <span class="n">expire</span><span class="p">})</span>
+    <span class="n">encoded_jwt</span> <span class="o">=</span> <span class="n">jwt</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">to_encode</span><span class="p">,</span> <span class="n">SECRET_KEY</span><span class="p">,</span> <span class="n">algorithm</span><span class="o">=</span><span class="n">ALGORITHM</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">encoded_jwt</span>
+
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">get_current_user</span><span class="p">(</span><span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">oauth2_scheme</span><span class="p">)):</span>
+    <span class="n">credentials_exception</span> <span class="o">=</span> <span class="n">HTTPException</span><span class="p">(</span>
+        <span class="n">status_code</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_401_UNAUTHORIZED</span><span class="p">,</span>
+        <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;Could not validate credentials&quot;</span><span class="p">,</span>
+        <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;WWW-Authenticate&quot;</span><span class="p">:</span> <span class="s2">&quot;Bearer&quot;</span><span class="p">},</span>
+    <span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">payload</span> <span class="o">=</span> <span class="n">jwt</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="n">SECRET_KEY</span><span class="p">,</span> <span class="n">algorithms</span><span class="o">=</span><span class="p">[</span><span class="n">ALGORITHM</span><span class="p">])</span>
+        <span class="n">username</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">payload</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;sub&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">username</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">credentials_exception</span>
+        <span class="n">token_data</span> <span class="o">=</span> <span class="n">TokenData</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">JWTError</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">credentials_exception</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">get_user</span><span class="p">(</span><span class="n">fake_users_db</span><span class="p">,</span> <span class="n">username</span><span class="o">=</span><span class="n">token_data</span><span class="o">.</span><span class="n">username</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">user</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">credentials_exception</span>
+    <span class="k">return</span> <span class="n">user</span>
+
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">get_current_active_user</span><span class="p">(</span><span class="n">current_user</span><span class="p">:</span> <span class="n">User</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_current_user</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">current_user</span><span class="o">.</span><span class="n">disabled</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;Inactive user&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">current_user</span>
+
+
+<span class="hll"><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/token&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">Token</span><span class="p">)</span>
+</span><span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">login_for_access_token</span><span class="p">(</span><span class="n">form_data</span><span class="p">:</span> <span class="n">OAuth2PasswordRequestForm</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">()):</span>
+</span><span class="hll">    <span class="n">user</span> <span class="o">=</span> <span class="n">authenticate_user</span><span class="p">(</span><span class="n">fake_users_db</span><span class="p">,</span> <span class="n">form_data</span><span class="o">.</span><span class="n">username</span><span class="p">,</span> <span class="n">form_data</span><span class="o">.</span><span class="n">password</span><span class="p">)</span>
+</span><span class="hll">    <span class="k">if</span> <span class="ow">not</span> <span class="n">user</span><span class="p">:</span>
+</span><span class="hll">        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span>
+</span><span class="hll">            <span class="n">status_code</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_401_UNAUTHORIZED</span><span class="p">,</span>
+</span><span class="hll">            <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;Incorrect username or password&quot;</span><span class="p">,</span>
+</span><span class="hll">            <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;WWW-Authenticate&quot;</span><span class="p">:</span> <span class="s2">&quot;Bearer&quot;</span><span class="p">},</span>
+</span><span class="hll">        <span class="p">)</span>
+</span><span class="hll">    <span class="n">access_token_expires</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="n">ACCESS_TOKEN_EXPIRE_MINUTES</span><span class="p">)</span>
+</span><span class="hll">    <span class="n">access_token</span> <span class="o">=</span> <span class="n">create_access_token</span><span class="p">(</span>
+</span><span class="hll">        <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;sub&quot;</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="p">},</span> <span class="n">expires_delta</span><span class="o">=</span><span class="n">access_token_expires</span>
+</span><span class="hll">    <span class="p">)</span>
+</span><span class="hll">    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;access_token&quot;</span><span class="p">:</span> <span class="n">access_token</span><span class="p">,</span> <span class="s2">&quot;token_type&quot;</span><span class="p">:</span> <span class="s2">&quot;bearer&quot;</span><span class="p">}</span>
+</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/users/me/&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">User</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">read_users_me</span><span class="p">(</span><span class="n">current_user</span><span class="p">:</span> <span class="n">User</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_current_active_user</span><span class="p">)):</span>
+    <span class="k">return</span> <span class="n">current_user</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/users/me/items/&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">read_own_items</span><span class="p">(</span><span class="n">current_user</span><span class="p">:</span> <span class="n">User</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_current_active_user</span><span class="p">)):</span>
+    <span class="k">return</span> <span class="p">[{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="s2">&quot;Foo&quot;</span><span class="p">,</span> <span class="s2">&quot;owner&quot;</span><span class="p">:</span> <span class="n">current_user</span><span class="o">.</span><span class="n">username</span><span class="p">}]</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <h3 id="jwt-sub">JWT <code>sub</code> 的技术细节<a class="headerlink" href="#jwt-sub" title="Permanent link">&para;</a></h3>
 <p>JWT 规范还包括 <code>sub</code> 键，值是 Token 的主题。</p>
 <p>该键是可选的，但要把用户标识放在这个键里，所以本例使用了该键。</p>
@@ -3005,7 +3589,7 @@
 <p>在这些情况下，多个实体的 ID 可能是相同的，以 ID <code>foo</code> 为例，用户的 ID 是 <code>foo</code>，车的 ID 是 <code>foo</code>，博客的 ID 也是 <code>foo</code>。</p>
 <p>为了避免 ID 冲突，在给用户创建 JWT Token 时，可以为 <code>sub</code> 键的值加上前缀，例如 <code>username:</code>。因此，在本例中，<code>sub</code> 的值可以是：<code>username:johndoe</code>。</p>
 <p>注意，划重点，<code>sub</code> 键在整个应用中应该只有一个唯一的标识符，而且应该是字符串。</p>
-<h2 id="_5">检查<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h2 id="_5">查看文档<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>运行服务器并访问文档： <a href="http://127.0.0.1:8000/docs" class="external-link" target="_blank">http://127.0.0.1:8000/docs</a>。</p>
 <p>可以看到如下用户界面：</p>
 <p><img src="https://fastapi.tiangolo.com/img/tutorial/security/image07.png"></p>
@@ -3047,7 +3631,7 @@
 <p>还可以直接使用 <code>passlib</code> 和 <code>python-jose</code> 等维护良好、使用广泛的包，这是因为 <strong>FastAPI</strong> 不需要任何复杂机制，就能集成外部的包。</p>
 <p>而且，<strong>FastAPI</strong> 还提供了一些工具，在不影响灵活、稳定和安全的前提下，尽可能地简化安全机制。</p>
 <p><strong>FastAPI</strong> 还支持以相对简单的方式，使用 OAuth2 等安全、标准的协议。</p>
-<p><strong>高级用户指南</strong>中详细介绍了 OAuth2<strong><code>scopes</code></strong>的内容，遵循同样的标准，实现更精密的权限系统。OAuth2 的作用域是脸书、谷歌、GitHub、微软、推特等第三方身份验证应用使用的机制，让用户授权第三方应用与 API 交互。</p>
+<p><strong>高级用户指南</strong>中详细介绍了 OAuth2 <strong><code>scopes</code></strong>的内容，遵循同样的标准，实现更精密的权限系统。OAuth2 的作用域是脸书、谷歌、GitHub、微软、推特等第三方身份验证应用使用的机制，让用户授权第三方应用与 API 交互。</p>
 
               
             </article>

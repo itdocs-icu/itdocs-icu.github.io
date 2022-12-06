@@ -17,7 +17,7 @@
     
     
       
-        <title>用类定义依赖项 - FastAPI</title>
+        <title>类为依赖项 - FastAPI</title>
       
     
     
@@ -169,7 +169,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              用类定义依赖项
+              类为依赖项
             
           </span>
         </div>
@@ -619,7 +619,7 @@
   
     <li class="md-nav__item">
       <a href="../../schema-extra-example/" class="md-nav__link">
-        概图的更多信息 - 示例
+        声明请求的示例数据
       </a>
     </li>
   
@@ -866,12 +866,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          用类定义依赖项
+          类为依赖项
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        用类定义依赖项
+        类为依赖项
       </a>
       
         
@@ -891,21 +891,21 @@
       
         <li class="md-nav__item">
   <a href="#dict" class="md-nav__link">
-    上节示例中的 dict
+    上一章示例中的 dict
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    依赖项到底是什么
+    什么是依赖项
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    用类定义依赖项
+    类为依赖项
   </a>
   
 </li>
@@ -989,7 +989,7 @@
   
     <li class="md-nav__item">
       <a href="../dependencies-with-yield/" class="md-nav__link">
-        生成器依赖项
+        `yield` 生成器依赖项
       </a>
     </li>
   
@@ -2162,21 +2162,21 @@
       
         <li class="md-nav__item">
   <a href="#dict" class="md-nav__link">
-    上节示例中的 dict
+    上一章示例中的 dict
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    依赖项到底是什么
+    什么是依赖项
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    用类定义依赖项
+    类为依赖项
   </a>
   
 </li>
@@ -2216,10 +2216,13 @@
                 
 
 
-<h1 id="_1">用类定义依赖项<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h1 id="_1">类为依赖项<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>在深入研究<strong>依赖注入</strong>系统前，我们先升级一下上一节中的示例。</p>
-<h2 id="dict">上节示例中的 <code>dict</code><a class="headerlink" href="#dict" title="Permanent link">&para;</a></h2>
-<p>上节示例中，依赖项返回的是<strong>字典</strong>  ：</p>
+<h2 id="dict">上一章示例中的 <code>dict</code><a class="headerlink" href="#dict" title="Permanent link">&para;</a></h2>
+<p>上节示例中，依赖项返回的是<strong>字典</strong>：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python 3.6 and above</label><label for="__tabbed_1_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span>
@@ -2242,10 +2245,33 @@
 <span class="k">async</span> <span class="k">def</span> <span class="nf">read_users</span><span class="p">(</span><span class="n">commons</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">common_parameters</span><span class="p">)):</span>
     <span class="k">return</span> <span class="n">commons</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">common_parameters</span><span class="p">(</span><span class="n">q</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">skip</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">limit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">):</span>
+<span class="hll">    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="n">q</span><span class="p">,</span> <span class="s2">&quot;skip&quot;</span><span class="p">:</span> <span class="n">skip</span><span class="p">,</span> <span class="s2">&quot;limit&quot;</span><span class="p">:</span> <span class="n">limit</span><span class="p">}</span>
+</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">read_items</span><span class="p">(</span><span class="n">commons</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">common_parameters</span><span class="p">)):</span>
+    <span class="k">return</span> <span class="n">commons</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/users/&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">read_users</span><span class="p">(</span><span class="n">commons</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">common_parameters</span><span class="p">)):</span>
+    <span class="k">return</span> <span class="n">commons</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <p>随后，这个<strong>字典</strong>被传递给<strong>路径操作函数</strong>的参数 <code>commons</code>。</p>
 <p>因为编辑器不能获取<strong>字典</strong>中键值的类型，所以无法为<strong>字典</strong>提供代码补全等更多支持。</p>
 <p>FastAPI 可以做的更好……</p>
-<h2 id="_2">依赖项到底是什么<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_2">什么是依赖项<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>在此之前，我们只用函数定义过依赖项。</p>
 <p>尽管这种定义依赖项的方式很常用，但并不是定义依赖项的唯一方式。</p>
 <p>这里的核心理念是，依赖项应该是<strong>可调用项</strong>。</p>
@@ -2257,7 +2283,7 @@
 <div class="highlight"><pre><span></span><code><span class="n">something</span><span class="p">(</span><span class="n">some_argument</span><span class="p">,</span> <span class="n">some_keyword_argument</span><span class="o">=</span><span class="s2">&quot;foo&quot;</span><span class="p">)</span>
 </code></pre></div>
 <p>这个对象就是<strong>可调用项</strong>。</p>
-<h2 id="_3">用类定义依赖项<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_3">类为依赖项<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>注意，Python 使用与调用函数相同的语法创建类实例。</p>
 <p>例如：</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Cat</span><span class="p">:</span>
@@ -2275,6 +2301,9 @@
 <p>在 <strong>FastAPI</strong> 中传递<strong>可调用</strong>依赖项时，FastAPI 会分析<strong>可调用项</strong>的参数，并用与处理<strong>路径操作函数</strong>的参数相同的方式处理这些参数，包括子依赖项。</p>
 <p>这种方式也适用于无参数调用，处理方式与无参数的<strong>路径操作函数</strong>相同。</p>
 <p>接下来，把上例中的依赖项 <code>common_parameters</code> 改为 <code>CommonQueryParams</code>：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python 3.6 and above</label><label for="__tabbed_2_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span>
@@ -2301,7 +2330,39 @@
     <span class="n">response</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;items&quot;</span><span class="p">:</span> <span class="n">items</span><span class="p">})</span>
     <span class="k">return</span> <span class="n">response</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="n">fake_items_db</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;item_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Foo&quot;</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;item_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Bar&quot;</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;item_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Baz&quot;</span><span class="p">}]</span>
+
+
+<span class="hll"><span class="k">class</span> <span class="nc">CommonQueryParams</span><span class="p">:</span>
+</span><span class="hll">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">q</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">skip</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">limit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">):</span>
+</span><span class="hll">        <span class="bp">self</span><span class="o">.</span><span class="n">q</span> <span class="o">=</span> <span class="n">q</span>
+</span><span class="hll">        <span class="bp">self</span><span class="o">.</span><span class="n">skip</span> <span class="o">=</span> <span class="n">skip</span>
+</span><span class="hll">        <span class="bp">self</span><span class="o">.</span><span class="n">limit</span> <span class="o">=</span> <span class="n">limit</span>
+</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">read_items</span><span class="p">(</span><span class="n">commons</span><span class="p">:</span> <span class="n">CommonQueryParams</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">CommonQueryParams</span><span class="p">)):</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">if</span> <span class="n">commons</span><span class="o">.</span><span class="n">q</span><span class="p">:</span>
+        <span class="n">response</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="n">commons</span><span class="o">.</span><span class="n">q</span><span class="p">})</span>
+    <span class="n">items</span> <span class="o">=</span> <span class="n">fake_items_db</span><span class="p">[</span><span class="n">commons</span><span class="o">.</span><span class="n">skip</span> <span class="p">:</span> <span class="n">commons</span><span class="o">.</span><span class="n">skip</span> <span class="o">+</span> <span class="n">commons</span><span class="o">.</span><span class="n">limit</span><span class="p">]</span>
+    <span class="n">response</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;items&quot;</span><span class="p">:</span> <span class="n">items</span><span class="p">})</span>
+    <span class="k">return</span> <span class="n">response</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <p>请注意下例中创建类实例的 <code>__init__</code> 方法：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python 3.6 and above</label><label for="__tabbed_3_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span>
@@ -2328,7 +2389,39 @@
     <span class="n">response</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;items&quot;</span><span class="p">:</span> <span class="n">items</span><span class="p">})</span>
     <span class="k">return</span> <span class="n">response</span>
 </code></pre></div>
-<p>…… 它的参数与 <code>common_parameters</code> 的参数一样：</p>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="n">fake_items_db</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;item_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Foo&quot;</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;item_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Bar&quot;</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;item_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Baz&quot;</span><span class="p">}]</span>
+
+
+<span class="k">class</span> <span class="nc">CommonQueryParams</span><span class="p">:</span>
+<span class="hll">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">q</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">skip</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">limit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">):</span>
+</span>        <span class="bp">self</span><span class="o">.</span><span class="n">q</span> <span class="o">=</span> <span class="n">q</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">skip</span> <span class="o">=</span> <span class="n">skip</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">limit</span> <span class="o">=</span> <span class="n">limit</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">read_items</span><span class="p">(</span><span class="n">commons</span><span class="p">:</span> <span class="n">CommonQueryParams</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">CommonQueryParams</span><span class="p">)):</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">if</span> <span class="n">commons</span><span class="o">.</span><span class="n">q</span><span class="p">:</span>
+        <span class="n">response</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="n">commons</span><span class="o">.</span><span class="n">q</span><span class="p">})</span>
+    <span class="n">items</span> <span class="o">=</span> <span class="n">fake_items_db</span><span class="p">[</span><span class="n">commons</span><span class="o">.</span><span class="n">skip</span> <span class="p">:</span> <span class="n">commons</span><span class="o">.</span><span class="n">skip</span> <span class="o">+</span> <span class="n">commons</span><span class="o">.</span><span class="n">limit</span><span class="p">]</span>
+    <span class="n">response</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;items&quot;</span><span class="p">:</span> <span class="n">items</span><span class="p">})</span>
+    <span class="k">return</span> <span class="n">response</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>……它的参数与 <code>common_parameters</code> 的参数一样：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Python 3.6 and above</label><label for="__tabbed_4_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span>
@@ -2336,9 +2429,9 @@
 <span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
 
 
-<span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">common_parameters</span><span class="p">(</span>
-</span>    <span class="n">q</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">skip</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">limit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="p">):</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">common_parameters</span><span class="p">(</span>
+<span class="hll">    <span class="n">q</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">skip</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">limit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span>
+</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="n">q</span><span class="p">,</span> <span class="s2">&quot;skip&quot;</span><span class="p">:</span> <span class="n">skip</span><span class="p">,</span> <span class="s2">&quot;limit&quot;</span><span class="p">:</span> <span class="n">limit</span><span class="p">}</span>
 
 
@@ -2351,16 +2444,42 @@
 <span class="k">async</span> <span class="k">def</span> <span class="nf">read_users</span><span class="p">(</span><span class="n">commons</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">common_parameters</span><span class="p">)):</span>
     <span class="k">return</span> <span class="n">commons</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">common_parameters</span><span class="p">(</span><span class="n">q</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">skip</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">limit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">):</span>
+</span>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="n">q</span><span class="p">,</span> <span class="s2">&quot;skip&quot;</span><span class="p">:</span> <span class="n">skip</span><span class="p">,</span> <span class="s2">&quot;limit&quot;</span><span class="p">:</span> <span class="n">limit</span><span class="p">}</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">read_items</span><span class="p">(</span><span class="n">commons</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">common_parameters</span><span class="p">)):</span>
+    <span class="k">return</span> <span class="n">commons</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/users/&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">read_users</span><span class="p">(</span><span class="n">commons</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">common_parameters</span><span class="p">)):</span>
+    <span class="k">return</span> <span class="n">commons</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <p><strong>FastAPI</strong> 用这些参数<strong>处理</strong>依赖项。</p>
 <p>在这两种情况下，依赖项的参数包括：</p>
 <ul>
-<li>可选的查询参数 <code>q</code> </li>
-<li>查询参数 <code>skip</code>，默认值为 <code>0</code> </li>
-<li>查询参数 <code>limit</code>，默认值为 <code>100</code> </li>
+<li>可选的查询参数 <code>q</code>，类型为 <code>str</code>。</li>
+<li>查询参数 <code>skip</code>，类型为 <code>int</code>，默认值为 <code>0</code>。</li>
+<li>查询参数 <code>limit</code>，类型为 <code>int</code>，默认值为 <code>100</code>。</li>
 </ul>
 <p>无论哪种情况，FastAPI 都会转换与验证数据，并在 OpenAPI 概图的 API 文档中显示。</p>
 <h2 id="_4">使用声明的类<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>接下来，使用 <code>CommonQueryParams</code> 类定义依赖项。</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Python 3.6 and above</label><label for="__tabbed_5_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span>
@@ -2387,6 +2506,35 @@
     <span class="n">response</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;items&quot;</span><span class="p">:</span> <span class="n">items</span><span class="p">})</span>
     <span class="k">return</span> <span class="n">response</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="n">fake_items_db</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;item_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Foo&quot;</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;item_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Bar&quot;</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;item_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Baz&quot;</span><span class="p">}]</span>
+
+
+<span class="k">class</span> <span class="nc">CommonQueryParams</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">q</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">skip</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">limit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">q</span> <span class="o">=</span> <span class="n">q</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">skip</span> <span class="o">=</span> <span class="n">skip</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">limit</span> <span class="o">=</span> <span class="n">limit</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/&quot;</span><span class="p">)</span>
+<span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">read_items</span><span class="p">(</span><span class="n">commons</span><span class="p">:</span> <span class="n">CommonQueryParams</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">CommonQueryParams</span><span class="p">)):</span>
+</span>    <span class="n">response</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">if</span> <span class="n">commons</span><span class="o">.</span><span class="n">q</span><span class="p">:</span>
+        <span class="n">response</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="n">commons</span><span class="o">.</span><span class="n">q</span><span class="p">})</span>
+    <span class="n">items</span> <span class="o">=</span> <span class="n">fake_items_db</span><span class="p">[</span><span class="n">commons</span><span class="o">.</span><span class="n">skip</span> <span class="p">:</span> <span class="n">commons</span><span class="o">.</span><span class="n">skip</span> <span class="o">+</span> <span class="n">commons</span><span class="o">.</span><span class="n">limit</span><span class="p">]</span>
+    <span class="n">response</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;items&quot;</span><span class="p">:</span> <span class="n">items</span><span class="p">})</span>
+    <span class="k">return</span> <span class="n">response</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <p><strong>FastAPI</strong> 调用 <code>CommonQueryParams</code> 类，创建<strong>类实例</strong>，并用参数 <code>commons</code> 把这个类实例传递给路径操作函数。</p>
 <h2 id="vs-depends">类型注释 vs <code>Depends</code><a class="headerlink" href="#vs-depends" title="Permanent link">&para;</a></h2>
 <p>注意，上述代码中使用了两次 <code>CommonQueryParams</code> :</p>
@@ -2395,7 +2543,8 @@
 <p>实际上，<strong>FastAPI</strong> 通过下面这行代码中的 <code>CommonQueryParams</code> 判断哪个对象是依赖项：</p>
 <div class="highlight"><pre><span></span><code><span class="o">...</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">CommonQueryParams</span><span class="p">)</span>
 </code></pre></div>
-<p>FastAPI 从这段代码中提取声明的参数，也就是 FastAPI 实际调用的对象。</p>
+<p>... 是 <strong>FastAPI</strong> 实际使用的依赖项。</p>
+<p>FastAPI 从这段代码中提取声明的参数，也是 FastAPI 实际调用的。</p>
 <hr />
 <p>本例中，下面这行代码中的 <code>CommonQueryParams</code> 对于 <strong>FastAPI</strong> 没有实际意义：</p>
 <div class="highlight"><pre><span></span><code><span class="n">commons</span><span class="p">:</span> <span class="n">CommonQueryParams</span> <span class="o">...</span>
@@ -2404,7 +2553,10 @@
 <p>这段代码其实可以写成下面的形式：</p>
 <div class="highlight"><pre><span></span><code><span class="n">commons</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">CommonQueryParams</span><span class="p">)</span>
 </code></pre></div>
-<p>…… 如下：</p>
+<p>……如下：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Python 3.6 and above</label><label for="__tabbed_6_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span>
@@ -2431,8 +2583,37 @@
     <span class="n">response</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;items&quot;</span><span class="p">:</span> <span class="n">items</span><span class="p">})</span>
     <span class="k">return</span> <span class="n">response</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="n">fake_items_db</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;item_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Foo&quot;</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;item_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Bar&quot;</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;item_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Baz&quot;</span><span class="p">}]</span>
+
+
+<span class="k">class</span> <span class="nc">CommonQueryParams</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">q</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">skip</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">limit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">q</span> <span class="o">=</span> <span class="n">q</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">skip</span> <span class="o">=</span> <span class="n">skip</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">limit</span> <span class="o">=</span> <span class="n">limit</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/&quot;</span><span class="p">)</span>
+<span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">read_items</span><span class="p">(</span><span class="n">commons</span><span class="o">=</span><span class="n">Depends</span><span class="p">(</span><span class="n">CommonQueryParams</span><span class="p">)):</span>
+</span>    <span class="n">response</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">if</span> <span class="n">commons</span><span class="o">.</span><span class="n">q</span><span class="p">:</span>
+        <span class="n">response</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="n">commons</span><span class="o">.</span><span class="n">q</span><span class="p">})</span>
+    <span class="n">items</span> <span class="o">=</span> <span class="n">fake_items_db</span><span class="p">[</span><span class="n">commons</span><span class="o">.</span><span class="n">skip</span> <span class="p">:</span> <span class="n">commons</span><span class="o">.</span><span class="n">skip</span> <span class="o">+</span> <span class="n">commons</span><span class="o">.</span><span class="n">limit</span><span class="p">]</span>
+    <span class="n">response</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;items&quot;</span><span class="p">:</span> <span class="n">items</span><span class="p">})</span>
+    <span class="k">return</span> <span class="n">response</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <p>不过，我们还是鼓励声明类型，这样做能让编辑器知道参数 <code>commons</code> 传递的是哪个对象，从而实现代码补全、类型检查等更多支持：</p>
-<p><img src="/img/tutorial/dependencies/image02.png"></p>
+<p><img src="https://fastapi.tiangolo.com/img/tutorial/dependencies/image02.png"></p>
 <h2 id="_5">快捷方式<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>这段代码里重复写了两次 <code>CommonQueryParams</code> :</p>
 <div class="highlight"><pre><span></span><code><span class="n">commons</span><span class="p">:</span> <span class="n">CommonQueryParams</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">CommonQueryParams</span><span class="p">)</span>
@@ -2447,6 +2628,9 @@
 </code></pre></div>
 <p>这段代码用依赖项声明参数的类型，并把 <code>Depends()</code> 作为该参数（在 <code>=</code> 之后）的<strong>默认值</strong>。因为 <code>Depends()</code> 中没有参数，所以不用在 <code>Depends()</code>中<em>重复</em>写出完整的类，<code>Depends(CommonQueryParams)</code>。</p>
 <p>下面的代码与前例的效果一样：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Python 3.6 and above</label><label for="__tabbed_7_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span>
@@ -2473,10 +2657,39 @@
     <span class="n">response</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;items&quot;</span><span class="p">:</span> <span class="n">items</span><span class="p">})</span>
     <span class="k">return</span> <span class="n">response</span>
 </code></pre></div>
-<p>…… <strong>FastAPI</strong> 知道下一步该怎么做。</p>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="n">fake_items_db</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;item_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Foo&quot;</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;item_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Bar&quot;</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;item_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Baz&quot;</span><span class="p">}]</span>
+
+
+<span class="k">class</span> <span class="nc">CommonQueryParams</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">q</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">skip</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">limit</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">q</span> <span class="o">=</span> <span class="n">q</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">skip</span> <span class="o">=</span> <span class="n">skip</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">limit</span> <span class="o">=</span> <span class="n">limit</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/&quot;</span><span class="p">)</span>
+<span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">read_items</span><span class="p">(</span><span class="n">commons</span><span class="p">:</span> <span class="n">CommonQueryParams</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">()):</span>
+</span>    <span class="n">response</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">if</span> <span class="n">commons</span><span class="o">.</span><span class="n">q</span><span class="p">:</span>
+        <span class="n">response</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="n">commons</span><span class="o">.</span><span class="n">q</span><span class="p">})</span>
+    <span class="n">items</span> <span class="o">=</span> <span class="n">fake_items_db</span><span class="p">[</span><span class="n">commons</span><span class="o">.</span><span class="n">skip</span> <span class="p">:</span> <span class="n">commons</span><span class="o">.</span><span class="n">skip</span> <span class="o">+</span> <span class="n">commons</span><span class="o">.</span><span class="n">limit</span><span class="p">]</span>
+    <span class="n">response</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;items&quot;</span><span class="p">:</span> <span class="n">items</span><span class="p">})</span>
+    <span class="k">return</span> <span class="n">response</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>……<strong>FastAPI</strong> 知道下一步该怎么做。</p>
 <div class="admonition tip">
 <p class="admonition-title">提示</p>
-<p>如果您觉得这种快捷方式没什么用处，反而增添了困扰，尽可弃之不用，<em>不用</em>快捷方式也没问题。</p>
+<p>如果您觉得这种快捷方式没什么用处，反而增添了困扰，尽可弃之不用，<strong>不用</strong>快捷方式也没问题。</p>
 <p>这只是一种快捷方式，<strong>FastAPI</strong> 希望能让您尽量少写一些重复代码。</p>
 </div>
 

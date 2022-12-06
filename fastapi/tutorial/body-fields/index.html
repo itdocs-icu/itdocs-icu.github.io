@@ -681,7 +681,7 @@
   
     <li class="md-nav__item">
       <a href="../schema-extra-example/" class="md-nav__link">
-        概图的更多信息 - 示例
+        声明请求的示例数据
       </a>
     </li>
   
@@ -917,7 +917,7 @@
   
     <li class="md-nav__item">
       <a href="../dependencies/classes-as-dependencies/" class="md-nav__link">
-        用类定义依赖项
+        类为依赖项
       </a>
     </li>
   
@@ -973,7 +973,7 @@
   
     <li class="md-nav__item">
       <a href="../dependencies/dependencies-with-yield/" class="md-nav__link">
-        生成器依赖项
+        `yield` 生成器依赖项
       </a>
     </li>
   
@@ -2190,6 +2190,9 @@
 <p>与在<strong>路径操作函数</strong>中使用 <code>Query</code>、<code>Path</code> 、<code>Body</code> 声明校验与元数据的方式一样，可以使用 Pydantic 的 <code>Field</code> 在 Pydantic 模型内部声明校验和元数据。</p>
 <h2 id="field">导入 <code>Field</code><a class="headerlink" href="#field" title="Permanent link">&para;</a></h2>
 <p>首先，从 Pydantic 中导入 <code>Field</code>：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python 3.6 and above</label><label for="__tabbed_1_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Body</span><span class="p">,</span> <span class="n">FastAPI</span>
@@ -2212,12 +2215,40 @@
     <span class="n">results</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="n">item_id</span><span class="p">,</span> <span class="s2">&quot;item&quot;</span><span class="p">:</span> <span class="n">item</span><span class="p">}</span>
     <span class="k">return</span> <span class="n">results</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Body</span><span class="p">,</span> <span class="n">FastAPI</span>
+<span class="hll"><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">Field</span>
+</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;The description of the item&quot;</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">300</span>
+    <span class="p">)</span>
+    <span class="n">price</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">gt</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The price must be greater than zero&quot;</span><span class="p">)</span>
+    <span class="n">tax</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s2">&quot;/items/</span><span class="si">{item_id}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">update_item</span><span class="p">(</span><span class="n">item_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">Item</span> <span class="o">=</span> <span class="n">Body</span><span class="p">(</span><span class="n">embed</span><span class="o">=</span><span class="kc">True</span><span class="p">)):</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="n">item_id</span><span class="p">,</span> <span class="s2">&quot;item&quot;</span><span class="p">:</span> <span class="n">item</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">results</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <div class="admonition warning">
 <p class="admonition-title">警告</p>
 <p>注意，与从 <code>fastapi</code> 导入 <code>Query</code>，<code>Path</code>、<code>Body</code> 不同，要直接从 <code>pydantic</code> 导入 <code>Field</code> 。</p>
 </div>
 <h2 id="_1">声明模型属性<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>然后，使用 <code>Field</code> 定义模型的属性：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python 3.6 and above</label><label for="__tabbed_2_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Body</span><span class="p">,</span> <span class="n">FastAPI</span>
@@ -2240,6 +2271,31 @@
     <span class="n">results</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="n">item_id</span><span class="p">,</span> <span class="s2">&quot;item&quot;</span><span class="p">:</span> <span class="n">item</span><span class="p">}</span>
     <span class="k">return</span> <span class="n">results</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Body</span><span class="p">,</span> <span class="n">FastAPI</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">Field</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+<span class="hll">    <span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+</span><span class="hll">        <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;The description of the item&quot;</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">300</span>
+</span><span class="hll">    <span class="p">)</span>
+</span><span class="hll">    <span class="n">price</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">gt</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;The price must be greater than zero&quot;</span><span class="p">)</span>
+</span>    <span class="n">tax</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s2">&quot;/items/</span><span class="si">{item_id}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">update_item</span><span class="p">(</span><span class="n">item_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">Item</span> <span class="o">=</span> <span class="n">Body</span><span class="p">(</span><span class="n">embed</span><span class="o">=</span><span class="kc">True</span><span class="p">)):</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="n">item_id</span><span class="p">,</span> <span class="s2">&quot;item&quot;</span><span class="p">:</span> <span class="n">item</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">results</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <p><code>Field</code> 的工作方式和 <code>Query</code>、<code>Path</code>、<code>Body</code> 相同，参数也相同。</p>
 <div class="admonition note">
 <p class="admonition-title">技术细节</p>
@@ -2254,7 +2310,12 @@
 </div>
 <h2 id="_2">添加更多信息<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p><code>Field</code>、<code>Query</code>、<code>Body</code> 等对象里可以声明更多信息，并且 JSON Schema 中也会集成这些信息。</p>
-<p><em>声明示例</em>一章中将详细介绍添加更多信息的知识。</p>
+<p>声明示例一章中将详细介绍添加更多信息的知识。</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>传递给 <code>Field</code> 的附加键也会显示在应用的 OpenAPI 概图里。
+但这些键不是 OpenAPI 规范的必要组件，因此，某些 OpenAPI 工具（如<a href="https://validator.swagger.io/">OpenAPI 验证器</a>）在处理您生成的概图时可能不会正常运行。</p>
+</div>
 <h2 id="_3">小结<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>Pydantic 的 <code>Field</code> 可以为模型属性声明更多校验和元数据。</p>
 <p>传递 JSON Schema 元数据还可以使用更多关键字参数。</p>

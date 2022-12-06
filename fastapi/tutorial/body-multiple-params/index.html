@@ -695,7 +695,7 @@
   
     <li class="md-nav__item">
       <a href="../schema-extra-example/" class="md-nav__link">
-        概图的更多信息 - 示例
+        声明请求的示例数据
       </a>
     </li>
   
@@ -931,7 +931,7 @@
   
     <li class="md-nav__item">
       <a href="../dependencies/classes-as-dependencies/" class="md-nav__link">
-        用类定义依赖项
+        类为依赖项
       </a>
     </li>
   
@@ -987,7 +987,7 @@
   
     <li class="md-nav__item">
       <a href="../dependencies/dependencies-with-yield/" class="md-nav__link">
-        生成器依赖项
+        `yield` 生成器依赖项
       </a>
     </li>
   
@@ -2219,6 +2219,9 @@
 <h2 id="pathquery">混用 <code>Path</code>、<code>Query</code> 和请求体参数<a class="headerlink" href="#pathquery" title="Permanent link">&para;</a></h2>
 <p>首先，声明中可以随意混用 <code>Path</code>、<code>Query</code> 和请求体参数，<strong>FastAPI</strong> 知道该如何处理。</p>
 <p>默认值为 <code>None</code> 时，请求体参数是可选的：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python 3.6 and above</label><label for="__tabbed_1_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">Path</span>
@@ -2248,6 +2251,38 @@
         <span class="n">results</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;item&quot;</span><span class="p">:</span> <span class="n">item</span><span class="p">})</span>
     <span class="k">return</span> <span class="n">results</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">price</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">tax</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s2">&quot;/items/</span><span class="si">{item_id}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">update_item</span><span class="p">(</span>
+    <span class="o">*</span><span class="p">,</span>
+<span class="hll">    <span class="n">item_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;The ID of the item to get&quot;</span><span class="p">,</span> <span class="n">ge</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">le</span><span class="o">=</span><span class="mi">1000</span><span class="p">),</span>
+</span><span class="hll">    <span class="n">q</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+</span><span class="hll">    <span class="n">item</span><span class="p">:</span> <span class="n">Item</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+</span><span class="p">):</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="n">item_id</span><span class="p">}</span>
+    <span class="k">if</span> <span class="n">q</span><span class="p">:</span>
+        <span class="n">results</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="n">q</span><span class="p">})</span>
+    <span class="k">if</span> <span class="n">item</span><span class="p">:</span>
+        <span class="n">results</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;item&quot;</span><span class="p">:</span> <span class="n">item</span><span class="p">})</span>
+    <span class="k">return</span> <span class="n">results</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <div class="admonition note">
 <p class="admonition-title">笔记</p>
 <p>注意，本例中，从请求体获取的 <code>item</code> 是可选的，因为它的默认值是 <code>None</code>。</p>
@@ -2262,6 +2297,9 @@
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <p>但也可以声明多个请求体参数，例如 <code>item</code> 和 <code>user</code>：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python 3.6 and above</label><label for="__tabbed_2_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
@@ -2287,6 +2325,34 @@
 </span>    <span class="n">results</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="n">item_id</span><span class="p">,</span> <span class="s2">&quot;item&quot;</span><span class="p">:</span> <span class="n">item</span><span class="p">,</span> <span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="n">user</span><span class="p">}</span>
     <span class="k">return</span> <span class="n">results</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">price</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">tax</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">username</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">full_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s2">&quot;/items/</span><span class="si">{item_id}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">update_item</span><span class="p">(</span><span class="n">item_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">,</span> <span class="n">user</span><span class="p">:</span> <span class="n">User</span><span class="p">):</span>
+</span>    <span class="n">results</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="n">item_id</span><span class="p">,</span> <span class="s2">&quot;item&quot;</span><span class="p">:</span> <span class="n">item</span><span class="p">,</span> <span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="n">user</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">results</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <p>本例中，<strong>FastAPI</strong> 能够识别函数中有多个请求体参数（两个 Pydantic 模型参数）。</p>
 <p>因此，它把参数名作为请求体的键（字段名称），并返回如下请求体：</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
@@ -2313,6 +2379,9 @@
 <p>例如，扩展上述模型，除了 <code>item</code> 和 <code>user</code> 之外，还要在同一请求体中，添加另一个键 <code>importance</code>。</p>
 <p>如果直接声明该参数，因为 <code>importance</code> 是单值，<strong>FastAPI</strong> 会把它识别为查询参数。</p>
 <p>此时，就需要使用 <code>Body</code> 让 <strong>FastAPI</strong> 把它当作请求体的键。</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python 3.6 and above</label><label for="__tabbed_3_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Body</span><span class="p">,</span> <span class="n">FastAPI</span>
@@ -2334,11 +2403,39 @@
 
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s2">&quot;/items/</span><span class="si">{item_id}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="k">async</span> <span class="k">def</span> <span class="nf">update_item</span><span class="p">(</span><span class="n">item_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">,</span> <span class="n">user</span><span class="p">:</span> <span class="n">User</span><span class="p">,</span> <span class="n">importance</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Body</span><span class="p">()):</span>
-<span class="hll">    <span class="n">results</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="n">item_id</span><span class="p">,</span> <span class="s2">&quot;item&quot;</span><span class="p">:</span> <span class="n">item</span><span class="p">,</span> <span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="n">user</span><span class="p">,</span> <span class="s2">&quot;importance&quot;</span><span class="p">:</span> <span class="n">importance</span><span class="p">}</span>
-</span>    <span class="k">return</span> <span class="n">results</span>
+<span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">update_item</span><span class="p">(</span><span class="n">item_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">,</span> <span class="n">user</span><span class="p">:</span> <span class="n">User</span><span class="p">,</span> <span class="n">importance</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Body</span><span class="p">()):</span>
+</span>    <span class="n">results</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="n">item_id</span><span class="p">,</span> <span class="s2">&quot;item&quot;</span><span class="p">:</span> <span class="n">item</span><span class="p">,</span> <span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="n">user</span><span class="p">,</span> <span class="s2">&quot;importance&quot;</span><span class="p">:</span> <span class="n">importance</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">results</span>
 </code></pre></div>
-<p>此时，<strong>FastAPI</strong> 返回如下请求体：</p>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Body</span><span class="p">,</span> <span class="n">FastAPI</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">price</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">tax</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">username</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">full_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s2">&quot;/items/</span><span class="si">{item_id}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">update_item</span><span class="p">(</span><span class="n">item_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">,</span> <span class="n">user</span><span class="p">:</span> <span class="n">User</span><span class="p">,</span> <span class="n">importance</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Body</span><span class="p">()):</span>
+</span>    <span class="n">results</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="n">item_id</span><span class="p">,</span> <span class="s2">&quot;item&quot;</span><span class="p">:</span> <span class="n">item</span><span class="p">,</span> <span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="n">user</span><span class="p">,</span> <span class="s2">&quot;importance&quot;</span><span class="p">:</span> <span class="n">importance</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">results</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>本例中，<strong>FastAPI</strong> 预期如下请求体：</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;item&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Foo&quot;</span><span class="p">,</span><span class="w"></span>
@@ -2357,9 +2454,15 @@
 <h2 id="_3">多个请求体参数和查询参数<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>除了请求体参数外，还可以声明更多查询参数。</p>
 <p>默认情况下，单值会被解释为查询参数，因此不必显式添加 <code>Query</code>，只需用以下代码：</p>
-<div class="highlight"><pre><span></span><code><span class="n">q</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span>
+<div class="highlight"><pre><span></span><code><span class="n">q</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 </code></pre></div>
-<p>代码如下：</p>
+<p>Python 3.10 及以上版本：</p>
+<div class="highlight"><pre><span></span><code><span class="n">q</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+<p>示例如下：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Python 3.6 and above</label><label for="__tabbed_4_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Body</span><span class="p">,</span> <span class="n">FastAPI</span>
@@ -2386,14 +2489,51 @@
     <span class="n">item_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
     <span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">,</span>
     <span class="n">user</span><span class="p">:</span> <span class="n">User</span><span class="p">,</span>
+<span class="hll">    <span class="n">importance</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Body</span><span class="p">(</span><span class="n">gt</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+</span>    <span class="n">q</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="p">):</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="n">item_id</span><span class="p">,</span> <span class="s2">&quot;item&quot;</span><span class="p">:</span> <span class="n">item</span><span class="p">,</span> <span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="n">user</span><span class="p">,</span> <span class="s2">&quot;importance&quot;</span><span class="p">:</span> <span class="n">importance</span><span class="p">}</span>
+    <span class="k">if</span> <span class="n">q</span><span class="p">:</span>
+        <span class="n">results</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="n">q</span><span class="p">})</span>
+    <span class="k">return</span> <span class="n">results</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Body</span><span class="p">,</span> <span class="n">FastAPI</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">price</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">tax</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">username</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">full_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s2">&quot;/items/</span><span class="si">{item_id}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">update_item</span><span class="p">(</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">item_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">,</span>
+    <span class="n">user</span><span class="p">:</span> <span class="n">User</span><span class="p">,</span>
     <span class="n">importance</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Body</span><span class="p">(</span><span class="n">gt</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
-<span class="hll">    <span class="n">q</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="hll">    <span class="n">q</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
 </span><span class="p">):</span>
     <span class="n">results</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="n">item_id</span><span class="p">,</span> <span class="s2">&quot;item&quot;</span><span class="p">:</span> <span class="n">item</span><span class="p">,</span> <span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="n">user</span><span class="p">,</span> <span class="s2">&quot;importance&quot;</span><span class="p">:</span> <span class="n">importance</span><span class="p">}</span>
     <span class="k">if</span> <span class="n">q</span><span class="p">:</span>
         <span class="n">results</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="n">q</span><span class="p">})</span>
     <span class="k">return</span> <span class="n">results</span>
 </code></pre></div>
+</div>
+</div>
+</div>
 <div class="admonition info">
 <p class="admonition-title">说明</p>
 <p><code>Body</code> 也支持与 <code>Query</code>、<code>Path</code> 相同的校验和元数据参数。</p>
@@ -2404,7 +2544,10 @@
 <p>但是，如果希望 JSON 中包含 <code>item</code> 键，且模型内容都在该键之下，就要参照声明更多请求体参数的方式，使用 <code>Body</code> 的 <code>embed</code>参数：</p>
 <div class="highlight"><pre><span></span><code><span class="n">item</span><span class="p">:</span> <span class="n">Item</span> <span class="o">=</span> <span class="n">Body</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">embed</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
-<p>代码如下：</p>
+<p>示例如下：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Python 3.6 and above</label><label for="__tabbed_5_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Body</span><span class="p">,</span> <span class="n">FastAPI</span>
@@ -2425,6 +2568,29 @@
 </span>    <span class="n">results</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="n">item_id</span><span class="p">,</span> <span class="s2">&quot;item&quot;</span><span class="p">:</span> <span class="n">item</span><span class="p">}</span>
     <span class="k">return</span> <span class="n">results</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Body</span><span class="p">,</span> <span class="n">FastAPI</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">price</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">tax</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s2">&quot;/items/</span><span class="si">{item_id}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">update_item</span><span class="p">(</span><span class="n">item_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">Item</span> <span class="o">=</span> <span class="n">Body</span><span class="p">(</span><span class="n">embed</span><span class="o">=</span><span class="kc">True</span><span class="p">)):</span>
+</span>    <span class="n">results</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="n">item_id</span><span class="p">,</span> <span class="s2">&quot;item&quot;</span><span class="p">:</span> <span class="n">item</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">results</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <p>本例中，<strong>FastAPI</strong> 预期如下请求体：</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
 <span class="hll"><span class="w">    </span><span class="nt">&quot;item&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>

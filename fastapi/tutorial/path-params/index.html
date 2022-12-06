@@ -804,7 +804,7 @@
   
     <li class="md-nav__item">
       <a href="../schema-extra-example/" class="md-nav__link">
-        概图的更多信息 - 示例
+        声明请求的示例数据
       </a>
     </li>
   
@@ -1040,7 +1040,7 @@
   
     <li class="md-nav__item">
       <a href="../dependencies/classes-as-dependencies/" class="md-nav__link">
-        用类定义依赖项
+        类为依赖项
       </a>
     </li>
   
@@ -1096,7 +1096,7 @@
   
     <li class="md-nav__item">
       <a href="../dependencies/dependencies-with-yield/" class="md-nav__link">
-        生成器依赖项
+        `yield` 生成器依赖项
       </a>
     </li>
   
@@ -2433,7 +2433,7 @@
 
 
 <h1 id="_1">路径参数<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>FastAPI 使用 Python 字符串格式化语法声明<strong><em>路径参数</em></strong>（<strong>变量</strong>）：</p>
+<p>FastAPI 使用 Python 字符串格式化语法声明<strong>路径参数</strong>（<strong>变量</strong>）：</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
 
 <span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
@@ -2497,7 +2497,7 @@
 </div>
 <h2 id="_5">查看文档<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>访问 <a href="http://127.0.0.1:8000/docs" class="external-link" target="_blank">http://127.0.0.1:8000/docs</a>，查看自动生成的 API 文档：</p>
-<p><img src="/img/tutorial/path-params/image01.png"></p>
+<p><img src="https://fastapi.tiangolo.com/img/tutorial/path-params/image01.png"></p>
 <div class="admonition check">
 <p class="admonition-title">检查</p>
 <p><strong>FastAPI</strong> （集成 Swagger UI 的）API 文档也可以利用 Python 类型声明。</p>
@@ -2506,7 +2506,7 @@
 <h2 id="_6">基于标准的优势，备选文档<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <p><strong>FastAPI</strong> 使用 <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md" class="external-link" target="_blank">OpenAPI</a> 生成概图，所以能兼容很多工具。</p>
 <p>因此，<strong>FastAPI</strong> 还内置了 ReDoc 生成的备选 API 文档，可在此查看 <a href="http://127.0.0.1:8000/redoc" class="external-link" target="_blank">http://127.0.0.1:8000/redoc</a>：</p>
-<p><img src="/img/tutorial/path-params/image02.png"></p>
+<p><img src="https://fastapi.tiangolo.com/img/tutorial/path-params/image02.png"></p>
 <p>同样，还有很多兼容工具，包括多种语言的代码生成工具。</p>
 <h2 id="pydantic">Pydantic<a class="headerlink" href="#pydantic" title="Permanent link">&para;</a></h2>
 <p>FastAPI 充分地利用了 <a href="https://pydantic-docs.helpmanual.io/" class="external-link" target="_blank">Pydantic</a> 的优势，用它在后台校验数据。众所周知，Pydantic 擅长的就是数据校验。</p>
@@ -2598,7 +2598,7 @@
 </code></pre></div>
 <h3 id="_10">查看文档<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
 <p>API 文档会显示预定义<strong>路径参数</strong>的可用值：</p>
-<p><img src="/img/tutorial/path-params/image03.png"></p>
+<p><img src="https://fastapi.tiangolo.com/img/tutorial/path-params/image03.png"></p>
 <h3 id="python">使用 Python <em>枚举类型</em><a class="headerlink" href="#python" title="Permanent link">&para;</a></h3>
 <p><strong>路径参数</strong>的值是枚举的元素。</p>
 <h4 id="_11">比较<em>枚举元素</em><a class="headerlink" href="#_11" title="Permanent link">&para;</a></h4>
