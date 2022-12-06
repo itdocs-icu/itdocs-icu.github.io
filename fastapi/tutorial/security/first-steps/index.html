@@ -47,6 +47,16 @@
     <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  
+  
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-133183413-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
 
     
     
@@ -122,7 +132,7 @@
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 10px 10px;
     text-decoration: none;
   }
 
@@ -170,7 +180,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -179,7 +189,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -1820,6 +1830,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../advanced/generate-clients/" class="md-nav__link">
+        Generate Clients
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1917,6 +1941,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../deployment/manually/" class="md-nav__link">
+        Run a Server Manually - Uvicorn
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../deployment/concepts/" class="md-nav__link">
+        Deployments Concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../deployment/deta/" class="md-nav__link">
         在 Deta 上部署 FastAPI
       </a>
@@ -1931,8 +1983,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../deployment/docker/" class="md-nav__link">
-        使用 Docker 部署
+      <a href="../../../deployment/server-workers/" class="md-nav__link">
+        Server Workers - Gunicorn with Uvicorn
       </a>
     </li>
   
@@ -1945,8 +1997,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../deployment/manually/" class="md-nav__link">
-        手动部署
+      <a href="../../../deployment/docker/" class="md-nav__link">
+        使用 Docker 部署
       </a>
     </li>
   
@@ -1983,7 +2035,7 @@
   
     <li class="md-nav__item">
       <a href="../../../alternatives/" class="md-nav__link">
-        备选、灵感、比较
+        备选、灵感与比较
       </a>
     </li>
   
@@ -2265,9 +2317,9 @@
 <div class="admonition check">
 <p class="admonition-title">Authorize 按钮！</p>
 <p>页面右上角出现了一个「<strong>Authorize</strong>」按钮。</p>
-<p><em>路径操作</em>的右上角也出现了一个可以点击的小锁图标。</p>
+<p><strong>路径操作</strong>的右上角也出现了一个可以点击的小锁图标。</p>
 </div>
-<p>点击 <strong>Authorize</strong> 按钮，弹出授权表单，输入 <code>username</code> 与 <code>password</code> 及其它可选字段：</p>
+<p>点击 <strong>Authorize</strong> 按钮，弹出授权表单，输入 <code>username</code> 与 <code>password</code> 及其他可选字段：</p>
 <p><img src="/img/tutorial/security/image02.png"></p>
 <div class="admonition note">
 <p class="admonition-title">笔记</p>
@@ -2294,7 +2346,7 @@
 </ul>
 </li>
 <li>前端临时将 Token 存储在某个位置</li>
-<li>用户点击前端，前往前端应用的其它部件</li>
+<li>用户点击前端，前往前端应用的其他部件</li>
 <li>前端需要从 API 中提取更多数据：</li>
 <li>为指定的端点（Endpoint）进行身份验证</li>
 <li>因此，用 API 验证身份时，要发送值为 <code>Bearer + Token</code> 的请求头 <code>Authorization</code></li>
@@ -2307,7 +2359,7 @@
 <p class="admonition-title">说明</p>
 <p><code>Bearer + Token</code> 不是唯一的选择。</p>
 <p>但它是最适合这个用例的方案。</p>
-<p>甚至可以说，它是适用于绝大多数用例的最佳方案，除非您是 OAuth2 的专家，知道为什么其它方案更合适。</p>
+<p>甚至可以说，它是适用于绝大多数用例的最佳方案，除非您是 OAuth2 的专家，知道为什么其他方案更合适。</p>
 <p>本例中，<strong>FastAPI</strong> 还提供了构建工具。</p>
 </div>
 <p>创建 <code>OAuth2PasswordBearer</code> 的类实例时，要传递 <code>tokenUrl</code> 参数。该参数包含客户端（用户浏览器中运行的前端） 的 URL，用于发送 <code>username</code> 与 <code>password</code>，并获取 Token 。</p>
@@ -2329,7 +2381,7 @@
 <p>因为使用的是相对 URL，如果 API 位于 <code>https://example.com/</code>，则指向 <code>https://example.com/token</code>。但如果 API 位于 <code>https://example.com/api/v1/</code>，它指向的就是<code>https://example.com/api/v1/token</code>。</p>
 <p>使用相对 URL 非常重要，可以确保应用在遇到<a class="internal-link" href="../../../advanced/behind-a-proxy/" target="_blank">使用代理</a>这样的高级用例时，也能正常运行。</p>
 </div>
-<p>该参数不会创建端点或<em>路径操作</em>，但会声明客户端用来获取 Token 的 URL <code>/token</code> 。此信息用于 OpenAPI 及 API 文档。</p>
+<p>该参数不会创建端点或<strong>路径操作</strong>，但会声明客户端用来获取 Token 的 URL <code>/token</code> 。此信息用于 OpenAPI 及 API 文档。</p>
 <p>接下来，学习如何创建实际的路径操作。</p>
 <div class="admonition info">
 <p class="admonition-title">说明</p>
@@ -2355,7 +2407,7 @@
 <span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">read_items</span><span class="p">(</span><span class="n">token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">oauth2_scheme</span><span class="p">)):</span>
 </span>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;token&quot;</span><span class="p">:</span> <span class="n">token</span><span class="p">}</span>
 </code></pre></div>
-<p>该依赖项使用字符串（<code>str</code>）接收<em>路径操作函数</em>的参数 <code>token</code> 。</p>
+<p>该依赖项使用字符串（<code>str</code>）接收<strong>路径操作函数</strong>的参数 <code>token</code> 。</p>
 <p><strong>FastAPI</strong> 使用依赖项在 OpenAPI 概图（及 API 文档）中定义<strong>安全方案</strong>。</p>
 <div class="admonition info">
 <p class="admonition-title">技术细节</p>

@@ -47,6 +47,16 @@
     <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  
+  
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-133183413-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
 
     
     
@@ -122,7 +132,7 @@
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 10px 10px;
     text-decoration: none;
   }
 
@@ -170,7 +180,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -179,7 +189,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -1713,6 +1723,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/generate-clients/" class="md-nav__link">
+        Generate Clients
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1800,6 +1824,34 @@
     <li class="md-nav__item">
       <a href="../https/" class="md-nav__link">
         关于 HTTPS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manually/" class="md-nav__link">
+        Run a Server Manually - Uvicorn
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concepts/" class="md-nav__link">
+        Deployments Concepts
       </a>
     </li>
   
@@ -1957,8 +2009,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../docker/" class="md-nav__link">
-        使用 Docker 部署
+      <a href="../server-workers/" class="md-nav__link">
+        Server Workers - Gunicorn with Uvicorn
       </a>
     </li>
   
@@ -1971,8 +2023,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../manually/" class="md-nav__link">
-        手动部署
+      <a href="../docker/" class="md-nav__link">
+        使用 Docker 部署
       </a>
     </li>
   
@@ -2009,7 +2061,7 @@
   
     <li class="md-nav__item">
       <a href="../../alternatives/" class="md-nav__link">
-        备选、灵感、比较
+        备选、灵感与比较
       </a>
     </li>
   
@@ -2320,16 +2372,19 @@
 <p>甚至不需要信用卡。</p>
 <h2 id="cli">安装 CLI<a class="headerlink" href="#cli" title="Permanent link">&para;</a></h2>
 <p>创建账号后，安装 Deta <abbr title="Command Line Interface application">CLI</abbr>：</p>
-<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Linux, macOS</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Linux, macOS</label><label for="__tabbed_1_2">Windows PowerShell</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="termy">
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>curl -fsSL https://get.deta.dev/cli.sh <span class="p">|</span> sh
 </code></pre></div>
 </div>
 </div>
-<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Windows PowerShell</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="termy">
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>iwr https://get.deta.dev/cli.ps1 -useb <span class="p">|</span> iex
 </code></pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -2440,7 +2495,7 @@
 <p>恭喜！您已经在 Deta 上部署了 FastAPI 应用！🎉 🍰</p>
 <p>还要注意，Deta 能够正确处理 HTTPS，因此您不必操心 HTTPS，您的客户端肯定能有安全加密的连接。 ✅ 🔒</p>
 <h2 id="visor">查看 Visor<a class="headerlink" href="#visor" title="Permanent link">&para;</a></h2>
-<p>从 API 文档（URL 是 <code>https://gltnci.deta.dev/docs</code>）发送请求至<em>路径操作</em> <code>/items/{item_id}</code>。</p>
+<p>从 API 文档（URL 是 <code>https://gltnci.deta.dev/docs</code>）发送请求至<strong>路径操作</strong> <code>/items/{item_id}</code>。</p>
 <p>例如，ID <code>5</code>。</p>
 <p>现在跳转至 <a href="https://web.deta.sh/" class="external-link" target="_blank">https://web.deta.sh。</a></p>
 <p>左边栏有个 <abbr title="it comes from Micro(server)">"Micros"</abbr> 标签，里面是所有的应用。</p>
@@ -2468,7 +2523,7 @@
     <nav class="md-footer__inner md-grid" aria-label="页脚" >
       
         
-        <a href="../https/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 关于 HTTPS" rel="prev">
+        <a href="../concepts/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Deployments Concepts" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -2477,20 +2532,20 @@
               <span class="md-footer__direction">
                 上一页
               </span>
-              关于 HTTPS
+              Deployments Concepts
             </div>
           </div>
         </a>
       
       
         
-        <a href="../docker/" class="md-footer__link md-footer__link--next" aria-label="下一页: 使用 Docker 部署" rel="next">
+        <a href="../server-workers/" class="md-footer__link md-footer__link--next" aria-label="下一页: Server Workers - Gunicorn with Uvicorn" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 下一页
               </span>
-              使用 Docker 部署
+              Server Workers - Gunicorn with Uvicorn
             </div>
           </div>
           <div class="md-footer__button md-icon">

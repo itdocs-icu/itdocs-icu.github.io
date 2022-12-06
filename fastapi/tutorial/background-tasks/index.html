@@ -47,6 +47,16 @@
     <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  
+  
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-133183413-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
 
     
     
@@ -122,7 +132,7 @@
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 10px 10px;
     text-decoration: none;
   }
 
@@ -170,7 +180,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -179,7 +189,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -1798,6 +1808,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/generate-clients/" class="md-nav__link">
+        Generate Clients
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1895,6 +1919,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../deployment/manually/" class="md-nav__link">
+        Run a Server Manually - Uvicorn
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/concepts/" class="md-nav__link">
+        Deployments Concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../deployment/deta/" class="md-nav__link">
         在 Deta 上部署 FastAPI
       </a>
@@ -1909,8 +1961,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../deployment/docker/" class="md-nav__link">
-        使用 Docker 部署
+      <a href="../../deployment/server-workers/" class="md-nav__link">
+        Server Workers - Gunicorn with Uvicorn
       </a>
     </li>
   
@@ -1923,8 +1975,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../deployment/manually/" class="md-nav__link">
-        手动部署
+      <a href="../../deployment/docker/" class="md-nav__link">
+        使用 Docker 部署
       </a>
     </li>
   
@@ -1961,7 +2013,7 @@
   
     <li class="md-nav__item">
       <a href="../../alternatives/" class="md-nav__link">
-        备选、灵感、比较
+        备选、灵感与比较
       </a>
     </li>
   
@@ -2191,7 +2243,7 @@
 </li>
 </ul>
 <h2 id="backgroundtasks">使用 <code>BackgroundTasks</code><a class="headerlink" href="#backgroundtasks" title="Permanent link">&para;</a></h2>
-<p>首先，导入 <code>BackgroundTasks</code>，声明 <code>BackgroundTasks</code> 类型的<em>路径操作函数</em>参数：</p>
+<p>首先，导入 <code>BackgroundTasks</code>，声明 <code>BackgroundTasks</code> 类型的<strong>路径操作函数</strong>参数：</p>
 <div class="highlight"><pre><span></span><code><span class="hll"><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">BackgroundTasks</span><span class="p">,</span> <span class="n">FastAPI</span>
 </span>
 <span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
@@ -2232,7 +2284,7 @@
     <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Notification sent in the background&quot;</span><span class="p">}</span>
 </code></pre></div>
 <h2 id="_3">添加后台任务<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>在<em>路径操作函数</em>中，使用 <code>.add_task()</code> 方法把任务函数传递给<em>后台任务</em>对象：</p>
+<p>在<strong>路径操作函数</strong>中，使用 <code>.add_task()</code> 方法把任务函数传递给<em>后台任务</em>对象：</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">BackgroundTasks</span><span class="p">,</span> <span class="n">FastAPI</span>
 
 <span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
@@ -2256,9 +2308,9 @@
 <li>传递给任务函数的关键字参数（<code>message="some notification"</code>）</li>
 </ul>
 <h2 id="_4">依赖注入<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<p>依赖注入系统中也可以使用 <code>BackgroundTasks</code>，可以在不同层级声明 <code>BackgroundTasks</code> 类型的参数：<em>路径操作函数</em>、依赖项、子依赖项等。</p>
+<p>依赖注入系统中也可以使用 <code>BackgroundTasks</code>，可以在不同层级声明 <code>BackgroundTasks</code> 类型的参数：<strong>路径操作函数</strong>、依赖项、子依赖项等。</p>
 <p><strong>FastAPI</strong> 知道怎样为不同情况执行不同的操作，以及如何复用相同对象，以便把所有后台任务合并为一体，并在后台运行：</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">BackgroundTasks</span><span class="p">,</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span>
 
@@ -2270,7 +2322,7 @@
         <span class="n">log</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
 
 
-<span class="hll"><span class="k">def</span> <span class="nf">get_query</span><span class="p">(</span><span class="n">background_tasks</span><span class="p">:</span> <span class="n">BackgroundTasks</span><span class="p">,</span> <span class="n">q</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="hll"><span class="k">def</span> <span class="nf">get_query</span><span class="p">(</span><span class="n">background_tasks</span><span class="p">:</span> <span class="n">BackgroundTasks</span><span class="p">,</span> <span class="n">q</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
 </span>    <span class="k">if</span> <span class="n">q</span><span class="p">:</span>
 <span class="hll">        <span class="n">message</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;found query: </span><span class="si">{</span><span class="n">q</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
 </span>        <span class="n">background_tasks</span><span class="o">.</span><span class="n">add_task</span><span class="p">(</span><span class="n">write_log</span><span class="p">,</span> <span class="n">message</span><span class="p">)</span>
@@ -2287,11 +2339,11 @@
 </code></pre></div>
 <p>本例中，响应发送后会把所有信息写入 <code>log.txt</code>。</p>
 <p>如果请求中包含查询，该查询也会被后台任务写入日志。</p>
-<p>然后，<em>路径操作函数</em>中生成的另一个后台任务会使用 <code>email</code> 路径参数写入信息。</p>
+<p>然后，<strong>路径操作函数</strong>中生成的另一个后台任务会使用 <code>email</code> 路径参数写入信息。</p>
 <h2 id="_5">技术细节<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p><code>BackgroundTasks</code> 类直接继承自 <a href="https://www.starlette.io/background/" class="external-link" target="_blank"><code>starlette.background</code></a>。</p>
 <p>FastAPI 中直接提供了 <code>BackgroundTasks</code> 类，这样就可以直接从 <code>fastapi</code> 中导入，避免不小心从 <code>starlette.background</code> 中导入备用的 <code>BackgroundTask</code>（结尾没有 <code>s</code>）。</p>
-<p><em>路径操作函数</em>中应当只使用 <code>BackgroundTasks</code> （不是 <code>BackgroundTask</code>），<strong>FastAPI</strong> 会处理其它操作，这点与直接使用 <code>Request</code> 一样。</p>
+<p><strong>路径操作函数</strong>中应当只使用 <code>BackgroundTasks</code> （不是 <code>BackgroundTask</code>），<strong>FastAPI</strong> 会处理其他操作，这点与直接使用 <code>Request</code> 一样。</p>
 <p>FastAPI 中也可以使用 <code>BackgroundTask</code>，但必须要在代码中创建这个对象，并返回包含该对象的 Starlette <code>Response</code>。</p>
 <p>详见  <a href="https://www.starlette.io/background/" class="external-link" target="_blank">Starlette 官档：后台任务</a>。</p>
 <h2 id="_6">警告<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
@@ -2300,7 +2352,7 @@
 <p><a class="internal-link" href="../../project-generation/" target="_blank">项目生成器</a>一章中提供了包含所有配置好的 Celery 实例。</p>
 <p>但如果只在 <strong>FastAPI</strong> 应用中访问变量或对象，或只是执行（发送邮件通知等）小型后台任务，只使用 <code>BackgroundTasks</code> 就够了。</p>
 <h2 id="_7">小结<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
-<p>本章介绍了如何导入 <code>BackgroundTasks</code>，并在<em>路径操作函数</em>和依赖项的参数中使用 <code>BackgroundTasks</code> 添加后台任务。</p>
+<p>本章介绍了如何导入 <code>BackgroundTasks</code>，并在<strong>路径操作函数</strong>和依赖项的参数中使用 <code>BackgroundTasks</code> 添加后台任务。</p>
 
               
             </article>

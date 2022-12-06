@@ -10,14 +10,14 @@
       
       
       
-        <link rel="canonical" href="https://fastapi.tiangolo.com/zh/advanced/settings/">
+        <link rel="canonical" href="https://fastapi.tiangolo.com/zh/advanced/generate-clients/">
       
       <link rel="icon" href="https://fastapi.tiangolo.com/img/favicon.png">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.9">
     
     
       
-        <title>设置与环境变量 - FastAPI</title>
+        <title>Generate Clients - FastAPI</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#generate-clients" class="md-skip">
           跳转至
         </a>
       
@@ -169,7 +169,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              设置与环境变量
+              Generate Clients
             
           </span>
         </div>
@@ -1659,201 +1659,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          设置与环境变量
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../settings/" class="md-nav__link">
         设置与环境变量
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    环境变量
-  </a>
-  
-    <nav class="md-nav" aria-label="环境变量">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#python" class="md-nav__link">
-    Python 读取环境变量
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    类型与验证
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pydantic-settings" class="md-nav__link">
-    Pydantic 的 Settings
-  </a>
-  
-    <nav class="md-nav" aria-label="Pydantic 的 Settings">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#settings" class="md-nav__link">
-    创建 Settings 对象
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#settings_1" class="md-nav__link">
-    使用 settings
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    运行服务器
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    在其他模块中设置
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    依赖项中的设置
-  </a>
-  
-    <nav class="md-nav" aria-label="依赖项中的设置">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    配置文件
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    主应用文件
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    设置与测试
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#env" class="md-nav__link">
-    读取 .env 文件
-  </a>
-  
-    <nav class="md-nav" aria-label="读取 .env 文件">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#env_1" class="md-nav__link">
-    .env 文件
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#env_2" class="md-nav__link">
-    读取 .env 中的设置
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#lru_cache-settings" class="md-nav__link">
-    使用 lru_cache 只创建一次 Settings
-  </a>
-  
-    <nav class="md-nav" aria-label="使用 lru_cache 只创建一次 Settings">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#lru_cache" class="md-nav__link">
-    lru_cache 技术细节
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    小结
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1919,11 +1729,181 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../generate-clients/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Generate Clients
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Generate Clients
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#openapi-client-generators" class="md-nav__link">
+    OpenAPI Client Generators
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generate-a-typescript-frontend-client" class="md-nav__link">
+    Generate a TypeScript Frontend Client
+  </a>
+  
+    <nav class="md-nav" aria-label="Generate a TypeScript Frontend Client">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#api-docs" class="md-nav__link">
+    API Docs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generate-a-typescript-client" class="md-nav__link">
+    Generate a TypeScript Client
+  </a>
+  
+    <nav class="md-nav" aria-label="Generate a TypeScript Client">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-openapi-typescript-codegen" class="md-nav__link">
+    Install openapi-typescript-codegen
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generate-client-code" class="md-nav__link">
+    Generate Client Code
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#try-out-the-client-code" class="md-nav__link">
+    Try Out the Client Code
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fastapi-app-with-tags" class="md-nav__link">
+    FastAPI App with Tags
+  </a>
+  
+    <nav class="md-nav" aria-label="FastAPI App with Tags">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#generate-a-typescript-client-with-tags" class="md-nav__link">
+    Generate a TypeScript Client with Tags
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#client-method-names" class="md-nav__link">
+    Client Method Names
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-operation-ids-and-better-method-names" class="md-nav__link">
+    Custom Operation IDs and Better Method Names
+  </a>
+  
+    <nav class="md-nav" aria-label="Custom Operation IDs and Better Method Names">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#custom-generate-unique-id-function" class="md-nav__link">
+    Custom Generate Unique ID Function
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generate-a-typescript-client-with-custom-operation-ids" class="md-nav__link">
+    Generate a TypeScript Client with Custom Operation IDs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preprocess-the-openapi-specification-for-the-client-generator" class="md-nav__link">
+    Preprocess the OpenAPI Specification for the Client Generator
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generate-a-typescript-client-with-the-preprocessed-openapi" class="md-nav__link">
+    Generate a TypeScript Client with the Preprocessed OpenAPI
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#benefits" class="md-nav__link">
+    Benefits
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2273,23 +2253,57 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    环境变量
+  <a href="#openapi-client-generators" class="md-nav__link">
+    OpenAPI Client Generators
   </a>
   
-    <nav class="md-nav" aria-label="环境变量">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generate-a-typescript-frontend-client" class="md-nav__link">
+    Generate a TypeScript Frontend Client
+  </a>
+  
+    <nav class="md-nav" aria-label="Generate a TypeScript Frontend Client">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#python" class="md-nav__link">
-    Python 读取环境变量
+  <a href="#api-docs" class="md-nav__link">
+    API Docs
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    类型与验证
+  <a href="#generate-a-typescript-client" class="md-nav__link">
+    Generate a TypeScript Client
+  </a>
+  
+    <nav class="md-nav" aria-label="Generate a TypeScript Client">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-openapi-typescript-codegen" class="md-nav__link">
+    Install openapi-typescript-codegen
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generate-client-code" class="md-nav__link">
+    Generate Client Code
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#try-out-the-client-code" class="md-nav__link">
+    Try Out the Client Code
   </a>
   
 </li>
@@ -2300,30 +2314,23 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pydantic-settings" class="md-nav__link">
-    Pydantic 的 Settings
+  <a href="#fastapi-app-with-tags" class="md-nav__link">
+    FastAPI App with Tags
   </a>
   
-    <nav class="md-nav" aria-label="Pydantic 的 Settings">
+    <nav class="md-nav" aria-label="FastAPI App with Tags">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#settings" class="md-nav__link">
-    创建 Settings 对象
+  <a href="#generate-a-typescript-client-with-tags" class="md-nav__link">
+    Generate a TypeScript Client with Tags
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#settings_1" class="md-nav__link">
-    使用 settings
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    运行服务器
+  <a href="#client-method-names" class="md-nav__link">
+    Client Method Names
   </a>
   
 </li>
@@ -2334,37 +2341,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    在其他模块中设置
+  <a href="#custom-operation-ids-and-better-method-names" class="md-nav__link">
+    Custom Operation IDs and Better Method Names
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    依赖项中的设置
-  </a>
-  
-    <nav class="md-nav" aria-label="依赖项中的设置">
+    <nav class="md-nav" aria-label="Custom Operation IDs and Better Method Names">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    配置文件
+  <a href="#custom-generate-unique-id-function" class="md-nav__link">
+    Custom Generate Unique ID Function
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    主应用文件
+  <a href="#generate-a-typescript-client-with-custom-operation-ids" class="md-nav__link">
+    Generate a TypeScript Client with Custom Operation IDs
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    设置与测试
+  <a href="#preprocess-the-openapi-specification-for-the-client-generator" class="md-nav__link">
+    Preprocess the OpenAPI Specification for the Client Generator
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generate-a-typescript-client-with-the-preprocessed-openapi" class="md-nav__link">
+    Generate a TypeScript Client with the Preprocessed OpenAPI
   </a>
   
 </li>
@@ -2375,55 +2382,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#env" class="md-nav__link">
-    读取 .env 文件
-  </a>
-  
-    <nav class="md-nav" aria-label="读取 .env 文件">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#env_1" class="md-nav__link">
-    .env 文件
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#env_2" class="md-nav__link">
-    读取 .env 中的设置
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#lru_cache-settings" class="md-nav__link">
-    使用 lru_cache 只创建一次 Settings
-  </a>
-  
-    <nav class="md-nav" aria-label="使用 lru_cache 只创建一次 Settings">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#lru_cache" class="md-nav__link">
-    lru_cache 技术细节
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    小结
+  <a href="#benefits" class="md-nav__link">
+    Benefits
   </a>
   
 </li>
@@ -2442,440 +2402,410 @@
                 
 
 
-<h1 id="_1">设置与环境变量<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>有时，我们要在应用外部对密钥、数据库凭证、电子邮件服务凭证等进行设置或配置。</p>
-<p>这些设置大多数都是数据库 URL 等（可修改的）变量。有一些变量则包含密钥等敏感信息。</p>
-<p>因此，FastAPI 应用通常需要读取环境变量里的配置。</p>
-<h2 id="_2">环境变量<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<div class="admonition tip">
-<p class="admonition-title">提示</p>
-<p>如果您已经了解<strong>环境变量</strong>，并知道怎么使用环境变量，可以跳过本章下面的内容。</p>
-</div>
-<p><a href="https://en.wikipedia.org/wiki/Environment_variable" class="external-link" target="_blank">环境变量</a>（即 <strong>env var</strong>）存储在操作系统里，虽然环境变量在 Python 代码之外，但能被 Python 代码（或其他程序）读取。</p>
-<p>没有 Python，也能在 Shell 里创建与使用环境变量。</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Linux, macOS, Windows Bash</label><label for="__tabbed_1_2">Windows PowerShell</label></div>
+<h1 id="generate-clients">Generate Clients<a class="headerlink" href="#generate-clients" title="Permanent link">&para;</a></h1>
+<p>As <strong>FastAPI</strong> is based on the OpenAPI specification, you get automatic compatibility with many tools, including the automatic API docs (provided by Swagger UI).</p>
+<p>One particular advantage that is not necessarily obvious is that you can <strong>generate clients</strong> (sometimes called <abbr title="Software Development Kits"><strong>SDKs</strong></abbr> ) for your API, for many different <strong>programming languages</strong>.</p>
+<h2 id="openapi-client-generators">OpenAPI Client Generators<a class="headerlink" href="#openapi-client-generators" title="Permanent link">&para;</a></h2>
+<p>There are many tools to generate clients from <strong>OpenAPI</strong>.</p>
+<p>A common tool is <a href="https://openapi-generator.tech/" class="external-link" target="_blank">OpenAPI Generator</a>.</p>
+<p>If you are building a <strong>frontend</strong>, a very interesting alternative is <a href="https://github.com/ferdikoomen/openapi-typescript-codegen" class="external-link" target="_blank">openapi-typescript-codegen</a>.</p>
+<h2 id="generate-a-typescript-frontend-client">Generate a TypeScript Frontend Client<a class="headerlink" href="#generate-a-typescript-frontend-client" title="Permanent link">&para;</a></h2>
+<p>Let's start with a simple FastAPI application:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python 3.6 and above</label><label for="__tabbed_1_2">Python 3.9 and above</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="termy">
-<div class="highlight"><pre><span></span><code><span class="go">// 创建 MY_NAME 环境变量</span>
-<span class="gp">$ </span><span class="nb">export</span> <span class="nv">MY_NAME</span><span class="o">=</span><span class="s2">&quot;Wade Wilson&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
 
-<span class="go">// 其他程序也可以使用环境变量，例如：</span>
-<span class="gp">$ </span><span class="nb">echo</span> <span class="s2">&quot;Hello </span><span class="nv">$MY_NAME</span><span class="s2">&quot;</span>
+<span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
 
-<span class="go">Hello Wade Wilson</span>
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="hll"><span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+</span><span class="hll">    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+</span><span class="hll">    <span class="n">price</span><span class="p">:</span> <span class="nb">float</span>
+</span>
+
+<span class="hll"><span class="k">class</span> <span class="nc">ResponseMessage</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+</span><span class="hll">    <span class="n">message</span><span class="p">:</span> <span class="nb">str</span>
+</span>
+
+<span class="hll"><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/items/&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">ResponseMessage</span><span class="p">)</span>
+</span><span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">create_item</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">):</span>
+</span>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;item received&quot;</span><span class="p">}</span>
+
+
+<span class="hll"><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">List</span><span class="p">[</span><span class="n">Item</span><span class="p">])</span>
+</span><span class="k">async</span> <span class="k">def</span> <span class="nf">get_items</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Plumbus&quot;</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Portal Gun&quot;</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mi">9001</span><span class="p">},</span>
+    <span class="p">]</span>
 </code></pre></div>
-</div>
 </div>
 <div class="tabbed-block">
-<div class="termy">
-<div class="highlight"><pre><span></span><code><span class="go">// 创建 MY_NAME 环境变量</span>
-<span class="gp">$ </span><span class="nv">$Env</span>:MY_NAME <span class="o">=</span> <span class="s2">&quot;Wade Wilson&quot;</span>
-
-<span class="go">// 其他程序也可以使用环境变量，例如：</span>
-<span class="gp">$ </span><span class="nb">echo</span> <span class="s2">&quot;Hello </span><span class="nv">$Env</span><span class="s2">:MY_NAME&quot;</span>
-
-<span class="go">Hello Wade Wilson</span>
-</code></pre></div>
-</div>
-</div>
-</div>
-</div>
-<h3 id="python">Python 读取环境变量<a class="headerlink" href="#python" title="Permanent link">&para;</a></h3>
-<p>使用 Terminal 命令窗口等方式在 Python 外部创建环境变量，再在 Python 里读取环境变量。</p>
-<p>以如下的 <code>main.py</code> 为例：</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
-
-<span class="hll"><span class="n">name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;MY_NAME&quot;</span><span class="p">,</span> <span class="s2">&quot;World&quot;</span><span class="p">)</span>
-</span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> from Python&quot;</span><span class="p">)</span>
-</code></pre></div>
-<div class="admonition tip">
-<p class="admonition-title">提示</p>
-<p><a href="https://docs.python.org/3.8/library/os.html#os.getenv" class="external-link" target="_blank"><code>os.getenv()</code></a> 的第二个参数是要返回的默认值。</p>
-<p>如果没有提供这个参数，则默认为 <code>None</code>，此处使用 <code>World</code> 作为默认值。</p>
-</div>
-<p>然后，调用 Python 程序：</p>
-<div class="termy">
-
-<div class="highlight"><pre><span></span><code><span class="go">// 此时还没有设置环境变量</span>
-<span class="gp">$ </span>python main.py
-
-<span class="go">// 因为尚未设置环境变量，所以返回默认值</span>
-
-<span class="go">Hello World from Python</span>
-
-<span class="go">// 但如果事先创建了环境变量</span>
-<span class="gp">$ </span><span class="nb">export</span> <span class="nv">MY_NAME</span><span class="o">=</span><span class="s2">&quot;Wade Wilson&quot;</span>
-
-<span class="go">// 然后再调用程序</span>
-<span class="gp">$ </span>python main.py
-
-<span class="go">// 现在，程序就能读取环境变量了</span>
-
-<span class="go">Hello Wade Wilson from Python</span>
-</code></pre></div>
-
-</div>
-
-<p>环境变量是在代码之外设置的，代码可以读取，但不能把环境变量与其他文件一起保存（用 <code>git</code> 提交），因此，这种方式常用于配置或设置。</p>
-<p>您还可以创建仅供特定程序调用的环境变量，即专供指定程序使用，而且只能在程序运行期间使用。</p>
-<p>为此要在同一命令行中，在调用程序之前创建环境变量：</p>
-<div class="termy">
-
-<div class="highlight"><pre><span></span><code><span class="go">// 在调用程序的同一命令行中创建环境变量 MY_NAME</span>
-<span class="gp">$ </span><span class="nv">MY_NAME</span><span class="o">=</span><span class="s2">&quot;Wade Wilson&quot;</span> python main.py
-
-<span class="go">// 现在，程序就能够读取环境变量了</span>
-
-<span class="go">Hello Wade Wilson from Python</span>
-
-<span class="go">// 程序运行完毕后，环境变量就不存在了</span>
-<span class="gp">$ </span>python main.py
-
-<span class="go">Hello World from Python</span>
-</code></pre></div>
-
-</div>
-
-<div class="admonition tip">
-<p class="admonition-title">提示</p>
-<p>详见 <a href="https://12factor.net/config" class="external-link" target="_blank">The Twelve-Factor App: Config</a>。</p>
-</div>
-<h3 id="_3">类型与验证<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<p>环境变量只能处理文本字符串，因为它们在 Python 外部，必须兼容其他程序和操作系统组件，甚至还要兼容 Linux、Windows、macOS 等操作系统。</p>
-<p>即，Python 从环境变量中读取的值必须是<strong>字符串</strong>，类型转换与验证等操作只能在代码中完成。</p>
-<h2 id="pydantic-settings">Pydantic 的 <code>Settings</code><a class="headerlink" href="#pydantic-settings" title="Permanent link">&para;</a></h2>
-<p>还好 Pydantic 提供了处理环境变量设置的工具，详见 <a href="https://pydantic-docs.helpmanual.io/usage/settings/" class="external-link" target="_blank">Pydantic 官档 - 设置管理</a>。</p>
-<h3 id="settings">创建 <code>Settings</code> 对象<a class="headerlink" href="#settings" title="Permanent link">&para;</a></h3>
-<p>从 Pydantic 导入 <code>BaseSettings</code> 并创建子类，这与创建 Pydantic 模型类似。</p>
-<p>创建 <code>Settings</code> 对象和 Pydantic 模型一样，可以使用类型注解声明类的属性，并设置默认值。</p>
-<p>还可以使用 Pydantic 模型的验证功能与工具，比如声明不同数据类型或使用 <code>Field()</code> 实现附加验证操作。</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
-<span class="hll"><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseSettings</span>
-</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
 
-<span class="hll"><span class="k">class</span> <span class="nc">Settings</span><span class="p">(</span><span class="n">BaseSettings</span><span class="p">):</span>
-</span><span class="hll">    <span class="n">app_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Awesome API&quot;</span>
-</span><span class="hll">    <span class="n">admin_email</span><span class="p">:</span> <span class="nb">str</span>
-</span><span class="hll">    <span class="n">items_per_user</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">50</span>
-</span>
-
-<span class="hll"><span class="n">settings</span> <span class="o">=</span> <span class="n">Settings</span><span class="p">()</span>
-</span><span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
-
-
-<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/info&quot;</span><span class="p">)</span>
-<span class="k">async</span> <span class="k">def</span> <span class="nf">info</span><span class="p">():</span>
-    <span class="k">return</span> <span class="p">{</span>
-        <span class="s2">&quot;app_name&quot;</span><span class="p">:</span> <span class="n">settings</span><span class="o">.</span><span class="n">app_name</span><span class="p">,</span>
-        <span class="s2">&quot;admin_email&quot;</span><span class="p">:</span> <span class="n">settings</span><span class="o">.</span><span class="n">admin_email</span><span class="p">,</span>
-        <span class="s2">&quot;items_per_user&quot;</span><span class="p">:</span> <span class="n">settings</span><span class="o">.</span><span class="n">items_per_user</span><span class="p">,</span>
-    <span class="p">}</span>
-</code></pre></div>
-<div class="admonition tip">
-<p class="admonition-title">提示</p>
-<p>不要复用本例中的代码，使用下文中最后的代码。</p>
-</div>
-<p>创建 <code>Settings</code> 类实例时（本例中是 <code>settings</code> 对象），Pydantic 读取环境变量，且不区分大小写，因此大写变量 <code>APP_NAME</code> 会被读取为 <code>app_name</code>。</p>
-<p>对于数据转换与验证，使用 <code>settings</code> 对象时会保留声明的数据类型（例如，<code>items_per_user</code> 的类型还是 <code>int</code>）。</p>
-<h3 id="settings_1">使用 <code>settings</code><a class="headerlink" href="#settings_1" title="Permanent link">&para;</a></h3>
-<p>在 <code>app</code> 中使用新的 <code>settings</code> 对象：</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
-<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseSettings</span>
-
-
-<span class="k">class</span> <span class="nc">Settings</span><span class="p">(</span><span class="n">BaseSettings</span><span class="p">):</span>
-    <span class="n">app_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Awesome API&quot;</span>
-    <span class="n">admin_email</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="n">items_per_user</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">50</span>
-
-
-<span class="n">settings</span> <span class="o">=</span> <span class="n">Settings</span><span class="p">()</span>
 <span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
 
 
-<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/info&quot;</span><span class="p">)</span>
-<span class="k">async</span> <span class="k">def</span> <span class="nf">info</span><span class="p">():</span>
-    <span class="k">return</span> <span class="p">{</span>
-<span class="hll">        <span class="s2">&quot;app_name&quot;</span><span class="p">:</span> <span class="n">settings</span><span class="o">.</span><span class="n">app_name</span><span class="p">,</span>
-</span><span class="hll">        <span class="s2">&quot;admin_email&quot;</span><span class="p">:</span> <span class="n">settings</span><span class="o">.</span><span class="n">admin_email</span><span class="p">,</span>
-</span><span class="hll">        <span class="s2">&quot;items_per_user&quot;</span><span class="p">:</span> <span class="n">settings</span><span class="o">.</span><span class="n">items_per_user</span><span class="p">,</span>
-</span>    <span class="p">}</span>
+<span class="hll"><span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+</span><span class="hll">    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+</span><span class="hll">    <span class="n">price</span><span class="p">:</span> <span class="nb">float</span>
+</span>
+
+<span class="hll"><span class="k">class</span> <span class="nc">ResponseMessage</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+</span><span class="hll">    <span class="n">message</span><span class="p">:</span> <span class="nb">str</span>
+</span>
+
+<span class="hll"><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/items/&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">ResponseMessage</span><span class="p">)</span>
+</span><span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">create_item</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">):</span>
+</span>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;item received&quot;</span><span class="p">}</span>
+
+
+<span class="hll"><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="nb">list</span><span class="p">[</span><span class="n">Item</span><span class="p">])</span>
+</span><span class="k">async</span> <span class="k">def</span> <span class="nf">get_items</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Plumbus&quot;</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Portal Gun&quot;</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mi">9001</span><span class="p">},</span>
+    <span class="p">]</span>
 </code></pre></div>
-<h3 id="_4">运行服务器<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<p>使用环境变量传递配置参数并运行服务器，以如下方式设置 <code>ADMIN_EMAIL</code> 和 <code>APP_NAME</code>：</p>
+</div>
+</div>
+</div>
+<p>Notice that the <em>path operations</em> define the models they use for request payload and response payload, using the models <code>Item</code> and <code>ResponseMessage</code>.</p>
+<h3 id="api-docs">API Docs<a class="headerlink" href="#api-docs" title="Permanent link">&para;</a></h3>
+<p>If you go to the API docs, you will see that it has the <strong>schemas</strong> for the data to be sent in requests and received in responses:</p>
+<p><img src="/img/tutorial/generate-clients/image01.png"></p>
+<p>You can see those schemas because they were declared with the models in the app.</p>
+<p>That information is available in the app's <strong>OpenAPI schema</strong>, and then shown in the API docs (by Swagger UI).</p>
+<p>And that same information from the models that is included in OpenAPI is what can be used to <strong>generate the client code</strong>.</p>
+<h3 id="generate-a-typescript-client">Generate a TypeScript Client<a class="headerlink" href="#generate-a-typescript-client" title="Permanent link">&para;</a></h3>
+<p>Now that we have the app with the models, we can generate the client code for the frontend.</p>
+<h4 id="install-openapi-typescript-codegen">Install <code>openapi-typescript-codegen</code><a class="headerlink" href="#install-openapi-typescript-codegen" title="Permanent link">&para;</a></h4>
+<p>You can install <code>openapi-typescript-codegen</code> in your frontend code with:</p>
 <div class="termy">
 
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span><span class="nv">ADMIN_EMAIL</span><span class="o">=</span><span class="s2">&quot;deadpool@example.com&quot;</span> <span class="nv">APP_NAME</span><span class="o">=</span><span class="s2">&quot;ChimichangApp&quot;</span> uvicorn main:app
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>npm install openapi-typescript-codegen --save-dev
 
-<span class="go">&lt;span style=&quot;color: green;&quot;&gt;INFO&lt;/span&gt;:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)</span>
+<span class="go">---&gt; 100%</span>
 </code></pre></div>
 
 </div>
 
+<h4 id="generate-client-code">Generate Client Code<a class="headerlink" href="#generate-client-code" title="Permanent link">&para;</a></h4>
+<p>To generate the client code you can use the command line application <code>openapi</code> that would now be installed.</p>
+<p>Because it is installed in the local project, you probably wouldn't be able to call that command directly, but you would put it on your <code>package.json</code> file.</p>
+<p>It could look like this:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;frontend-app&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;main&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;index.js&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;scripts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="hll"><span class="w">    </span><span class="nt">&quot;generate-client&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;openapi --input http://localhost:8000/openapi.json --output ./src/client --client axios&quot;</span><span class="w"></span>
+</span><span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;author&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;license&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;devDependencies&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;openapi-typescript-codegen&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^0.20.1&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;typescript&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^4.6.2&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>After having that NPM <code>generate-client</code> script there, you can run it with:</p>
+<div class="termy">
+
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>npm run generate-client
+
+<span class="go">frontend-app@1.0.0 generate-client /home/user/code/frontend-app</span>
+<span class="go">&gt; openapi --input http://localhost:8000/openapi.json --output ./src/client --client axios</span>
+</code></pre></div>
+
+</div>
+
+<p>That command will generate code in <code>./src/client</code> and will use <code>axios</code> (the frontend HTTP library) internally.</p>
+<h3 id="try-out-the-client-code">Try Out the Client Code<a class="headerlink" href="#try-out-the-client-code" title="Permanent link">&para;</a></h3>
+<p>Now you can import and use the client code, it could look like this, notice that you get autocompletion for the methods:</p>
+<p><img src="/img/tutorial/generate-clients/image02.png"></p>
+<p>You will also get autocompletion for the payload to send:</p>
+<p><img src="/img/tutorial/generate-clients/image03.png"></p>
 <div class="admonition tip">
-<p class="admonition-title">提示</p>
-<p>在单一命令中设置多个环境变量，要用空格分隔，并把环境变量放在命令前面。</p>
+<p class="admonition-title">Tip</p>
+<p>Notice the autocompletion for <code>name</code> and <code>price</code>, that was defined in the FastAPI application, in the <code>Item</code> model.</p>
 </div>
-<p>这样就可以把 <code>admin_email</code> 设置为 <code>"deadpool@example.com"</code>。</p>
-<p><code>app_name</code> 的值则是 <code>ChimichangApp</code>。</p>
-<p>并且 <code>items_per_user</code> 的默认值还是 <code>50</code>。</p>
-<h2 id="_5">在其他模块中设置<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<p>如<a class="internal-link" href="../../tutorial/bigger-applications/" target="_blank">大型应用 - 多个文件</a>一章中所示，还可以把设置放在模块文件里。</p>
-<p>例如下面的 <code>config.py</code>：</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseSettings</span>
+<p>You will have inline errors for the data that you send:</p>
+<p><img src="/img/tutorial/generate-clients/image04.png"></p>
+<p>The response object will also have autocompletion:</p>
+<p><img src="/img/tutorial/generate-clients/image05.png"></p>
+<h2 id="fastapi-app-with-tags">FastAPI App with Tags<a class="headerlink" href="#fastapi-app-with-tags" title="Permanent link">&para;</a></h2>
+<p>In many cases your FastAPI app will be bigger, and you will probably use tags to separate different groups of <em>path operations</em>.</p>
+<p>For example, you could have a section for <strong>items</strong> and another section for <strong>users</strong>, and they could be separated by tags:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python 3.6 and above</label><label for="__tabbed_2_2">Python 3.9 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+
+<span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
 
 
-<span class="k">class</span> <span class="nc">Settings</span><span class="p">(</span><span class="n">BaseSettings</span><span class="p">):</span>
-    <span class="n">app_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Awesome API&quot;</span>
-    <span class="n">admin_email</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="n">items_per_user</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">price</span><span class="p">:</span> <span class="nb">float</span>
 
 
-<span class="n">settings</span> <span class="o">=</span> <span class="n">Settings</span><span class="p">()</span>
+<span class="k">class</span> <span class="nc">ResponseMessage</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">message</span><span class="p">:</span> <span class="nb">str</span>
+
+
+<span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">username</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">email</span><span class="p">:</span> <span class="nb">str</span>
+
+
+<span class="hll"><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/items/&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">ResponseMessage</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;items&quot;</span><span class="p">])</span>
+</span><span class="k">async</span> <span class="k">def</span> <span class="nf">create_item</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Item received&quot;</span><span class="p">}</span>
+
+
+<span class="hll"><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">List</span><span class="p">[</span><span class="n">Item</span><span class="p">],</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;items&quot;</span><span class="p">])</span>
+</span><span class="k">async</span> <span class="k">def</span> <span class="nf">get_items</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Plumbus&quot;</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Portal Gun&quot;</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mi">9001</span><span class="p">},</span>
+    <span class="p">]</span>
+
+
+<span class="hll"><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/users/&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">ResponseMessage</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;users&quot;</span><span class="p">])</span>
+</span><span class="k">async</span> <span class="k">def</span> <span class="nf">create_user</span><span class="p">(</span><span class="n">user</span><span class="p">:</span> <span class="n">User</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;User received&quot;</span><span class="p">}</span>
 </code></pre></div>
-<p>然后在 <code>main.py</code> 中使用：</p>
+</div>
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
-
-<span class="hll"><span class="kn">from</span> <span class="nn">.config</span> <span class="kn">import</span> <span class="n">settings</span>
-</span>
-<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
-
-
-<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/info&quot;</span><span class="p">)</span>
-<span class="k">async</span> <span class="k">def</span> <span class="nf">info</span><span class="p">():</span>
-    <span class="k">return</span> <span class="p">{</span>
-<span class="hll">        <span class="s2">&quot;app_name&quot;</span><span class="p">:</span> <span class="n">settings</span><span class="o">.</span><span class="n">app_name</span><span class="p">,</span>
-</span><span class="hll">        <span class="s2">&quot;admin_email&quot;</span><span class="p">:</span> <span class="n">settings</span><span class="o">.</span><span class="n">admin_email</span><span class="p">,</span>
-</span><span class="hll">        <span class="s2">&quot;items_per_user&quot;</span><span class="p">:</span> <span class="n">settings</span><span class="o">.</span><span class="n">items_per_user</span><span class="p">,</span>
-</span>    <span class="p">}</span>
-</code></pre></div>
-<div class="admonition tip">
-<p class="admonition-title">提示</p>
-<p>如<a class="internal-link" href="../../tutorial/bigger-applications/" target="_blank">大型应用 - 多文件</a>一章所示，还要在文件夹中创建 <code>__init__.py</code> 文件。</p>
-</div>
-<h2 id="_6">依赖项中的设置<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
-<p>有时使用依赖项进行设置比使用 <code>settings</code> 全局对象更实用。</p>
-<p>特别是在测试时，使用自定义设置可以轻易地覆盖依赖项。</p>
-<h3 id="_7">配置文件<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
-<p>参照上例，以如下方式修改 <code>config.py</code>：</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseSettings</span>
-
-
-<span class="k">class</span> <span class="nc">Settings</span><span class="p">(</span><span class="n">BaseSettings</span><span class="p">):</span>
-    <span class="n">app_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Awesome API&quot;</span>
-    <span class="n">admin_email</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="n">items_per_user</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">50</span>
-</code></pre></div>
-<p>注意，本例没有创建默认实例 <code>settings = Settings()</code>。</p>
-<h3 id="_8">主应用文件<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
-<p>现在，创建返回新的 <code>config.Settings()</code> 的依赖项。</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">lru_cache</span>
-
-<span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span>
-
-<span class="hll"><span class="kn">from</span> <span class="nn">.config</span> <span class="kn">import</span> <span class="n">Settings</span>
-</span>
-<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
-
-
-<span class="nd">@lru_cache</span><span class="p">()</span>
-<span class="hll"><span class="k">def</span> <span class="nf">get_settings</span><span class="p">():</span>
-</span><span class="hll">    <span class="k">return</span> <span class="n">Settings</span><span class="p">()</span>
-</span>
-
-<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/info&quot;</span><span class="p">)</span>
-<span class="k">async</span> <span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="n">settings</span><span class="p">:</span> <span class="n">Settings</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_settings</span><span class="p">)):</span>
-    <span class="k">return</span> <span class="p">{</span>
-        <span class="s2">&quot;app_name&quot;</span><span class="p">:</span> <span class="n">settings</span><span class="o">.</span><span class="n">app_name</span><span class="p">,</span>
-        <span class="s2">&quot;admin_email&quot;</span><span class="p">:</span> <span class="n">settings</span><span class="o">.</span><span class="n">admin_email</span><span class="p">,</span>
-        <span class="s2">&quot;items_per_user&quot;</span><span class="p">:</span> <span class="n">settings</span><span class="o">.</span><span class="n">items_per_user</span><span class="p">,</span>
-    <span class="p">}</span>
-</code></pre></div>
-<div class="admonition tip">
-<p class="admonition-title">提示</p>
-<p>稍后再介绍 <code>@lru_cache()</code>。</p>
-<p>现在假设 <code>get_settings()</code> 只是普通函数。</p>
-</div>
-<p>然后，通过<strong>路径操作函数</strong>中的依赖项请求并使用设置。</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">lru_cache</span>
-
-<span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span>
-
-<span class="kn">from</span> <span class="nn">.config</span> <span class="kn">import</span> <span class="n">Settings</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
 
 <span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
 
 
-<span class="nd">@lru_cache</span><span class="p">()</span>
-<span class="k">def</span> <span class="nf">get_settings</span><span class="p">():</span>
-    <span class="k">return</span> <span class="n">Settings</span><span class="p">()</span>
+<span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">price</span><span class="p">:</span> <span class="nb">float</span>
 
 
-<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/info&quot;</span><span class="p">)</span>
-<span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="n">settings</span><span class="p">:</span> <span class="n">Settings</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_settings</span><span class="p">)):</span>
-</span>    <span class="k">return</span> <span class="p">{</span>
-<span class="hll">        <span class="s2">&quot;app_name&quot;</span><span class="p">:</span> <span class="n">settings</span><span class="o">.</span><span class="n">app_name</span><span class="p">,</span>
-</span><span class="hll">        <span class="s2">&quot;admin_email&quot;</span><span class="p">:</span> <span class="n">settings</span><span class="o">.</span><span class="n">admin_email</span><span class="p">,</span>
-</span><span class="hll">        <span class="s2">&quot;items_per_user&quot;</span><span class="p">:</span> <span class="n">settings</span><span class="o">.</span><span class="n">items_per_user</span><span class="p">,</span>
-</span>    <span class="p">}</span>
+<span class="k">class</span> <span class="nc">ResponseMessage</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">message</span><span class="p">:</span> <span class="nb">str</span>
+
+
+<span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">username</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">email</span><span class="p">:</span> <span class="nb">str</span>
+
+
+<span class="hll"><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/items/&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">ResponseMessage</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;items&quot;</span><span class="p">])</span>
+</span><span class="k">async</span> <span class="k">def</span> <span class="nf">create_item</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Item received&quot;</span><span class="p">}</span>
+
+
+<span class="hll"><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="nb">list</span><span class="p">[</span><span class="n">Item</span><span class="p">],</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;items&quot;</span><span class="p">])</span>
+</span><span class="k">async</span> <span class="k">def</span> <span class="nf">get_items</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Plumbus&quot;</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Portal Gun&quot;</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mi">9001</span><span class="p">},</span>
+    <span class="p">]</span>
+
+
+<span class="hll"><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/users/&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">ResponseMessage</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;users&quot;</span><span class="p">])</span>
+</span><span class="k">async</span> <span class="k">def</span> <span class="nf">create_user</span><span class="p">(</span><span class="n">user</span><span class="p">:</span> <span class="n">User</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;User received&quot;</span><span class="p">}</span>
 </code></pre></div>
-<h3 id="_9">设置与测试<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
-<p>在测试期间，创建依赖项覆盖 <code>get_settings</code> 可以轻松地使用不同的设置对象：</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi.testclient</span> <span class="kn">import</span> <span class="n">TestClient</span>
-
-<span class="kn">from</span> <span class="nn">.config</span> <span class="kn">import</span> <span class="n">Settings</span>
-<span class="kn">from</span> <span class="nn">.main</span> <span class="kn">import</span> <span class="n">app</span><span class="p">,</span> <span class="n">get_settings</span>
-
-<span class="n">client</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
-
-
-<span class="hll"><span class="k">def</span> <span class="nf">get_settings_override</span><span class="p">():</span>
-</span><span class="hll">    <span class="k">return</span> <span class="n">Settings</span><span class="p">(</span><span class="n">admin_email</span><span class="o">=</span><span class="s2">&quot;testing_admin@example.com&quot;</span><span class="p">)</span>
-</span>
-
-<span class="hll"><span class="n">app</span><span class="o">.</span><span class="n">dependency_overrides</span><span class="p">[</span><span class="n">get_settings</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_settings_override</span>
-</span>
-
-<span class="k">def</span> <span class="nf">test_app</span><span class="p">():</span>
-    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/info&quot;</span><span class="p">)</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-    <span class="k">assert</span> <span class="n">data</span> <span class="o">==</span> <span class="p">{</span>
-        <span class="s2">&quot;app_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Awesome API&quot;</span><span class="p">,</span>
-<span class="hll">        <span class="s2">&quot;admin_email&quot;</span><span class="p">:</span> <span class="s2">&quot;testing_admin@example.com&quot;</span><span class="p">,</span>
-</span>        <span class="s2">&quot;items_per_user&quot;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span>
-    <span class="p">}</span>
-</code></pre></div>
-<p>在覆盖依赖项中，创建新的 <code>Settings</code> 对象，并为 <code>admin_email</code> 设置新的值，然后再返回新的对象。</p>
-<p>然后，就可以用它来进行测试。</p>
-<h2 id="env">读取 <code>.env</code> 文件<a class="headerlink" href="#env" title="Permanent link">&para;</a></h2>
-<p>如果经常要在不同环境下改变很多设置，最好把这些设置放到一个文件里，并从文件中以环境变量的形式读取设置内容。</p>
-<p>这种做法很常见，通常会把设置变量放在 <strong>dotenv</strong>（ <code>.env</code>）文件里。</p>
-<div class="admonition tip">
-<p class="admonition-title">提示</p>
-<p>以点（<code>.</code>）开头的文件在 Linux 和 macOS 等 Unix 系统里是隐藏文件。</p>
-<p>但是 dotenv 文件实际上不必有明确的文件名。</p>
 </div>
-<p>Pydantic 支持使用外部支持库读取这种类型的文件。详见 <a href="https://pydantic-docs.helpmanual.io/usage/settings/#dotenv-env-support" class="external-link" target="_blank">Pydantic 官档 - 设置：Dotenv (.env) 支持</a>。</p>
-<div class="admonition tip">
-<p class="admonition-title">提示</p>
-<p>使用这个功能需要先安装 <code>pip install python-dotenv</code>。</p>
 </div>
-<h3 id="env_1"><code>.env</code> 文件<a class="headerlink" href="#env_1" title="Permanent link">&para;</a></h3>
-<p>假设 <code>.env</code> 文件内容如下：</p>
-<div class="highlight"><pre><span></span><code><span class="nv">ADMIN_EMAIL</span><span class="o">=</span><span class="s2">&quot;deadpool@example.com&quot;</span>
-<span class="nv">APP_NAME</span><span class="o">=</span><span class="s2">&quot;ChimichangApp&quot;</span>
-</code></pre></div>
-<h3 id="env_2">读取 <code>.env</code> 中的设置<a class="headerlink" href="#env_2" title="Permanent link">&para;</a></h3>
-<p>然后更新 <code>config.py</code>：</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseSettings</span>
-
-
-<span class="k">class</span> <span class="nc">Settings</span><span class="p">(</span><span class="n">BaseSettings</span><span class="p">):</span>
-    <span class="n">app_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Awesome API&quot;</span>
-    <span class="n">admin_email</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="n">items_per_user</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">50</span>
-
-<span class="hll">    <span class="k">class</span> <span class="nc">Config</span><span class="p">:</span>
-</span><span class="hll">        <span class="n">env_file</span> <span class="o">=</span> <span class="s2">&quot;.env&quot;</span>
-</span></code></pre></div>
-<p>此处，创建 Pydantic <code>Settings</code>类中的 <code>Config</code> 类，并使用 <code>env_file</code> 设置 <code>dotenv</code> 文件名。</p>
-<div class="admonition tip">
-<p class="admonition-title">提示</p>
-<p><code>Config</code> 类只用于 Pydantic 配置。详见 <a href="https://pydantic-docs.helpmanual.io/usage/model_config/" class="external-link" target="_blank">Pydantic 模型配置</a></p>
 </div>
-<h3 id="lru_cache-settings">使用 <code>lru_cache</code> 只创建一次 <code>Settings</code><a class="headerlink" href="#lru_cache-settings" title="Permanent link">&para;</a></h3>
-<p>从磁盘读取文件的成本较高（慢），最好只操作一次，然后复用同一个设置对象，不要每次请求时都反复读取。</p>
-<p>但每次操作都要使用如下代码：</p>
-<div class="highlight"><pre><span></span><code><span class="n">Settings</span><span class="p">()</span>
-</code></pre></div>
-<p>因此每次创建新的 <code>Settings</code> 对象时都要读取 <code>.env</code>。</p>
-<p>如果使用下面的依赖项函数：</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">get_settings</span><span class="p">():</span>
-    <span class="k">return</span> <span class="n">Settings</span><span class="p">()</span>
-</code></pre></div>
-<p>每次请求时还要创建对象，并读取 <code>.env</code> 文件。⚠️</p>
-<p>但使用 <code>@lru_cache</code> 装饰器，则只需在第一次调用时创建一次 <code>Settings</code> 对象。✔️</p>
-<div class="highlight"><pre><span></span><code><span class="hll"><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">lru_cache</span>
-</span>
-<span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span>
-
-<span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">config</span>
-
-<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
-
-
-<span class="hll"><span class="nd">@lru_cache</span><span class="p">()</span>
-</span><span class="k">def</span> <span class="nf">get_settings</span><span class="p">():</span>
-    <span class="k">return</span> <span class="n">config</span><span class="o">.</span><span class="n">Settings</span><span class="p">()</span>
-
-
-<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/info&quot;</span><span class="p">)</span>
-<span class="k">async</span> <span class="k">def</span> <span class="nf">info</span><span class="p">(</span><span class="n">settings</span><span class="p">:</span> <span class="n">config</span><span class="o">.</span><span class="n">Settings</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_settings</span><span class="p">)):</span>
-    <span class="k">return</span> <span class="p">{</span>
-        <span class="s2">&quot;app_name&quot;</span><span class="p">:</span> <span class="n">settings</span><span class="o">.</span><span class="n">app_name</span><span class="p">,</span>
-        <span class="s2">&quot;admin_email&quot;</span><span class="p">:</span> <span class="n">settings</span><span class="o">.</span><span class="n">admin_email</span><span class="p">,</span>
-        <span class="s2">&quot;items_per_user&quot;</span><span class="p">:</span> <span class="n">settings</span><span class="o">.</span><span class="n">items_per_user</span><span class="p">,</span>
-    <span class="p">}</span>
-</code></pre></div>
-<p>再次请求时，调用依赖项中的 <code>get_settings()</code> 时不再执行内部代码 <code>get_settings()</code> ，也不再创建新的 <code>Settings</code> 对象，每次请求时只返回第一次调用时返回的对象。</p>
-<h4 id="lru_cache"><code>lru_cache</code> 技术细节<a class="headerlink" href="#lru_cache" title="Permanent link">&para;</a></h4>
-<p><code>@lru_cache()</code> 修改装饰的函数，使其返回与第一次返回相同的值，不用每次都重新计算，也不用每次都执行函数代码。</p>
-<p>因此，它下面的函数每次只为同一种实参组合执行一次。然后，每次使用相同实参组合调用函数时都使用同一个返回值。</p>
-<p>例如，使用如下函数：</p>
-<div class="highlight"><pre><span></span><code><span class="nd">@lru_cache</span><span class="p">()</span>
-<span class="k">def</span> <span class="nf">say_hi</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">salutation</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Ms.&quot;</span><span class="p">):</span>
-    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Hello </span><span class="si">{</span><span class="n">salutation</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span>
-</code></pre></div>
-<p>程序执行流程如下图：</p>
-<pre class="mermaid"><code>sequenceDiagram
-
-participant code as Code
-participant function as say_hi()
-participant execute as Execute function
-
-    rect rgba(0, 255, 0, .1)
-        code -&gt;&gt; function: say_hi(name="Camila")
-        function -&gt;&gt; execute: execute function code
-        execute -&gt;&gt; code: return the result
-    end
-
-    rect rgba(0, 255, 255, .1)
-        code -&gt;&gt; function: say_hi(name="Camila")
-        function -&gt;&gt; code: return stored result
-    end
-
-    rect rgba(0, 255, 0, .1)
-        code -&gt;&gt; function: say_hi(name="Rick")
-        function -&gt;&gt; execute: execute function code
-        execute -&gt;&gt; code: return the result
-    end
-
-    rect rgba(0, 255, 0, .1)
-        code -&gt;&gt; function: say_hi(name="Rick", salutation="Mr.")
-        function -&gt;&gt; execute: execute function code
-        execute -&gt;&gt; code: return the result
-    end
-
-    rect rgba(0, 255, 255, .1)
-        code -&gt;&gt; function: say_hi(name="Rick")
-        function -&gt;&gt; code: return stored result
-    end
-
-    rect rgba(0, 255, 255, .1)
-        code -&gt;&gt; function: say_hi(name="Camila")
-        function -&gt;&gt; code: return stored result
-    end</code></pre>
-<p>本例中，依赖项 <code>get_settings()</code>函数甚至没有任何参数，因此每次返回的都是同一个值。</p>
-<p>函数的这种操作方式有点像全局变量。但因为它使用依赖项函数，所以测试时可以轻易地覆盖。</p>
-<p><code>@lru_cache()</code> 是 Python 标准库 <code>functools</code> 的组件，详见 <a href="https://docs.python.org/3/library/functools.html#functools.lru_cache" class="external-link" target="_blank">Python 官档 - <code>@lru_cache()</code></a>。</p>
-<h2 id="_10">小结<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
-<p>充分利用 Pydantic 模型的优势，使用 Pydantic 的 <code>Settings</code> 处理应用的设置或配置。</p>
+<h3 id="generate-a-typescript-client-with-tags">Generate a TypeScript Client with Tags<a class="headerlink" href="#generate-a-typescript-client-with-tags" title="Permanent link">&para;</a></h3>
+<p>If you generate a client for a FastAPI app using tags, it will normally also separate the client code based on the tags.</p>
+<p>This way you will be able to have things ordered and grouped correctly for the client code:</p>
+<p><img src="/img/tutorial/generate-clients/image06.png"></p>
+<p>In this case you have:</p>
 <ul>
-<li>通过依赖项简化测试</li>
-<li>支持使用 <code>.env</code></li>
-<li>使用 <code>@lru_cache()</code>，不用每次请求时都读取 <code>dotenv</code> 文件，并且支持测试时覆盖使用</li>
+<li><code>ItemsService</code></li>
+<li><code>UsersService</code></li>
 </ul>
+<h3 id="client-method-names">Client Method Names<a class="headerlink" href="#client-method-names" title="Permanent link">&para;</a></h3>
+<p>Right now the generated method names like <code>createItemItemsPost</code> don't look very clean:</p>
+<div class="highlight"><pre><span></span><code><span class="nx">ItemsService</span><span class="p">.</span><span class="nx">createItemItemsPost</span><span class="p">({</span><span class="nx">name</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Plumbus&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">price</span><span class="o">:</span><span class="w"> </span><span class="kt">5</span><span class="p">})</span><span class="w"></span>
+</code></pre></div>
+<p>...that's because the client generator uses the OpenAPI internal <strong>operation ID</strong> for each <em>path operation</em>.</p>
+<p>OpenAPI requires that each operation ID is unique across all the <em>path operations</em>, so FastAPI uses the <strong>function name</strong>, the <strong>path</strong>, and the <strong>HTTP method/operation</strong> to generate that operation ID, because that way it can make sure that the operation IDs are unique.</p>
+<p>But I'll show you how to improve that next. 🤓</p>
+<h2 id="custom-operation-ids-and-better-method-names">Custom Operation IDs and Better Method Names<a class="headerlink" href="#custom-operation-ids-and-better-method-names" title="Permanent link">&para;</a></h2>
+<p>You can <strong>modify</strong> the way these operation IDs are <strong>generated</strong> to make them simpler and have <strong>simpler method names</strong> in the clients.</p>
+<p>In this case you will have to ensure that each operation ID is <strong>unique</strong> in some other way.</p>
+<p>For example, you could make sure that each <em>path operation</em> has a tag, and then generate the operation ID based on the <strong>tag</strong> and the <em>path operation</em> <strong>name</strong> (the function name).</p>
+<h3 id="custom-generate-unique-id-function">Custom Generate Unique ID Function<a class="headerlink" href="#custom-generate-unique-id-function" title="Permanent link">&para;</a></h3>
+<p>FastAPI uses a <strong>unique ID</strong> for each <em>path operation</em>, it is used for the <strong>operation ID</strong> and also for the names of any needed custom models, for requests or responses.</p>
+<p>You can customize that function. It takes an <code>APIRoute</code> and outputs a string.</p>
+<p>For example, here it is using the first tag (you will probably have only one tag) and the <em>path operation</em> name (the function name).</p>
+<p>You can then pass that custom function to <strong>FastAPI</strong> as the <code>generate_unique_id_function</code> parameter:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python 3.6 and above</label><label for="__tabbed_3_2">Python 3.9 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+
+<span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">from</span> <span class="nn">fastapi.routing</span> <span class="kn">import</span> <span class="n">APIRoute</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+
+<span class="hll"><span class="k">def</span> <span class="nf">custom_generate_unique_id</span><span class="p">(</span><span class="n">route</span><span class="p">:</span> <span class="n">APIRoute</span><span class="p">):</span>
+</span><span class="hll">    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">route</span><span class="o">.</span><span class="n">tags</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">route</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span>
+</span>
+
+<span class="hll"><span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">(</span><span class="n">generate_unique_id_function</span><span class="o">=</span><span class="n">custom_generate_unique_id</span><span class="p">)</span>
+</span>
+
+<span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">price</span><span class="p">:</span> <span class="nb">float</span>
+
+
+<span class="k">class</span> <span class="nc">ResponseMessage</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">message</span><span class="p">:</span> <span class="nb">str</span>
+
+
+<span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">username</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">email</span><span class="p">:</span> <span class="nb">str</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/items/&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">ResponseMessage</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;items&quot;</span><span class="p">])</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">create_item</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Item received&quot;</span><span class="p">}</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">List</span><span class="p">[</span><span class="n">Item</span><span class="p">],</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;items&quot;</span><span class="p">])</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">get_items</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Plumbus&quot;</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Portal Gun&quot;</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mi">9001</span><span class="p">},</span>
+    <span class="p">]</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/users/&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">ResponseMessage</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;users&quot;</span><span class="p">])</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">create_user</span><span class="p">(</span><span class="n">user</span><span class="p">:</span> <span class="n">User</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;User received&quot;</span><span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">from</span> <span class="nn">fastapi.routing</span> <span class="kn">import</span> <span class="n">APIRoute</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+
+<span class="hll"><span class="k">def</span> <span class="nf">custom_generate_unique_id</span><span class="p">(</span><span class="n">route</span><span class="p">:</span> <span class="n">APIRoute</span><span class="p">):</span>
+</span><span class="hll">    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">route</span><span class="o">.</span><span class="n">tags</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">route</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span>
+</span>
+
+<span class="hll"><span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">(</span><span class="n">generate_unique_id_function</span><span class="o">=</span><span class="n">custom_generate_unique_id</span><span class="p">)</span>
+</span>
+
+<span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">price</span><span class="p">:</span> <span class="nb">float</span>
+
+
+<span class="k">class</span> <span class="nc">ResponseMessage</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">message</span><span class="p">:</span> <span class="nb">str</span>
+
+
+<span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">username</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">email</span><span class="p">:</span> <span class="nb">str</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/items/&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">ResponseMessage</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;items&quot;</span><span class="p">])</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">create_item</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Item received&quot;</span><span class="p">}</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="nb">list</span><span class="p">[</span><span class="n">Item</span><span class="p">],</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;items&quot;</span><span class="p">])</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">get_items</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Plumbus&quot;</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Portal Gun&quot;</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mi">9001</span><span class="p">},</span>
+    <span class="p">]</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/users/&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">ResponseMessage</span><span class="p">,</span> <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;users&quot;</span><span class="p">])</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">create_user</span><span class="p">(</span><span class="n">user</span><span class="p">:</span> <span class="n">User</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;User received&quot;</span><span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="generate-a-typescript-client-with-custom-operation-ids">Generate a TypeScript Client with Custom Operation IDs<a class="headerlink" href="#generate-a-typescript-client-with-custom-operation-ids" title="Permanent link">&para;</a></h3>
+<p>Now if you generate the client again, you will see that it has the improved method names:</p>
+<p><img src="/img/tutorial/generate-clients/image07.png"></p>
+<p>As you see, the method names now have the tag and then the function name, now they don't include information from the URL path and the HTTP operation.</p>
+<h3 id="preprocess-the-openapi-specification-for-the-client-generator">Preprocess the OpenAPI Specification for the Client Generator<a class="headerlink" href="#preprocess-the-openapi-specification-for-the-client-generator" title="Permanent link">&para;</a></h3>
+<p>The generated code still has some <strong>duplicated information</strong>.</p>
+<p>We already know that this method is related to the <strong>items</strong> because that word is in the <code>ItemsService</code> (taken from the tag), but we still have the tag name prefixed in the method name too. 😕</p>
+<p>We will probably still want to keep it for OpenAPI in general, as that will ensure that the operation IDs are <strong>unique</strong>.</p>
+<p>But for the generated client we could <strong>modify</strong> the OpenAPI operation IDs right before generating the clients, just to make those method names nicer and <strong>cleaner</strong>.</p>
+<p>We could download the OpenAPI JSON to a file <code>openapi.json</code> and then we could <strong>remove that prefixed tag</strong> with a script like this:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">file_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;./openapi.json&quot;</span><span class="p">)</span>
+<span class="n">openapi_content</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">file_path</span><span class="o">.</span><span class="n">read_text</span><span class="p">())</span>
+
+<span class="k">for</span> <span class="n">path_data</span> <span class="ow">in</span> <span class="n">openapi_content</span><span class="p">[</span><span class="s2">&quot;paths&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">operation</span> <span class="ow">in</span> <span class="n">path_data</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+        <span class="n">tag</span> <span class="o">=</span> <span class="n">operation</span><span class="p">[</span><span class="s2">&quot;tags&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">operation_id</span> <span class="o">=</span> <span class="n">operation</span><span class="p">[</span><span class="s2">&quot;operationId&quot;</span><span class="p">]</span>
+        <span class="n">to_remove</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">tag</span><span class="si">}</span><span class="s2">-&quot;</span>
+        <span class="n">new_operation_id</span> <span class="o">=</span> <span class="n">operation_id</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">to_remove</span><span class="p">)</span> <span class="p">:]</span>
+        <span class="n">operation</span><span class="p">[</span><span class="s2">&quot;operationId&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_operation_id</span>
+
+<span class="n">file_path</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">openapi_content</span><span class="p">))</span>
+</code></pre></div>
+<p>With that, the operation IDs would be renamed from things like <code>items-get_items</code> to just <code>get_items</code>, that way the client generator can generate simpler method names.</p>
+<h3 id="generate-a-typescript-client-with-the-preprocessed-openapi">Generate a TypeScript Client with the Preprocessed OpenAPI<a class="headerlink" href="#generate-a-typescript-client-with-the-preprocessed-openapi" title="Permanent link">&para;</a></h3>
+<p>Now as the end result is in a file <code>openapi.json</code>, you would modify the <code>package.json</code> to use that local file, for example:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;frontend-app&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;main&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;index.js&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;scripts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="hll"><span class="w">    </span><span class="nt">&quot;generate-client&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;openapi --input ./openapi.json --output ./src/client --client axios&quot;</span><span class="w"></span>
+</span><span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;author&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;license&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;devDependencies&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;openapi-typescript-codegen&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^0.20.1&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;typescript&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^4.6.2&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>After generating the new client, you would now have <strong>clean method names</strong>, with all the <strong>autocompletion</strong>, <strong>inline errors</strong>, etc:</p>
+<p><img src="/img/tutorial/generate-clients/image08.png"></p>
+<h2 id="benefits">Benefits<a class="headerlink" href="#benefits" title="Permanent link">&para;</a></h2>
+<p>When using the automatically generated clients you would <strong>autocompletion</strong> for:</p>
+<ul>
+<li>Methods.</li>
+<li>Request payloads in the body, query parameters, etc.</li>
+<li>Response payloads.</li>
+</ul>
+<p>You would also have <strong>inline errors</strong> for everything.</p>
+<p>And whenever you update the backend code, and <strong>regenerate</strong> the frontend, it would have any new <em>path operations</em> available as methods, the old ones removed, and any other change would be reflected on the generated code. 🤓</p>
+<p>This also means that if something changed it will be <strong>reflected</strong> on the client code automatically. And if you <strong>build</strong> the client it will error out if you have any <strong>mismatch</strong> in the data used.</p>
+<p>So, you would <strong>detect many errors</strong> very early in the development cycle instead of having to wait for the errors to show up to your final users in production and then trying to debug where the problem is. ✨</p>
 
               
             </article>
@@ -2893,7 +2823,7 @@ participant execute as Execute function
     <nav class="md-footer__inner md-grid" aria-label="页脚" >
       
         
-        <a href="../async-tests/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 异步测试" rel="prev">
+        <a href="../wsgi/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 包含 WSGI - Flask、Django 等" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -2902,20 +2832,20 @@ participant execute as Execute function
               <span class="md-footer__direction">
                 上一页
               </span>
-              异步测试
+              包含 WSGI - Flask、Django 等
             </div>
           </div>
         </a>
       
       
         
-        <a href="../conditional-openapi/" class="md-footer__link md-footer__link--next" aria-label="下一页: 配置 OpenAPI" rel="next">
+        <a href="../../async/" class="md-footer__link md-footer__link--next" aria-label="下一页: 并发与异步" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 下一页
               </span>
-              配置 OpenAPI
+              并发与异步
             </div>
           </div>
           <div class="md-footer__button md-icon">

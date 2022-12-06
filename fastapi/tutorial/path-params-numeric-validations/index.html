@@ -47,6 +47,16 @@
     <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  
+  
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-133183413-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
 
     
     
@@ -122,7 +132,7 @@
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 10px 10px;
     text-decoration: none;
   }
 
@@ -170,7 +180,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -179,7 +189,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -1805,6 +1815,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/generate-clients/" class="md-nav__link">
+        Generate Clients
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1902,6 +1926,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../deployment/manually/" class="md-nav__link">
+        Run a Server Manually - Uvicorn
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/concepts/" class="md-nav__link">
+        Deployments Concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../deployment/deta/" class="md-nav__link">
         在 Deta 上部署 FastAPI
       </a>
@@ -1916,8 +1968,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../deployment/docker/" class="md-nav__link">
-        使用 Docker 部署
+      <a href="../../deployment/server-workers/" class="md-nav__link">
+        Server Workers - Gunicorn with Uvicorn
       </a>
     </li>
   
@@ -1930,8 +1982,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../deployment/manually/" class="md-nav__link">
-        手动部署
+      <a href="../../deployment/docker/" class="md-nav__link">
+        使用 Docker 部署
       </a>
     </li>
   
@@ -1968,7 +2020,7 @@
   
     <li class="md-nav__item">
       <a href="../../alternatives/" class="md-nav__link">
-        备选、灵感、比较
+        备选、灵感与比较
       </a>
     </li>
   
@@ -2194,7 +2246,7 @@
 <p>除了可以为 <code>Query</code> 查询参数声明校验和元数据，还可以为 <code>Path</code> 路径参数声明相同类型的校验和元数据。</p>
 <h2 id="path">导入 Path<a class="headerlink" href="#path" title="Permanent link">&para;</a></h2>
 <p>首先，从 <code>fastapi</code> 导入 <code>Path</code>：</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="hll"><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">Path</span><span class="p">,</span> <span class="n">Query</span>
 </span>
@@ -2203,8 +2255,8 @@
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/</span><span class="si">{item_id}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="k">async</span> <span class="k">def</span> <span class="nf">read_items</span><span class="p">(</span>
-    <span class="n">item_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;The ID of the item to get&quot;</span><span class="p">),</span>
-    <span class="n">q</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Query</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;item-query&quot;</span><span class="p">),</span>
+    <span class="n">item_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;The ID of the item to get&quot;</span><span class="p">),</span>
+    <span class="n">q</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="n">Query</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;item-query&quot;</span><span class="p">),</span>
 <span class="p">):</span>
     <span class="n">results</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="n">item_id</span><span class="p">}</span>
     <span class="k">if</span> <span class="n">q</span><span class="p">:</span>
@@ -2214,7 +2266,7 @@
 <h2 id="_2">声明元数据<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>可以声明与 <code>Query</code> 相同的所有参数。</p>
 <p>例如，为路径参数 <code>item_id</code> 声明 <code>title</code> 元数据的值时，可以输入：</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">Path</span><span class="p">,</span> <span class="n">Query</span>
 
@@ -2223,8 +2275,8 @@
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/</span><span class="si">{item_id}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="k">async</span> <span class="k">def</span> <span class="nf">read_items</span><span class="p">(</span>
-<span class="hll">    <span class="n">item_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;The ID of the item to get&quot;</span><span class="p">),</span>
-</span>    <span class="n">q</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Query</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;item-query&quot;</span><span class="p">),</span>
+<span class="hll">    <span class="n">item_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;The ID of the item to get&quot;</span><span class="p">),</span>
+</span>    <span class="n">q</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="n">Query</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;item-query&quot;</span><span class="p">),</span>
 <span class="p">):</span>
     <span class="n">results</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="n">item_id</span><span class="p">}</span>
     <span class="k">if</span> <span class="n">q</span><span class="p">:</span>
@@ -2235,11 +2287,11 @@
 <p class="admonition-title">笔记</p>
 <p>因为路径参数必须是路径的一部分，所以路径参数总是必选的。</p>
 <p>因此，声明路径参数时要使用 <code>...</code>，把它标记为必选参数。</p>
-<p>不过，就算使用 <code>None</code> 声明路径参数，或设置其它默认值也不会有任何影响，路径参数依然是必选参数。</p>
+<p>不过，就算使用 <code>None</code> 声明路径参数，或设置其他默认值也不会有任何影响，路径参数依然是必选参数。</p>
 </div>
 <h2 id="_3">按需排序参数<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>假设要把查询参数 <code>q</code> 声明为必选的 <code>str</code> 类型。</p>
-<p>而且，因为不用为该参数声明任何其它内容，因此无需使用 <code>Query</code>。</p>
+<p>而且，因为不用为该参数声明任何其他内容，因此无需使用 <code>Query</code>。</p>
 <p>但仍需使用 <code>Path</code> 声明路径参数 <code>item_id</code>。</p>
 <p>如果把有<strong>默认值</strong>的参数置于无<strong>默认值</strong>的参数前，Python 会报错。</p>
 <p>但可以重新排序，把无默认值的查询参数 <code>q</code> 放到最前面。</p>
@@ -2251,11 +2303,9 @@
 
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/</span><span class="si">{item_id}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="k">async</span> <span class="k">def</span> <span class="nf">read_items</span><span class="p">(</span>
-<span class="hll">    <span class="n">q</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">item_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;The ID of the item to get&quot;</span><span class="p">)</span>
-</span><span class="p">):</span>
-    <span class="n">results</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="n">item_id</span><span class="p">}</span>
-    <span class="k">if</span> <span class="n">q</span><span class="p">:</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">read_items</span><span class="p">(</span><span class="n">q</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">item_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;The ID of the item to get&quot;</span><span class="p">)):</span>
+<span class="hll">    <span class="n">results</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="n">item_id</span><span class="p">}</span>
+</span>    <span class="k">if</span> <span class="n">q</span><span class="p">:</span>
         <span class="n">results</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="n">q</span><span class="p">})</span>
     <span class="k">return</span> <span class="n">results</span>
 </code></pre></div>
@@ -2269,16 +2319,14 @@
 
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/</span><span class="si">{item_id}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="k">async</span> <span class="k">def</span> <span class="nf">read_items</span><span class="p">(</span>
-<span class="hll">    <span class="o">*</span><span class="p">,</span> <span class="n">item_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;The ID of the item to get&quot;</span><span class="p">),</span> <span class="n">q</span><span class="p">:</span> <span class="nb">str</span>
-</span><span class="p">):</span>
-    <span class="n">results</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="n">item_id</span><span class="p">}</span>
-    <span class="k">if</span> <span class="n">q</span><span class="p">:</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">read_items</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">item_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;The ID of the item to get&quot;</span><span class="p">),</span> <span class="n">q</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="hll">    <span class="n">results</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="n">item_id</span><span class="p">}</span>
+</span>    <span class="k">if</span> <span class="n">q</span><span class="p">:</span>
         <span class="n">results</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="n">q</span><span class="p">})</span>
     <span class="k">return</span> <span class="n">results</span>
 </code></pre></div>
 <h2 id="_5">数值校验：大于等于<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<p>使用 <code>Query</code> 和 <code>Path</code>（以及后文中的其它类）时，既可以声明字符串约束，也可以声明数值约束。</p>
+<p>使用 <code>Query</code> 和 <code>Path</code>（以及后文中的其他类）时，既可以声明字符串约束，也可以声明数值约束。</p>
 <p>此处，添加 <code>ge=1</code> 后，<code>item_id</code> 就必须是大于（<code>g</code>reater than）等于（<code>e</code>qual）<code>1</code> 的整数。</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">Path</span>
 
@@ -2287,7 +2335,7 @@
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/</span><span class="si">{item_id}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="k">async</span> <span class="k">def</span> <span class="nf">read_items</span><span class="p">(</span>
-<span class="hll">    <span class="o">*</span><span class="p">,</span> <span class="n">item_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;The ID of the item to get&quot;</span><span class="p">,</span> <span class="n">ge</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">q</span><span class="p">:</span> <span class="nb">str</span>
+<span class="hll">    <span class="o">*</span><span class="p">,</span> <span class="n">item_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;The ID of the item to get&quot;</span><span class="p">,</span> <span class="n">ge</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">q</span><span class="p">:</span> <span class="nb">str</span>
 </span><span class="p">):</span>
     <span class="n">results</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="n">item_id</span><span class="p">}</span>
     <span class="k">if</span> <span class="n">q</span><span class="p">:</span>
@@ -2308,7 +2356,7 @@
 <span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/</span><span class="si">{item_id}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="k">async</span> <span class="k">def</span> <span class="nf">read_items</span><span class="p">(</span>
     <span class="o">*</span><span class="p">,</span>
-<span class="hll">    <span class="n">item_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;The ID of the item to get&quot;</span><span class="p">,</span> <span class="n">gt</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">le</span><span class="o">=</span><span class="mi">1000</span><span class="p">),</span>
+<span class="hll">    <span class="n">item_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;The ID of the item to get&quot;</span><span class="p">,</span> <span class="n">gt</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">le</span><span class="o">=</span><span class="mi">1000</span><span class="p">),</span>
 </span>    <span class="n">q</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
 <span class="p">):</span>
     <span class="n">results</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="n">item_id</span><span class="p">}</span>
@@ -2329,9 +2377,9 @@
 <span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/</span><span class="si">{item_id}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="k">async</span> <span class="k">def</span> <span class="nf">read_items</span><span class="p">(</span>
     <span class="o">*</span><span class="p">,</span>
-    <span class="n">item_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;The ID of the item to get&quot;</span><span class="p">,</span> <span class="n">ge</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">le</span><span class="o">=</span><span class="mi">1000</span><span class="p">),</span>
+    <span class="n">item_id</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;The ID of the item to get&quot;</span><span class="p">,</span> <span class="n">ge</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">le</span><span class="o">=</span><span class="mi">1000</span><span class="p">),</span>
     <span class="n">q</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-<span class="hll">    <span class="n">size</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">Query</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">gt</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">lt</span><span class="o">=</span><span class="mf">10.5</span><span class="p">)</span>
+<span class="hll">    <span class="n">size</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">Query</span><span class="p">(</span><span class="n">gt</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">lt</span><span class="o">=</span><span class="mf">10.5</span><span class="p">)</span>
 </span><span class="p">):</span>
     <span class="n">results</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="n">item_id</span><span class="p">}</span>
     <span class="k">if</span> <span class="n">q</span><span class="p">:</span>
@@ -2339,7 +2387,7 @@
     <span class="k">return</span> <span class="n">results</span>
 </code></pre></div>
 <h2 id="_8">小结<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
-<p><code>Query</code>、<code>Path</code>（及其它尚未介绍的类）可以使用<a class="internal-link" href="../query-params-str-validations/" target="_blank">查询参数和字符串校验</a> 中的方式声明元数据和字符串校验。</p>
+<p><code>Query</code>、<code>Path</code>（及其他尚未介绍的类）可以使用<a class="internal-link" href="../query-params-str-validations/" target="_blank">查询参数和字符串校验</a> 中的方式声明元数据和字符串校验。</p>
 <p>同样，也可以声明数值校验：</p>
 <ul>
 <li><code>gt</code>：大于（<code>g</code>reater <code>t</code>han）</li>
@@ -2349,7 +2397,7 @@
 </ul>
 <div class="admonition info">
 <p class="admonition-title">说明</p>
-<p><code>Query</code>、<code>Path</code> 及后文中要介绍的其它类都继承自同一个 <code>Param</code> 类（无需直接使用）。</p>
+<p><code>Query</code>、<code>Path</code> 及后文中要介绍的其他类都继承自同一个 <code>Param</code> 类（无需直接使用）。</p>
 <p>而且，它们共享使用所有前文中介绍过的，用于添加更多校验和元数据的参数。</p>
 </div>
 <div class="admonition note">

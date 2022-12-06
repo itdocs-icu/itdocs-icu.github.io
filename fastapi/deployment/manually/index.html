@@ -17,7 +17,7 @@
     
     
       
-        <title>手动部署 - FastAPI</title>
+        <title>Run a Server Manually - Uvicorn - FastAPI</title>
       
     
     
@@ -47,6 +47,16 @@
     <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  
+  
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-133183413-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
 
     
     
@@ -72,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#run-a-server-manually-uvicorn" class="md-skip">
           跳转至
         </a>
       
@@ -122,7 +132,7 @@
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 10px 10px;
     text-decoration: none;
   }
 
@@ -159,7 +169,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              手动部署
+              Run a Server Manually - Uvicorn
             
           </span>
         </div>
@@ -170,7 +180,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -179,7 +189,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -1713,6 +1723,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/generate-clients/" class="md-nav__link">
+        Generate Clients
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1810,6 +1834,123 @@
               
   
   
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Run a Server Manually - Uvicorn
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Run a Server Manually - Uvicorn
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#server-machine-and-server-program" class="md-nav__link">
+    Server Machine and Server Program
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-the-server-program" class="md-nav__link">
+    Install the Server Program
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-the-server-program" class="md-nav__link">
+    Run the Server Program
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hypercorn-with-trio" class="md-nav__link">
+    Hypercorn with Trio
+  </a>
+  
+    <nav class="md-nav" aria-label="Hypercorn with Trio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-hypercorn-with-trio" class="md-nav__link">
+    Install Hypercorn with Trio
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-with-trio" class="md-nav__link">
+    Run with Trio
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment-concepts" class="md-nav__link">
+    Deployment Concepts
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concepts/" class="md-nav__link">
+        Deployments Concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
   
     <li class="md-nav__item">
       <a href="../deta/" class="md-nav__link">
@@ -1826,8 +1967,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../docker/" class="md-nav__link">
-        使用 Docker 部署
+      <a href="../server-workers/" class="md-nav__link">
+        Server Workers - Gunicorn with Uvicorn
       </a>
     </li>
   
@@ -1838,21 +1979,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        手动部署
+    <li class="md-nav__item">
+      <a href="../docker/" class="md-nav__link">
+        使用 Docker 部署
       </a>
-      
     </li>
   
 
@@ -1888,7 +2019,7 @@
   
     <li class="md-nav__item">
       <a href="../../alternatives/" class="md-nav__link">
-        备选、灵感、比较
+        备选、灵感与比较
       </a>
     </li>
   
@@ -2034,6 +2165,69 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#server-machine-and-server-program" class="md-nav__link">
+    Server Machine and Server Program
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-the-server-program" class="md-nav__link">
+    Install the Server Program
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-the-server-program" class="md-nav__link">
+    Run the Server Program
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hypercorn-with-trio" class="md-nav__link">
+    Hypercorn with Trio
+  </a>
+  
+    <nav class="md-nav" aria-label="Hypercorn with Trio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-hypercorn-with-trio" class="md-nav__link">
+    Install Hypercorn with Trio
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-with-trio" class="md-nav__link">
+    Run with Trio
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment-concepts" class="md-nav__link">
+    Deployment Concepts
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2046,28 +2240,42 @@
                 
 
 
-<h1 id="_1">手动部署<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>您也可以手动部署 <strong>FastAPI</strong>。</p>
-<p>只要安装 Uvicorn 等 ASGI 兼容的服务器：</p>
-<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Uvicorn</label><div class="tabbed-content">
+<h1 id="run-a-server-manually-uvicorn">Run a Server Manually - Uvicorn<a class="headerlink" href="#run-a-server-manually-uvicorn" title="Permanent link">&para;</a></h1>
+<p>The main thing you need to run a <strong>FastAPI</strong> application in a remote server machine is an ASGI server program like <strong>Uvicorn</strong>.</p>
+<p>There are 3 main alternatives:</p>
 <ul>
-<li><a href="https://www.uvicorn.org/" class="external-link" target="_blank">Uvicorn</a>，快如闪电的 ASGI 服务器，基于 uvloop 与 httptools 构建。</li>
+<li><a href="https://www.uvicorn.org/" class="external-link" target="_blank">Uvicorn</a>: a high performance ASGI server.</li>
+<li><a href="https://pgjones.gitlab.io/hypercorn/" class="external-link" target="_blank">Hypercorn</a>: an ASGI server compatible with HTTP/2 and Trio among other features.</li>
+<li><a href="https://github.com/django/daphne" class="external-link" target="_blank">Daphne</a>: the ASGI server built for Django Channels.</li>
+</ul>
+<h2 id="server-machine-and-server-program">Server Machine and Server Program<a class="headerlink" href="#server-machine-and-server-program" title="Permanent link">&para;</a></h2>
+<p>There's a small detail about names to have in mind. 💡</p>
+<p>The word "<strong>server</strong>" is commonly used to refer to both the remote/cloud computer (the physical or virtual machine) and also the program that is running on that machine (e.g. Uvicorn).</p>
+<p>Just have that in mind when you read "server" in general, it could refer to one of those two things.</p>
+<p>When referring to the remote machine, it's common to call it <strong>server</strong>, but also <strong>machine</strong>, <strong>VM</strong> (virtual machine), <strong>node</strong>. Those all refer to some type of remote machine, normally running Linux, where you run programs.</p>
+<h2 id="install-the-server-program">Install the Server Program<a class="headerlink" href="#install-the-server-program" title="Permanent link">&para;</a></h2>
+<p>You can install an ASGI compatible server with:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Uvicorn</label><label for="__tabbed_1_2">Hypercorn</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li><a href="https://www.uvicorn.org/" class="external-link" target="_blank">Uvicorn</a>, a lightning-fast ASGI server, built on uvloop and httptools.</li>
 </ul>
 <div class="termy">
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>pip install uvicorn<span class="o">[</span>standard<span class="o">]</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>pip install <span class="s2">&quot;uvicorn[standard]&quot;</span>
 
 <span class="go">---&gt; 100%</span>
 </code></pre></div>
 </div>
 <div class="admonition tip">
-<p class="admonition-title">提示</p>
-<p>添加 <code>standard</code> 后，Uvicorn 会安装并使用更多依赖项。</p>
-<p>包括 <code>uvloop</code>，它是 <code>asyncio</code> 的高性能替代方案，极大地提升了并发性能。</p>
+<p class="admonition-title">Tip</p>
+<p>By adding the <code>standard</code>, Uvicorn will install and use some recommended extra dependencies.</p>
+<p>That including <code>uvloop</code>, the high-performance drop-in replacement for <code>asyncio</code>, that provides the big concurrency performance boost.</p>
 </div>
 </div>
-<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Hypercorn</label><div class="tabbed-content">
+<div class="tabbed-block">
 <ul>
-<li><a href="https://gitlab.com/pgjones/hypercorn" class="external-link" target="_blank">Hypercorn</a>，与 HTTP/2 兼容的 ASGI 服务器。</li>
+<li><a href="https://gitlab.com/pgjones/hypercorn" class="external-link" target="_blank">Hypercorn</a>, an ASGI server also compatible with HTTP/2.</li>
 </ul>
 <div class="termy">
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>pip install hypercorn
@@ -2075,11 +2283,15 @@
 <span class="go">---&gt; 100%</span>
 </code></pre></div>
 </div>
-<p>……或其它 ASGI 服务器。</p>
+<p>...or any other ASGI server.</p>
 </div>
 </div>
-<p>以用户指南中介绍的方式运行应用，但不要使用 <code>--reload</code> 选项，例如：</p>
-<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Uvicorn</label><div class="tabbed-content">
+</div>
+<h2 id="run-the-server-program">Run the Server Program<a class="headerlink" href="#run-the-server-program" title="Permanent link">&para;</a></h2>
+<p>You can then run your application the same way you have done in the tutorials, but without the <code>--reload</code> option, e.g.:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Uvicorn</label><label for="__tabbed_2_2">Hypercorn</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="termy">
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>uvicorn main:app --host <span class="m">0</span>.0.0.0 --port <span class="m">80</span>
 
@@ -2087,7 +2299,7 @@
 </code></pre></div>
 </div>
 </div>
-<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">Hypercorn</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="termy">
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>hypercorn main:app --bind <span class="m">0</span>.0.0.0:80
 
@@ -2096,10 +2308,50 @@
 </div>
 </div>
 </div>
-<p>如果需要使用工具设置停止服务后自动重启。</p>
-<p>建议安装 <a href="https://gunicorn.org/" class="external-link" target="_blank">Gunicorn</a>， <a href="https://www.uvicorn.org/#running-with-gunicorn" class="external-link" target="_blank">用它作为 Uvicorn 的管理器  </a>，或使用支持多个 worker 的 Hypercorn。</p>
-<p>一定要校准好 worker 的数量。</p>
-<p>但这么做时最好使用 Docker 镜像，自动完成这些操作。</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Remember to remove the <code>--reload</code> option if you were using it.</p>
+<p>The <code>--reload</code> option consumes much more resources, is more unstable, etc.</p>
+<p>It helps a lot during <strong>development</strong>, but you <strong>shouldn't</strong> use it in <strong>production</strong>.</p>
+</div>
+<h2 id="hypercorn-with-trio">Hypercorn with Trio<a class="headerlink" href="#hypercorn-with-trio" title="Permanent link">&para;</a></h2>
+<p>Starlette and <strong>FastAPI</strong> are based on <a href="https://anyio.readthedocs.io/en/stable/" class="external-link" target="_blank">AnyIO</a>, which makes them compatible with both Python's standard library <a href="https://docs.python.org/3/library/asyncio-task.html" class="external-link" target="_blank">asyncio</a> and <a href="https://trio.readthedocs.io/en/stable/" class="external-link" target="_blank">Trio</a>.</p>
+<p>Nevertheless, Uvicorn is currently only compatible with asyncio, and it normally uses <a href="https://github.com/MagicStack/uvloop" class="external-link" target="_blank"><code>uvloop</code></a>, the high-performance drop-in replacement for <code>asyncio</code>.</p>
+<p>But if you want to directly use <strong>Trio</strong>, then you can use <strong>Hypercorn</strong> as it supports it. ✨</p>
+<h3 id="install-hypercorn-with-trio">Install Hypercorn with Trio<a class="headerlink" href="#install-hypercorn-with-trio" title="Permanent link">&para;</a></h3>
+<p>First you need to install Hypercorn with Trio support:</p>
+<div class="termy">
+
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>pip install <span class="s2">&quot;hypercorn[trio]&quot;</span>
+<span class="go">---&gt; 100%</span>
+</code></pre></div>
+
+</div>
+
+<h3 id="run-with-trio">Run with Trio<a class="headerlink" href="#run-with-trio" title="Permanent link">&para;</a></h3>
+<p>Then you can pass the command line option <code>--worker-class</code> with the value <code>trio</code>:</p>
+<div class="termy">
+
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>hypercorn main:app --worker-class trio
+</code></pre></div>
+
+</div>
+
+<p>And that will start Hypercorn with your app using Trio as the backend.</p>
+<p>Now you can use Trio internally in your app. Or even better, you can use AnyIO, to keep your code compatible with both Trio and asyncio. 🎉</p>
+<h2 id="deployment-concepts">Deployment Concepts<a class="headerlink" href="#deployment-concepts" title="Permanent link">&para;</a></h2>
+<p>These examples run the server program (e.g Uvicorn), starting <strong>a single process</strong>, listening on all the IPs (<code>0.0.0.0</code>) on a predefined port (e.g. <code>80</code>).</p>
+<p>This is the basic idea. But you will probably want to take care of some additional things, like:</p>
+<ul>
+<li>Security - HTTPS</li>
+<li>Running on startup</li>
+<li>Restarts</li>
+<li>Replication (the number of processes running)</li>
+<li>Memory</li>
+<li>Previous steps before starting</li>
+</ul>
+<p>I'll tell you more about each of these concepts, how to think about them, and some concrete examples with strategies to handle them in the next chapters. 🚀</p>
 
               
             </article>
@@ -2117,7 +2369,7 @@
     <nav class="md-footer__inner md-grid" aria-label="页脚" >
       
         
-        <a href="../docker/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 使用 Docker 部署" rel="prev">
+        <a href="../https/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 关于 HTTPS" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -2126,20 +2378,20 @@
               <span class="md-footer__direction">
                 上一页
               </span>
-              使用 Docker 部署
+              关于 HTTPS
             </div>
           </div>
         </a>
       
       
         
-        <a href="../../project-generation/" class="md-footer__link md-footer__link--next" aria-label="下一页: 项目生成 - 模板" rel="next">
+        <a href="../concepts/" class="md-footer__link md-footer__link--next" aria-label="下一页: Deployments Concepts" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 下一页
               </span>
-              项目生成 - 模板
+              Deployments Concepts
             </div>
           </div>
           <div class="md-footer__button md-icon">

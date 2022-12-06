@@ -47,6 +47,16 @@
     <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  
+  
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-133183413-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
 
     
     
@@ -122,7 +132,7 @@
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 10px 10px;
     text-decoration: none;
   }
 
@@ -170,7 +180,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -179,7 +189,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -1713,6 +1723,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../advanced/generate-clients/" class="md-nav__link">
+        Generate Clients
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1846,7 +1870,7 @@
         
           <li class="md-nav__item">
   <a href="#_11" class="md-nav__link">
-    其它异步编码形式
+    其他异步编码形式
   </a>
   
 </li>
@@ -1901,7 +1925,7 @@
         
           <li class="md-nav__item">
   <a href="#_18" class="md-nav__link">
-    其它工具函数
+    其他工具函数
   </a>
   
 </li>
@@ -1995,6 +2019,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../deployment/manually/" class="md-nav__link">
+        Run a Server Manually - Uvicorn
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/concepts/" class="md-nav__link">
+        Deployments Concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../deployment/deta/" class="md-nav__link">
         在 Deta 上部署 FastAPI
       </a>
@@ -2009,8 +2061,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../deployment/docker/" class="md-nav__link">
-        使用 Docker 部署
+      <a href="../deployment/server-workers/" class="md-nav__link">
+        Server Workers - Gunicorn with Uvicorn
       </a>
     </li>
   
@@ -2023,8 +2075,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../deployment/manually/" class="md-nav__link">
-        手动部署
+      <a href="../deployment/docker/" class="md-nav__link">
+        使用 Docker 部署
       </a>
     </li>
   
@@ -2061,7 +2113,7 @@
   
     <li class="md-nav__item">
       <a href="../alternatives/" class="md-nav__link">
-        备选、灵感、比较
+        备选、灵感与比较
       </a>
     </li>
   
@@ -2299,7 +2351,7 @@
         
           <li class="md-nav__item">
   <a href="#_11" class="md-nav__link">
-    其它异步编码形式
+    其他异步编码形式
   </a>
   
 </li>
@@ -2354,7 +2406,7 @@
         
           <li class="md-nav__item">
   <a href="#_18" class="md-nav__link">
-    其它工具函数
+    其他工具函数
   </a>
   
 </li>
@@ -2379,13 +2431,13 @@
 
 
 <h1 id="_1">并发与异步<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>本章介绍一些关于<em>路径操作函数</em>的 <code>async def</code> 语法，以及异步、并发、并行的背景知识。</p>
+<p>本章介绍一些关于<strong>路径操作函数</strong>的 <code>async def</code> 语法，以及异步、并发、并行的背景知识。</p>
 <h2 id="_2">等不及了？<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p><abbr title="too long; didn't read"><strong>TL;DR:</strong></abbr></p>
 <p>如果需要以如下方式使用 <code>await</code> 调用第三方支持库：</p>
 <div class="highlight"><pre><span></span><code><span class="n">results</span> <span class="o">=</span> <span class="k">await</span> <span class="n">some_library</span><span class="p">()</span>
 </code></pre></div>
-<p>就要使用 <code>async def</code> 声明<em>路径操作函数</em>：</p>
+<p>就要使用 <code>async def</code> 声明<strong>路径操作函数</strong>：</p>
 <div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
 <span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">read_results</span><span class="p">():</span>
 </span>    <span class="n">results</span> <span class="o">=</span> <span class="k">await</span> <span class="n">some_library</span><span class="p">()</span>
@@ -2396,18 +2448,18 @@
 <p>只能在 <code>async def</code> 创建的函数内部使用 <code>await</code>。</p>
 </div>
 <hr />
-<p>如果使用不支持 <code>await</code> 的第三方支持库与（数据库、API、文件系统等）对象通信，（这是绝大多数数据库支持库的现状），就要只能使用 <code>def</code> 把<em>路径操作函数</em>声明为普通函数，如下：</p>
+<p>如果使用不支持 <code>await</code> 的第三方支持库与（数据库、API、文件系统等）对象通信，（这是绝大多数数据库支持库的现状），就要只能使用 <code>def</code> 把<strong>路径操作函数</strong>声明为普通函数，如下：</p>
 <div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
 <span class="hll"><span class="k">def</span> <span class="nf">results</span><span class="p">():</span>
 </span>    <span class="n">results</span> <span class="o">=</span> <span class="n">some_library</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">results</span>
 </code></pre></div>
 <hr />
-<p>如果你的应用（不知为何）虽然不与其它对象通信，但仍要等待其响应，也可以使用 <code>async def</code>。</p>
+<p>如果你的应用（不知为何）虽然不与其他对象通信，但仍要等待其响应，也可以使用 <code>async def</code>。</p>
 <hr />
 <p>如果不知道用什么好，就用普通函数。</p>
 <hr />
-<p><strong>注意</strong>：你可以把普通（<code>def</code>）<em>路径操作函数</em>与异步（<code>asnyc def</code>）<em>路径操作函数</em>混在一起使用，为每个<em>路径操作函数</em>选择最适合的方案。FastAPI 能正确区分不同类型的函数。</p>
+<p><strong>注意</strong>：可以把普通（<code>def</code>）<strong>路径操作函数</strong>与异步（<code>asnyc def</code>）<strong>路径操作函数</strong>混在一起使用，为每个<strong>路径操作函数</strong>选择最适合的方案。FastAPI 能正确区分不同类型的函数。</p>
 <p>不管怎么说，对上述任意情况，FastAPI 都是以异步方式运行的，速度极快。</p>
 <p>但使用上述方式，它能更好地优化性能。</p>
 <h2 id="_3">技术细节<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
@@ -2420,7 +2472,7 @@
 </ul>
 <h2 id="_4">异步编码<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>异步编码是指编程语言 💬 以某种方式告诉计算机/程序 🤖，在代码中的某个点，它 🤖 必须等待<em>某些对象</em>在某些位置完成某些操作。假设我们把<em>这些对象</em>称为“慢文件” 📝。</p>
-<p>在“慢文件” 📝 操作结束前的这段时间里，计算机可以去执行其它操作。</p>
+<p>在“慢文件” 📝 操作结束前的这段时间里，计算机可以去执行其他操作。</p>
 <p>在等待期间，计算机/程序 🤖 经常会查看是可以继续操作，还是要继续等待，或者当它完成那个点能做的所有操作后，计算机/程序 🤖 会查看它所等待的任务是否完成了，并继续执行它本该完成的操作。</p>
 <p>接下来，它 🤖 完成第一项任务（比如说，“慢文件” 📝），然后执行后续操作。</p>
 <p>"等待某些对象"通常是指（与处理器和内存相比）速度相对较“慢”的 <abbr title="输入与输出">I/O</abbr> 操作，比如等待如下对象：</p>
@@ -2437,7 +2489,7 @@
 <p>因为执行时主要是等待 <abbr title="输入与输出">I/O</abbr>  操作，它们也被称为“I/O 密集型”操作。</p>
 <p>称之为 “异步”，是因为计算机/程序不必与慢任务“同步”，什么都不做，只是等待任务完成的那一刻，才获取任务结果并继续执行。</p>
 <p>反之，在“异步”系统中，任务完成后，会耗费一点时间（几微秒）等待计算机/ 程序完成当前操作，然后再获取任务返回的结果，继续执行操作。</p>
-<p>（与“异步”相反），“同步”通常也使用术语“<strong>序列（sequential）</strong>”，这是因为计算机/程序在切换到其它任务前，总是按序执行所有操作步骤，即使需要等待这些任务完成。</p>
+<p>（与“异步”相反），“同步”通常也使用术语“<strong>序列（sequential）</strong>”，这是因为计算机/程序在切换到其他任务前，总是按序执行所有操作步骤，即使需要等待这些任务完成。</p>
 <h3 id="_5">并发与汉堡<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p>上述<strong>异步</strong>编码的思路有时也叫作<strong>“并发（concurrency）”</strong>，它与<strong>”并行（parallelism）“</strong>不一样。</p>
 <p><strong>并发</strong>与<strong>并行</strong>都与“同时发生不同的事情”相关。</p>
@@ -2549,13 +2601,13 @@
 </span>    <span class="c1"># Do some sequential stuff to create the burgers</span>
     <span class="k">return</span> <span class="n">burgers</span>
 </code></pre></div>
-<p>使用 <code>async def</code>， Python 就知道在这个函数内必须要留意 <code>await</code> 表达式，并且 <code>await</code> 表达式可以“暂停”函数执行，并在返回之前可以做些其它事情。</p>
+<p>使用 <code>async def</code>， Python 就知道在这个函数内必须要留意 <code>await</code> 表达式，并且 <code>await</code> 表达式可以“暂停”函数执行，并在返回之前可以做些其他事情。</p>
 <p>调用 <code>async def</code> 函数时，必须要使用 <code>await</code>。因此，如下代码不能正常运行。</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># This won&#39;t work, because get_burgers was defined with: async def</span>
 <span class="n">burgers</span> <span class="o">=</span> <span class="n">get_burgers</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 </code></pre></div>
 <hr />
-<p>因此，使用由 <code>await</code> 调用的支持库，需要使用 <code>async def</code> 创建<em>路径操作函数</em>，代码如下：</p>
+<p>因此，使用由 <code>await</code> 调用的支持库，需要使用 <code>async def</code> 创建<strong>路径操作函数</strong>，代码如下：</p>
 <div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/burgers&#39;</span><span class="p">)</span>
 <span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">read_burgers</span><span class="p">():</span>
 </span><span class="hll">    <span class="n">burgers</span> <span class="o">=</span> <span class="k">await</span> <span class="n">get_burgers</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
@@ -2565,22 +2617,22 @@
 <p>你可能已经注意到 <code>await</code> 只能在 <code>async def</code> 定义的函数内使用。</p>
 <p>但同时，由 <code>async def</code> 定义的函数必须要“等待”。因此，使用 <code>async def</code> 的函数只能在由 <code>async def</code> 定义的函数内被调用。</p>
 <p>这是个鸡生蛋、蛋生鸡的问题，怎么调用第一个 <code>async</code> 函数呢？</p>
-<p>使用 <strong>FastAPI</strong> 就不需要担心这个问题，因为“第一个”函数就是<em>路径操作函数</em>，而 FastAPI 知道该怎么处理。</p>
+<p>使用 <strong>FastAPI</strong> 就不需要担心这个问题，因为“第一个”函数就是<strong>路径操作函数</strong>，而 FastAPI 知道该怎么处理。</p>
 <p>但如果不在 FastAPI 中使用 <code>async</code> / <code>await</code>，则要参阅 <a href="https://docs.python.org/3/library/asyncio-task.html#coroutine" class="external-link" target="_blank">Python 官档</a>。</p>
-<h3 id="_11">其它异步编码形式<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
-<p><code>async</code> 与 <code>await</code> 这种风格对于 Python 这门编程语言来说也是相对较新的。</p>
+<h3 id="_11">其他异步编码形式<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p><code>async</code> 与 <code>await</code> 对于 Python 来说也是相对较新的。</p>
 <p>但它让异步编码变得更容易了。</p>
 <p>现代 JavaScript （在浏览器与 NodeJS 中）最近也添加了几乎一模一样的语法。</p>
 <p>但在此之前，处理异步编码超级复杂，而且特别难。</p>
 <p>在 Python 以前的版本中，只能使用线程或 <a href="https://www.gevent.org/" class="external-link" target="_blank">Gevent</a>。但这种代码非常复杂难懂，也不方便调试与理解。</p>
-<p>在 NodeJS / 浏览器 JavaScript 以前的版本中要使用“回调”，这种方式直通“<a href="http://callbackhell.com/" class="external-link" target="_blank">回调地狱</a>”。</p>
+<p>在 NodeJS/JavaScript 以前的版本中使用“回调”，这种方式直通“<a href="http://callbackhell.com/" class="external-link" target="_blank">回调地狱</a>”。</p>
 <h2 id="_12">协程<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
 <p><strong>协程</strong>只是个非常花哨的术语，指的是由 <code>async def</code> 函数返回的对象。Python 把它识别为可以在某些点启动或终止的函数，但它还可以在内部暂停 ⏸，只要在它的内部包含 <code>await</code>。</p>
-<p>但是使用 <code>async</code> 与 <code>await</code> 的异步编码的这种功能尝尝被统称为“携程”。它与 Go 的核心功能 “Goroutines” 相对应。</p>
+<p>但是使用 <code>async</code> 与 <code>await</code> 的异步编码的这种功能常常被统称为“协程”。它与 Go 的核心功能 “Goroutines” 相对应。</p>
 <h2 id="_13">结论<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
 <p>我们再回过头来看一下前文的短语。</p>
 <blockquote>
-<p>现代 Python 支持<strong>“异步编码”</strong>，使用的是 <strong><code>async</code> 与 <code>await</code></strong> 关键字，这种方式叫做<strong>协程</strong>。</p>
+<p>现代 Python 支持<strong>异步编码</strong>，使用的是 <strong><code>async</code> 与 <code>await</code></strong> 关键字，这种方式叫做<strong>协程</strong>。</p>
 </blockquote>
 <p>现在再看这句话就更有感觉了吧。✨</p>
 <p>所有这些技术都（通过 Starlette）为 FastAPI 赋能，让 FastAPI 具有让人叹为观止的性能。</p>
@@ -2592,16 +2644,16 @@
 <p>如果你了解足够的技术知识（协程、线程、阻塞等），并对 FastAPI 如何处理 <code>async def</code> 和普通的 <code>def</code> 感兴趣，请继续。</p>
 </div>
 <h3 id="_15">路径操作函数<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
-<p>使用普通 <code>def</code> 替代 <code>async def</code> 声明<em>路径操作函数</em>时，要在等待的外部线程池中运行，不能直接调用（因为它会阻塞服务器）。</p>
-<p>如果你之前使用的异步框架不以上述方式运行，或者你习惯了定义琐碎的仅供计算的纯 <code>def</code> <em>路径操作函数</em>只为了提升些许性能（约 100 纳秒），请注意，在 <strong>FastAPI</strong> 中的效果正相反。在这些情况下，除非<em>路径操作函数</em>使用执行阻塞 <abbr title="输入/输出：磁盘读取与写入，网络通信d。">I/O</abbr> 的代码，最好使用 <code>async def</code>。</p>
-<p>在这两种情形下，<strong>FastAPI</strong> 仍会比你之前使用的框架<a class="internal-link" href="/#performance" target="_blank">更快</a> ，最起码也是差不多的性能。</p>
+<p>使用普通 <code>def</code> 替代 <code>async def</code> 声明<strong>路径操作函数</strong>时，要在等待的外部线程池中运行，不能直接调用（因为它会阻塞服务器）。</p>
+<p>如果你之前使用的异步框架不以上述方式运行，或者你习惯了使用 <code>def</code> 定义细碎的 <strong>路径操作函数</strong>，只为了提升那么一丁点儿性能（约 100 纳秒），请注意，在 <strong>FastAPI</strong> 中的效果正相反。在这些情况下，除非<strong>路径操作函数</strong>使用执行阻塞 <abbr title="输入/输出：磁盘读取与写入，网络通信。">I/O</abbr> 的代码，最好使用 <code>async def</code>。</p>
+<p>在这两种情形下，<strong>FastAPI</strong> 仍会比你之前使用的框架<a class="internal-link" href="/#performance" target="_blank">更快</a> ，最起码也能提供差不多的性能。</p>
 <h3 id="_16">依赖项<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
-<p>依赖项也可以应用异步编码。如果依赖项是标准 <code>def</code> 函数，而不是 <code>async def</code>，则是在外部线程池里运行。</p>
+<p><a class="internal-link" href="../tutorial/dependencies/" target="_blank">依赖项</a>也可以应用异步编码。如果依赖项是标准的 <code>def</code> 函数，而不是 <code>async def</code>，则是在外部线程池里运行。</p>
 <h3 id="_17">子依赖项<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
-<p>你可以声明多个相互依赖的依赖项和子依赖项（作为函数定义的参数）。其中一些可以是 <code>async def</code> 创建的，另一些是由普通的 <code>def</code> 创建的。这样也可以正常运行，使用普通的 <code>def</code> 创建的函数是用外部线程（来自线程池）调用的，而不是“被等待”。</p>
-<h3 id="_18">其它工具函数<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
-<p>直接调用的其它任意工具函数都可以用普通的 <code>def</code> 或 <code>async def</code> 创建，FastAPI 不会影响调用工具函数的方式。</p>
-<p>这与 FastAPI 为你调用的函数正相反：<em>路径操作函数</em>与依赖项。</p>
+<p>可以声明多个相互依赖的依赖项和<a class="internal-link" href="../tutorial/dependencies/sub-dependencies/" target="_blank">子依赖项</a> （作为函数定义的参数）。其中一些可以是 <code>async def</code> 创建的，另一些是由普通的 <code>def</code> 创建的。这样也可以正常运行，使用普通的 <code>def</code> 创建的函数是用外部线程（来自线程池）调用的，而不是“被等待”。</p>
+<h3 id="_18">其他工具函数<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<p>直接调用的其他任意工具函数都可以用普通的 <code>def</code> 或 <code>async def</code> 创建，FastAPI 不会影响调用工具函数的方式。</p>
+<p>这与 FastAPI 为你调用的函数正相反：<strong>路径操作函数</strong>与依赖项。</p>
 <p>如果工具函数是由 <code>def</code> 声明的普通函数，就需要直接调用（与在代码中直接写的一样），而不是从线程池中调用，如果是由 <code>async def</code> 创建的函数，则在代码里调用该函数时，要 <code>await</code> 这个函数。</p>
 <hr />
 <p>再次强调，这些是非常深入的技术细节，在深入探索时可能会用的上。</p>
@@ -2623,7 +2675,7 @@
     <nav class="md-footer__inner md-grid" aria-label="页脚" >
       
         
-        <a href="../advanced/wsgi/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 包含 WSGI - Flask、Django 等" rel="prev">
+        <a href="../advanced/generate-clients/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Generate Clients" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -2632,7 +2684,7 @@
               <span class="md-footer__direction">
                 上一页
               </span>
-              包含 WSGI - Flask、Django 等
+              Generate Clients
             </div>
           </div>
         </a>

@@ -47,6 +47,16 @@
     <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  
+  
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-133183413-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
 
     
     
@@ -122,7 +132,7 @@
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 10px 10px;
     text-decoration: none;
   }
 
@@ -170,7 +180,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -179,7 +189,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -1824,6 +1834,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generate-clients/" class="md-nav__link">
+        Generate Clients
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1921,6 +1945,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../deployment/manually/" class="md-nav__link">
+        Run a Server Manually - Uvicorn
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/concepts/" class="md-nav__link">
+        Deployments Concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../deployment/deta/" class="md-nav__link">
         在 Deta 上部署 FastAPI
       </a>
@@ -1935,8 +1987,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../deployment/docker/" class="md-nav__link">
-        使用 Docker 部署
+      <a href="../../deployment/server-workers/" class="md-nav__link">
+        Server Workers - Gunicorn with Uvicorn
       </a>
     </li>
   
@@ -1949,8 +2001,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../deployment/manually/" class="md-nav__link">
-        手动部署
+      <a href="../../deployment/docker/" class="md-nav__link">
+        使用 Docker 部署
       </a>
     </li>
   
@@ -1987,7 +2039,7 @@
   
     <li class="md-nav__item">
       <a href="../../alternatives/" class="md-nav__link">
-        备选、灵感、比较
+        备选、灵感与比较
       </a>
     </li>
   
@@ -2235,7 +2287,7 @@
 <p>生产环境下，您可能要使用 React、Vue.js、Angular 等现代前端框架。</p>
 <p>并且使用 WebSocket 与后端通信时，还可能要使用前端工具。</p>
 <p>本地移动应用也有可能在本地代码（native code）中使用 WebSocket 与后端直接通信。</p>
-<p>当然您还有可能以其它方式与 WebSocket 端点通信。</p>
+<p>当然您还有可能以其他方式与 WebSocket 端点通信。</p>
 <hr />
 <p>但在本例中，我们使用非常简单的 HTML 文档，该文档只包含了一些 JavaScript，所有内容都在一个长字符串中。</p>
 <p>这种方式肯定不好，在生产环境中最好不要这样做。</p>
@@ -2438,10 +2490,18 @@
 <li><code>Path</code></li>
 <li><code>Query</code></li>
 </ul>
-<p>此处与其它 FastAPI 端点/路径操作的工作方式相同：</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<p>此处与其他 FastAPI 端点/路径操作的工作方式相同：</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
-<span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Cookie</span><span class="p">,</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">Query</span><span class="p">,</span> <span class="n">WebSocket</span><span class="p">,</span> <span class="n">status</span>
+<span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Cookie</span><span class="p">,</span>
+    <span class="n">Depends</span><span class="p">,</span>
+    <span class="n">FastAPI</span><span class="p">,</span>
+    <span class="n">Query</span><span class="p">,</span>
+    <span class="n">WebSocket</span><span class="p">,</span>
+    <span class="n">WebSocketException</span><span class="p">,</span>
+    <span class="n">status</span><span class="p">,</span>
+<span class="p">)</span>
 <span class="kn">from</span> <span class="nn">fastapi.responses</span> <span class="kn">import</span> <span class="n">HTMLResponse</span>
 
 <span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
@@ -2488,41 +2548,41 @@
 <span class="s2">        &lt;/script&gt;</span>
 <span class="s2">    &lt;/body&gt;</span>
 <span class="s2">&lt;/html&gt;</span>
-<span class="s2">&quot;&quot;&quot;</span>
-
-
-<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
-<span class="k">async</span> <span class="k">def</span> <span class="nf">get</span><span class="p">():</span>
-    <span class="k">return</span> <span class="n">HTMLResponse</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
-
-
-<span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">get_cookie_or_token</span><span class="p">(</span>
-</span><span class="hll">    <span class="n">websocket</span><span class="p">:</span> <span class="n">WebSocket</span><span class="p">,</span>
-</span><span class="hll">    <span class="n">session</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Cookie</span><span class="p">(</span><span class="kc">None</span><span class="p">),</span>
-</span><span class="hll">    <span class="n">token</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Query</span><span class="p">(</span><span class="kc">None</span><span class="p">),</span>
+<span class="hll"><span class="s2">&quot;&quot;&quot;</span>
+</span><span class="hll">
+</span><span class="hll">
+</span><span class="hll"><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+</span><span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">get</span><span class="p">():</span>
+</span><span class="hll">    <span class="k">return</span> <span class="n">HTMLResponse</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+</span><span class="hll">
+</span><span class="hll">
+</span><span class="k">async</span> <span class="k">def</span> <span class="nf">get_cookie_or_token</span><span class="p">(</span>
+    <span class="n">websocket</span><span class="p">:</span> <span class="n">WebSocket</span><span class="p">,</span>
+<span class="hll">    <span class="n">session</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="n">Cookie</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">),</span>
+</span><span class="hll">    <span class="n">token</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="n">Query</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">),</span>
 </span><span class="hll"><span class="p">):</span>
 </span><span class="hll">    <span class="k">if</span> <span class="n">session</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">token</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-</span><span class="hll">        <span class="k">await</span> <span class="n">websocket</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">code</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">WS_1008_POLICY_VIOLATION</span><span class="p">)</span>
+</span><span class="hll">        <span class="k">raise</span> <span class="n">WebSocketException</span><span class="p">(</span><span class="n">code</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">WS_1008_POLICY_VIOLATION</span><span class="p">)</span>
 </span><span class="hll">    <span class="k">return</span> <span class="n">session</span> <span class="ow">or</span> <span class="n">token</span>
-</span>
-
-<span class="hll"><span class="nd">@app</span><span class="o">.</span><span class="n">websocket</span><span class="p">(</span><span class="s2">&quot;/items/</span><span class="si">{item_id}</span><span class="s2">/ws&quot;</span><span class="p">)</span>
+</span><span class="hll">
+</span><span class="hll">
+</span><span class="hll"><span class="nd">@app</span><span class="o">.</span><span class="n">websocket</span><span class="p">(</span><span class="s2">&quot;/items/</span><span class="si">{item_id}</span><span class="s2">/ws&quot;</span><span class="p">)</span>
 </span><span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">websocket_endpoint</span><span class="p">(</span>
 </span><span class="hll">    <span class="n">websocket</span><span class="p">:</span> <span class="n">WebSocket</span><span class="p">,</span>
 </span><span class="hll">    <span class="n">item_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-</span><span class="hll">    <span class="n">q</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+</span><span class="hll">    <span class="n">q</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 </span><span class="hll">    <span class="n">cookie_or_token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_cookie_or_token</span><span class="p">),</span>
 </span><span class="hll"><span class="p">):</span>
 </span><span class="hll">    <span class="k">await</span> <span class="n">websocket</span><span class="o">.</span><span class="n">accept</span><span class="p">()</span>
-</span><span class="hll">    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-</span><span class="hll">        <span class="n">data</span> <span class="o">=</span> <span class="k">await</span> <span class="n">websocket</span><span class="o">.</span><span class="n">receive_text</span><span class="p">()</span>
-</span><span class="hll">        <span class="k">await</span> <span class="n">websocket</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span>
-</span><span class="hll">            <span class="sa">f</span><span class="s2">&quot;Session cookie or query token value is: </span><span class="si">{</span><span class="n">cookie_or_token</span><span class="si">}</span><span class="s2">&quot;</span>
-</span><span class="hll">        <span class="p">)</span>
-</span><span class="hll">        <span class="k">if</span> <span class="n">q</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-</span><span class="hll">            <span class="k">await</span> <span class="n">websocket</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Query parameter q is: </span><span class="si">{</span><span class="n">q</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</span><span class="hll">        <span class="k">await</span> <span class="n">websocket</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Message text was: </span><span class="si">{</span><span class="n">data</span><span class="si">}</span><span class="s2">, for item ID: </span><span class="si">{</span><span class="n">item_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</span></code></pre></div>
+</span>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="k">await</span> <span class="n">websocket</span><span class="o">.</span><span class="n">receive_text</span><span class="p">()</span>
+        <span class="k">await</span> <span class="n">websocket</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Session cookie or query token value is: </span><span class="si">{</span><span class="n">cookie_or_token</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">q</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">await</span> <span class="n">websocket</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Query parameter q is: </span><span class="si">{</span><span class="n">q</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">await</span> <span class="n">websocket</span><span class="o">.</span><span class="n">send_text</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Message text was: </span><span class="si">{</span><span class="n">data</span><span class="si">}</span><span class="s2">, for item ID: </span><span class="si">{</span><span class="n">item_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
 <div class="admonition info">
 <p class="admonition-title">说明</p>
 <p>Websocket 不会真的触发 <code>HTTPException</code>，因此最好直接关闭 WebSocket 连接。</p>
@@ -2644,7 +2704,7 @@
 <li>在多个标签页中写入信息</li>
 <li>然后关闭其中一个标签页</li>
 </ul>
-<p>此时会触发 <code>WebSocketDisconnect</code> 异常，其它客户端会接收到如下信息：</p>
+<p>此时会触发 <code>WebSocketDisconnect</code> 异常，其他客户端会接收到如下信息：</p>
 <div class="highlight"><pre><span></span><code>Client #1596980209979 left the chat
 </code></pre></div>
 <div class="admonition tip">

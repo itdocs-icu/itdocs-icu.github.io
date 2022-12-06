@@ -47,6 +47,16 @@
     <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  
+  
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-133183413-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
 
     
     
@@ -122,7 +132,7 @@
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 10px 10px;
     text-decoration: none;
   }
 
@@ -170,7 +180,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -179,7 +189,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -1811,6 +1821,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/generate-clients/" class="md-nav__link">
+        Generate Clients
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1908,6 +1932,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../deployment/manually/" class="md-nav__link">
+        Run a Server Manually - Uvicorn
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/concepts/" class="md-nav__link">
+        Deployments Concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../deployment/deta/" class="md-nav__link">
         在 Deta 上部署 FastAPI
       </a>
@@ -1922,8 +1974,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../deployment/docker/" class="md-nav__link">
-        使用 Docker 部署
+      <a href="../../deployment/server-workers/" class="md-nav__link">
+        Server Workers - Gunicorn with Uvicorn
       </a>
     </li>
   
@@ -1936,8 +1988,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../deployment/manually/" class="md-nav__link">
-        手动部署
+      <a href="../../deployment/docker/" class="md-nav__link">
+        使用 Docker 部署
       </a>
     </li>
   
@@ -1974,7 +2026,7 @@
   
     <li class="md-nav__item">
       <a href="../../alternatives/" class="md-nav__link">
-        备选、灵感、比较
+        备选、灵感与比较
       </a>
     </li>
   
@@ -2207,7 +2259,7 @@
 <p>以下是几种实现的方式。</p>
 <h2 id="pydantic-schema_extra">Pydantic 的 <code>schema_extra</code><a class="headerlink" href="#pydantic-schema_extra" title="Permanent link">&para;</a></h2>
 <p>使用 <code>Config</code> 与 <code>schema_extra</code> 为 Pydantic 模型声明 <code>example</code>， 详见 <a href="https://pydantic-docs.helpmanual.io/usage/schema/#schema-customization" class="external-link" target="_blank">Pydantic 文档：自定义概图</a>：</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
 <span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
@@ -2217,9 +2269,9 @@
 
 <span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
     <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="n">description</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">description</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">price</span><span class="p">:</span> <span class="nb">float</span>
-    <span class="n">tax</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">tax</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 
 <span class="hll">    <span class="k">class</span> <span class="nc">Config</span><span class="p">:</span>
 </span><span class="hll">        <span class="n">schema_extra</span> <span class="o">=</span> <span class="p">{</span>
@@ -2246,7 +2298,7 @@
 <h2 id="field">更多 <code>Field</code> 参数<a class="headerlink" href="#field" title="Permanent link">&para;</a></h2>
 <p>向 Pydantic 模型的 <code>Field()</code> 传递参数，可以为 <strong>JSON Schema</strong> 声明更多信息。</p>
 <p>使用 <code>Field()</code> 为字段添加 <code>example</code>：</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
 <span class="hll"><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">Field</span>
@@ -2255,10 +2307,10 @@
 
 
 <span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
-<span class="hll">    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">example</span><span class="o">=</span><span class="s2">&quot;Foo&quot;</span><span class="p">)</span>
-</span><span class="hll">    <span class="n">description</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">example</span><span class="o">=</span><span class="s2">&quot;A very nice Item&quot;</span><span class="p">)</span>
-</span><span class="hll">    <span class="n">price</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">example</span><span class="o">=</span><span class="mf">35.4</span><span class="p">)</span>
-</span><span class="hll">    <span class="n">tax</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">example</span><span class="o">=</span><span class="mf">3.2</span><span class="p">)</span>
+<span class="hll">    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">example</span><span class="o">=</span><span class="s2">&quot;Foo&quot;</span><span class="p">)</span>
+</span><span class="hll">    <span class="n">description</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">example</span><span class="o">=</span><span class="s2">&quot;A very nice Item&quot;</span><span class="p">)</span>
+</span><span class="hll">    <span class="n">price</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">example</span><span class="o">=</span><span class="mf">35.4</span><span class="p">)</span>
+</span><span class="hll">    <span class="n">tax</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">example</span><span class="o">=</span><span class="mf">3.2</span><span class="p">)</span>
 </span>
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s2">&quot;/items/</span><span class="si">{item_id}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -2284,7 +2336,7 @@
 <p>还可以通过声明数据的 <code>example</code>，或一组 <code>examples</code> 向 <strong>OpenAPI</strong> 添加更多信息。</p>
 <h3 id="body-example">在 <code>Body</code> 中使用 <code>example</code><a class="headerlink" href="#body-example" title="Permanent link">&para;</a></h3>
 <p>下列代码向 <code>Body()</code>  传递<code>example</code> 数据：</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Body</span><span class="p">,</span> <span class="n">FastAPI</span>
 <span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
@@ -2294,24 +2346,23 @@
 
 <span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
     <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="n">description</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">description</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">price</span><span class="p">:</span> <span class="nb">float</span>
-    <span class="n">tax</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">tax</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s2">&quot;/items/</span><span class="si">{item_id}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="k">async</span> <span class="k">def</span> <span class="nf">update_item</span><span class="p">(</span>
     <span class="n">item_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
     <span class="n">item</span><span class="p">:</span> <span class="n">Item</span> <span class="o">=</span> <span class="n">Body</span><span class="p">(</span>
-        <span class="o">...</span><span class="p">,</span>
-<span class="hll">        <span class="n">example</span><span class="o">=</span><span class="p">{</span>
-</span><span class="hll">            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Foo&quot;</span><span class="p">,</span>
+        <span class="n">example</span><span class="o">=</span><span class="p">{</span>
+<span class="hll">            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Foo&quot;</span><span class="p">,</span>
 </span><span class="hll">            <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;A very nice Item&quot;</span><span class="p">,</span>
 </span><span class="hll">            <span class="s2">&quot;price&quot;</span><span class="p">:</span> <span class="mf">35.4</span><span class="p">,</span>
 </span><span class="hll">            <span class="s2">&quot;tax&quot;</span><span class="p">:</span> <span class="mf">3.2</span><span class="p">,</span>
 </span><span class="hll">        <span class="p">},</span>
-</span>    <span class="p">),</span>
-<span class="p">):</span>
+</span><span class="hll">    <span class="p">),</span>
+</span><span class="p">):</span>
     <span class="n">results</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="n">item_id</span><span class="p">,</span> <span class="s2">&quot;item&quot;</span><span class="p">:</span> <span class="n">item</span><span class="p">}</span>
     <span class="k">return</span> <span class="n">results</span>
 </code></pre></div>
@@ -2328,7 +2379,7 @@
 <li><code>value</code>：实际显示的示例，可以是 <code>dict</code></li>
 <li><code>externalValue</code>：<code>value</code> 的备选项，指向示例的 URL。但可能有些工具不支持</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Body</span><span class="p">,</span> <span class="n">FastAPI</span>
 <span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
@@ -2338,9 +2389,9 @@
 
 <span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
     <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="n">description</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">description</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">price</span><span class="p">:</span> <span class="nb">float</span>
-    <span class="n">tax</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">tax</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s2">&quot;/items/</span><span class="si">{item_id}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -2348,9 +2399,8 @@
     <span class="o">*</span><span class="p">,</span>
     <span class="n">item_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
     <span class="n">item</span><span class="p">:</span> <span class="n">Item</span> <span class="o">=</span> <span class="n">Body</span><span class="p">(</span>
-        <span class="o">...</span><span class="p">,</span>
-<span class="hll">        <span class="n">examples</span><span class="o">=</span><span class="p">{</span>
-</span><span class="hll">            <span class="s2">&quot;normal&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="n">examples</span><span class="o">=</span><span class="p">{</span>
+<span class="hll">            <span class="s2">&quot;normal&quot;</span><span class="p">:</span> <span class="p">{</span>
 </span><span class="hll">                <span class="s2">&quot;summary&quot;</span><span class="p">:</span> <span class="s2">&quot;A normal example&quot;</span><span class="p">,</span>
 </span><span class="hll">                <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;A **normal** item works correctly.&quot;</span><span class="p">,</span>
 </span><span class="hll">                <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -2376,8 +2426,8 @@
 </span><span class="hll">                <span class="p">},</span>
 </span><span class="hll">            <span class="p">},</span>
 </span><span class="hll">        <span class="p">},</span>
-</span>    <span class="p">),</span>
-<span class="p">):</span>
+</span><span class="hll">    <span class="p">),</span>
+</span><span class="p">):</span>
     <span class="n">results</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="n">item_id</span><span class="p">,</span> <span class="s2">&quot;item&quot;</span><span class="p">:</span> <span class="n">item</span><span class="p">}</span>
     <span class="k">return</span> <span class="n">results</span>
 </code></pre></div>
@@ -2395,7 +2445,7 @@
 <p>实际上，<strong>JSON Schema</strong> 标准中没有 <code>example</code>。新版 JSON Schema 中定义了 <a href="https://json-schema.org/draft/2019-09/json-schema-validation.html#rfc.section.9.5" class="external-link" target="_blank"><code>examples</code></a> 字段，但  OpenAPI 3.0.3 基于的旧版 JSON Schema 没有<code>examples</code> 字段。</p>
 <p>因此，OpenAPI 3.0.3 定义了自己的 <a href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.3.md#fixed-fields-20" class="external-link" target="_blank"><code>example</code></a>，供新版  <strong>JSON Schema</strong> 使用（但它用的只是 <code>example</code>，不是 <code>examples</code>）。同样，（使用 Swagger UI 的）API 文档中用的也是 <code>example</code>。</p>
 <p><code>example</code> 不是 JSON Schema 的组件，但它是 OpenAPI 为  JSON Schema 定制的组件，因此，文档中使用 <code>example</code>。</p>
-<p>但在（<code>Query()</code>、<code>Body()</code> 等）其它工具中使用 <code>example</code> 或 <code>examples</code> 时，这些描述数据的示例不会被添加至 JSON Schema（包括 OpenAPI 自己的 JSON Schema），而是被直接添加至 OpenAPI 的<em>路径操作</em>声明里（OpenAPI 使用 JSON Schema 外部的组件）。</p>
+<p>但在（<code>Query()</code>、<code>Body()</code> 等）其他工具中使用 <code>example</code> 或 <code>examples</code> 时，这些描述数据的示例不会被添加至 JSON Schema（包括 OpenAPI 自己的 JSON Schema），而是被直接添加至 OpenAPI 的<strong>路径操作</strong>声明里（OpenAPI 使用 JSON Schema 外部的组件）。</p>
 <p>对于 <code>Path()</code>、<code>Query()</code>、<code>Header()</code>、<code>Cookie()</code>，<code>example</code> 或 <code>examples</code> 被添加至 <a href="https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.3.md#parameter-object" class="external-link" target="_blank">OpenAPI 定义中的<code>Parameter Object</code>（规范）</a>。</p>
 <p>对于 <code>Body()</code>、<code>File()</code>、<code>Form()</code>，<code>example</code> 或 <code>examples</code> 被添加至 <a href="https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.3.md#mediaTypeObject" class="external-link" target="_blank">OpenAPI 定义中<code>content</code> 字段里的 <code>Request Body Object</code> 中的 <code>Media Type Object</code>（规范）</a>。</p>
 <p>另一方面，新近发布的 OpenAPI <strong>3.1.0</strong> 版已经支持最新的 JSON Schema， 移除了绝大多数 OpenAPI 自定义的 JSON Schema，从而可以使用新版 JSON Schema 的功能，它们之间的细微区别也进一步减少。但 Swagger UI 现在还不支持 OpenAPI 3.1.0，因此，现在最好还是使用本章中的开发思路。</p>

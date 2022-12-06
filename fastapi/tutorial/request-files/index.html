@@ -47,6 +47,16 @@
     <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  
+  
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-133183413-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
 
     
     
@@ -122,7 +132,7 @@
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 10px 10px;
     text-decoration: none;
   }
 
@@ -170,7 +180,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -179,7 +189,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -1804,6 +1814,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/generate-clients/" class="md-nav__link">
+        Generate Clients
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1901,6 +1925,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../deployment/manually/" class="md-nav__link">
+        Run a Server Manually - Uvicorn
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/concepts/" class="md-nav__link">
+        Deployments Concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../deployment/deta/" class="md-nav__link">
         在 Deta 上部署 FastAPI
       </a>
@@ -1915,8 +1967,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../deployment/docker/" class="md-nav__link">
-        使用 Docker 部署
+      <a href="../../deployment/server-workers/" class="md-nav__link">
+        Server Workers - Gunicorn with Uvicorn
       </a>
     </li>
   
@@ -1929,8 +1981,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../deployment/manually/" class="md-nav__link">
-        手动部署
+      <a href="../../deployment/docker/" class="md-nav__link">
+        使用 Docker 部署
       </a>
     </li>
   
@@ -1967,7 +2019,7 @@
   
     <li class="md-nav__item">
       <a href="../../alternatives/" class="md-nav__link">
-        备选、灵感、比较
+        备选、灵感与比较
       </a>
     </li>
   
@@ -2204,12 +2256,12 @@
 
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/files/&quot;</span><span class="p">)</span>
-<span class="k">async</span> <span class="k">def</span> <span class="nf">create_file</span><span class="p">(</span><span class="n">file</span><span class="p">:</span> <span class="nb">bytes</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="o">...</span><span class="p">)):</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">create_file</span><span class="p">(</span><span class="n">file</span><span class="p">:</span> <span class="nb">bytes</span> <span class="o">=</span> <span class="n">File</span><span class="p">()):</span>
     <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;file_size&quot;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">file</span><span class="p">)}</span>
 
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/uploadfile/&quot;</span><span class="p">)</span>
-<span class="k">async</span> <span class="k">def</span> <span class="nf">create_upload_file</span><span class="p">(</span><span class="n">file</span><span class="p">:</span> <span class="n">UploadFile</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="o">...</span><span class="p">)):</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">create_upload_file</span><span class="p">(</span><span class="n">file</span><span class="p">:</span> <span class="n">UploadFile</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;filename&quot;</span><span class="p">:</span> <span class="n">file</span><span class="o">.</span><span class="n">filename</span><span class="p">}</span>
 </code></pre></div>
 <h2 id="file_1">定义 <code>File</code> 参数<a class="headerlink" href="#file_1" title="Permanent link">&para;</a></h2>
@@ -2220,12 +2272,12 @@
 
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/files/&quot;</span><span class="p">)</span>
-<span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">create_file</span><span class="p">(</span><span class="n">file</span><span class="p">:</span> <span class="nb">bytes</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="o">...</span><span class="p">)):</span>
+<span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">create_file</span><span class="p">(</span><span class="n">file</span><span class="p">:</span> <span class="nb">bytes</span> <span class="o">=</span> <span class="n">File</span><span class="p">()):</span>
 </span>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;file_size&quot;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">file</span><span class="p">)}</span>
 
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/uploadfile/&quot;</span><span class="p">)</span>
-<span class="k">async</span> <span class="k">def</span> <span class="nf">create_upload_file</span><span class="p">(</span><span class="n">file</span><span class="p">:</span> <span class="n">UploadFile</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="o">...</span><span class="p">)):</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">create_upload_file</span><span class="p">(</span><span class="n">file</span><span class="p">:</span> <span class="n">UploadFile</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;filename&quot;</span><span class="p">:</span> <span class="n">file</span><span class="o">.</span><span class="n">filename</span><span class="p">}</span>
 </code></pre></div>
 <div class="admonition info">
@@ -2238,7 +2290,7 @@
 <p>声明文件体必须使用 <code>File</code>，否则，FastAPI 会把该参数当作查询参数或请求体（JSON）参数。</p>
 </div>
 <p>文件以<strong>表单数据</strong>形式上传。</p>
-<p>如果把<em>路径操作函数</em>参数的类型声明为 <code>bytes</code>，<strong>FastAPI</strong> 将以 <code>bytes</code> 形式读取和接收文件内容。</p>
+<p>如果把<strong>路径操作函数</strong>参数的类型声明为 <code>bytes</code>，<strong>FastAPI</strong> 将以 <code>bytes</code> 形式读取和接收文件内容。</p>
 <p>这种方式把文件的所有内容都存储在内存里，适用于小型文件。</p>
 <p>不过，很多情况下，<code>UploadFile</code> 更好用。</p>
 <h2 id="uploadfile-file">含 <code>UploadFile</code> 的 <code>File</code> 参数<a class="headerlink" href="#uploadfile-file" title="Permanent link">&para;</a></h2>
@@ -2249,12 +2301,12 @@
 
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/files/&quot;</span><span class="p">)</span>
-<span class="k">async</span> <span class="k">def</span> <span class="nf">create_file</span><span class="p">(</span><span class="n">file</span><span class="p">:</span> <span class="nb">bytes</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="o">...</span><span class="p">)):</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">create_file</span><span class="p">(</span><span class="n">file</span><span class="p">:</span> <span class="nb">bytes</span> <span class="o">=</span> <span class="n">File</span><span class="p">()):</span>
     <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;file_size&quot;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">file</span><span class="p">)}</span>
 
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/uploadfile/&quot;</span><span class="p">)</span>
-<span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">create_upload_file</span><span class="p">(</span><span class="n">file</span><span class="p">:</span> <span class="n">UploadFile</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="o">...</span><span class="p">)):</span>
+<span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">create_upload_file</span><span class="p">(</span><span class="n">file</span><span class="p">:</span> <span class="n">UploadFile</span><span class="p">):</span>
 </span>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;filename&quot;</span><span class="p">:</span> <span class="n">file</span><span class="o">.</span><span class="n">filename</span><span class="p">}</span>
 </code></pre></div>
 <p><code>UploadFile</code> 与 <code>bytes</code> 相比有更多优势：</p>
@@ -2266,14 +2318,14 @@
 <li>这种方式更适于处理图像、视频、二进制文件等大型文件，好处是不会占用所有内存</li>
 <li>可获取上传文件的元数据</li>
 <li>自带 <a href="https://docs.python.org/zh-cn/3/glossary.html#term-file-like-object" class="external-link" target="_blank">file-like</a> <code>async</code> 接口</li>
-<li>暴露的 Python <a href="https://docs.python.org/zh-cn/3/library/tempfile.html#tempfile.SpooledTemporaryFile" class="external-link" target="_blank"><code>SpooledTemporaryFile</code></a> 对象，可直接传递给其它预期<strong>file-like</strong>对象的库</li>
+<li>暴露的 Python <a href="https://docs.python.org/zh-cn/3/library/tempfile.html#tempfile.SpooledTemporaryFile" class="external-link" target="_blank"><code>SpooledTemporaryFile</code></a> 对象，可直接传递给其他预期<strong>file-like</strong>对象的库</li>
 </ul>
 <h3 id="uploadfile"><code>UploadFile</code><a class="headerlink" href="#uploadfile" title="Permanent link">&para;</a></h3>
 <p><code>UploadFile</code> 的属性如下：</p>
 <ul>
 <li><code>filename</code>：上传文件名字符串，例如， <code>myimage.jpg</code></li>
 <li><code>content_type</code>：内容类型（MIME 类型 / 媒体类型）字符串，例如，<code>image/jpeg</code></li>
-<li><code>file</code>： <a href="https://docs.python.org/zh-cn/3/library/tempfile.html#tempfile.SpooledTemporaryFile" class="external-link" target="_blank"><code>SpooledTemporaryFile</code></a>（ <a href="https://docs.python.org/zh-cn/3/glossary.html#term-file-like-object" class="external-link" target="_blank">file-like</a> 对象）。这个对象其实就是 Python文件，可直接传递给其它预期 <code>file-like</code> 对象的函数或支持库</li>
+<li><code>file</code>： <a href="https://docs.python.org/zh-cn/3/library/tempfile.html#tempfile.SpooledTemporaryFile" class="external-link" target="_blank"><code>SpooledTemporaryFile</code></a>（ <a href="https://docs.python.org/zh-cn/3/glossary.html#term-file-like-object" class="external-link" target="_blank">file-like</a> 对象）。这个对象其实就是 Python文件，可直接传递给其他预期 <code>file-like</code> 对象的函数或支持库</li>
 </ul>
 <p><code>UploadFile</code> 支持以下 <code>async</code> 方法，（使用内部 <code>SpooledTemporaryFile</code>）可调用相应的文件方法。</p>
 <ul>
@@ -2287,10 +2339,10 @@
 <li><code>close()</code>：关闭文件</li>
 </ul>
 <p>上述方法都是 <code>async</code> 方法，要搭配 <strong>await</strong> 使用。</p>
-<p>例如，在 <code>async</code> <em>路径操作函数</em> 内，要用以下方式读取文件内容：</p>
+<p>例如，在 <code>async</code> <strong>路径操作函数</strong> 内，要用以下方式读取文件内容：</p>
 <div class="highlight"><pre><span></span><code><span class="n">contents</span> <span class="o">=</span> <span class="k">await</span> <span class="n">myfile</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 </code></pre></div>
-<p>在普通 <code>def</code> <em>路径操作函数</em>  内，则可以直接访问 <code>UploadFile.file</code>，例如：</p>
+<p>在普通 <code>def</code> <strong>路径操作函数</strong>  内，则可以直接访问 <code>UploadFile.file</code>，例如：</p>
 <div class="highlight"><pre><span></span><code><span class="n">contents</span> <span class="o">=</span> <span class="n">myfile</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 </code></pre></div>
 <div class="admonition note">
@@ -2299,7 +2351,7 @@
 </div>
 <div class="admonition note">
 <p class="admonition-title">Starlette 技术细节</p>
-<p><strong>FastAPI</strong> 的 <code>UploadFile</code> 直接继承自 <strong>Starlette</strong> 的 <code>UploadFile</code>，但添加了一些必要功能，使之与 <strong>Pydantic</strong> 及 FastAPI 的其它部件兼容。</p>
+<p><strong>FastAPI</strong> 的 <code>UploadFile</code> 直接继承自 <strong>Starlette</strong> 的 <code>UploadFile</code>，但添加了一些必要功能，使之与 <strong>Pydantic</strong> 及 FastAPI 的其他部件兼容。</p>
 </div>
 <h2 id="_2">什么是<strong>表单数据</strong><a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>与 JSON 不一样，向服务器发送数据时，HTML 表单（<code>&lt;form&gt;&lt;/form&gt;</code>）通常会使用<strong>特殊</strong>编码。</p>
@@ -2312,7 +2364,7 @@
 </div>
 <div class="admonition warning">
 <p class="admonition-title">警告</p>
-<p>可在一个<em>路径操作</em>中声明多个 <code>File</code> 和 <code>Form</code> 参数，但不能同时声明要接收 JSON 的 <code>Body</code> 字段。因为此时请求体的编码是 <code>multipart/form-data</code>，不是 <code>application/json</code>。</p>
+<p>可在一个<strong>路径操作</strong>中声明多个 <code>File</code> 和 <code>Form</code> 参数，但不能同时声明要接收 JSON 的 <code>Body</code> 字段。因为此时请求体的编码是 <code>multipart/form-data</code>，不是 <code>application/json</code>。</p>
 <p>这不是 <strong>FastAPI</strong> 的问题，而是 HTTP 协议的规定。</p>
 </div>
 <h2 id="_3">多文件上传<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
@@ -2328,12 +2380,12 @@
 
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/files/&quot;</span><span class="p">)</span>
-<span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">create_files</span><span class="p">(</span><span class="n">files</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">bytes</span><span class="p">]</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="o">...</span><span class="p">)):</span>
+<span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">create_files</span><span class="p">(</span><span class="n">files</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">bytes</span><span class="p">]</span> <span class="o">=</span> <span class="n">File</span><span class="p">()):</span>
 </span>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;file_sizes&quot;</span><span class="p">:</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">file</span><span class="p">)</span> <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">]}</span>
 
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/uploadfiles/&quot;</span><span class="p">)</span>
-<span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">create_upload_files</span><span class="p">(</span><span class="n">files</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">UploadFile</span><span class="p">]</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="o">...</span><span class="p">)):</span>
+<span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">create_upload_files</span><span class="p">(</span><span class="n">files</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">UploadFile</span><span class="p">]):</span>
 </span>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;filenames&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">file</span><span class="o">.</span><span class="n">filename</span> <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">]}</span>
 
 

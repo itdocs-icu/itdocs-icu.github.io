@@ -47,6 +47,16 @@
     <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  
+  
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-133183413-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
 
     
     
@@ -122,7 +132,7 @@
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 10px 10px;
     text-decoration: none;
   }
 
@@ -170,7 +180,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -179,7 +189,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -1142,10 +1152,10 @@
       
         <li class="md-nav__item">
   <a href="#apirouter_3" class="md-nav__link">
-    其它使用 APIRouter 的模块
+    其他使用 APIRouter 的模块
   </a>
   
-    <nav class="md-nav" aria-label="其它使用 APIRouter 的模块">
+    <nav class="md-nav" aria-label="其他使用 APIRouter 的模块">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1913,6 +1923,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/generate-clients/" class="md-nav__link">
+        Generate Clients
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -2010,6 +2034,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../deployment/manually/" class="md-nav__link">
+        Run a Server Manually - Uvicorn
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/concepts/" class="md-nav__link">
+        Deployments Concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../deployment/deta/" class="md-nav__link">
         在 Deta 上部署 FastAPI
       </a>
@@ -2024,8 +2076,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../deployment/docker/" class="md-nav__link">
-        使用 Docker 部署
+      <a href="../../deployment/server-workers/" class="md-nav__link">
+        Server Workers - Gunicorn with Uvicorn
       </a>
     </li>
   
@@ -2038,8 +2090,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../deployment/manually/" class="md-nav__link">
-        手动部署
+      <a href="../../deployment/docker/" class="md-nav__link">
+        使用 Docker 部署
       </a>
     </li>
   
@@ -2076,7 +2128,7 @@
   
     <li class="md-nav__item">
       <a href="../../alternatives/" class="md-nav__link">
-        备选、灵感、比较
+        备选、灵感与比较
       </a>
     </li>
   
@@ -2271,10 +2323,10 @@
       
         <li class="md-nav__item">
   <a href="#apirouter_3" class="md-nav__link">
-    其它使用 APIRouter 的模块
+    其他使用 APIRouter 的模块
   </a>
   
-    <nav class="md-nav" aria-label="其它使用 APIRouter 的模块">
+    <nav class="md-nav" aria-label="其他使用 APIRouter 的模块">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2463,9 +2515,9 @@
 </code></pre></div>
 <h2 id="apirouter"><code>APIRouter</code><a class="headerlink" href="#apirouter" title="Permanent link">&para;</a></h2>
 <p>假设专门处理用户的是 <code>/app/routers/users.py</code> 子模块。</p>
-<p>该模块把用户相关的<em>路径操作</em>和其它代码分开，使项目文件井井有条。</p>
+<p>该模块把用户相关的<strong>路径操作</strong>和其他代码分开，使项目文件井井有条。</p>
 <p>但它仍属于 <strong>FastAPI</strong> 应用/网络 API（也是 <strong>Python 包</strong>的一部分）。</p>
-<p>您可以使用 <code>APIRouter</code> 为该模块创建<em>路径操作</em>。</p>
+<p>您可以使用 <code>APIRouter</code> 为该模块创建<strong>路径操作</strong>。</p>
 <h3 id="apirouter_1">导入 <code>APIRouter</code><a class="headerlink" href="#apirouter_1" title="Permanent link">&para;</a></h3>
 <p>与创建 <code>FastAPI</code> 类实例相同，导入 <code>APIRouter</code> 并创建<strong>实例</strong>：</p>
 <div class="highlight"><pre><span></span><code><span class="hll"><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">APIRouter</span>
@@ -2487,8 +2539,8 @@
 <span class="k">async</span> <span class="k">def</span> <span class="nf">read_user</span><span class="p">(</span><span class="n">username</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="n">username</span><span class="p">}</span>
 </code></pre></div>
-<h3 id="apirouter_2">使用 <code>APIRouter</code> 的<em>路径操作</em><a class="headerlink" href="#apirouter_2" title="Permanent link">&para;</a></h3>
-<p>然后，用它声明<em>路径操作</em>。</p>
+<h3 id="apirouter_2">使用 <code>APIRouter</code> 的<strong>路径操作</strong><a class="headerlink" href="#apirouter_2" title="Permanent link">&para;</a></h3>
+<p>然后，用它声明<strong>路径操作</strong>。</p>
 <p>使用方式与 <code>FastAPI</code> 类相同：</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">APIRouter</span>
 
@@ -2524,7 +2576,7 @@
 <div class="highlight"><pre><span></span><code><span class="hll"><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Header</span><span class="p">,</span> <span class="n">HTTPException</span>
 </span>
 
-<span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">get_token_header</span><span class="p">(</span><span class="n">x_token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Header</span><span class="p">(</span><span class="o">...</span><span class="p">)):</span>
+<span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">get_token_header</span><span class="p">(</span><span class="n">x_token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Header</span><span class="p">()):</span>
 </span><span class="hll">    <span class="k">if</span> <span class="n">x_token</span> <span class="o">!=</span> <span class="s2">&quot;fake-super-secret-token&quot;</span><span class="p">:</span>
 </span><span class="hll">        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;X-Token header invalid&quot;</span><span class="p">)</span>
 </span>
@@ -2538,16 +2590,16 @@
 <p>本例使用虚构的请求头进行了简化。</p>
 <p>但实际开发时最好使用内置的<a class="internal-link" href="../security/" target="_blank">安全工具</a>。</p>
 </div>
-<h2 id="apirouter_3">其它使用 <code>APIRouter</code> 的模块<a class="headerlink" href="#apirouter_3" title="Permanent link">&para;</a></h2>
+<h2 id="apirouter_3">其他使用 <code>APIRouter</code> 的模块<a class="headerlink" href="#apirouter_3" title="Permanent link">&para;</a></h2>
 <p>假设 <code>app/routers/items.py</code> 模块中还有一个专门处理 <code>item</code> 的端点。</p>
-<p><em>路径操作</em>如下：</p>
+<p><strong>路径操作</strong>如下：</p>
 <ul>
 <li><code>/items/</code></li>
 <li><code>/items/{item_id}</code></li>
 </ul>
 <p>与 <code>app/routers/users.py</code> 的架构完全相同。</p>
 <p>但此处还能进一步简化代码。</p>
-<p>该模块的所有<em>路径操作</em>都有相同的：</p>
+<p>该模块的所有<strong>路径操作</strong>都有相同的：</p>
 <ul>
 <li>路径 <code>prefix</code>：<code>/items</code></li>
 <li><code>tags</code>：仅有一个 <code>items</code> 标签</li>
@@ -2594,18 +2646,18 @@
         <span class="p">)</span>
     <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="n">item_id</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;The great Plumbus&quot;</span><span class="p">}</span>
 </code></pre></div>
-<p><em>路径操作</em>的路径必须以 <code>/</code> 开头，例如：</p>
+<p><strong>路径操作</strong>的路径必须以 <code>/</code> 开头，例如：</p>
 <div class="highlight"><pre><span></span><code><span class="hll"><span class="nd">@router</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/</span><span class="si">{item_id}</span><span class="s2">&quot;</span><span class="p">)</span>
 </span><span class="k">async</span> <span class="k">def</span> <span class="nf">read_item</span><span class="p">(</span><span class="n">item_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
     <span class="o">...</span>
 </code></pre></div>
 <p>……前缀不能以 <code>/</code> 结尾。</p>
 <p>本例中的前缀是 <code>/items</code>。</p>
-<p>这个 router 里为所有<em>路径操作</em>添加了 <code>tags</code> 列表和附加的 <code>responses</code>。</p>
+<p>这个 router 里为所有<strong>路径操作</strong>添加了 <code>tags</code> 列表和附加的 <code>responses</code>。</p>
 <p>还添加了用于处理接收请求的 <code>dependencies</code> 列表。</p>
 <div class="admonition tip">
 <p class="admonition-title">提示</p>
-<p>注意，和<a class="internal-link" href="../dependencies/dependencies-in-path-operation-decorators/" target="_blank"><em>路径操作装饰器</em>中的依赖项</a>类似，这里的依赖项也不会向<em>路径操作函数</em>传递任何值。</p>
+<p>注意，和<a class="internal-link" href="../dependencies/dependencies-in-path-operation-decorators/" target="_blank"><strong>路径操作装饰器</strong>中的依赖项</a>类似，这里的依赖项也不会向<strong>路径操作函数</strong>传递任何值。</p>
 </div>
 <p>最终的 <code>item</code> 路径如下：</p>
 <ul>
@@ -2618,9 +2670,9 @@
 <li>这些<strong>标签</strong>用于（使用 OpenAPI 的） API 文档</li>
 </ul>
 </li>
-<li>所有<em>路径操作</em>都包括预定义的 <code>responses</code></li>
-<li>所有<em>路径操作</em>执行前都要先执行 <code>dependencies</code> 列表<ul>
-<li>在指定的<em>路径操作</em>中声明的依赖项<strong>也会被执行</strong></li>
+<li>所有<strong>路径操作</strong>都包括预定义的 <code>responses</code></li>
+<li>所有<strong>路径操作</strong>执行前都要先执行 <code>dependencies</code> 列表<ul>
+<li>在指定的<strong>路径操作</strong>中声明的依赖项<strong>也会被执行</strong></li>
 <li>首先执行的是 router 的依赖项，然后是<a class="internal-link" href="../dependencies/dependencies-in-path-operation-decorators/" target="_blank">装饰器的 <code>dependencies</code></a>，最后是普通的参数依赖项</li>
 <li>还可以添加<a class="internal-link" href="../../advanced/security/oauth2-scopes/" target="_blank">含 <code>scopes</code> 的 <code>Security</code> 依赖项</a></li>
 </ul>
@@ -2628,11 +2680,11 @@
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">提示</p>
-<p><code>APIRouter</code>中的 <code>dependencies</code> 用于为一组<em>路径操作</em>进行身份验证，即便没有为每个路径操作单独添加依赖项。</p>
+<p><code>APIRouter</code>中的 <code>dependencies</code> 用于为一组<strong>路径操作</strong>进行身份验证，即便没有为每个路径操作单独添加依赖项。</p>
 </div>
 <div class="admonition check">
 <p class="admonition-title">检查</p>
-<p>和其它很多功能一样，<code>prefix</code>、<code>tags</code>、<code>responses</code>、<code>dependencies</code> 等参数只是 <strong>FastAPI</strong> 用于减少代码重复的特性。</p>
+<p>和其他很多功能一样，<code>prefix</code>、<code>tags</code>、<code>responses</code>、<code>dependencies</code> 等参数只是 <strong>FastAPI</strong> 用于减少代码重复的特性。</p>
 </div>
 <h3 id="_3">导入依赖项<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>这些代码在 <code>app.routers.items</code> 模块里，即 <code>app/routers/items.py</code>。</p>
@@ -2721,8 +2773,8 @@
 <p>这时指向的是 <code>app/</code> 之上的包，且要包含 <code>__init __.py</code> 。但其实并没有这个包，因此示例会报错。🚨</p>
 <p>现在您已经了解了相对导入的工作原理，不管项目架构多复杂，都能在应用中使用相对导入。🤓</p>
 <h3 id="tagsresponses-dependencies">添加自定义 <code>tags</code>、<code>responses</code> 和 <code>dependencies</code><a class="headerlink" href="#tagsresponses-dependencies" title="Permanent link">&para;</a></h3>
-<p>因为我们已经为 <code>APIRouter</code> 添加了前缀 <code>/items</code> 和 <code>tags =["items"]</code>，因此，不必再在每个<em>路径操作</em>中单独添加。</p>
-<p>但仍可以为指定的<em>路径操作</em>添加更多 <code>tags</code> 和 <code>responses</code>：</p>
+<p>因为我们已经为 <code>APIRouter</code> 添加了前缀 <code>/items</code> 和 <code>tags =["items"]</code>，因此，不必再在每个<strong>路径操作</strong>中单独添加。</p>
+<p>但仍可以为指定的<strong>路径操作</strong>添加更多 <code>tags</code> 和 <code>responses</code>：</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">APIRouter</span><span class="p">,</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">HTTPException</span>
 
 <span class="kn">from</span> <span class="nn">..dependencies</span> <span class="kn">import</span> <span class="n">get_token_header</span>
@@ -2919,7 +2971,7 @@
 <p>它把 <code>router</code> 中的所有路由都作为主路由的组成部分。</p>
 <div class="admonition note">
 <p class="admonition-title">技术细节</p>
-<p>实际上，它在内部为 <code>APIRouter</code> 里声明的每个<em>路径操作</em>创建一个<em>路径操作</em>。</p>
+<p>实际上，它在内部为 <code>APIRouter</code> 里声明的每个<strong>路径操作</strong>创建一个<strong>路径操作</strong>。</p>
 <p>所以，在后台，所有部件就像是在同一个应用里运行。</p>
 </div>
 <div class="admonition check">
@@ -2930,8 +2982,8 @@
 </div>
 <h3 id="prefixtagsresponses-dependencies-apirouter">添加自定义 <code>prefix</code>、<code>tags</code>、<code>responses</code> 和 <code>dependencies</code> 的 <code>APIRouter</code><a class="headerlink" href="#prefixtagsresponses-dependencies-apirouter" title="Permanent link">&para;</a></h3>
 <p>假设公司提供了 <code>app/internal/admin.py</code>。</p>
-<p>这个文件包含了公司里多个项目共享的管理员<em>路径操作</em>的 <code>APIRouter</code>。</p>
-<p>这个例子非常简单，但假设它要与其它项目共享，不能修改，也不能直接在它的 <code>APIRouter</code> 中添加 <code>prefix</code>、<code>dependencies</code>、<code>tags</code> 等内容：</p>
+<p>这个文件包含了公司里多个项目共享的管理员<strong>路径操作</strong>的 <code>APIRouter</code>。</p>
+<p>这个例子非常简单，但假设它要与其他项目共享，不能修改，也不能直接在它的 <code>APIRouter</code> 中添加 <code>prefix</code>、<code>dependencies</code>、<code>tags</code> 等内容：</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">APIRouter</span>
 
 <span class="hll"><span class="n">router</span> <span class="o">=</span> <span class="n">APIRouter</span><span class="p">()</span>
@@ -2941,7 +2993,7 @@
 <span class="k">async</span> <span class="k">def</span> <span class="nf">update_admin</span><span class="p">():</span>
     <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Admin getting schwifty&quot;</span><span class="p">}</span>
 </code></pre></div>
-<p>但我们依然希望在添加 <code>APIRouter</code> 时设置自定义 <code>prefix</code>，让管理员项下的所有<em>路径操作</em>都以 <code>/admin</code> 开头，同时还要使用已有的 <code>dependencies</code> 保护路径操作，并添加自定义 <code>tags</code> 和 <code>responses</code>。</p>
+<p>但我们依然希望在添加 <code>APIRouter</code> 时设置自定义 <code>prefix</code>，让管理员项下的所有<strong>路径操作</strong>都以 <code>/admin</code> 开头，同时还要使用已有的 <code>dependencies</code> 保护路径操作，并添加自定义 <code>tags</code> 和 <code>responses</code>。</p>
 <p>此时，只需把参数传递给 <code>app.include_router()</code>，不用修改原始 <code>APIRouter</code>：</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span>
 
@@ -2967,18 +3019,18 @@
 <span class="k">async</span> <span class="k">def</span> <span class="nf">root</span><span class="p">():</span>
     <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Hello Bigger Applications!&quot;</span><span class="p">}</span>
 </code></pre></div>
-<p>这样，原始 <code>APIRouter</code> 保持不变，但仍能与其它项目共享相同的 <code>app/internal/admin.py</code>。</p>
-<p>最后，<code>admin</code> 模块的每个<em>路径操作</em>都包含：</p>
+<p>这样，原始 <code>APIRouter</code> 保持不变，但仍能与其他项目共享相同的 <code>app/internal/admin.py</code>。</p>
+<p>最后，<code>admin</code> 模块的每个<strong>路径操作</strong>都包含：</p>
 <ul>
 <li><code>/admin</code> 前缀 </li>
 <li><code>admin</code> 标签</li>
 <li><code>get_token_header</code> 依赖项</li>
 <li><code>418</code> 响应 🍵</li>
 </ul>
-<p>但这只影响本应用中的 <code>APIRouter</code>，不影响其它应用。</p>
-<p>也就是说，其它项目可以为这个 <code>APIRouter</code> 使用其它身份验证的方法。</p>
-<h3 id="_7">添加<em>路径操作</em><a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
-<p>直接把<em>路径操作</em>添加到 <code>FastAPI</code> 应用。</p>
+<p>但这只影响本应用中的 <code>APIRouter</code>，不影响其他应用。</p>
+<p>也就是说，其他项目可以为这个 <code>APIRouter</code> 使用其他身份验证的方法。</p>
+<h3 id="_7">添加<strong>路径操作</strong><a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>直接把<strong>路径操作</strong>添加到 <code>FastAPI</code> 应用。</p>
 <p>以下代码只是为了证明 <strong>FastAPI</strong> 能做到这一点🤷：</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span>
 
@@ -3004,13 +3056,13 @@
 </span><span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">root</span><span class="p">():</span>
 </span><span class="hll">    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Hello Bigger Applications!&quot;</span><span class="p">}</span>
 </span></code></pre></div>
-<p>这个<em>路径操作</em>与 <code>app.include_router()</code> 添加的<em>路径操作</em>能够一起正常运行。</p>
+<p>这个<strong>路径操作</strong>与 <code>app.include_router()</code> 添加的<strong>路径操作</strong>能够一起正常运行。</p>
 <div class="admonition info">
 <p class="admonition-title">特别的技术细节</p>
 <p><strong>注意</strong>：这是非常技术性的细节，可以<strong>直接跳过</strong>。</p>
 <hr />
-<p><code>APIRouter</code> 没有被<strong>挂载</strong>，也没有与应用的其它部分隔离。</p>
-<p>这是因为我们想在 OpenAPI 概图和用户界面里包含它们的<em>路径操作</em>。</p>
+<p><code>APIRouter</code> 没有被<strong>挂载</strong>，也没有与应用的其他部分隔离。</p>
+<p>这是因为我们想在 OpenAPI 概图和用户界面里包含它们的<strong>路径操作</strong>。</p>
 <p>因为不能隔离，也不能把它们与其余部分独立开来，并<strong>挂载</strong>，因此这里是<strong>克隆</strong>（重新创建）了路径操作，而不是直接包含。</p>
 </div>
 <h2 id="_8">查看文档<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
@@ -3035,7 +3087,7 @@
 <p>与在 <code>FastAPI</code> 应用中添加 <code>APIRouter</code> 的方式一样，可在 <code>APIRouter</code> 中包含 <code>APIRouter</code>，代码如下：</p>
 <div class="highlight"><pre><span></span><code><span class="n">router</span><span class="o">.</span><span class="n">include_router</span><span class="p">(</span><span class="n">other_router</span><span class="p">)</span>
 </code></pre></div>
-<p>注意，一定要在把 <code>router</code> 添加到 <code>FastAPI</code> 应用前执行此操作，这样才能添加 <code>other_router</code> 中的<em>路径操作</em>。</p>
+<p>注意，一定要在把 <code>router</code> 添加到 <code>FastAPI</code> 应用前执行此操作，这样才能添加 <code>other_router</code> 中的<strong>路径操作</strong>。</p>
 
               
             </article>

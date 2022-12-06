@@ -47,6 +47,16 @@
     <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  
+  
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-133183413-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
 
     
     
@@ -122,7 +132,7 @@
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 10px 10px;
     text-decoration: none;
   }
 
@@ -170,7 +180,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -179,7 +189,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -1713,6 +1723,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../advanced/generate-clients/" class="md-nav__link">
+        Generate Clients
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1810,6 +1834,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../deployment/manually/" class="md-nav__link">
+        Run a Server Manually - Uvicorn
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/concepts/" class="md-nav__link">
+        Deployments Concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../deployment/deta/" class="md-nav__link">
         在 Deta 上部署 FastAPI
       </a>
@@ -1824,8 +1876,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../deployment/docker/" class="md-nav__link">
-        使用 Docker 部署
+      <a href="../deployment/server-workers/" class="md-nav__link">
+        Server Workers - Gunicorn with Uvicorn
       </a>
     </li>
   
@@ -1838,8 +1890,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../deployment/manually/" class="md-nav__link">
-        手动部署
+      <a href="../deployment/docker/" class="md-nav__link">
+        使用 Docker 部署
       </a>
     </li>
   
@@ -1876,7 +1928,7 @@
   
     <li class="md-nav__item">
       <a href="../alternatives/" class="md-nav__link">
-        备选、灵感、比较
+        备选、灵感与比较
       </a>
     </li>
   
@@ -2220,11 +2272,26 @@
 <p>以下是 <strong>FastAPI</strong> 各种资源的不完整列表。</p>
 <div class="admonition tip">
 <p class="admonition-title">提示</p>
-<p>如果您的文章、项目、工具或其它任何与 <strong>FastAPI</strong> 相关的内容尚未收入此表，请在此创建 <a href="https://github.com/tiangolo/fastapi/edit/master/docs/en/data/external_links.yml" class="external-link" target="_blank">PR</a>。</p>
+<p>如果您的文章、项目、工具或其他任何与 <strong>FastAPI</strong> 相关的内容尚未收入此表，请在此创建 <a href="https://github.com/tiangolo/fastapi/edit/master/docs/en/data/external_links.yml" class="external-link" target="_blank">PR</a>。</p>
 </div>
 <h2 id="_2">文章<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <h3 id="_3">英文<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <ul>
+<li>
+<p><a href="https://blog.wayscript.com/fast-api-quickstart/" class="external-link" target="_blank">Quickstart Guide to Build and Host Responsive APIs with Fast API and WayScript</a> by <a href="https://www.wayscript.com" class="external-link" target="_blank">WayScript</a>.</p>
+</li>
+<li>
+<p><a href="https://newrelic.com/instant-observability/fastapi/e559ec64-f765-4470-a15f-1901fcebb468" class="external-link" target="_blank">How to monitor FastAPI application performance using Python agent</a> by <a href="https://newrelic.com" class="external-link" target="_blank">New Relic</a>.</p>
+</li>
+<li>
+<p><a href="https://dev.indooroutdoor.io/series/fastapi-react-poll-app" class="external-link" target="_blank">Building the Poll App From Django Tutorial With FastAPI And React</a> by <a href="https://hashnode.com/@jibrocher" class="external-link" target="_blank">Jean-Baptiste Rocher</a>.</p>
+</li>
+<li>
+<p><a href="https://blog.devgenius.io/seamless-fastapi-configuration-with-confz-90949c14ea12" class="external-link" target="_blank">Seamless FastAPI Configuration with ConfZ</a> by <a href="https://github.com/silvanmelchior" class="external-link" target="_blank">Silvan Melchior</a>.</p>
+</li>
+<li>
+<p><a href="https://levelup.gitconnected.com/5-advance-features-of-fastapi-you-should-try-7c0ac7eebb3e" class="external-link" target="_blank">5 Advanced Features of FastAPI You Should Try</a> by <a href="https://medium.com/@kaustubhgupta1828/" class="external-link" target="_blank">Kaustubh Gupta</a>.</p>
+</li>
 <li>
 <p><a href="https://www.analyticsvidhya.com/blog/2021/06/deploying-ml-models-as-api-using-fastapi-and-heroku/" class="external-link" target="_blank">Deploying ML Models as API Using FastAPI and Heroku</a> by <a href="https://medium.com/@kaustubhgupta1828/" class="external-link" target="_blank">Kaustubh Gupta</a>.</p>
 </li>
@@ -2235,10 +2302,16 @@
 <p><a href="https://pystar.substack.com/p/how-to-create-a-fake-certificate" class="external-link" target="_blank">How to Create A Fake Certificate Authority And Generate TLS Certs for FastAPI</a> by <a href="https://pystar.substack.com/" class="external-link" target="_blank">@pystar</a>.</p>
 </li>
 <li>
+<p><a href="https://ably.com/blog/realtime-ticket-booking-solution-kafka-fastapi-ably" class="external-link" target="_blank">Building a realtime ticket booking solution with Kafka, FastAPI, and Ably</a> by <a href="https://uk.linkedin.com/in/bengamble7" class="external-link" target="_blank">Ben Gamble</a>.</p>
+</li>
+<li>
 <p><a href="https://www.azepug.az/posts/fastapi/#building-simple-e-commerce-with-nuxtjs-and-fastapi-series" class="external-link" target="_blank">Building simple E-Commerce with NuxtJS and FastAPI</a> by <a href="https://www.linkedin.com/in/shahriyar-rzayev/" class="external-link" target="_blank">Shahriyar(Shako) Rzayev</a>.</p>
 </li>
 <li>
 <p><a href="https://medium.com/analytics-vidhya/serve-a-machine-learning-model-using-sklearn-fastapi-and-docker-85aabf96729b" class="external-link" target="_blank">Serve a machine learning model using Sklearn, FastAPI and Docker</a> by <a href="https://rodrigo-arenas.medium.com/" class="external-link" target="_blank">Rodrigo Arenas</a>.</p>
+</li>
+<li>
+<p><a href="https://aunicorndev.hashnode.dev/series/supafast-api" class="external-link" target="_blank">Building an API with FastAPI and Supabase and Deploying on Deta</a> by <a href="https://hashnode.com/@aUnicornDev" class="external-link" target="_blank">Yashasvi Singh</a>.</p>
 </li>
 <li>
 <p><a href="https://www.tutlinks.com/deploy-fastapi-on-ubuntu-gunicorn-caddy-2/" class="external-link" target="_blank">Deploy FastAPI on Ubuntu and Serve using Caddy 2 Web Server</a> by <a href="https://www.linkedin.com/in/navule/" class="external-link" target="_blank">Navule Pavan Kumar Rao</a>.</p>
@@ -2366,6 +2439,12 @@
 <li>
 <p><a href="https://medium.com/@williamhayes/fastapi-starlette-debug-vs-prod-5f7561db3a59" class="external-link" target="_blank">FastAPI/Starlette debug vs prod</a> by <a href="https://medium.com/@williamhayes" class="external-link" target="_blank">William Hayes</a>.</p>
 </li>
+<li>
+<p><a href="https://www.jetbrains.com/pycharm/guide/tutorials/fastapi-aws-kubernetes/" class="external-link" target="_blank">Developing FastAPI Application using K8s &amp; AWS</a> by <a href="https://twitter.com/MantoshMukul" class="external-link" target="_blank">Mukul Mantosh</a>.</p>
+</li>
+<li>
+<p><a href="https://medium.com/@krishnardt365/fastapi-docker-and-postgres-91943e71be92" class="external-link" target="_blank">Fastapi, Docker(Docker compose) and Postgres</a> by <a href="https://medium.com/@krishnardt365" class="external-link" target="_blank">KrishNa</a>.</p>
+</li>
 </ul>
 <h3 id="_4">日文<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <ul>
@@ -2424,7 +2503,12 @@
 </ul>
 <h3 id="_7">德语<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <ul>
-<li><a href="https://blog.codecentric.de/2019/08/inbetriebnahme-eines-scikit-learn-modells-mit-onnx-und-fastapi/" class="external-link" target="_blank">Inbetriebnahme eines scikit-learn-Modells mit ONNX und FastAPI</a> by <a href="https://twitter.com/_nicoax" class="external-link" target="_blank">Nico Axtmann</a>.</li>
+<li>
+<p><a href="https://blog.codecentric.de/2019/08/inbetriebnahme-eines-scikit-learn-modells-mit-onnx-und-fastapi/" class="external-link" target="_blank">Inbetriebnahme eines scikit-learn-Modells mit ONNX und FastAPI</a> by <a href="https://twitter.com/_nicoax" class="external-link" target="_blank">Nico Axtmann</a>.</p>
+</li>
+<li>
+<p><a href="https://hellocoding.de/blog/coding-language/python/fastapi" class="external-link" target="_blank">REST-API Programmieren mittels Python und dem FastAPI Modul</a> by <a href="https://hellocoding.de/autor/felix-schuermeyer/" class="external-link" target="_blank">Felix Schürmeyer</a>.</p>
+</li>
 </ul>
 <h2 id="_8">播客<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <ul>

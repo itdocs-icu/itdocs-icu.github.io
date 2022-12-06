@@ -47,6 +47,16 @@
     <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  
+  
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-133183413-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
 
     
     
@@ -122,7 +132,7 @@
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 10px 10px;
     text-decoration: none;
   }
 
@@ -170,7 +180,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -179,7 +189,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -1784,6 +1794,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generate-clients/" class="md-nav__link">
+        Generate Clients
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1881,6 +1905,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../deployment/manually/" class="md-nav__link">
+        Run a Server Manually - Uvicorn
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/concepts/" class="md-nav__link">
+        Deployments Concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../deployment/deta/" class="md-nav__link">
         在 Deta 上部署 FastAPI
       </a>
@@ -1895,8 +1947,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../deployment/docker/" class="md-nav__link">
-        使用 Docker 部署
+      <a href="../../deployment/server-workers/" class="md-nav__link">
+        Server Workers - Gunicorn with Uvicorn
       </a>
     </li>
   
@@ -1909,8 +1961,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../deployment/manually/" class="md-nav__link">
-        手动部署
+      <a href="../../deployment/docker/" class="md-nav__link">
+        使用 Docker 部署
       </a>
     </li>
   
@@ -1947,7 +1999,7 @@
   
     <li class="md-nav__item">
       <a href="../../alternatives/" class="md-nav__link">
-        备选、灵感、比较
+        备选、灵感与比较
       </a>
     </li>
   
@@ -2158,7 +2210,7 @@
 <p>这些响应会包含在 OpenAPI 概图里，并在 API 文档中显示。</p>
 <p>但必须要确保这些响应与状态码和 <code>content</code> 一起直接以 <code>JSONResponse</code> 等方式返回。</p>
 <h2 id="model">使用 <code>model</code> 的响应<a class="headerlink" href="#model" title="Permanent link">&para;</a></h2>
-<p><em>路径操作装饰器</em>支持 <code>response</code> 参数。</p>
+<p><strong>路径操作装饰器</strong>支持 <code>response</code> 参数。</p>
 <p><code>response</code> 参数可以接收键是响应的状态码，如 <code>200</code>，值是响应信息的字典。</p>
 <p>响应字典可以包含 Pydantic 模型的键 <code>model</code>，如 <code>response_model</code>。</p>
 <p><strong>FastAPI</strong> 接收该模型，生成 JSON 概图，并保存在 OpenAPI 指定的位置。</p>
@@ -2184,9 +2236,8 @@
 </span><span class="k">async</span> <span class="k">def</span> <span class="nf">read_item</span><span class="p">(</span><span class="n">item_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">item_id</span> <span class="o">==</span> <span class="s2">&quot;foo&quot;</span><span class="p">:</span>
         <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;there goes my hero&quot;</span><span class="p">}</span>
-    <span class="k">else</span><span class="p">:</span>
-<span class="hll">        <span class="k">return</span> <span class="n">JSONResponse</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">404</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Item not found&quot;</span><span class="p">})</span>
-</span></code></pre></div>
+    <span class="k">return</span> <span class="n">JSONResponse</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">404</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Item not found&quot;</span><span class="p">})</span>
+</code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">笔记</p>
 <p>注意，必须直接返回 <code>JSONResponse</code>。</p>
@@ -2200,7 +2251,7 @@
 <li><code>content</code> 键中的 JSON 对象（字典），该对象包含：<ul>
 <li><code>application/json</code> 等媒体类型的键，此键中的 JSON 对象中包含：<ul>
 <li><code>schema</code> 键，包含了模型中的 JSON 概图，这里就是正确的位置。<ul>
-<li><strong>FastAPI</strong> 在此添加 OpenAPI 的其它位置要引用的全局 JSON 概图，而不是直接包含此概图。通过这种方式，其它应用和客户端可以直接使用这些 JSON 概图，为代码生成工具提供更好的支持。</li>
+<li><strong>FastAPI</strong> 在此添加 OpenAPI 的其他位置要引用的全局 JSON 概图，而不是直接包含此概图。通过这种方式，其他应用和客户端可以直接使用这些 JSON 概图，为代码生成工具提供更好的支持。</li>
 </ul>
 </li>
 </ul>
@@ -2209,7 +2260,7 @@
 </li>
 </ul>
 </div>
-<p>OpenAPI 中，<em>路径操作</em>生成的响应如下：</p>
+<p>OpenAPI 中，<strong>路径操作</strong>生成的响应如下：</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;responses&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="hll"><span class="w">        </span><span class="nt">&quot;404&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -2245,7 +2296,7 @@
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
-<p>OpenAPI 概图在内部其它位置引用这个概图：</p>
+<p>OpenAPI 概图在内部其他位置引用这个概图：</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;components&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="nt">&quot;schemas&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -2325,8 +2376,8 @@
 </code></pre></div>
 <h2 id="_1">主响应的附加媒体类型<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p><code>response</code> 参数还可以为主响应添加媒体类型。</p>
-<p>例如，添加 <code>image/png</code> 媒体类型，声明返回 JSON 对象（使用 <code>application/json</code>）或 PNG 图像的<em>路径操作</em>：</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<p>例如，添加 <code>image/png</code> 媒体类型，声明返回 JSON 对象（使用 <code>application/json</code>）或 PNG 图像的<strong>路径操作</strong>：</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
 <span class="kn">from</span> <span class="nn">fastapi.responses</span> <span class="kn">import</span> <span class="n">FileResponse</span>
@@ -2351,7 +2402,7 @@
 </span><span class="hll">        <span class="p">}</span>
 </span><span class="hll">    <span class="p">},</span>
 </span><span class="p">)</span>
-<span class="k">async</span> <span class="k">def</span> <span class="nf">read_item</span><span class="p">(</span><span class="n">item_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">img</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">read_item</span><span class="p">(</span><span class="n">item_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">img</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">img</span><span class="p">:</span>
 <span class="hll">        <span class="k">return</span> <span class="n">FileResponse</span><span class="p">(</span><span class="s2">&quot;image.png&quot;</span><span class="p">,</span> <span class="n">media_type</span><span class="o">=</span><span class="s2">&quot;image/png&quot;</span><span class="p">)</span>
 </span>    <span class="k">else</span><span class="p">:</span>
@@ -2363,7 +2414,7 @@
 </div>
 <div class="admonition info">
 <p class="admonition-title">说明</p>
-<p>除非在 <code>response</code> 参数中显式指定其它媒体类型，否则，FastAPI 假设该响应和主响应类的媒体类型一样（默认为 <code>application/json</code>）。</p>
+<p>除非在 <code>response</code> 参数中显式指定其他媒体类型，否则，FastAPI 假设该响应和主响应类的媒体类型一样（默认为 <code>application/json</code>）。</p>
 <p>使用 <code>None</code> 指定自定义响应类的媒体类型时，FastAPI 会为包含关联模型的响应使用 <code>application/json</code>。</p>
 </div>
 <h2 id="_2">合并信息<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
@@ -2411,9 +2462,9 @@
         <span class="k">return</span> <span class="n">JSONResponse</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">404</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Item not found&quot;</span><span class="p">})</span>
 </code></pre></div>
 <p>OpenAPI 会合并、包含这些内容，并在 API 文档中显示：</p>
-<p><img src="/img/tutorial/additional-responses/image01.png"></p>
+<p><img src="https://fastapi.tiangolo.com/img/tutorial/additional-responses/image01.png"></p>
 <h2 id="_3">合并预定义响应与自定义响应<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p><strong>FastAPI </strong>还可以合并<em>路径操作</em>中的预定义响应和自定义响应。</p>
+<p><strong>FastAPI </strong>还可以合并<strong>路径操作</strong>中的预定义响应和自定义响应。</p>
 <p>此处使用 Python <strong>字典解包</strong>，即 <code>**dict_to_unpack</code>：</p>
 <div class="highlight"><pre><span></span><code><span class="n">old_dict</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;old key&quot;</span><span class="p">:</span> <span class="s2">&quot;old value&quot;</span><span class="p">,</span>
@@ -2428,9 +2479,9 @@
     <span class="s2">&quot;new key&quot;</span><span class="p">:</span> <span class="s2">&quot;new value&quot;</span><span class="p">,</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>这种技巧既可以复用<em>路径操作</em>中的预定义响应，还可以合并预定义响应和自定义响应。</p>
+<p>这种技巧既可以复用<strong>路径操作</strong>中的预定义响应，还可以合并预定义响应和自定义响应。</p>
 <p>例如：</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
 <span class="kn">from</span> <span class="nn">fastapi.responses</span> <span class="kn">import</span> <span class="n">FileResponse</span>
@@ -2457,7 +2508,7 @@
     <span class="n">response_model</span><span class="o">=</span><span class="n">Item</span><span class="p">,</span>
 <span class="hll">    <span class="n">responses</span><span class="o">=</span><span class="p">{</span><span class="o">**</span><span class="n">responses</span><span class="p">,</span> <span class="mi">200</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;image/png&quot;</span><span class="p">:</span> <span class="p">{}}}},</span>
 </span><span class="p">)</span>
-<span class="k">async</span> <span class="k">def</span> <span class="nf">read_item</span><span class="p">(</span><span class="n">item_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">img</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">read_item</span><span class="p">(</span><span class="n">item_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">img</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">img</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">FileResponse</span><span class="p">(</span><span class="s2">&quot;image.png&quot;</span><span class="p">,</span> <span class="n">media_type</span><span class="o">=</span><span class="s2">&quot;image/png&quot;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>

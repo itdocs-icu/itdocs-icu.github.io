@@ -47,6 +47,16 @@
     <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  
+  
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-133183413-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
 
     
     
@@ -122,7 +132,7 @@
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 10px 10px;
     text-decoration: none;
   }
 
@@ -170,7 +180,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -179,7 +189,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -557,7 +567,7 @@
         
           <li class="md-nav__item">
   <a href="#_12" class="md-nav__link">
-    类作为类型
+    类为类型
   </a>
   
 </li>
@@ -1870,6 +1880,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../advanced/generate-clients/" class="md-nav__link">
+        Generate Clients
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1967,6 +1991,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../deployment/manually/" class="md-nav__link">
+        Run a Server Manually - Uvicorn
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/concepts/" class="md-nav__link">
+        Deployments Concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../deployment/deta/" class="md-nav__link">
         在 Deta 上部署 FastAPI
       </a>
@@ -1981,8 +2033,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../deployment/docker/" class="md-nav__link">
-        使用 Docker 部署
+      <a href="../deployment/server-workers/" class="md-nav__link">
+        Server Workers - Gunicorn with Uvicorn
       </a>
     </li>
   
@@ -1995,8 +2047,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../deployment/manually/" class="md-nav__link">
-        手动部署
+      <a href="../deployment/docker/" class="md-nav__link">
+        使用 Docker 部署
       </a>
     </li>
   
@@ -2033,7 +2085,7 @@
   
     <li class="md-nav__item">
       <a href="../alternatives/" class="md-nav__link">
-        备选、灵感、比较
+        备选、灵感与比较
       </a>
     </li>
   
@@ -2284,7 +2336,7 @@
         
           <li class="md-nav__item">
   <a href="#_12" class="md-nav__link">
-    类作为类型
+    类为类型
   </a>
   
 </li>
@@ -2363,7 +2415,7 @@
 <p>现在，假设您要从头编写这段程序。</p>
 <p>在某一时刻，开始定义函数，并且准备好了参数……</p>
 <p>此时，需要调用<strong>把首字母转换为大写的方法</strong>。</p>
-<p>等等，那个方法是什么来着？<code>upper</code>？ <code>uppercase</code>？<code>first_uppercase</code>？还是<code>capitalize</code>？ </p>
+<p>等等，那个方法是什么来着？<code>upper</code>？ <code>uppercase</code>？<code>first_uppercase</code>？还是<code>capitalize</code>？</p>
 <p>然后，您尝试向程序员老手的朋友——编辑器自动补全寻求帮助。</p>
 <p>输入函数的第一个参数 <code>first_name</code>，输入点号（<code>.</code>），然后敲下 <code>Ctrl+Space</code> 触发代码补全。</p>
 <p>可惜，这没有什么用：</p>
@@ -2425,12 +2477,15 @@
 </span>    <span class="k">return</span> <span class="n">item_a</span><span class="p">,</span> <span class="n">item_b</span><span class="p">,</span> <span class="n">item_c</span><span class="p">,</span> <span class="n">item_d</span><span class="p">,</span> <span class="n">item_d</span><span class="p">,</span> <span class="n">item_e</span>
 </code></pre></div>
 <h3 id="_7">通用类型的类型参数<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
-<p><code>dict</code>、<code>list</code>、<code>set</code>、<code>tuple</code> 等数据结构可以包含其它值，而且其内部的值也有自己的类型。</p>
+<p><code>dict</code>、<code>list</code>、<code>set</code>、<code>tuple</code> 等数据结构可以包含其他值，而且其内部的值也有自己的类型。</p>
 <p>Python 的 <code>typing</code> 标准库可以声明这些类型及其子类型。</p>
 <p>这个标准库专门用来支持类型提示。</p>
 <h4 id="_8">列表<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
 <p>例如，定义由 <code>str</code> 组成的 <code>list</code> 变量。</p>
-<p>从 <code>typing</code> 模块导入 <code>List</code>（注意 <code>L</code> 要大写）：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python 3.6 and above</label><label for="__tabbed_1_2">Python 3.9 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>从 <code>typing</code> 中导入 <code>List</code>，注意，这里是<strong>大写的 L</strong>：</p>
 <div class="highlight"><pre><span></span><code><span class="hll"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
 </span>
 
@@ -2438,9 +2493,9 @@
     <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
 </code></pre></div>
-<p>同样用冒号（<code>:</code>）声明变量。</p>
-<p>类型是 <code>List</code>。</p>
-<p>由于列表是包含<strong>子类型</strong>的类型，所以要把子类型放在方括号里：</p>
+<p>使用冒号（<code>:</code>）语法声明变量。</p>
+<p>从 <code>typing</code> 中导入 <code>List</code> 类型。</p>
+<p>列表还支持内部类型，可以把内部类型放在方括号里：:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
 
 
@@ -2448,12 +2503,28 @@
 </span>    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>同样，使用冒号（<code>:</code>）语法声明变量。</p>
+<p>类型是 <code>list</code>。</p>
+<p>列表还支持内部类型，可以把内部类型放在方括号里：</p>
+<div class="highlight"><pre><span></span><code><span class="hll"><span class="k">def</span> <span class="nf">process_items</span><span class="p">(</span><span class="n">items</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]):</span>
+</span>    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<div class="admonition info">
+<p class="admonition-title">说明</p>
+<p>方括号里的内部类型叫做<strong>类型参数</strong>。</p>
+<p>本例中，<code>str</code> 是传递给 <code>List</code> 的类型参数。</p>
+</div>
+<p>即：变量 <code>items</code> 的类型是 <code>list</code>，并且列表里的每个元素的类型都是 <code>str</code>。</p>
 <div class="admonition tip">
 <p class="admonition-title">提示</p>
-<p>方括号里的内部类型叫做<strong>类型参数</strong>。</p>
-<p>此时，<code>str</code> 是传递给 <code>List</code> 的类型参数。</p>
+<p>如果使用的是 Python 3.9 及以上版本，则无须从 <code>typing</code> 中导入 <code>List</code>，可以用常规的 <code>list</code> 类型代替 <code>List</code> 类型。</p>
 </div>
-<p>即：<strong>变量 <code>items</code> 的类型是 <code>list</code>，并且列表里的每个元素的类型都是 <code>str</code></strong>。</p>
 <p>这样，即使在处理列表里的元素时，编辑器也能提供支持：</p>
 <p><img src="https://fastapi.tiangolo.com/img/python-types/image05.png"></p>
 <p>没有类型，这种支持几乎不可能实现。</p>
@@ -2461,21 +2532,35 @@
 <p>而且，编辑器仍然把它识别为 <code>str</code>，并提供相关支持。</p>
 <h4 id="_9">元组和集合<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
 <p>声明 <code>tuple</code> 和 <code>set</code> 的方法也一样：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python 3.6 and above</label><label for="__tabbed_2_2">Python 3.9 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="hll"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Set</span><span class="p">,</span> <span class="n">Tuple</span>
 </span>
 
 <span class="hll"><span class="k">def</span> <span class="nf">process_items</span><span class="p">(</span><span class="n">items_t</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="n">items_s</span><span class="p">:</span> <span class="n">Set</span><span class="p">[</span><span class="nb">bytes</span><span class="p">]):</span>
 </span>    <span class="k">return</span> <span class="n">items_t</span><span class="p">,</span> <span class="n">items_s</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="hll"><span class="k">def</span> <span class="nf">process_items</span><span class="p">(</span><span class="n">items_t</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="n">items_s</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="nb">bytes</span><span class="p">]):</span>
+</span>    <span class="k">return</span> <span class="n">items_t</span><span class="p">,</span> <span class="n">items_s</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <p>即：</p>
 <ul>
-<li>变量 <code>items_t</code> 是包含 3 个元素的 <code>tuple</code>，分别是 <code>int</code>、 <code>int</code>、<code>str</code></li>
-<li>变量 <code>items_s</code> 是 <code>set</code>，其中每个元素的类型都是 <code>bytes</code></li>
+<li><code>items_t</code> 变量是包含 3 个元素的 <code>tuple</code>，分别是 <code>int</code>、 <code>int</code> 和 <code>str</code>。</li>
+<li><code>items_s</code> 变量是 <code>set</code>，其中每个元素的类型都是 <code>bytes</code>。</li>
 </ul>
 <h4 id="_10">字典<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
 <p>定义 <code>dict</code> 要传入 2 个用逗号分隔的子类型。</p>
 <p>第一个子类型声明 <code>dict</code> 的所有键。</p>
 <p>第二个子类型声明 <code>dict</code> 的所有值：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python 3.6 and above</label><label for="__tabbed_3_2">Python 3.9 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="hll"><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
 </span>
 
@@ -2484,6 +2569,16 @@
         <span class="nb">print</span><span class="p">(</span><span class="n">item_name</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">item_price</span><span class="p">)</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="hll"><span class="k">def</span> <span class="nf">process_items</span><span class="p">(</span><span class="n">prices</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]):</span>
+</span>    <span class="k">for</span> <span class="n">item_name</span><span class="p">,</span> <span class="n">item_price</span> <span class="ow">in</span> <span class="n">prices</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">item_name</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">item_price</span><span class="p">)</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <p>即：</p>
 <ul>
 <li>变量 <code>prices</code> 是 <code>dict</code>：<ul>
@@ -2505,17 +2600,54 @@
 </code></pre></div>
 <p>使用 <code>Optional[str]</code> 替代简单的 <code>str</code> 可以让编辑器检测值的类型应为 <code>str</code>，但也可能为 <code>None</code> 的错误。</p>
 <h4 id="_11">通用类型<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h4>
-<p>以下类型使用方括号中的类型参数：</p>
+<p>这些可以在方括号中使用类型参数的类型称为 <strong>通用类型</strong> 或 <strong>Generics</strong>，例如：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Python 3.6 and above</label><label for="__tabbed_4_2">Python 3.9 and above</label><label for="__tabbed_4_3">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <ul>
-<li><code>List</code></li>
-<li><code>Tuple</code></li>
-<li><code>Set</code></li>
-<li><code>Dict</code></li>
+<li>列表 ~ <code>List</code></li>
+<li>元组 ~ <code>Tuple</code></li>
+<li>集合 ~ <code>Set</code></li>
+<li>字典 ~ <code>Dict</code></li>
+<li><code>Union</code></li>
 <li><code>Optional</code></li>
-<li>等……</li>
+<li>...</li>
 </ul>
-<p>这些类型就是<strong>通用类型</strong>，也叫作 <strong>Generics</strong>。</p>
-<h3 id="_12">类作为类型<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+</div>
+<div class="tabbed-block">
+<p>可以使用内置类型作为通用类型（使用方括号，并在其中使用类型）：</p>
+<ul>
+<li>列表 ~ <code>list</code></li>
+<li>元组 ~ <code>tuple</code></li>
+<li>集合 ~ <code>set</code></li>
+<li>字典 ~ <code>dict</code></li>
+</ul>
+<p>与 Python 3.6 一样，要从 <code>typing</code> 模块中导入以下类型：</p>
+<ul>
+<li><code>Union</code></li>
+<li><code>Optional</code></li>
+<li>...</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p>可以使用内置类型作为通用类型（使用方括号，并在其中使用类型）：</p>
+<ul>
+<li><code>list</code></li>
+<li><code>tuple</code></li>
+<li><code>set</code></li>
+<li><code>dict</code></li>
+</ul>
+<p>与 Python 3.6 一样，要从 <code>typing</code> 模块中导入以下类型：</p>
+<ul>
+<li><code>Union</code></li>
+<li><code>Optional</code> （与 Python 3.6 一样）</li>
+<li>...</li>
+</ul>
+<p>在 Python 3.10 中，作为通用类型 <code>Union</code> 与 <code>Optional</code> 的备选方案，可以使用 <abbr title='也称为“位或操作符”，但此处没有此含义'>垂直条（<code>|</code>）。</abbr></p>
+</div>
+</div>
+</div>
+<h3 id="_12">类为类型<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
 <p>类也可以声明为变量的类型。</p>
 <p>假设有一个包含 <code>name</code> 属性的类 <code>Person</code>：</p>
 <div class="highlight"><pre><span></span><code><span class="hll"><span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
@@ -2544,8 +2676,11 @@
 <p>接下来，用一些值创建类实例，FastAPI 会校验这些值，（在需要的情况下）把值转换为适当的类型，并返回包含所有数据的对象。</p>
 <p>然后，这个对象就可以获得编辑器支持。</p>
 <p>下面是 Pydantic 官方文档中的示例：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Python 3.6 and above</label><label for="__tabbed_5_2">Python 3.9 and above</label><label for="__tabbed_5_3">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
 
@@ -2553,7 +2688,7 @@
 <span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
     <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span>
     <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;John Doe&quot;</span>
-    <span class="n">signup_ts</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">datetime</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">signup_ts</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">datetime</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">friends</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
 
 
@@ -2568,6 +2703,60 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
 <span class="c1"># &gt; 123</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+
+<span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;John Doe&quot;</span>
+    <span class="n">signup_ts</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">datetime</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">friends</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+
+<span class="n">external_data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;123&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;signup_ts&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-06-01 12:22&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;friends&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="sa">b</span><span class="s2">&quot;3&quot;</span><span class="p">],</span>
+<span class="p">}</span>
+<span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="o">**</span><span class="n">external_data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+<span class="c1"># &gt; User id=123 name=&#39;John Doe&#39; signup_ts=datetime.datetime(2017, 6, 1, 12, 22) friends=[1, 2, 3]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+<span class="c1"># &gt; 123</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+
+<span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="nb">id</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;John Doe&quot;</span>
+    <span class="n">signup_ts</span><span class="p">:</span> <span class="n">datetime</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">friends</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+
+<span class="n">external_data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;123&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;signup_ts&quot;</span><span class="p">:</span> <span class="s2">&quot;2017-06-01 12:22&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;friends&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="sa">b</span><span class="s2">&quot;3&quot;</span><span class="p">],</span>
+<span class="p">}</span>
+<span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">(</span><span class="o">**</span><span class="n">external_data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+<span class="c1"># &gt; User id=123 name=&#39;John Doe&#39; signup_ts=datetime.datetime(2017, 6, 1, 12, 22) friends=[1, 2, 3]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+<span class="c1"># &gt; 123</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <div class="admonition info">
 <p class="admonition-title">说明</p>
 <p>进一步了解 <a href="https://pydantic-docs.helpmanual.io/" class="external-link" target="_blank">Pydantic，请参阅此文档</a>。</p>
@@ -2589,7 +2778,7 @@
 <li>数据校验失败时，自动生成<strong>错误信息</strong>，并返回给客户端</li>
 </ul>
 </li>
-<li>使用 OpenAPI <strong>存档</strong> API：<ul>
+<li>使用 OpenAPI <strong>文档</strong> API：<ul>
 <li>并在 API 文档中显示</li>
 </ul>
 </li>

@@ -47,6 +47,16 @@
     <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  
+  
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-133183413-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
 
     
     
@@ -122,7 +132,7 @@
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 10px 10px;
     text-decoration: none;
   }
 
@@ -170,7 +180,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -179,7 +189,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -1770,6 +1780,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generate-clients/" class="md-nav__link">
+        Generate Clients
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1867,6 +1891,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../deployment/manually/" class="md-nav__link">
+        Run a Server Manually - Uvicorn
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/concepts/" class="md-nav__link">
+        Deployments Concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../deployment/deta/" class="md-nav__link">
         在 Deta 上部署 FastAPI
       </a>
@@ -1881,8 +1933,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../deployment/docker/" class="md-nav__link">
-        使用 Docker 部署
+      <a href="../../deployment/server-workers/" class="md-nav__link">
+        Server Workers - Gunicorn with Uvicorn
       </a>
     </li>
   
@@ -1895,8 +1947,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../deployment/manually/" class="md-nav__link">
-        手动部署
+      <a href="../../deployment/docker/" class="md-nav__link">
+        使用 Docker 部署
       </a>
     </li>
   
@@ -1933,7 +1985,7 @@
   
     <li class="md-nav__item">
       <a href="../../alternatives/" class="md-nav__link">
-        备选、灵感、比较
+        备选、灵感与比较
       </a>
     </li>
   
@@ -2134,10 +2186,10 @@
 <h2 id="request"><code>Request</code> 对象的细节<a class="headerlink" href="#request" title="Permanent link">&para;</a></h2>
 <p>实际上，<strong>FastAPI</strong> 的底层是 <strong>Starlette</strong>，<strong>FastAPI</strong> 只不过是在  <strong>Starlette</strong> 顶层提供了一些工具，所以能直接使用 Starlette 的  <a href="https://www.starlette.io/requests/" class="external-link" target="_blank"><code>Request</code></a> 对象。</p>
 <p>但直接从 <code>Request</code> 对象提取数据时（例如，读取请求体），<strong>FastAPI</strong> 不会验证、转换和存档数据（为 API 文档使用 OpenAPI）。</p>
-<p>不过，仍可以验证、转换与注释（使用 Pydantic 模型的请求体等）其它正常声明的参数。</p>
+<p>不过，仍可以验证、转换与注释（使用 Pydantic 模型的请求体等）其他正常声明的参数。</p>
 <p>但在某些特定情况下，还是需要提取 <code>Request</code> 对象。</p>
 <h2 id="request_1">直接使用 <code>Request</code> 对象<a class="headerlink" href="#request_1" title="Permanent link">&para;</a></h2>
-<p>假设要在<em>路径操作函数</em>中获取客户端 IP 地址和主机。</p>
+<p>假设要在<strong>路径操作函数</strong>中获取客户端 IP 地址和主机。</p>
 <p>此时，需要直接访问请求。</p>
 <div class="highlight"><pre><span></span><code><span class="hll"><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">Request</span>
 </span>
@@ -2149,12 +2201,12 @@
 </span><span class="hll">    <span class="n">client_host</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">host</span>
 </span>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;client_host&quot;</span><span class="p">:</span> <span class="n">client_host</span><span class="p">,</span> <span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="n">item_id</span><span class="p">}</span>
 </code></pre></div>
-<p>把<em>路径操作函数</em>的参数类型声明为 <code>Request</code>，<strong>FastAPI</strong> 就能把 <code>Request</code> 传递到参数里。</p>
+<p>把<strong>路径操作函数</strong>的参数类型声明为 <code>Request</code>，<strong>FastAPI</strong> 就能把 <code>Request</code> 传递到参数里。</p>
 <div class="admonition tip">
 <p class="admonition-title">提示</p>
 <p>注意，本例除了声明请求参数之外，还声明了路径参数。</p>
 <p>因此，能够提取、验证路径参数、并转换为指定类型，还可以用 OpenAPI 注释。</p>
-<p>同样，您也可以正常声明其它参数，而且还可以提取 <code>Request</code>。</p>
+<p>同样，您也可以正常声明其他参数，而且还可以提取 <code>Request</code>。</p>
 </div>
 <h2 id="request_2"><code>Request</code> 文档<a class="headerlink" href="#request_2" title="Permanent link">&para;</a></h2>
 <p>更多细节详见 <a href="https://www.starlette.io/requests/" class="external-link" target="_blank">Starlette 官档 - <code>Request</code> 对象</a>。</p>

@@ -47,6 +47,16 @@
     <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  
+  
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-133183413-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
 
     
     
@@ -122,7 +132,7 @@
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 10px 10px;
     text-decoration: none;
   }
 
@@ -170,7 +180,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -179,7 +189,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -1907,6 +1917,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/generate-clients/" class="md-nav__link">
+        Generate Clients
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -2004,6 +2028,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../deployment/manually/" class="md-nav__link">
+        Run a Server Manually - Uvicorn
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/concepts/" class="md-nav__link">
+        Deployments Concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../deployment/deta/" class="md-nav__link">
         在 Deta 上部署 FastAPI
       </a>
@@ -2018,8 +2070,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../deployment/docker/" class="md-nav__link">
-        使用 Docker 部署
+      <a href="../../deployment/server-workers/" class="md-nav__link">
+        Server Workers - Gunicorn with Uvicorn
       </a>
     </li>
   
@@ -2032,8 +2084,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../deployment/manually/" class="md-nav__link">
-        手动部署
+      <a href="../../deployment/docker/" class="md-nav__link">
+        使用 Docker 部署
       </a>
     </li>
   
@@ -2070,7 +2122,7 @@
   
     <li class="md-nav__item">
       <a href="../../alternatives/" class="md-nav__link">
-        备选、灵感、比较
+        备选、灵感与比较
       </a>
     </li>
   
@@ -2483,7 +2535,7 @@
 </code></pre></div>
 <h4 id="openapi_1">OpenAPI 是干什么用的<a class="headerlink" href="#openapi_1" title="Permanent link">&para;</a></h4>
 <p>OpenAPI 概图用于驱动 FastAPI 内置的两个 API 文档。</p>
-<p>基于 OpenAPI 的备选方案还有很多，为 <strong>FastAPI</strong> 应用添加其它备选方案很容易。</p>
+<p>基于 OpenAPI 的备选方案还有很多，为 <strong>FastAPI</strong> 应用添加其他备选方案很容易。</p>
 <p>OpenAPI 还可以用于自动生成和 API 通信的客户端代码。例如前端、移动端、物联网应用等。</p>
 <h2 id="_5">分步小结<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <h3 id="fastapi">第一步：导入 <code>FastAPI</code><a class="headerlink" href="#fastapi" title="Permanent link">&para;</a></h3>
@@ -2544,7 +2596,7 @@
 
 </div>
 
-<h3 id="_6">第三步：创建<em>路径操作</em><a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<h3 id="_6">第三步：创建<strong>路径操作</strong><a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <h4 id="_7">路径<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
 <p><strong>路径</strong>是指 URL 的第一个反斜杠（<code>/</code>）及它之后的内容。</p>
 <p>下列 URL 中：</p>
@@ -2559,7 +2611,7 @@
 </div>
 <p>开发 API 时，<strong>路径</strong>是分离 <strong>concerns</strong> 和 <strong>resources</strong> 的主要方式。</p>
 <h4 id="_8">操作<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
-<p><strong>操作</strong>是指 HTTP <strong>方法</strong>。</p>
+<p><strong>操作</strong>指的是 HTTP <strong>方法</strong>。</p>
 <p>常用方法如下：</p>
 <ul>
 <li><code>POST</code></li>
@@ -2586,7 +2638,7 @@
 </ul>
 <p>OpenAPI 把 HTTP 方法称为<strong>操作</strong>。</p>
 <p>我们也称之为<strong>操作</strong>。</p>
-<h4 id="_9">定义<em>路径操作装饰器</em><a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
+<h4 id="_9">定义<strong>路径操作装饰器</strong><a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
 
 <span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
@@ -2607,9 +2659,9 @@
 <p>就像一顶放在函数上面的装饰帽（估计这个术语的命名就是这么来的）。</p>
 <p>装饰器接收下方函数，并用它执行一些操作。</p>
 <p>本例中，这个装饰器告诉 <strong>FastAPI</strong> 下方函数对应的<strong>路径</strong>是 <code>/</code> 及 <code>get</code> <strong>操作</strong>。</p>
-<p>这就是<strong><em>路径操作装饰器</em></strong>。</p>
+<p>这就是<strong>路径操作装饰器</strong>。</p>
 </div>
-<p>其它常用操作如下：</p>
+<p>其他常用操作如下：</p>
 <ul>
 <li><code>@app.post()</code></li>
 <li><code>@app.put()</code></li>
@@ -2680,7 +2732,7 @@
 <ul>
 <li>导入 <code>FastAPI</code></li>
 <li>创建 <code>app</code> 实例</li>
-<li>编写<strong>路径操作装饰器</strong>（如 <code>@app.get("/")</code>）</li>
+<li>编写<strong><em>路径操作装饰器</em></strong>（如 <code>@app.get("/")</code>）</li>
 <li>编写<strong>路径操作函数</strong>（如 <code>def root(): ...</code>）</li>
 <li>运行开发服务器（如 <code>uvicorn main:app --reload</code>）</li>
 </ul>

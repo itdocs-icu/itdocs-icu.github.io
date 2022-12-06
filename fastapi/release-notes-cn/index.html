@@ -47,6 +47,16 @@
     <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  
+  
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-133183413-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
 
     
     
@@ -122,7 +132,7 @@
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 10px 10px;
     text-decoration: none;
   }
 
@@ -170,7 +180,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -179,7 +189,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -1713,6 +1723,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../advanced/generate-clients/" class="md-nav__link">
+        Generate Clients
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1810,6 +1834,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../deployment/manually/" class="md-nav__link">
+        Run a Server Manually - Uvicorn
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/concepts/" class="md-nav__link">
+        Deployments Concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../deployment/deta/" class="md-nav__link">
         在 Deta 上部署 FastAPI
       </a>
@@ -1824,8 +1876,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../deployment/docker/" class="md-nav__link">
-        使用 Docker 部署
+      <a href="../deployment/server-workers/" class="md-nav__link">
+        Server Workers - Gunicorn with Uvicorn
       </a>
     </li>
   
@@ -1838,8 +1890,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../deployment/manually/" class="md-nav__link">
-        手动部署
+      <a href="../deployment/docker/" class="md-nav__link">
+        使用 Docker 部署
       </a>
     </li>
   
@@ -1876,7 +1928,7 @@
   
     <li class="md-nav__item">
       <a href="../alternatives/" class="md-nav__link">
-        备选、灵感、比较
+        备选、灵感与比较
       </a>
     </li>
   
@@ -2014,6 +2066,61 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#2022-12-10" class="md-nav__link">
+    2022-12-10
+  </a>
+  
+    <nav class="md-nav" aria-label="2022-12-10">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    主要更新
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    新增翻译
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    更新翻译
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    功能性修复
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    格式调整
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    修改错别字
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#2021-12-21" class="md-nav__link">
     2021-12-21
   </a>
@@ -2077,6 +2184,61 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#2022-12-10" class="md-nav__link">
+    2022-12-10
+  </a>
+  
+    <nav class="md-nav" aria-label="2022-12-10">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    主要更新
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    新增翻译
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    更新翻译
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    功能性修复
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    格式调整
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    修改错别字
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#2021-12-21" class="md-nav__link">
     2021-12-21
   </a>
@@ -2105,6 +2267,38 @@
 
 
 <h1 id="-">中文官档 - 更新日志<a class="headerlink" href="#-" title="Permanent link">&para;</a></h1>
+<h2 id="2022-12-10">2022-12-10<a class="headerlink" href="#2022-12-10" title="Permanent link">&para;</a></h2>
+<h3 id="_1">主要更新<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>FastAPI 文档版本同步至 0.88.0。</li>
+</ul>
+<h3 id="_2">新增翻译<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>添加 高级用户指南/generate-clients.md。</li>
+<li>添加 部署/server-workers.md。</li>
+<li>添加 部署/concepts.md。</li>
+<li>添加 alternatives.md。</li>
+<li>添加 contributing.md。</li>
+</ul>
+<h3 id="_3">更新翻译<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>更新 testing.md。</li>
+<li>修复高级用户指南/中间件中的断句错误。</li>
+</ul>
+<h3 id="_4">功能性修复<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li>修复失效的外部链接。</li>
+<li>修复图片链接。src="/img/</li>
+<li>更新代码示例，同步了 Python 3.6、3.9 和 3.10 的示例代码。</li>
+</ul>
+<h3 id="_5">格式调整<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li>把<em>斜体</em>中文的格式改为<strong>粗体</strong>。</li>
+</ul>
+<h3 id="_6">修改错别字<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<ul>
+<li>其它 -&gt; 其他。</li>
+</ul>
 <h2 id="2021-12-21">2021-12-21<a class="headerlink" href="#2021-12-21" title="Permanent link">&para;</a></h2>
 <ul>
 <li>已知问题，服务器上的图片不能正常显示</li>

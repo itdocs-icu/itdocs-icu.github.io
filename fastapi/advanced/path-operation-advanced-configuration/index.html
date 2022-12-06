@@ -47,6 +47,16 @@
     <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  
+  
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-133183413-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
 
     
     
@@ -122,7 +132,7 @@
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 10px 10px;
     text-decoration: none;
   }
 
@@ -170,7 +180,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -179,7 +189,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -1824,6 +1834,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generate-clients/" class="md-nav__link">
+        Generate Clients
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1921,6 +1945,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../deployment/manually/" class="md-nav__link">
+        Run a Server Manually - Uvicorn
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/concepts/" class="md-nav__link">
+        Deployments Concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../deployment/deta/" class="md-nav__link">
         在 Deta 上部署 FastAPI
       </a>
@@ -1935,8 +1987,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../deployment/docker/" class="md-nav__link">
-        使用 Docker 部署
+      <a href="../../deployment/server-workers/" class="md-nav__link">
+        Server Workers - Gunicorn with Uvicorn
       </a>
     </li>
   
@@ -1949,8 +2001,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../deployment/manually/" class="md-nav__link">
-        手动部署
+      <a href="../../deployment/docker/" class="md-nav__link">
+        使用 Docker 部署
       </a>
     </li>
   
@@ -1987,7 +2039,7 @@
   
     <li class="md-nav__item">
       <a href="../../alternatives/" class="md-nav__link">
-        备选、灵感、比较
+        备选、灵感与比较
       </a>
     </li>
   
@@ -2234,7 +2286,7 @@
 <p class="admonition-title">警告</p>
 <p>如果您不是 OpenAPI <strong>专家</strong>，请跳过本章。</p>
 </div>
-<p><code>operation_id</code> 参数用于设置<em>路径操作</em> 中 OpenAPI 的 <code>operationId</code>。</p>
+<p><code>operation_id</code> 参数用于设置<strong>路径操作</strong> 中 OpenAPI 的 <code>operationId</code>。</p>
 <p>但路径操作的 <code>operation_id</code> 必须是唯一的。</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
 
@@ -2245,9 +2297,9 @@
 </span><span class="k">async</span> <span class="k">def</span> <span class="nf">read_items</span><span class="p">():</span>
     <span class="k">return</span> <span class="p">[{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="s2">&quot;Foo&quot;</span><span class="p">}]</span>
 </code></pre></div>
-<h3 id="operationid">使用<em>路径操作</em>函数名定义 operationId<a class="headerlink" href="#operationid" title="Permanent link">&para;</a></h3>
-<p>使用 API 的函数名定义 <code>operationId</code>，需要先遍历 API 函数名，再使用 <code>APIRoute.name</code> 重写<em>路径操作</em>的 <code>operation_id</code>。</p>
-<p>这项操作要在添加了所有<em>路径操作</em>后执行。</p>
+<h3 id="operationid">使用<strong>路径操作</strong>函数名定义 operationId<a class="headerlink" href="#operationid" title="Permanent link">&para;</a></h3>
+<p>使用 API 的函数名定义 <code>operationId</code>，需要先遍历 API 函数名，再使用 <code>APIRoute.name</code> 重写<strong>路径操作</strong>的 <code>operation_id</code>。</p>
+<p>这项操作要在添加了所有<strong>路径操作</strong>后执行。</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
 <span class="hll"><span class="kn">from</span> <span class="nn">fastapi.routing</span> <span class="kn">import</span> <span class="n">APIRoute</span>
 </span>
@@ -2283,7 +2335,7 @@
 <p>即使它们在不同的模块里（Python 文件）。</p>
 </div>
 <h2 id="openapi">从 OpenAPI 中排除<a class="headerlink" href="#openapi" title="Permanent link">&para;</a></h2>
-<p>把参数 <code>include_in_schema</code> 设置为 <code>False</code>，就会在 OpenAPI 概图中排除<em>路径操作</em>（同时也从 API 文档中排除该<em>路径操作</em>）。</p>
+<p>把参数 <code>include_in_schema</code> 设置为 <code>False</code>，就会在 OpenAPI 概图中排除<strong>路径操作</strong>（同时也从 API 文档中排除该<strong>路径操作</strong>）。</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
 
 <span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
@@ -2294,10 +2346,10 @@
     <span class="k">return</span> <span class="p">[{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="s2">&quot;Foo&quot;</span><span class="p">}]</span>
 </code></pre></div>
 <h2 id="docstring">docstring 的高级描述<a class="headerlink" href="#docstring" title="Permanent link">&para;</a></h2>
-<p>限制<em>路径操作函数</em>的<strong>文档字符串</strong>在 OpenAPI 中显示的行数。</p>
+<p>限制<strong>路径操作函数</strong>的<strong>文档字符串</strong>在 OpenAPI 中显示的行数。</p>
 <p>添加 <code>\f</code>（换页符），<strong>FastAPI</strong> 在换页符所在位置截断在 OpenAPI 中的输出内容。</p>
 <p>换页符后的内容不会在文档中显示，但 Sphinx 等工具仍可以使用。</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Set</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Set</span><span class="p">,</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
 <span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
@@ -2307,10 +2359,10 @@
 
 <span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
     <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="n">description</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">description</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">price</span><span class="p">:</span> <span class="nb">float</span>
-    <span class="n">tax</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="n">tags</span><span class="p">:</span> <span class="n">Set</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">tax</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">tags</span><span class="p">:</span> <span class="n">Set</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
 
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/items/&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">Item</span><span class="p">,</span> <span class="n">summary</span><span class="o">=</span><span class="s2">&quot;Create an item&quot;</span><span class="p">)</span>
@@ -2329,25 +2381,25 @@
 </span>    <span class="k">return</span> <span class="n">item</span>
 </code></pre></div>
 <h2 id="_2">附加响应<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>您可能已经了解了如何为<em>路径操作</em>声明 <code>response_model</code> 和 <code>status_code</code>。</p>
-<p>这种方式定义了<em>路径操作</em>主响应的元数据。</p>
+<p>您可能已经了解了如何为<strong>路径操作</strong>声明 <code>response_model</code> 和 <code>status_code</code>。</p>
+<p>这种方式定义了<strong>路径操作</strong>主响应的元数据。</p>
 <p>您还可以使用模型、状态码等声明附加响应。</p>
 <p>高级用户指南有一章专门介绍相关内容，详见 <a class="internal-link" href="../additional-responses/" target="_blank">OpenAPI 中的附加响应</a>。</p>
 <h2 id="openapi-extra">OpenAPI Extra<a class="headerlink" href="#openapi-extra" title="Permanent link">&para;</a></h2>
-<p>在应用中声明<em>路径操作</em>时，<strong>FastAPI</strong> 会自动生成<em>路径操作</em>的元数据，并把它添加至 OpenAPI 概图。</p>
+<p>在应用中声明<strong>路径操作</strong>时，<strong>FastAPI</strong> 会自动生成<strong>路径操作</strong>的元数据，并把它添加至 OpenAPI 概图。</p>
 <div class="admonition note">
 <p class="admonition-title">技术细节</p>
 <p>OpenAPI 规范中，它被称为<a href="https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.3.md#operation-object" class="external-link" target="_blank">操作对象</a>。</p>
 </div>
-<p>这些元数据包含<em>路径操作</em>的所有信息，并用于生成 API 文档。</p>
+<p>这些元数据包含<strong>路径操作</strong>的所有信息，并用于生成 API 文档。</p>
 <p>包括 <code>tags</code>、<code>parameters</code>、<code>requestBody</code>、<code>responses</code> 等。</p>
-<p>这个专用于<em>路径操作</em>的 OpenAPI 概图通常由 <strong>FastAPI</strong> 自动生成，还可以扩展。</p>
+<p>这个专用于<strong>路径操作</strong>的 OpenAPI 概图通常由 <strong>FastAPI</strong> 自动生成，还可以扩展。</p>
 <div class="admonition tip">
 <p class="admonition-title">提示</p>
 <p>这是一个低级扩展点。</p>
 <p>如果只是要声明附加响应，使用<a class="internal-link" href="../additional-responses/" target="_blank">OpenAPI 中的附加响应</a>更方便。</p>
 </div>
-<p>您可以使用 <code>openapi_extra</code> 参数扩展<em>路径操作</em>的 OpenAPI 概图。</p>
+<p>您可以使用 <code>openapi_extra</code> 参数扩展<strong>路径操作</strong>的 OpenAPI 概图。</p>
 <h3 id="openapi_1">OpenAPI 扩展<a class="headerlink" href="#openapi_1" title="Permanent link">&para;</a></h3>
 <p>例如，使用 <code>openapi_extra</code> 声明 <a href="https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.3.md#specificationExtensions">OpenAPI 扩展</a>：</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
@@ -2359,9 +2411,9 @@
 </span><span class="k">async</span> <span class="k">def</span> <span class="nf">read_items</span><span class="p">():</span>
     <span class="k">return</span> <span class="p">[{</span><span class="s2">&quot;item_id&quot;</span><span class="p">:</span> <span class="s2">&quot;portal-gun&quot;</span><span class="p">}]</span>
 </code></pre></div>
-<p>打开 API 文档，在指定的<em>路径操作</em>底部会显示扩展项。</p>
-<p><img src="/img/tutorial/path-operation-advanced-configuration/image01.png"></p>
-<p>查看 OpenAPI 的结果（API 里的 <code>/openapi.json</code>），就能看到扩展项是特定<em>路径操作</em>的组成部分。</p>
+<p>打开 API 文档，在指定的<strong>路径操作</strong>底部会显示扩展项。</p>
+<p><img src="https://fastapi.tiangolo.com/img/tutorial/path-operation-advanced-configuration/image01.png"></p>
+<p>查看 OpenAPI 的结果（API 里的 <code>/openapi.json</code>），就能看到扩展项是特定<strong>路径操作</strong>的组成部分。</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;openapi&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3.0.2&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;info&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -2389,8 +2441,8 @@
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
-<h3 id="openapi_2">自定义 OpenAPI <em>路径操作</em>概图<a class="headerlink" href="#openapi_2" title="Permanent link">&para;</a></h3>
-<p><code>openapi_extra</code> 里的字典与自动生成的<em>路径操作</em> OpenAPI 概图可以深度结合。</p>
+<h3 id="openapi_2">自定义 OpenAPI <strong>路径操作</strong>概图<a class="headerlink" href="#openapi_2" title="Permanent link">&para;</a></h3>
+<p><code>openapi_extra</code> 里的字典与自动生成的<strong>路径操作</strong> OpenAPI 概图可以深度结合。</p>
 <p>因此，可以为自动生成的概图添加附加数据。</p>
 <p>例如，自己编写读取和验证请求的代码，不使用 FastAPI 和 Pydantic 的自动功能，但您仍要定义 OpenAPI 概图中的请求。</p>
 <p>此时，可以使用 <code>openapi_extra</code>：</p>
@@ -2439,7 +2491,7 @@
 <p>本例中，没有声明任何 Pydantic 模型。实际上，甚至没有把请求体<abbr title="把 bytes 等格式转换为 Python 对象">解析</abbr>为 JSON，而是直接读取为 <code>bytes</code>，由 <code>magic_data_reader()</code> 函数进行解析。</p>
 <p>总之，要为请求体声明预期的概图。</p>
 <h3 id="openapi_3">自定义 OpenAPI 内容类型<a class="headerlink" href="#openapi_3" title="Permanent link">&para;</a></h3>
-<p>还是同样的技巧，使用 Pydantic 模型定义 JSON 概图，然后把它添加到<em>路径操作</em>的自定义 OpenAPI 概图里。</p>
+<p>还是同样的技巧，使用 Pydantic 模型定义 JSON 概图，然后把它添加到<strong>路径操作</strong>的自定义 OpenAPI 概图里。</p>
 <p>就算请求中数据的类型不是 JSON 也能这样操作。</p>
 <p>例如，在这个应用中，我们不使用 FastAPI 的内置功能从 Pydantic 模型中提取 JSON Schema， 也不自动验证 JSON。实际上，请求的内容类型声明为 YAML，不是 JSON：</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
@@ -2518,7 +2570,7 @@
 <div class="admonition tip">
 <p class="admonition-title">提示</p>
 <p>此处复用了相同的 Pydantic 模型。</p>
-<p>但同样，我们使用其它方式验证这个模型。</p>
+<p>但同样，我们使用其他方式验证这个模型。</p>
 </div>
 
               

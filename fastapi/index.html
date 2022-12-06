@@ -47,6 +47,16 @@
     <script>__md_scope=new URL(".",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  
+  
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-133183413-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
 
     
     
@@ -122,7 +132,7 @@
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 10px 10px;
     text-decoration: none;
   }
 
@@ -170,7 +180,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -179,7 +189,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -349,7 +359,7 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    金牌赞助商
+    赞助商
   </a>
   
 </li>
@@ -420,7 +430,7 @@
         
           <li class="md-nav__item">
   <a href="#api_1" class="md-nav__link">
-    备选 API 文档
+    备用 API 文档
   </a>
   
 </li>
@@ -447,7 +457,7 @@
         
           <li class="md-nav__item">
   <a href="#_10" class="md-nav__link">
-    更新备选文档
+    更新备用文档
   </a>
   
 </li>
@@ -1881,6 +1891,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="advanced/generate-clients/" class="md-nav__link">
+        Generate Clients
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1978,6 +2002,34 @@
   
   
     <li class="md-nav__item">
+      <a href="deployment/manually/" class="md-nav__link">
+        Run a Server Manually - Uvicorn
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="deployment/concepts/" class="md-nav__link">
+        Deployments Concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="deployment/deta/" class="md-nav__link">
         在 Deta 上部署 FastAPI
       </a>
@@ -1992,8 +2044,8 @@
   
   
     <li class="md-nav__item">
-      <a href="deployment/docker/" class="md-nav__link">
-        使用 Docker 部署
+      <a href="deployment/server-workers/" class="md-nav__link">
+        Server Workers - Gunicorn with Uvicorn
       </a>
     </li>
   
@@ -2006,8 +2058,8 @@
   
   
     <li class="md-nav__item">
-      <a href="deployment/manually/" class="md-nav__link">
-        手动部署
+      <a href="deployment/docker/" class="md-nav__link">
+        使用 Docker 部署
       </a>
     </li>
   
@@ -2044,7 +2096,7 @@
   
     <li class="md-nav__item">
       <a href="alternatives/" class="md-nav__link">
-        备选、灵感、比较
+        备选、灵感与比较
       </a>
     </li>
   
@@ -2196,7 +2248,7 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    金牌赞助商
+    赞助商
   </a>
   
 </li>
@@ -2267,7 +2319,7 @@
         
           <li class="md-nav__item">
   <a href="#api_1" class="md-nav__link">
-    备选 API 文档
+    备用 API 文档
   </a>
   
 </li>
@@ -2294,7 +2346,7 @@
         
           <li class="md-nav__item">
   <a href="#_10" class="md-nav__link">
-    更新备选文档
+    更新备用文档
   </a>
   
 </li>
@@ -2370,26 +2422,36 @@
 <p><strong>文档</strong>： <a href="https://fastapi.tiangolo.com" target="_blank">https://fastapi.tiangolo.com</a></p>
 <p><strong>源码</strong>： <a href="https://github.com/tiangolo/fastapi" target="_blank">https://github.com/tiangolo/fastapi</a></p>
 <hr />
-<p>FastAPI 是<strong>快速</strong>构建高效 API 的现代 Web 框架，它使用的是 Python 3.6+，并基于 Python 标准类型提示。</p>
+<p>FastAPI 基于 Python 3.7+ 及 Python 标准类型提示，是快速构建高性能 API 的现代 Web 框架。</p>
 <p>核心特性：</p>
 <ul>
-<li><strong>速度快</strong>：可与 <strong>NodeJS</strong> 和 <strong>Go</strong> 比肩的极高性能（归功于 Starlette 和 Pydantic），是<a href="#_11">最快的 Python 网络框架之一</a></li>
-<li><strong>开发快</strong>：开发速度提高约 200％ 至 300％*</li>
-<li><strong>Bug 少</strong>：人为错误减少约 40％*</li>
-<li><strong>智能</strong>：强大的编辑器支持，处处皆可<abbr title="也叫自动完成、智能感知">自动补全</abbr>，减少调试时间</li>
-<li><strong>简单</strong>：易学、易用，阅读文档所需时间更短</li>
-<li><strong>简短</strong>：代码重复最小化，通过不同的参数声明实现丰富功能，Bug 更少</li>
-<li><strong>健壮</strong>：生产级别的代码，还有自动交互文档</li>
-<li><strong>标准</strong>：完全兼容并基于 API 开放标准：<a href="https://github.com/OAI/OpenAPI-Specification" class="external-link" target="_blank">OpenAPI</a>（曾用名为 Swagger）和 <a href="https://json-schema.org/" class="external-link" target="_blank">JSON Schema</a></li>
+<li><strong>速度快</strong>：归功于 Starlette 和 Pydantic，FastAPI 具有可与 <strong>NodeJS</strong> 和 <strong>Go</strong> 比肩的极高性能，是<a href="#_11">最快的 Python 网络框架之一</a>。</li>
+<li><strong>开发快</strong>：开发速度提高约 200％ 至 300％*。</li>
+<li><strong>Bug 少</strong>：人为错误减少约 40％*。</li>
+<li><strong>智能</strong>：强大的编辑器支持，处处皆可<abbr title="也叫自动完成、智能感知">自动补全</abbr>，减少调试时间。</li>
+<li><strong>简单</strong>：易学、易用，阅读文档所需时间更短。</li>
+<li><strong>简短</strong>：代码重复最小化，通过不同的参数声明实现丰富功能，Bug 更少。</li>
+<li><strong>健壮</strong>：生产级别的代码，还有自动交互文档。</li>
+<li><strong>标准</strong>：完全兼容并基于 API 开放标准：<a href="https://github.com/OAI/OpenAPI-Specification" class="external-link" target="_blank">OpenAPI</a>（曾用名为 Swagger）和 <a href="https://json-schema.org/" class="external-link" target="_blank">JSON Schema</a>。</li>
 </ul>
 <p><small>* 根据对某线上应用内部开发团队的测试估算得出。</small></p>
-<h2 id="_1">金牌赞助商<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="_1">赞助商<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <!-- sponsors -->
 
-<p><a href="https://bit.ly/2QSouzH" target="_blank" title="Jina: build neural search-as-a-service for any kind of data in just minutes."><img src="https://fastapi.tiangolo.com/img/sponsors/jina.svg"></a></p>
+<p><a href="https://bit.ly/3dmXC5S" target="_blank" title="The data structure for unstructured multimodal data"><img src="https://fastapi.tiangolo.com/img/sponsors/docarray.svg" style="border-radius:15px"></a>
+<a href="https://bit.ly/3JJ7y5C" target="_blank" title="Build cross-modal and multimodal applications on the cloud"><img src="https://fastapi.tiangolo.com/img/sponsors/jina2.svg" style="border-radius:15px"></a>
+<a href="https://cryptapi.io/" target="_blank" title="CryptAPI: Your easy to use, secure and privacy oriented payment gateway."><img src="https://fastapi.tiangolo.com/img/sponsors/cryptapi.svg" style="border-radius:15px"></a>
+<a href="https://doist.com/careers/9B437B1615-wa-senior-backend-engineer-python" target="_blank" title="Help us migrate doist to FastAPI"><img src="https://fastapi.tiangolo.com/img/sponsors/doist.svg" style="border-radius:15px"></a>
+<a href="https://www.deta.sh/?ref=fastapi" target="_blank" title="The launchpad for all your (team's) ideas"><img src="https://fastapi.tiangolo.com/img/sponsors/deta.svg" style="border-radius:15px"></a>
+<a href="https://www.investsuite.com/jobs" target="_blank" title="Wealthtech jobs with FastAPI"><img src="https://fastapi.tiangolo.com/img/sponsors/investsuite.svg" style="border-radius:15px"></a>
+<a href="https://training.talkpython.fm/fastapi-courses" target="_blank" title="FastAPI video courses on demand from people you trust"><img src="https://fastapi.tiangolo.com/img/sponsors/talkpython.png" style="border-radius:15px"></a>
+<a href="https://testdriven.io/courses/tdd-fastapi/" target="_blank" title="Learn to build high-quality web apps with best practices"><img src="https://fastapi.tiangolo.com/img/sponsors/testdriven.svg" style="border-radius:15px"></a>
+<a href="https://github.com/deepset-ai/haystack/" target="_blank" title="Build powerful search from composable, open source building blocks"><img src="https://fastapi.tiangolo.com/img/sponsors/haystack-fastapi.svg" style="border-radius:15px"></a>
+<a href="https://www.udemy.com/course/fastapi-rest/" target="_blank" title="Learn FastAPI by building a complete project. Extend your knowledge on advanced web development-AWS, Payments, Emails."><img src="https://fastapi.tiangolo.com/img/sponsors/ines-course.jpg" style="border-radius:15px"></a>
+<a href="https://careers.budget-insight.com/" target="_blank" title="Budget Insight is hiring!"><img src="https://fastapi.tiangolo.com/img/sponsors/budget-insight.svg" style="border-radius:15px"></a></p>
 <!-- /sponsors -->
 
-<p><a href="https://fastapi.tiangolo.com/fastapi-people/#sponsors" class="external-link" target="_blank">其它赞助商</a></p>
+<p><a href="https://fastapi.tiangolo.com/fastapi-people/#sponsors" class="external-link" target="_blank">其他赞助商</a></p>
 <h2 id="_2">评价<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>「<em>[...] 最近我一直在用 <strong>FastAPI</strong>。[...] 实际上，我打算用 FastAPI 实现<strong>微软</strong>团队的所有<strong>机器学习服务</strong>。目前，我们正把一些服务集成至 <strong>Windows</strong> 和 <strong>Office</strong> 等核心产品。</em>」</p>
 <div style="text-align: right; margin-right: 10%;">Kabir Khan - <strong>微软</strong> <a href="https://github.com/tiangolo/fastapi/pull/26" target="_blank"><small>(ref)</small></a></div>
@@ -2421,11 +2483,11 @@
 <p>如果您开发的不是 Web API，而是在终端中运行的<abbr title="Command Line Interface">命令行</abbr>应用，不妨试下 <a href="https://typer.tiangolo.com/" class="external-link" target="_blank"><strong>Typer</strong></a>。</p>
 <p><strong>Typer</strong> 是 FastAPI 的小兄弟，立志要成为<strong>命令行中的 FastAPI</strong>。 ⌨️ 🚀</p>
 <h2 id="_3">依赖支持<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>Python 3.6 及更高版本</p>
+<p>Python 3.7+</p>
 <p>FastAPI 站在以下巨人的肩膀上：</p>
 <ul>
-<li><a href="https://www.starlette.io/" class="external-link" target="_blank">Starlette</a> 负责网络</li>
-<li><a href="https://pydantic-docs.helpmanual.io/" class="external-link" target="_blank">Pydantic</a> 负责数据</li>
+<li><a href="https://www.starlette.io/" class="external-link" target="_blank">Starlette</a> 负责提供网络功能。</li>
+<li><a href="https://pydantic-docs.helpmanual.io/" class="external-link" target="_blank">Pydantic</a> 负责提供数据功能。</li>
 </ul>
 <h2 id="_4">安装<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <div class="termy">
@@ -2437,7 +2499,7 @@
 
 </div>
 
-<p>FastAPI 还需要 ASGI 服务器，生产环境下可以使用 <a href="https://www.uvicorn.org" class="external-link" target="_blank">Uvicorn</a> 或 <a href="https://gitlab.com/pgjones/hypercorn" class="external-link" target="_blank">Hypercorn</a>。</p>
+<p>FastAPI 还需要 ASGI 服务器，生产环境下可以使用 <a href="https://www.uvicorn.org" class="external-link" target="_blank">Uvicorn</a> 或 <a href="https://hypercorn.readthedocs.io/" class="external-link" target="_blank">Hypercorn</a>。</p>
 <div class="termy">
 
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>pip install uvicorn<span class="o">[</span>standard<span class="o">]</span>
@@ -2450,7 +2512,7 @@
 <h2 id="_5">示例<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <h3 id="_6">创建应用<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <ul>
-<li>创建 <code>main.py</code>，写入以下内容：</li>
+<li>创建 <code>main.py</code>，写入以下代码：</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
 
@@ -2470,7 +2532,7 @@
 </code></pre></div>
 <details>
 <summary>或者使用 <code>async def</code>...</summary>
-<p>如果代码中使用了 <code>async</code> / <code>await</code>，请配套使用 <code>async def</code>：</p>
+<p>如果代码中使用了 <code>async</code> / <code>await</code>，请使用 <code>async def</code>：</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
@@ -2509,30 +2571,30 @@
 <summary>关于 <code>uvicorn main:app --reload</code> 命令......</summary>
 <p><code>uvicorn main:app</code> 命令含义如下：</p>
 <ul>
-<li><code>main</code>：<code>main.py</code>（ Python <strong>模块</strong>）</li>
-<li><code>app</code>：<code>main.py</code> 中通过 <code>app = FastAPI()</code> 创建的对象</li>
-<li><code>--reload</code>：代码更新后，重启服务器。仅在开发时使用</li>
+<li><code>main</code>：<code>main.py</code>（ Python <strong>模块</strong>）。</li>
+<li><code>app</code>：<code>main.py</code> 中通过 <code>app = FastAPI()</code> 创建的对象。</li>
+<li><code>--reload</code>：代码更新后，重启服务器。仅在开发时使用。</li>
 </ul>
 </details>
 <h3 id="_8">查看文档<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
-<p>使用浏览器访问 <a href="http://127.0.0.1:8000/items/5?q=somequery" class="external-link" target="_blank">http://127.0.0.1:8000/items/5?q=somequery</a>。</p>
+<p>打开浏览器，访问 <a href="http://127.0.0.1:8000/items/5?q=somequery" class="external-link" target="_blank">http://127.0.0.1:8000/items/5?q=somequery</a>。</p>
 <p>返回如下 JSON 响应：</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;item_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;q&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;somequery&quot;</span><span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <p>至此，我们就创建了具有以下功能的 API：</p>
 <ul>
-<li>通过<em>路径</em> <code>/</code> 和 <code>/items/{item_id}</code> 接收 HTTP 请求</li>
-<li>这两个<em>路径</em>都能接收 <code>GET</code> 操作（也叫作 HTTP <em>方法</em>）</li>
-<li><code>/items/{item_id}</code> <em>路径</em>包含类型为 <code>int</code> 的<em>路径参数</em> <code>item_id</code></li>
-<li><code>/items/{item_id}</code> <em>路径</em>还包含可选的，类型为 <code>str</code> 的<em>查询参数</em> <code>q</code></li>
+<li>通过<strong>路径</strong> <code>/</code> 和 <code>/items/{item_id}</code> 接收 HTTP 请求。</li>
+<li>这两个<strong>路径</strong>都能接收 <code>GET</code> 操作（也叫作 HTTP 方法）。</li>
+<li><code>/items/{item_id}</code> <strong>路径</strong>包含类型为 <code>int</code> 的<strong>路径参数</strong> <code>item_id</code>。</li>
+<li><code>/items/{item_id}</code> <strong>路径</strong>还包含可选的，类型为 <code>str</code> 的<strong>查询参数</strong> <code>q</code>。</li>
 </ul>
 <h3 id="api">API 交互文档<a class="headerlink" href="#api" title="Permanent link">&para;</a></h3>
 <p>访问 <a href="http://127.0.0.1:8000/docs" class="external-link" target="_blank">http://127.0.0.1:8000/docs</a>。</p>
-<p>查看（由 <a href="https://github.com/swagger-api/swagger-ui" class="external-link" target="_blank">Swagger UI</a>）自动生成的 API 文档：</p>
+<p>查看由 <a href="https://github.com/swagger-api/swagger-ui" class="external-link" target="_blank">Swagger UI</a> 自动生成的 API 文档：</p>
 <p><img alt="Swagger UI" src="https://fastapi.tiangolo.com/img/index/index-01-swagger-ui-simple.png" /></p>
-<h3 id="api_1">备选 API 文档<a class="headerlink" href="#api_1" title="Permanent link">&para;</a></h3>
+<h3 id="api_1">备用 API 文档<a class="headerlink" href="#api_1" title="Permanent link">&para;</a></h3>
 <p>访问 <a href="http://127.0.0.1:8000/redoc" class="external-link" target="_blank">http://127.0.0.1:8000/redoc</a>。</p>
-<p>查看（由 <a href="https://github.com/Rebilly/ReDoc" class="external-link" target="_blank">ReDoc</a>）自动生成的 API 文档：</p>
+<p>查看由 <a href="https://github.com/Rebilly/ReDoc" class="external-link" target="_blank">ReDoc</a> 自动生成的 API 文档：</p>
 <p><img alt="ReDoc" src="https://fastapi.tiangolo.com/img/index/index-02-redoc-simple.png" /></p>
 <h2 id="_9">更新示例<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
 <p>修改 <code>main.py</code>，从 <code>PUT</code> 请求中接收请求体。</p>
@@ -2569,7 +2631,7 @@
 <h3 id="api_2">更新 API 文档<a class="headerlink" href="#api_2" title="Permanent link">&para;</a></h3>
 <p>访问 <a href="http://127.0.0.1:8000/docs" class="external-link" target="_blank">http://127.0.0.1:8000/docs</a>。</p>
 <ul>
-<li>自动更新 API 文档，加入新的请求体：</li>
+<li>自动更新 API 文档，包括新的请求体：</li>
 </ul>
 <p><img alt="Swagger UI" src="https://fastapi.tiangolo.com/img/index/index-03-swagger-02.png" /></p>
 <ul>
@@ -2580,7 +2642,7 @@
 <li>然后，点击「<strong>Execute</strong>」按钮，用户界面和 API 通信，发送参数，获取结果，并在屏幕上显示：</li>
 </ul>
 <p><img alt="Swagger UI interaction" src="https://fastapi.tiangolo.com/img/index/index-05-swagger-04.png" /></p>
-<h3 id="_10">更新备选文档<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<h3 id="_10">更新备用文档<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
 <p>访问 <a href="http://127.0.0.1:8000/redoc" class="external-link" target="_blank">http://127.0.0.1:8000/redoc</a>。</p>
 <ul>
 <li>备选文档也会显示新加入的请求参数和请求体：</li>
@@ -2590,30 +2652,30 @@
 <p>总的来说，和声明函数的参数一样，只需声明<strong>一次</strong>参数类型和请求体。</p>
 <p>在此，使用了现代 Python 的标准类型进行声明。</p>
 <p>开发者不用学习新语法，也不用了解特定库的方法或类。</p>
-<p>只要使用标准的 <strong>Python 3.6 及更高版本</strong>。</p>
-<p>举个例子，比如，声明 <code>int</code> 类型：</p>
+<p>只要使用标准的 <strong>Python 3.7+</strong>。</p>
+<p>例如，声明 <code>int</code>：</p>
 <div class="highlight"><pre><span></span><code><span class="n">item_id</span><span class="p">:</span> <span class="nb">int</span>
 </code></pre></div>
-<p>或者使用更复杂的 <code>Item</code> 模型：</p>
+<p>或使用更复杂的 <code>Item</code> 模型：</p>
 <div class="highlight"><pre><span></span><code><span class="n">item</span><span class="p">:</span> <span class="n">Item</span>
 </code></pre></div>
 <p>......只需一次声明，就可以获得以下好处：</p>
 <ul>
 <li>编辑器支持，包括：<ul>
-<li>自动补全</li>
-<li>类型检查</li>
+<li>自动补全。</li>
+<li>类型检查。</li>
 </ul>
 </li>
 <li>数据校验：<ul>
-<li>在校验失败时自动生成清晰的错误信息</li>
-<li>对多层嵌套的 JSON 对象依然执行校验</li>
+<li>校验失败时，自动生成清晰的错误信息。</li>
+<li>对多层嵌套的 JSON 对象依然执行校验。</li>
 </ul>
 </li>
-<li><abbr title="也叫：序列化或解析">转换</abbr>输入数据：转换为 Python 数据与类型。可以从以下对象中读取：<ul>
+<li><abbr title="也叫：序列化或解析">转换</abbr>输入数据：转换为 Python 数据与类型。可从以下对象中读取：<ul>
 <li>JSON</li>
 <li>路径参数</li>
 <li>查询参数</li>
-<li>Cookies</li>
+<li>Cookie</li>
 <li>请求头</li>
 <li>表单</li>
 <li>文件</li>
@@ -2624,7 +2686,7 @@
 <li><code>datetime</code> 对象</li>
 <li><code>UUID</code> 对象</li>
 <li>数据库模型</li>
-<li>......及更多其它类型</li>
+<li>......及更多其他类型</li>
 </ul>
 </li>
 <li>自动生成 API 交互文档，包括两种用户界面：<ul>
@@ -2656,7 +2718,7 @@
 <li>自动转换 JSON</li>
 <li>通过 OpenAPI 文档存档所有内容，可被用于：<ul>
 <li>API 文档</li>
-<li>其它编程语言的客户端代码自动生成系统</li>
+<li>其他编程语言的客户端代码自动生成系统</li>
 </ul>
 </li>
 <li>直接提供两种 API 文档</li>

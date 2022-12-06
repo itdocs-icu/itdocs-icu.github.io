@@ -47,6 +47,16 @@
     <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  
+  
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-133183413-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
 
     
     
@@ -122,7 +132,7 @@
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 10px 10px;
     text-decoration: none;
   }
 
@@ -170,7 +180,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -179,7 +189,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -1777,6 +1787,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generate-clients/" class="md-nav__link">
+        Generate Clients
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1874,6 +1898,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../deployment/manually/" class="md-nav__link">
+        Run a Server Manually - Uvicorn
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/concepts/" class="md-nav__link">
+        Deployments Concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../deployment/deta/" class="md-nav__link">
         在 Deta 上部署 FastAPI
       </a>
@@ -1888,8 +1940,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../deployment/docker/" class="md-nav__link">
-        使用 Docker 部署
+      <a href="../../deployment/server-workers/" class="md-nav__link">
+        Server Workers - Gunicorn with Uvicorn
       </a>
     </li>
   
@@ -1902,8 +1954,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../deployment/manually/" class="md-nav__link">
-        手动部署
+      <a href="../../deployment/docker/" class="md-nav__link">
+        使用 Docker 部署
       </a>
     </li>
   
@@ -1940,7 +1992,7 @@
   
     <li class="md-nav__item">
       <a href="../../alternatives/" class="md-nav__link">
-        备选、灵感、比较
+        备选、灵感与比较
       </a>
     </li>
   
@@ -2138,7 +2190,7 @@
 <p>FastAPI 基于 <strong>Pydantic</strong> 构建，前文已经介绍过如何使用 Pydantic 模型声明请求与响应。</p>
 <p>但 FastAPI 还可以使用数据类（<a href="https://docs.python.org/3/library/dataclasses.html" class="external-link" target="_blank"><code>dataclasses</code></a>）：</p>
 <div class="highlight"><pre><span></span><code><span class="hll"><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
-</span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+</span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
 
@@ -2147,8 +2199,8 @@
 </span><span class="hll"><span class="k">class</span> <span class="nc">Item</span><span class="p">:</span>
 </span><span class="hll">    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
 </span><span class="hll">    <span class="n">price</span><span class="p">:</span> <span class="nb">float</span>
-</span><span class="hll">    <span class="n">description</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
-</span><span class="hll">    <span class="n">tax</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+</span><span class="hll">    <span class="n">description</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+</span><span class="hll">    <span class="n">tax</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 </span>
 
 <span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
@@ -2176,7 +2228,7 @@
 <h2 id="response_model"><code>response_model</code> 使用数据类<a class="headerlink" href="#response_model" title="Permanent link">&para;</a></h2>
 <p>在 <code>response_model</code> 参数中使用 <code>dataclasses</code>：</p>
 <div class="highlight"><pre><span></span><code><span class="hll"><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
-</span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span>
+</span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
 
@@ -2186,8 +2238,8 @@
 </span><span class="hll">    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
 </span><span class="hll">    <span class="n">price</span><span class="p">:</span> <span class="nb">float</span>
 </span><span class="hll">    <span class="n">tags</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
-</span><span class="hll">    <span class="n">description</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
-</span><span class="hll">    <span class="n">tax</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+</span><span class="hll">    <span class="n">description</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+</span><span class="hll">    <span class="n">tax</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 </span>
 
 <span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
@@ -2204,13 +2256,13 @@
 </code></pre></div>
 <p>本例把数据类自动转换为 Pydantic 数据类。</p>
 <p>API 文档中也会显示相关概图：</p>
-<p><img src="/img/tutorial/dataclasses/image01.png"></p>
+<p><img src="https://fastapi.tiangolo.com/img/tutorial/dataclasses/image01.png"></p>
 <h2 id="_2">在嵌套数据结构中使用数据类<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>您还可以把 <code>dataclasses</code> 与其它类型注解组合在一起，创建嵌套数据结构。</p>
+<p>您还可以把 <code>dataclasses</code> 与其他类型注解组合在一起，创建嵌套数据结构。</p>
 <p>还有一些情况也可以使用 Pydantic 的 <code>dataclasses</code>。例如，在 API 文档中显示错误。</p>
 <p>本例把标准的 <code>dataclasses</code> 直接替换为 <code>pydantic.dataclasses</code>：</p>
 <div class="annotate highlight"><pre><span></span><code><span class="hll"><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">field</span>  <span class="c1"># (1)</span>
-</span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span>
+</span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
 <span class="hll"><span class="kn">from</span> <span class="nn">pydantic.dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>  <span class="c1"># (2)</span>
@@ -2219,7 +2271,7 @@
 <span class="hll"><span class="nd">@dataclass</span>
 </span><span class="hll"><span class="k">class</span> <span class="nc">Item</span><span class="p">:</span>
 </span><span class="hll">    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
-</span><span class="hll">    <span class="n">description</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+</span><span class="hll">    <span class="n">description</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 </span>
 
 <span class="hll"><span class="nd">@dataclass</span>
@@ -2279,7 +2331,7 @@
 <p><code>Author</code> 数据类用于 <code>response_model</code> 参数；</p>
 </li>
 <li>
-<p>其它带有数据类的标准类型注解也可以作为请求体；</p>
+<p>其他带有数据类的标准类型注解也可以作为请求体；</p>
 <p>本例使用的是 <code>Item</code> 数据类列表；</p>
 </li>
 <li>
@@ -2291,19 +2343,19 @@
 <p>再一次，可以把 <code>dataclasses</code> 与标准类型注解一起使用；</p>
 </li>
 <li>
-<p>注意，<em>路径操作函数</em>使用的是普通函数，不是异步函数；</p>
+<p>注意，<strong>路径操作函数</strong>使用的是普通函数，不是异步函数；</p>
 <p>与往常一样，在 FastAPI 中，可以按需组合普通函数与异步函数；</p>
 <p>如果不清楚何时使用异步函数或普通函数，请参阅<strong>急不可待？</strong>一节中对 <a href="https://fastapi.tiangolo.com/async/#in-a-hurry" target="_blank" class="internal-link"><code>async</code> 与 <code>await</code></a> 的说明；</p>
 </li>
 <li>
-<p><em>路径操作函数</em>返回的不是数据类（虽然它可以返回数据类），而是返回内含数据的字典列表；</p>
+<p><strong>路径操作函数</strong>返回的不是数据类（虽然它可以返回数据类），而是返回内含数据的字典列表；</p>
 <p>FastAPI 使用（包含数据类的） <code>response_model</code> 参数转换响应。</p>
 </li>
 </ol>
-<p>把 <code>dataclasses</code> 与其它类型注解组合在一起，可以组成不同形式的复杂数据结构。</p>
+<p>把 <code>dataclasses</code> 与其他类型注解组合在一起，可以组成不同形式的复杂数据结构。</p>
 <p>更多内容详见上述代码内的注释。</p>
 <h2 id="_3">深入学习<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>您还可以把 <code>dataclasses</code> 与其它 Pydantic 模型组合在一起，继承合并的模型，把它们包含在您自己的模型里。</p>
+<p>您还可以把 <code>dataclasses</code> 与其他 Pydantic 模型组合在一起，继承合并的模型，把它们包含在您自己的模型里。</p>
 <p>详见 <a href="https://pydantic-docs.helpmanual.io/usage/dataclasses/" class="external-link" target="_blank">Pydantic 官档 - 数据类</a>。</p>
 <h2 id="_4">版本<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>本章内容自 FastAPI <code>0.67.0</code> 版起生效。🔖</p>

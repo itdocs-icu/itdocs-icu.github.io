@@ -47,6 +47,16 @@
     <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  
+  
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-133183413-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
 
     
     
@@ -122,7 +132,7 @@
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 10px 10px;
     text-decoration: none;
   }
 
@@ -170,7 +180,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -179,7 +189,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -1806,6 +1816,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../advanced/generate-clients/" class="md-nav__link">
+        Generate Clients
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1903,6 +1927,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../deployment/manually/" class="md-nav__link">
+        Run a Server Manually - Uvicorn
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../deployment/concepts/" class="md-nav__link">
+        Deployments Concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../deployment/deta/" class="md-nav__link">
         在 Deta 上部署 FastAPI
       </a>
@@ -1917,8 +1969,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../deployment/docker/" class="md-nav__link">
-        使用 Docker 部署
+      <a href="../../../deployment/server-workers/" class="md-nav__link">
+        Server Workers - Gunicorn with Uvicorn
       </a>
     </li>
   
@@ -1931,8 +1983,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../deployment/manually/" class="md-nav__link">
-        手动部署
+      <a href="../../../deployment/docker/" class="md-nav__link">
+        使用 Docker 部署
       </a>
     </li>
   
@@ -1969,7 +2021,7 @@
   
     <li class="md-nav__item">
       <a href="../../../alternatives/" class="md-nav__link">
-        备选、灵感、比较
+        备选、灵感与比较
       </a>
     </li>
   
@@ -2223,7 +2275,7 @@
 </span>    <span class="k">finally</span><span class="p">:</span>
         <span class="n">db</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </code></pre></div>
-<p><code>yield</code> 生成的值会被注入到<em>路径操作</em>或其它依赖项：</p>
+<p><code>yield</code> 生成的值会被注入到<strong>路径操作</strong>或其他依赖项：</p>
 <div class="highlight"><pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">get_db</span><span class="p">():</span>
     <span class="n">db</span> <span class="o">=</span> <span class="n">DBSession</span><span class="p">()</span>
     <span class="k">try</span><span class="p">:</span>
@@ -2246,7 +2298,7 @@
 </div>
 <h2 id="yield-try">在依赖项中使用 <code>yield</code> 和 <code>try</code><a class="headerlink" href="#yield-try" title="Permanent link">&para;</a></h2>
 <p>把依赖项的 <code>yield</code> 置于 <code>try</code>  代码块中，就可以接收到所有使用该依赖项时触发的异常。</p>
-<p>假设执行过程中的某行代码（这行代码可能在<em>路径操作或其它依赖项中</em>）导致了数据库事务的<strong>回滚</strong>，或导致了任何其它错误，使用 <code>try</code>  就可以在当前依赖项中触发异常。</p>
+<p>假设执行过程中的某行代码（这行代码可能在<em>路径操作或其他依赖项中</em>）导致了数据库事务的<strong>回滚</strong>，或导致了任何其他错误，使用 <code>try</code>  就可以在当前依赖项中触发异常。</p>
 <p>所以，可以使用 <code>except SomeException</code> 在依赖项中捕获的异常。</p>
 <p>同理，可以使用 <code>finally</code> 以确保无论是否触发异常都执行退出步骤。</p>
 <div class="highlight"><pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">get_db</span><span class="p">():</span>
@@ -2354,21 +2406,21 @@ participant tasks as 后台任务
     opt raise
         dep --&gt;&gt; handler: 触发 HTTPException
         handler --&gt;&gt; client: HTTP 错误响应
-        dep --&gt;&gt; dep: 触发其它异常
+        dep --&gt;&gt; dep: 触发其他异常
     end
     dep -&gt;&gt; operation: 运行依赖项，例如，数据库会话
     opt raise
         operation --&gt;&gt; handler: 触发 HTTPException
         handler --&gt;&gt; client: HTTP 错误响应
-        operation --&gt;&gt; dep: 触发其它异常
+        operation --&gt;&gt; dep: 触发其他异常
     end
     operation -&gt;&gt; client: 返回响应至客户端
     Note over client,operation: 响应已发送，不能再进行修改
     opt Tasks
         operation --&gt;&gt; tasks: 发送后台任务
     end
-    opt 触发其它异常
-        tasks --&gt;&gt; dep: 触发其它异常
+    opt 触发其他异常
+        tasks --&gt;&gt; dep: 触发其他异常
     end
     Note over dep: yield 语句之后
     opt 处理异常
@@ -2376,12 +2428,12 @@ participant tasks as 后台任务
     end</code></pre>
 <div class="admonition info">
 <p class="admonition-title">说明</p>
-<p>FastAPI 只会向客户端发送<strong>一个响应</strong>。这个响应可能是错误响应，也可能是来自<em>路径操作</em>的响应。</p>
-<p>发送完这个响应后，不能再发送其它响应。</p>
+<p>FastAPI 只会向客户端发送<strong>一个响应</strong>。这个响应可能是错误响应，也可能是来自<strong>路径操作</strong>的响应。</p>
+<p>发送完这个响应后，不能再发送其他响应。</p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">提示</p>
-<p>上图显示的是 <code>HTTPException</code>, 但是也可以触发创建了<a class="internal-link" href="../../handling-errors/#install-custom-exception-handlers" target="_blank">自定义异常处理器</a>的任何其它异常。该异常不是由依赖项的退出代码处理，而是由自定义异常处理器处理。</p>
+<p>上图显示的是 <code>HTTPException</code>, 但是也可以触发创建了<a class="internal-link" href="../../handling-errors/#install-custom-exception-handlers" target="_blank">自定义异常处理器</a>的任何其他异常。该异常不是由依赖项的退出代码处理，而是由自定义异常处理器处理。</p>
 <p>但是，如果触发的不是由异常处理器处理的异常，则依赖项的退出代码将处理该异常。</p>
 </div>
 <h2 id="_4">上下文管理器<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
@@ -2394,7 +2446,7 @@ participant tasks as 后台任务
 </code></pre></div>
 <p>在底层，<code>open("./somefile.txt")</code> 创建了一个<strong>上下文管理器</strong>对象。</p>
 <p><code>with</code> 代码块运行完毕时，即使触发了异常，也一定会关闭文件。</p>
-<p>创建生成器依赖项，<strong>FastAPI</strong> 会在内部把该依赖项转换为上下文管理器，并将之与其它相关工具组合在一起。</p>
+<p>创建生成器依赖项，<strong>FastAPI</strong> 会在内部把该依赖项转换为上下文管理器，并将之与其他相关工具组合在一起。</p>
 <h3 id="_6">在生成器依赖项中使用上下文管理器<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <div class="admonition warning">
 <p class="admonition-title">警告</p>

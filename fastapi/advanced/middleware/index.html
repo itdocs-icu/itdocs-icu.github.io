@@ -47,6 +47,16 @@
     <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  
+  
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-133183413-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
 
     
     
@@ -122,7 +132,7 @@
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 10px 10px;
     text-decoration: none;
   }
 
@@ -170,7 +180,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -179,7 +189,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -1497,7 +1507,7 @@
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    其它中间件
+    其他中间件
   </a>
   
 </li>
@@ -1791,6 +1801,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generate-clients/" class="md-nav__link">
+        Generate Clients
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1888,6 +1912,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../deployment/manually/" class="md-nav__link">
+        Run a Server Manually - Uvicorn
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/concepts/" class="md-nav__link">
+        Deployments Concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../deployment/deta/" class="md-nav__link">
         在 Deta 上部署 FastAPI
       </a>
@@ -1902,8 +1954,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../deployment/docker/" class="md-nav__link">
-        使用 Docker 部署
+      <a href="../../deployment/server-workers/" class="md-nav__link">
+        Server Workers - Gunicorn with Uvicorn
       </a>
     </li>
   
@@ -1916,8 +1968,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../deployment/manually/" class="md-nav__link">
-        手动部署
+      <a href="../../deployment/docker/" class="md-nav__link">
+        使用 Docker 部署
       </a>
     </li>
   
@@ -1954,7 +2006,7 @@
   
     <li class="md-nav__item">
       <a href="../../alternatives/" class="md-nav__link">
-        备选、灵感、比较
+        备选、灵感与比较
       </a>
     </li>
   
@@ -2143,7 +2195,7 @@
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    其它中间件
+    其他中间件
   </a>
   
 </li>
@@ -2165,7 +2217,7 @@
 <h1 id="_1">高级中间件<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>用户指南介绍了如何为应用添加<a class="internal-link" href="../../tutorial/middleware/" target="_blank">自定义中间件</a> 。</p>
 <p>以及如何<a class="internal-link" href="../../tutorial/cors/" target="_blank">使用 <code>CORSMiddleware</code> 处理 CORS</a>。</p>
-<p>本章学习如何使用其它中间件。</p>
+<p>本章学习如何使用其他中间件。</p>
 <h2 id="asgi">添加 ASGI 中间件<a class="headerlink" href="#asgi" title="Permanent link">&para;</a></h2>
 <p>因为 <strong>FastAPI</strong> 基于 Starlette，且执行 <abbr title="Asynchronous Server Gateway Interface，异步服务器网关界面">ASGI</abbr> 规范，所以可以使用任意 ASGI 中间件。</p>
 <p>中间件不必是专为 FastAPI 或 Starlette 定制的，只要遵循 ASGI 规范即可。</p>
@@ -2186,7 +2238,7 @@
 
 <span class="n">app</span><span class="o">.</span><span class="n">add_middleware</span><span class="p">(</span><span class="n">UnicornMiddleware</span><span class="p">,</span> <span class="n">some_config</span><span class="o">=</span><span class="s2">&quot;rainbow&quot;</span><span class="p">)</span>
 </code></pre></div>
-<p><code>app.add_middleware()</code> 的第一个参数是中间件的类，其它参数则是要传递给中间件的参数。</p>
+<p><code>app.add_middleware()</code> 的第一个参数是中间件的类，其他参数则是要传递给中间件的参数。</p>
 <h2 id="_2">集成中间件<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p><strong>FastAPI</strong> 为常见用例提供了一些中间件，下面介绍怎么使用这些中间件。</p>
 <div class="admonition note">
@@ -2225,9 +2277,9 @@
 <span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Hello World&quot;</span><span class="p">}</span>
 </code></pre></div>
-<p>支持以下参数：</p>
+<p>支持的参数如下所示：</p>
 <ul>
-<li><code>allowed_hosts</code> - 允许的域名（主机名）列表。<code>*.example.com</code> 等通配符域名可以匹配子域名，或使用 <code>allowed_hosts=["*"]</code> 允许任意主机名，或省略中间件。</li>
+<li><code>allowed_hosts</code> - 获得许可的域名（主机名）列表。支持使用 <code>*.example.com</code> 等通配符匹配子域名。如需许可任意主机名，可使用 <code>allowed_hosts=["*"]</code> 或省略中间件。</li>
 </ul>
 <p>如果传入的请求没有通过验证，则发送 <code>400</code> 响应。</p>
 <h2 id="gzipmiddleware"><code>GZipMiddleware</code><a class="headerlink" href="#gzipmiddleware" title="Permanent link">&para;</a></h2>
@@ -2249,15 +2301,15 @@
 <ul>
 <li><code>minimum_size</code> - 小于最小字节的响应不使用 GZip。 默认值是 <code>500</code>。</li>
 </ul>
-<h2 id="_3">其它中间件<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>除了上述中间件外，FastAPI 还支持其它ASGI 中间件。</p>
+<h2 id="_3">其他中间件<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>除了上述中间件外，FastAPI 还支持其他ASGI 中间件。</p>
 <p>例如：</p>
 <ul>
 <li><a href="https://docs.sentry.io/platforms/python/asgi/" class="external-link" target="_blank">Sentry</a></li>
 <li><a href="https://github.com/encode/uvicorn/blob/master/uvicorn/middleware/proxy_headers.py" class="external-link" target="_blank">Uvicorn 的 <code>ProxyHeadersMiddleware</code></a></li>
 <li><a href="https://github.com/florimondmanca/msgpack-asgi" class="external-link" target="_blank">MessagePack</a></li>
 </ul>
-<p>其它可用中间件详见 <a href="https://www.starlette.io/middleware/" class="external-link" target="_blank">Starlette 官档 -  中间件</a> 及 <a href="https://github.com/florimondmanca/awesome-asgi" class="external-link" target="_blank">ASGI Awesome 列表</a>。</p>
+<p>其他可用中间件详见 <a href="https://www.starlette.io/middleware/" class="external-link" target="_blank">Starlette 官档 -  中间件</a> 及 <a href="https://github.com/florimondmanca/awesome-asgi" class="external-link" target="_blank">ASGI Awesome 列表</a>。</p>
 
               
             </article>

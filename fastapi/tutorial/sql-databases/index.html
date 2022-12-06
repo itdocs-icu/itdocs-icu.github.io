@@ -47,6 +47,16 @@
     <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  
+  
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-133183413-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
 
     
     
@@ -122,7 +132,7 @@
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 10px 10px;
     text-decoration: none;
   }
 
@@ -170,7 +180,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -179,7 +189,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -2061,6 +2071,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/generate-clients/" class="md-nav__link">
+        Generate Clients
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -2158,6 +2182,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../deployment/manually/" class="md-nav__link">
+        Run a Server Manually - Uvicorn
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/concepts/" class="md-nav__link">
+        Deployments Concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../deployment/deta/" class="md-nav__link">
         在 Deta 上部署 FastAPI
       </a>
@@ -2172,8 +2224,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../deployment/docker/" class="md-nav__link">
-        使用 Docker 部署
+      <a href="../../deployment/server-workers/" class="md-nav__link">
+        Server Workers - Gunicorn with Uvicorn
       </a>
     </li>
   
@@ -2186,8 +2238,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../deployment/manually/" class="md-nav__link">
-        手动部署
+      <a href="../../deployment/docker/" class="md-nav__link">
+        使用 Docker 部署
       </a>
     </li>
   
@@ -2224,7 +2276,7 @@
   
     <li class="md-nav__item">
       <a href="../../alternatives/" class="md-nav__link">
-        备选、灵感、比较
+        备选、灵感与比较
       </a>
     </li>
   
@@ -2740,7 +2792,7 @@
 <p>从宠物对象访问对应的表 <code>owners</code> 时，ORM 会完成所有获取信息的工作。</p>
 <p>常用的 ORM 包括：Django-ORM（Django 组件）、SQLAlchemy ORM（SQLAlchemy 组件，独立的支持库）和 Peewee（独立的支持库）等。</p>
 <p>本章介绍如何使用 <strong>SQLAlchemy ORM</strong>。</p>
-<p>其它 ORM 的使用方式与此类似。</p>
+<p>其他 ORM 的使用方式与此类似。</p>
 <div class="admonition tip">
 <p class="admonition-title">提示</p>
 <p>高级用户指南中有一章专门介绍如何使用 Peewee。</p>
@@ -2791,7 +2843,7 @@
 <span class="n">Base</span> <span class="o">=</span> <span class="n">declarative_base</span><span class="p">()</span>
 </code></pre></div>
 <p>本例<strong>连接</strong>的是 SQLite 数据库（打开 SQLite 数据库文件）。</p>
-<p>该数据库存储在与其它文件同一文件夹的 <code>sql_app.db</code>里。</p>
+<p>该数据库存储在与其他文件同一文件夹的 <code>sql_app.db</code>里。</p>
 <p>这就是为什么 URL 以 <code>./sql_app.db</code> 结尾。</p>
 <p>使用 <strong>PostgreSQL</strong> 数据库时，只需取消下面这行代码的注释：</p>
 <div class="highlight"><pre><span></span><code><span class="n">SQLALCHEMY_DATABASE_URL</span> <span class="o">=</span> <span class="s2">&quot;postgresql://user:password@postgresserver/db&quot;</span>
@@ -2799,7 +2851,7 @@
 <p>……并根据数据库的数据和证书进行调整（ 也适用于 MySQL、MariaDB 等数据库）。</p>
 <div class="admonition tip">
 <p class="admonition-title">提示</p>
-<p>使用其它数据库时必须修改这行代码。</p>
+<p>使用其他数据库时必须修改这行代码。</p>
 </div>
 <h3 id="sqlalchemy-engine">创建 SQLAlchemy 的 <code>engine</code><a class="headerlink" href="#sqlalchemy-engine" title="Permanent link">&para;</a></h3>
 <p>第一步是创建 SQLAlchemy <strong>引擎</strong>。</p>
@@ -2822,7 +2874,7 @@
 <p>参数：</p>
 <div class="highlight"><pre><span></span><code><span class="n">connect_args</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;check_same_thread&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
 </code></pre></div>
-<p>……只用于 SQLite，其它数据库不需要。</p>
+<p>……只用于 SQLite，其他数据库不需要。</p>
 <div class="admonition info">
 <p class="admonition-title">技术细节</p>
 <p>默认情况下，SQLite 只能与一个线程通信，即每个线程只处理一个独立的请求。</p>
@@ -2983,17 +3035,17 @@
 </div>
 <h3 id="pydantic_1">创建初始 Pydantic <em>模型</em>/概图<a class="headerlink" href="#pydantic_1" title="Permanent link">&para;</a></h3>
 <p>创建两个 Pydantic <em>模型</em> （<strong>概图</strong>）， <code>ItemBase</code> 和 <code>UserBase</code> ，并定义创建或读取数据时的共用属性。</p>
-<p>然后，创建 <code>ItemCreate</code> 和 <code>UserCreate</code> ，从两个基类继承（这样两个 <code>Create</code> 类就拥有相同的属性），再加上创建对象所需的其它数据（属性）。</p>
+<p>然后，创建 <code>ItemCreate</code> 和 <code>UserCreate</code> ，从两个基类继承（这样两个 <code>Create</code> 类就拥有相同的属性），再加上创建对象所需的其他数据（属性）。</p>
 <p>因此，在创建用户时也会包含<strong>密码</strong>。</p>
-<p>但为了安全起见，<code>password</code> 不能在其它 Pydantic <em>概图</em>中，例如，读取用户时，不要让 API 发送密码。</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span>
+<p>但为了安全起见，<code>password</code> 不能在其他 Pydantic <em>概图</em>中，例如，读取用户时，不要让 API 发送密码。</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span>
 
 <span class="hll"><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
 </span>
 
 <span class="hll"><span class="k">class</span> <span class="nc">ItemBase</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
 </span><span class="hll">    <span class="n">title</span><span class="p">:</span> <span class="nb">str</span>
-</span><span class="hll">    <span class="n">description</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+</span><span class="hll">    <span class="n">description</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 </span>
 
 <span class="hll"><span class="k">class</span> <span class="nc">ItemCreate</span><span class="p">(</span><span class="n">ItemBase</span><span class="p">):</span>
@@ -3037,14 +3089,14 @@
 <p>例如，创建 item 前，不知道分配给它的 ID 是什么，但读取 item 时（从 API 返回 item 时）就已经知道了 item 的 ID。</p>
 <p>同样，在读取用户时，可以断言 <code>items</code> 要包含属于该用户的 items。</p>
 <p>不仅是这些 items 的 ID，还有在 Pydantic <em>概图</em>中定义的用于读取 items 的所有数据：<code>Item</code>。</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
 
 
 <span class="k">class</span> <span class="nc">ItemBase</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
     <span class="n">title</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="n">description</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">description</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 
 
 <span class="k">class</span> <span class="nc">ItemCreate</span><span class="p">(</span><span class="n">ItemBase</span><span class="p">):</span>
@@ -3083,14 +3135,14 @@
 <p>现在，在读取 Pydantic <em>概图</em> 的<code>Item</code> 和 <code>User</code> 中，添加 <code>Config</code> 内部类。</p>
 <p><a href="https://pydantic-docs.helpmanual.io/#config" class="external-link" target="_blank"><code>Config</code></a> 类用于配置 Pydantic。</p>
 <p>在 <code>Config</code> 类中, 设置属性 <code>orm_mode = True</code>。</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
 
 
 <span class="k">class</span> <span class="nc">ItemBase</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
     <span class="n">title</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="n">description</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">description</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 
 
 <span class="k">class</span> <span class="nc">ItemCreate</span><span class="p">(</span><span class="n">ItemBase</span><span class="p">):</span>
@@ -3128,23 +3180,23 @@
 <p>与类型声明使用 <code>:</code> 不同 。</p>
 <p>这里是设置配置值，不是声明类型。</p>
 </div>
-<p>Pydantic 的 <code>orm_mode</code> 告诉 Pydantic <em>概图</em>读取数据，即使它不是<strong>字典</strong> ，而是 ORM 模型（或其它具有属性的对象）。</p>
+<p>Pydantic 的 <code>orm_mode</code> 告诉 Pydantic <em>概图</em>读取数据，即使它不是<strong>字典</strong> ，而是 ORM 模型（或其他具有属性的对象）。</p>
 <p>这样，就不再只是从 <code>dict</code> 中获取 <code>id</code> 值，如下所示：</p>
 <div class="highlight"><pre><span></span><code><span class="nb">id</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span>
 </code></pre></div>
 <p>还会从属性中获取 <code>id</code> 值，如下所示：</p>
 <div class="highlight"><pre><span></span><code><span class="nb">id</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">id</span>
 </code></pre></div>
-<p>通过这种方式，Pydantic <em>模型</em>与 ORM 兼容，只需在<em>路径操作</em>中的 <code>response_model</code> 参数中进行声明就可以了。</p>
+<p>通过这种方式，Pydantic <em>模型</em>与 ORM 兼容，只需在<strong>路径操作</strong>中的 <code>response_model</code> 参数中进行声明就可以了。</p>
 <p>返回数据库模型，并从中读取数据。</p>
 <h4 id="orm_mode">orm_mode 的技术细节<a class="headerlink" href="#orm_mode" title="Permanent link">&para;</a></h4>
-<p>默认情况下，SQLAlchemy 和其它许多工具是<strong>延迟加载</strong>。</p>
+<p>默认情况下，SQLAlchemy 和其他许多工具是<strong>延迟加载</strong>。</p>
 <p>即不从数据库中获取关系数据，直到要访问包含该数据的属性。</p>
 <p>例如，访问属性 <code>items</code>：</p>
 <div class="highlight"><pre><span></span><code><span class="n">current_user</span><span class="o">.</span><span class="n">items</span>
 </code></pre></div>
 <p>将使 SQLAlchemy 访问 <code>items</code> 表并为这个用户获取 items，但不是在此之前。</p>
-<p>没有 <code>orm_mode</code> ，从<em>路径操作</em>返回的 SQLAlchemy 模型不包含关系数据。</p>
+<p>没有 <code>orm_mode</code> ，从<strong>路径操作</strong>返回的 SQLAlchemy 模型不包含关系数据。</p>
 <p>即使 Pydantic 模型中声明了这些关系。</p>
 <p>但在 ORM 模式下，由于 Pydantic 要从属性（而不是假设的 <code>dict</code>）中访问所需数据，可以声明要返回的特定数据，Pydantic 甚至可以通过 ORM 中获取数据。</p>
 <h2 id="crud">CRUD 工具<a class="headerlink" href="#crud" title="Permanent link">&para;</a></h2>
@@ -3200,7 +3252,7 @@
 </code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">提示</p>
-<p>创建独立于<em>路径操作函数</em>，只用于与数据库交互（获取用户或项目）的函数，方便在其它部分复用这些函数，以及进行<abbr title="用代码编写的自动化测试，检查另一段代码是否工作正常。">单元测试</abbr>。</p>
+<p>创建独立于<strong>路径操作函数</strong>，只用于与数据库交互（获取用户或项目）的函数，方便在其他部分复用这些函数，以及进行<abbr title="用代码编写的自动化测试，检查另一段代码是否工作正常。">单元测试</abbr>。</p>
 </div>
 <h3 id="_7">创建数据<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <p>接下来，创建工具函数来创建数据。</p>
@@ -3412,8 +3464,8 @@
 <p>这样即可确保就算在处理请求时出现异常，数据库会话也会在请求之后关闭。。</p>
 <p><strong>但不能从退出代码中触发另一个异常</strong>。详见<a class="internal-link" href="../dependencies/dependencies-with-yield/#dependencies-with-yield-and-httpexception" target="_blank">生成器依赖项与 <code>HTTPException</code></a>。</p>
 </div>
-<p>然后，在<em>路径操作函数</em>中使用依赖项时，使用直接从 SQLAlchemy 导入的类型 <code>Session</code> 声明。</p>
-<p>这将在<em>路径操作函数</em>中提供更好的编辑器支持，因为编辑器知道 <code>db</code> 参数的类型是 <code>Session</code> :</p>
+<p>然后，在<strong>路径操作函数</strong>中使用依赖项时，使用直接从 SQLAlchemy 导入的类型 <code>Session</code> 声明。</p>
+<p>这将在<strong>路径操作函数</strong>中提供更好的编辑器支持，因为编辑器知道 <code>db</code> 参数的类型是 <code>Session</code> :</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">HTTPException</span>
@@ -3475,8 +3527,8 @@
 <p>参数 <code>db</code> 实际上是 <code>SessionLocal</code> 类型, 但是这个类（使用 <code>sessionmaker()</code>创建）是 SQLAlchemy <code>Session</code> 的<strong>代理</strong>，因此, 因此编辑器实际上并不知道提供了什么方法。</p>
 <p>但是通过将类型声明为 <code>Session</code>, 编辑器就可以知道可用的方法（<code>.add()</code>、<code>.query()</code>、<code>.commit()</code>, 等），并且可以提供自动补全等支持。类型声明不会影响实际对象。</p>
 </div>
-<h3 id="fastapi">创建 <strong>FastAPI</strong> <em>路径操作</em><a class="headerlink" href="#fastapi" title="Permanent link">&para;</a></h3>
-<p>最后要说的是，这里是标准的 <strong>FastAPI</strong> <em>路径操作</em> 代码。</p>
+<h3 id="fastapi">创建 <strong>FastAPI</strong> <strong>路径操作</strong><a class="headerlink" href="#fastapi" title="Permanent link">&para;</a></h3>
+<p>最后要说的是，这里是标准的 <strong>FastAPI</strong> <strong>路径操作</strong> 代码。</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">HTTPException</span>
@@ -3534,12 +3586,12 @@
 </span><span class="hll">    <span class="k">return</span> <span class="n">items</span>
 </span></code></pre></div>
 <p>在每个请求之前通过生成器依赖项创建数据库会话，在之后关闭。</p>
-<p>然后，可以在<em>路径操作函数</em>中创建所需的依赖项，以直接获得该会话。</p>
-<p>这样，就可以在<em>路径操作函数</em>内部直接调用 <code>crud.get_user</code>，并使用该会话。</p>
+<p>然后，可以在<strong>路径操作函数</strong>中创建所需的依赖项，以直接获得该会话。</p>
+<p>这样，就可以在<strong>路径操作函数</strong>内部直接调用 <code>crud.get_user</code>，并使用该会话。</p>
 <div class="admonition tip">
 <p class="admonition-title">提示</p>
 <p>注意，返回的值是 SQLAlchemy 模型或 SQLAlchemy 模型列表。</p>
-<p>但是，由于所有 <em>路径操作</em> 都有带有使用 <code>orm_mode</code> 的 Pydantic<em>模型</em>/概图的 <code>response_model</code>，Pydantic 模型中声明的数据将从它们中提取出来，并返回给客户端，同时进行所有正常的过滤和验证。</p>
+<p>但是，由于所有 <strong>路径操作</strong> 都有带有使用 <code>orm_mode</code> 的 Pydantic<em>模型</em>/概图的 <code>response_model</code>，Pydantic 模型中声明的数据将从它们中提取出来，并返回给客户端，同时进行所有正常的过滤和验证。</p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">提示</p>
@@ -3547,7 +3599,7 @@
 <p>但是由于该 <code>List</code> 的内容/参数是带有 orm_mode 的 Pydantic<em>模型</em>，数据将像往常一样被检索并返回给客户端，没有问题。</p>
 </div>
 <h3 id="def-async-def"><code>def</code> 和 <code>async def</code> 简介<a class="headerlink" href="#def-async-def" title="Permanent link">&para;</a></h3>
-<p>在这里，在<em>路径操作函数</em> 内部和依赖项中使用 SQLAlchemy 代码，反过来，它将与外部数据库通信。</p>
+<p>在这里，在<strong>路径操作函数</strong> 内部和依赖项中使用 SQLAlchemy 代码，反过来，它将与外部数据库通信。</p>
 <p>这可能需要一些<strong>等待</strong>。</p>
 <p>但由于 SQLAlchemy 不兼容直接使用 <code>await</code>，如下的代码:</p>
 <div class="highlight"><pre><span></span><code><span class="n">user</span> <span class="o">=</span> <span class="k">await</span> <span class="n">db</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">User</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
@@ -3555,7 +3607,7 @@
 <p>……反之，要使用：</p>
 <div class="highlight"><pre><span></span><code><span class="n">user</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">User</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
 </code></pre></div>
-<p>然后，声明<em>路径操作函数</em>和依赖没有使用 <code>async def</code>，只是普通的 <code>def</code>，如：</p>
+<p>然后，声明<strong>路径操作函数</strong>和依赖没有使用 <code>async def</code>，只是普通的 <code>def</code>，如：</p>
 <div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/users/</span><span class="si">{user_id}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">schemas</span><span class="o">.</span><span class="n">User</span><span class="p">)</span>
 <span class="hll"><span class="k">def</span> <span class="nf">read_user</span><span class="p">(</span><span class="n">user_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">db</span><span class="p">:</span> <span class="n">Session</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_db</span><span class="p">)):</span>
 </span>    <span class="n">db_user</span> <span class="o">=</span> <span class="n">crud</span><span class="o">.</span><span class="n">get_user</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="n">user_id</span><span class="o">=</span><span class="n">user_id</span><span class="p">)</span>
@@ -3570,9 +3622,9 @@
 <p>如果您很好奇，并且技术高超，可以阅读本文，了解 <code>async def</code> 和 <code>def</code>如何处理技术细节<a class="internal-link" href="../../async/#very-technical-details" target="_blank">Async</a> 文档。</p>
 </div>
 <h2 id="_10">迁移<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
-<p>因为直接使用 SQLAlchemy，不需要任何其它插件使它与 <strong>FastAPI</strong> 一起工作，所以可以直接使用 <a href="https://alembic.sqlalchemy.org" class="external-link" target="_blank">Alembic</a> 实现数据库<abbr title="自动更新数据库以拥有我们在模型中定义的任何新列。">迁移 </abbr> 。</p>
+<p>因为直接使用 SQLAlchemy，不需要任何其他插件使它与 <strong>FastAPI</strong> 一起工作，所以可以直接使用 <a href="https://alembic.sqlalchemy.org" class="external-link" target="_blank">Alembic</a> 实现数据库<abbr title="自动更新数据库以拥有我们在模型中定义的任何新列。">迁移 </abbr> 。</p>
 <p>由于与 SQLAlchemy 和 SQLAlchemy 模型相关的代码存在于独立的文件中，甚至可以使用 Alembic 执行迁移，而无需安装 FastAPI、Pydantic 等支持库。</p>
-<p>同样，也可以在与 <strong>FastAPI</strong> 无关的代码的其它部分中使用相同的 SQLAlchemy 模型和实用程序。</p>
+<p>同样，也可以在与 <strong>FastAPI</strong> 无关的代码的其他部分中使用相同的 SQLAlchemy 模型和实用程序。</p>
 <p>例如，在后台的 task worker <a href="https://docs.celeryproject.org" class="external-link" target="_blank">Celery</a>、<a href="https://python-rq.org/" class="external-link" target="_blank">RQ</a> 或 <a href="https://arq-docs.helpmanual.io/" class="external-link" target="_blank">ARQ</a>.</p>
 <h2 id="_11">回顾所有文件<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
 <p>注意，项目文件夹应为 <code>my_super_project</code>，该文件夹包含 <code>sql_app</code> 子文件夹。</p>
@@ -3632,14 +3684,14 @@
 <ul>
 <li><code>sql_app/schemas.py</code>:</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
 
 
 <span class="k">class</span> <span class="nc">ItemBase</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
     <span class="n">title</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="n">description</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">description</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 
 
 <span class="k">class</span> <span class="nc">ItemCreate</span><span class="p">(</span><span class="n">ItemBase</span><span class="p">):</span>
@@ -3882,7 +3934,7 @@
 </li>
 <li>中间件为<em>每个</em>请求运行<ul>
 <li>因此，将为每个请求创建连接。</li>
-<li>即使处理该请求的<em>路径操作</em>不需要数据库。</li>
+<li>即使处理该请求的<strong>路径操作</strong>不需要数据库。</li>
 </ul>
 </li>
 </ul>

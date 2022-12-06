@@ -47,6 +47,16 @@
     <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  
+  
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-133183413-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
 
     
     
@@ -122,7 +132,7 @@
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 10px 10px;
     text-decoration: none;
   }
 
@@ -170,7 +180,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -179,7 +189,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -1713,6 +1723,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/generate-clients/" class="md-nav__link">
+        Generate Clients
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1812,8 +1836,50 @@
   
   
     <li class="md-nav__item">
+      <a href="../manually/" class="md-nav__link">
+        Run a Server Manually - Uvicorn
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concepts/" class="md-nav__link">
+        Deployments Concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../deta/" class="md-nav__link">
         在 Deta 上部署 FastAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../server-workers/" class="md-nav__link">
+        Server Workers - Gunicorn with Uvicorn
       </a>
     </li>
   
@@ -1883,7 +1949,7 @@
         
           <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    树莓派与其它架构
+    树莓派与其他架构
   </a>
   
 </li>
@@ -1971,20 +2037,6 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../manually/" class="md-nav__link">
-        手动部署
-      </a>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -2015,7 +2067,7 @@
   
     <li class="md-nav__item">
       <a href="../../alternatives/" class="md-nav__link">
-        备选、灵感、比较
+        备选、灵感与比较
       </a>
     </li>
   
@@ -2191,7 +2243,7 @@
         
           <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    树莓派与其它架构
+    树莓派与其他架构
   </a>
   
 </li>
@@ -2316,8 +2368,8 @@
 
 <span class="k">COPY</span><span class="w"> </span>./app /app/app
 </code></pre></div>
-<h3 id="_2">树莓派与其它架构<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<p>如果在（使用 ARM 处理器的）树莓派或其它任何架构中运行 Docker，要基于 Python 基础镜像（多架构）从头创建 <code>Dockerfile</code>，并单独使用 Uvicorn。</p>
+<h3 id="_2">树莓派与其他架构<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>如果在（使用 ARM 处理器的）树莓派或其他任何架构中运行 Docker，要基于 Python 基础镜像（多架构）从头创建 <code>Dockerfile</code>，并单独使用 Uvicorn。</p>
 <p>本例中，<code>Dockerfile</code> 的内容如下：</p>
 <div class="highlight"><pre><span></span><code><span class="k">FROM</span><span class="w"> </span><span class="s">python:3.7</span>
 
@@ -2398,7 +2450,7 @@
 <p>查看（<a href="https://github.com/Rebilly/ReDoc" class="external-link" target="_blank">ReDoc</a>）备选 API 文档：</p>
 <p><img alt="ReDoc" src="https://fastapi.tiangolo.com/img/index/index-02-redoc-simple.png" /></p>
 <h2 id="traefik">Traefik<a class="headerlink" href="#traefik" title="Permanent link">&para;</a></h2>
-<p><a href="https://traefik.io/" class="external-link" target="_blank">Traefik</a> 是高性能反向代理/加载均衡器，用于执行 <strong>TLS 终止代理</strong>任务（其它功能除外）。</p>
+<p><a href="https://traefik.io/" class="external-link" target="_blank">Traefik</a> 是高性能反向代理/加载均衡器，用于执行 <strong>TLS 终止代理</strong>任务（其他功能除外）。</p>
 <p>它集成了 Let's Encrypt，可以处理所有 HTTPS 组件，包括获取与更新证书。</p>
 <p>Traefik 还集成了 Docker，可以在每个应用配置中声明域，用它读取配置，生成 HTTPS 证书，为应用自动提供 HTTPS 服务，而且无需在配置中进行任何更改。</p>
 <hr />
@@ -2430,7 +2482,7 @@
     <nav class="md-footer__inner md-grid" aria-label="页脚" >
       
         
-        <a href="../deta/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 在 Deta 上部署 FastAPI" rel="prev">
+        <a href="../server-workers/" class="md-footer__link md-footer__link--prev" aria-label="上一页: Server Workers - Gunicorn with Uvicorn" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -2439,20 +2491,20 @@
               <span class="md-footer__direction">
                 上一页
               </span>
-              在 Deta 上部署 FastAPI
+              Server Workers - Gunicorn with Uvicorn
             </div>
           </div>
         </a>
       
       
         
-        <a href="../manually/" class="md-footer__link md-footer__link--next" aria-label="下一页: 手动部署" rel="next">
+        <a href="../../project-generation/" class="md-footer__link md-footer__link--next" aria-label="下一页: 项目生成 - 模板" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 下一页
               </span>
-              手动部署
+              项目生成 - 模板
             </div>
           </div>
           <div class="md-footer__button md-icon">

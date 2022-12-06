@@ -47,6 +47,16 @@
     <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  
+  
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-133183413-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
 
     
     
@@ -122,7 +132,7 @@
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 10px 10px;
     text-decoration: none;
   }
 
@@ -170,7 +180,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -179,7 +189,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -1900,6 +1910,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/generate-clients/" class="md-nav__link">
+        Generate Clients
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1997,6 +2021,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../deployment/manually/" class="md-nav__link">
+        Run a Server Manually - Uvicorn
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/concepts/" class="md-nav__link">
+        Deployments Concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../deployment/deta/" class="md-nav__link">
         在 Deta 上部署 FastAPI
       </a>
@@ -2011,8 +2063,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../deployment/docker/" class="md-nav__link">
-        使用 Docker 部署
+      <a href="../../deployment/server-workers/" class="md-nav__link">
+        Server Workers - Gunicorn with Uvicorn
       </a>
     </li>
   
@@ -2025,8 +2077,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../deployment/manually/" class="md-nav__link">
-        手动部署
+      <a href="../../deployment/docker/" class="md-nav__link">
+        使用 Docker 部署
       </a>
     </li>
   
@@ -2063,7 +2115,7 @@
   
     <li class="md-nav__item">
       <a href="../../alternatives/" class="md-nav__link">
-        备选、灵感、比较
+        备选、灵感与比较
       </a>
     </li>
   
@@ -2381,7 +2433,7 @@
 
 
 <h1 id="_1">路径参数<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>FastAPI 使用 Python 字符串格式化语法声明<strong>路径参数</strong>（<strong>变量</strong>）：</p>
+<p>FastAPI 使用 Python 字符串格式化语法声明<strong><em>路径参数</em></strong>（<strong>变量</strong>）：</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
 
 <span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
@@ -2461,10 +2513,10 @@
 <p>同样，<code>str</code>、<code>float</code>、<code>bool</code> 以及很多复合数据类型都可以使用类型声明。</p>
 <p>下一章介绍详细内容。</p>
 <h2 id="_7">顺序很重要<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
-<p><em>路径操作</em>中的路径有时是写死的。</p>
+<p><strong>路径操作</strong>中的路径有时是写死的。</p>
 <p>比如要使用 <code>/users/me</code> 获取当前用户的数据。</p>
 <p>然后还要使用 <code>/users/{user_id}</code>，通过用户 ID 获取指定用户的数据。</p>
-<p>由于<em>路径操作</em>是按顺序依次运行的，因此，一定要在 <code>/users/{user_id}</code> 之前声明 <code>/users/me</code>：</p>
+<p>由于<strong>路径操作</strong>是按顺序依次运行的，因此，一定要在 <code>/users/{user_id}</code> 之前声明 <code>/users/me</code>：</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
 
 <span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
@@ -2481,7 +2533,7 @@
 </code></pre></div>
 <p>否则，<code>/users/{user_id}</code> 将匹配 <code>/users/me</code>，FastAPI 会把接收的值 <code>"me"</code> <strong>当作</strong> <code>user_id</code> 的参数。</p>
 <h2 id="_8">预设值<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
-<p>路径操作使用 Python 的 <abbr title="Enumeration"><code>Enum</code></abbr> 类型接收预设的<em>路径参数</em>。</p>
+<p>路径操作使用 Python 的 <abbr title="Enumeration"><code>Enum</code></abbr> 类型接收预设的<strong>路径参数</strong>。</p>
 <h3 id="enum">创建 <code>Enum</code> 类<a class="headerlink" href="#enum" title="Permanent link">&para;</a></h3>
 <p>导入 <code>Enum</code> 并创建继承自 <code>str</code> 和 <code>Enum</code> 的子类。</p>
 <p>通过从 <code>str</code> 继承，API 文档就能把值的类型定义为<strong>字符串</strong>，并且能正确渲染。</p>
@@ -2502,7 +2554,7 @@
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/models/</span><span class="si">{model_name}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="k">async</span> <span class="k">def</span> <span class="nf">get_model</span><span class="p">(</span><span class="n">model_name</span><span class="p">:</span> <span class="n">ModelName</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">model_name</span> <span class="o">==</span> <span class="n">ModelName</span><span class="o">.</span><span class="n">alexnet</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">model_name</span> <span class="ow">is</span> <span class="n">ModelName</span><span class="o">.</span><span class="n">alexnet</span><span class="p">:</span>
         <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;model_name&quot;</span><span class="p">:</span> <span class="n">model_name</span><span class="p">,</span> <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Deep Learning FTW!&quot;</span><span class="p">}</span>
 
     <span class="k">if</span> <span class="n">model_name</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="s2">&quot;lenet&quot;</span><span class="p">:</span>
@@ -2518,8 +2570,8 @@
 <p class="admonition-title">提示</p>
 <p><strong>AlexNet</strong>、<strong>ResNet</strong>、<strong>LeNet</strong> 是机器学习<abbr title="技术上来说是深度学习模型架构">模型</abbr>。</p>
 </div>
-<h3 id="_9">声明<em>路径参数</em><a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
-<p>使用 Enum 类（<code>ModelName</code>）创建使用类型注解的<em>路径参数</em>：</p>
+<h3 id="_9">声明<strong>路径参数</strong><a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>使用 Enum 类（<code>ModelName</code>）创建使用类型注解的<strong>路径参数</strong>：</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
@@ -2536,7 +2588,7 @@
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/models/</span><span class="si">{model_name}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">get_model</span><span class="p">(</span><span class="n">model_name</span><span class="p">:</span> <span class="n">ModelName</span><span class="p">):</span>
-</span>    <span class="k">if</span> <span class="n">model_name</span> <span class="o">==</span> <span class="n">ModelName</span><span class="o">.</span><span class="n">alexnet</span><span class="p">:</span>
+</span>    <span class="k">if</span> <span class="n">model_name</span> <span class="ow">is</span> <span class="n">ModelName</span><span class="o">.</span><span class="n">alexnet</span><span class="p">:</span>
         <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;model_name&quot;</span><span class="p">:</span> <span class="n">model_name</span><span class="p">,</span> <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Deep Learning FTW!&quot;</span><span class="p">}</span>
 
     <span class="k">if</span> <span class="n">model_name</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="s2">&quot;lenet&quot;</span><span class="p">:</span>
@@ -2545,10 +2597,10 @@
     <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;model_name&quot;</span><span class="p">:</span> <span class="n">model_name</span><span class="p">,</span> <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Have some residuals&quot;</span><span class="p">}</span>
 </code></pre></div>
 <h3 id="_10">查看文档<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
-<p>API 文档会显示预定义<em>路径参数</em>的可用值：</p>
+<p>API 文档会显示预定义<strong>路径参数</strong>的可用值：</p>
 <p><img src="/img/tutorial/path-params/image03.png"></p>
 <h3 id="python">使用 Python <em>枚举类型</em><a class="headerlink" href="#python" title="Permanent link">&para;</a></h3>
-<p><em>路径参数</em>的值是枚举的元素。</p>
+<p><strong>路径参数</strong>的值是枚举的元素。</p>
 <h4 id="_11">比较<em>枚举元素</em><a class="headerlink" href="#_11" title="Permanent link">&para;</a></h4>
 <p>枚举类 <code>ModelName</code> 中的<em>枚举元素</em>支持比较操作：</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
@@ -2567,7 +2619,7 @@
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/models/</span><span class="si">{model_name}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="k">async</span> <span class="k">def</span> <span class="nf">get_model</span><span class="p">(</span><span class="n">model_name</span><span class="p">:</span> <span class="n">ModelName</span><span class="p">):</span>
-<span class="hll">    <span class="k">if</span> <span class="n">model_name</span> <span class="o">==</span> <span class="n">ModelName</span><span class="o">.</span><span class="n">alexnet</span><span class="p">:</span>
+<span class="hll">    <span class="k">if</span> <span class="n">model_name</span> <span class="ow">is</span> <span class="n">ModelName</span><span class="o">.</span><span class="n">alexnet</span><span class="p">:</span>
 </span>        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;model_name&quot;</span><span class="p">:</span> <span class="n">model_name</span><span class="p">,</span> <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Deep Learning FTW!&quot;</span><span class="p">}</span>
 
     <span class="k">if</span> <span class="n">model_name</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="s2">&quot;lenet&quot;</span><span class="p">:</span>
@@ -2593,7 +2645,7 @@
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/models/</span><span class="si">{model_name}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="k">async</span> <span class="k">def</span> <span class="nf">get_model</span><span class="p">(</span><span class="n">model_name</span><span class="p">:</span> <span class="n">ModelName</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">model_name</span> <span class="o">==</span> <span class="n">ModelName</span><span class="o">.</span><span class="n">alexnet</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">model_name</span> <span class="ow">is</span> <span class="n">ModelName</span><span class="o">.</span><span class="n">alexnet</span><span class="p">:</span>
         <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;model_name&quot;</span><span class="p">:</span> <span class="n">model_name</span><span class="p">,</span> <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Deep Learning FTW!&quot;</span><span class="p">}</span>
 
 <span class="hll">    <span class="k">if</span> <span class="n">model_name</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="s2">&quot;lenet&quot;</span><span class="p">:</span>
@@ -2606,7 +2658,7 @@
 <p>使用 <code>ModelName.lenet.value</code> 也能获取值 <code>"lenet"</code>。</p>
 </div>
 <h4 id="_13">返回<em>枚举元素</em><a class="headerlink" href="#_13" title="Permanent link">&para;</a></h4>
-<p>即使嵌套在 JSON 请求体里（例如， <code>dict</code>），也可以从<em>路径操作</em>返回<em>枚举元素</em>。</p>
+<p>即使嵌套在 JSON 请求体里（例如， <code>dict</code>），也可以从<strong>路径操作</strong>返回<em>枚举元素</em>。</p>
 <p>返回给客户端之前，要把枚举元素转换为对应的值（本例中为字符串）：</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
 
@@ -2624,7 +2676,7 @@
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/models/</span><span class="si">{model_name}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="k">async</span> <span class="k">def</span> <span class="nf">get_model</span><span class="p">(</span><span class="n">model_name</span><span class="p">:</span> <span class="n">ModelName</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">model_name</span> <span class="o">==</span> <span class="n">ModelName</span><span class="o">.</span><span class="n">alexnet</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">model_name</span> <span class="ow">is</span> <span class="n">ModelName</span><span class="o">.</span><span class="n">alexnet</span><span class="p">:</span>
 <span class="hll">        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;model_name&quot;</span><span class="p">:</span> <span class="n">model_name</span><span class="p">,</span> <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Deep Learning FTW!&quot;</span><span class="p">}</span>
 </span>
     <span class="k">if</span> <span class="n">model_name</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="s2">&quot;lenet&quot;</span><span class="p">:</span>
@@ -2639,18 +2691,18 @@
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <h2 id="_14">包含路径的路径参数<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
-<p>假设<em>路径操作</em>的路径为 <code>/files/{file_path}</code>。</p>
-<p>但需要 <code>file_path</code> 中也包含<em>路径</em>，比如，<code>home/johndoe/myfile.txt</code>。</p>
+<p>假设<strong>路径操作</strong>的路径为 <code>/files/{file_path}</code>。</p>
+<p>但需要 <code>file_path</code> 中也包含<strong>路径</strong>，比如，<code>home/johndoe/myfile.txt</code>。</p>
 <p>此时，文件 URL 是这样的：<code>/files/home/johndoe/myfile.txt</code>。</p>
 <h3 id="openapi">OpenAPI 支持<a class="headerlink" href="#openapi" title="Permanent link">&para;</a></h3>
-<p>OpenAPI 不支持声明包含路径的<em>路径参数</em>，因为这会导致测试和定义更加困难。</p>
+<p>OpenAPI 不支持声明包含路径的<strong>路径参数</strong>，因为这会导致测试和定义更加困难。</p>
 <p>不过，仍可使用 Starlette 内置工具在 <strong>FastAPI</strong> 中实现这一功能。</p>
 <p>而且不影响文档正常运行，但是不会添加该参数包含路径的说明。</p>
 <h3 id="_15">路径转换器<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
-<p>直接使用 Starlette 的选项声明包含<em>路径</em>的<em>路径参数</em>：</p>
+<p>直接使用 Starlette 的选项声明包含<strong>路径</strong>的<strong>路径参数</strong>：</p>
 <div class="highlight"><pre><span></span><code>/files/{file_path:path}
 </code></pre></div>
-<p>本例中，参数名为 <code>file_path</code>，结尾部分的 <code>:path</code> 说明该参数应匹配<em>路径</em>。</p>
+<p>本例中，参数名为 <code>file_path</code>，结尾部分的 <code>:path</code> 说明该参数应匹配<strong>路径</strong>。</p>
 <p>用法如下：</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
 
@@ -2675,7 +2727,7 @@
 <li>API 注解和 API 文档</li>
 </ul>
 <p>只需要声明一次即可。</p>
-<p>这可能是除了性能以外，<strong>FastAPI</strong> 与其它框架相比的主要优势。</p>
+<p>这可能是除了性能以外，<strong>FastAPI</strong> 与其他框架相比的主要优势。</p>
 
               
             </article>

@@ -47,6 +47,16 @@
     <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  
+  
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-133183413-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
 
     
     
@@ -122,7 +132,7 @@
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 10px 10px;
     text-decoration: none;
   }
 
@@ -170,7 +180,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -179,7 +189,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -1758,6 +1768,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../advanced/generate-clients/" class="md-nav__link">
+        Generate Clients
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1855,6 +1879,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../deployment/manually/" class="md-nav__link">
+        Run a Server Manually - Uvicorn
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../deployment/concepts/" class="md-nav__link">
+        Deployments Concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../deployment/deta/" class="md-nav__link">
         在 Deta 上部署 FastAPI
       </a>
@@ -1869,8 +1921,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../deployment/docker/" class="md-nav__link">
-        使用 Docker 部署
+      <a href="../../../deployment/server-workers/" class="md-nav__link">
+        Server Workers - Gunicorn with Uvicorn
       </a>
     </li>
   
@@ -1883,8 +1935,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../deployment/manually/" class="md-nav__link">
-        手动部署
+      <a href="../../../deployment/docker/" class="md-nav__link">
+        使用 Docker 部署
       </a>
     </li>
   
@@ -1921,7 +1973,7 @@
   
     <li class="md-nav__item">
       <a href="../../../alternatives/" class="md-nav__link">
-        备选、灵感、比较
+        备选、灵感与比较
       </a>
     </li>
   
@@ -2097,16 +2149,16 @@
 <h1 id="_1">全局依赖项<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>有时，我们要为整个应用添加依赖项。</p>
 <p>通过与定义<a class="internal-link" href="../dependencies-in-path-operation-decorators/" target="_blank"><em>路径装饰器依赖项</em></a> 类似的方式，可以把依赖项添加至整个 <code>FastAPI</code> 应用。</p>
-<p>这样一来，就可以为所有<em>路径操作</em>应用该依赖项：</p>
+<p>这样一来，就可以为所有<strong>路径操作</strong>应用该依赖项：</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">Header</span><span class="p">,</span> <span class="n">HTTPException</span>
 
 
-<span class="k">async</span> <span class="k">def</span> <span class="nf">verify_token</span><span class="p">(</span><span class="n">x_token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Header</span><span class="p">(</span><span class="o">...</span><span class="p">)):</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">verify_token</span><span class="p">(</span><span class="n">x_token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Header</span><span class="p">()):</span>
     <span class="k">if</span> <span class="n">x_token</span> <span class="o">!=</span> <span class="s2">&quot;fake-super-secret-token&quot;</span><span class="p">:</span>
         <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;X-Token header invalid&quot;</span><span class="p">)</span>
 
 
-<span class="k">async</span> <span class="k">def</span> <span class="nf">verify_key</span><span class="p">(</span><span class="n">x_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Header</span><span class="p">(</span><span class="o">...</span><span class="p">)):</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">verify_key</span><span class="p">(</span><span class="n">x_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Header</span><span class="p">()):</span>
     <span class="k">if</span> <span class="n">x_key</span> <span class="o">!=</span> <span class="s2">&quot;fake-super-secret-key&quot;</span><span class="p">:</span>
         <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;X-Key header invalid&quot;</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">x_key</span>
@@ -2124,9 +2176,9 @@
 <span class="k">async</span> <span class="k">def</span> <span class="nf">read_users</span><span class="p">():</span>
     <span class="k">return</span> <span class="p">[{</span><span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;Rick&quot;</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;Morty&quot;</span><span class="p">}]</span>
 </code></pre></div>
-<p><a class="internal-link" href="../dependencies-in-path-operation-decorators/" target="_blank"><em>路径装饰器依赖项</em></a> 一章的思路均适用于全局依赖项， 在本例中，这些依赖项可以用于应用中的所有<em>路径操作</em>。</p>
+<p><a class="internal-link" href="../dependencies-in-path-operation-decorators/" target="_blank"><em>路径装饰器依赖项</em></a> 一章的思路均适用于全局依赖项， 在本例中，这些依赖项可以用于应用中的所有<strong>路径操作</strong>。</p>
 <h2 id="_2">为一组路径操作定义依赖项<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>稍后，<a class="internal-link" href="../../bigger-applications/" target="_blank">大型应用 - 多文件</a>一章中会介绍如何使用多个文件创建大型应用，在这一章中，您将了解到如何为一组<em>路径操作</em>声明单个 <code>dependencies</code> 参数。</p>
+<p>稍后，<a class="internal-link" href="../../bigger-applications/" target="_blank">大型应用 - 多文件</a>一章中会介绍如何使用多个文件创建大型应用，在这一章中，您将了解到如何为一组<strong>路径操作</strong>声明单个 <code>dependencies</code> 参数。</p>
 
               
             </article>

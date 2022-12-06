@@ -47,6 +47,16 @@
     <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  
+  
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-133183413-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
 
     
     
@@ -122,7 +132,7 @@
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 10px 10px;
     text-decoration: none;
   }
 
@@ -170,7 +180,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -179,7 +189,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -1713,6 +1723,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../advanced/generate-clients/" class="md-nav__link">
+        Generate Clients
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1810,6 +1834,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../deployment/manually/" class="md-nav__link">
+        Run a Server Manually - Uvicorn
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/concepts/" class="md-nav__link">
+        Deployments Concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../deployment/deta/" class="md-nav__link">
         在 Deta 上部署 FastAPI
       </a>
@@ -1824,8 +1876,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../deployment/docker/" class="md-nav__link">
-        使用 Docker 部署
+      <a href="../deployment/server-workers/" class="md-nav__link">
+        Server Workers - Gunicorn with Uvicorn
       </a>
     </li>
   
@@ -1838,8 +1890,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../deployment/manually/" class="md-nav__link">
-        手动部署
+      <a href="../deployment/docker/" class="md-nav__link">
+        使用 Docker 部署
       </a>
     </li>
   
@@ -1876,7 +1928,7 @@
   
     <li class="md-nav__item">
       <a href="../alternatives/" class="md-nav__link">
-        备选、灵感、比较
+        备选、灵感与比较
       </a>
     </li>
   
@@ -1984,16 +2036,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#developing" class="md-nav__link">
-    Developing
+  <a href="#_1" class="md-nav__link">
+    开发
   </a>
   
-    <nav class="md-nav" aria-label="Developing">
+    <nav class="md-nav" aria-label="开发">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#virtual-environment-with-venv" class="md-nav__link">
-    Virtual environment with venv
+  <a href="#venv" class="md-nav__link">
+    用 venv 管理虚拟环境
   </a>
   
 </li>
@@ -2006,11 +2058,11 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#flit" class="md-nav__link">
-    Flit
+  <a href="#pip" class="md-nav__link">
+    pip
   </a>
   
-    <nav class="md-nav" aria-label="Flit">
+    <nav class="md-nav" aria-label="pip">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2028,13 +2080,6 @@
           <li class="md-nav__item">
   <a href="#format" class="md-nav__link">
     Format
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#format-imports" class="md-nav__link">
-    Format imports
   </a>
   
 </li>
@@ -2225,16 +2270,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#developing" class="md-nav__link">
-    Developing
+  <a href="#_1" class="md-nav__link">
+    开发
   </a>
   
-    <nav class="md-nav" aria-label="Developing">
+    <nav class="md-nav" aria-label="开发">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#virtual-environment-with-venv" class="md-nav__link">
-    Virtual environment with venv
+  <a href="#venv" class="md-nav__link">
+    用 venv 管理虚拟环境
   </a>
   
 </li>
@@ -2247,11 +2292,11 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#flit" class="md-nav__link">
-    Flit
+  <a href="#pip" class="md-nav__link">
+    pip
   </a>
   
-    <nav class="md-nav" aria-label="Flit">
+    <nav class="md-nav" aria-label="pip">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2269,13 +2314,6 @@
           <li class="md-nav__item">
   <a href="#format" class="md-nav__link">
     Format
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#format-imports" class="md-nav__link">
-    Format imports
   </a>
   
 </li>
@@ -2402,9 +2440,9 @@
 
 <h1 id="-">开发 - 贡献<a class="headerlink" href="#-" title="Permanent link">&para;</a></h1>
 <p>First, you might want to see the basic ways to <a class="internal-link" href="../help-fastapi/" target="_blank">help FastAPI and get help</a>.</p>
-<h2 id="developing">Developing<a class="headerlink" href="#developing" title="Permanent link">&para;</a></h2>
+<h2 id="_1">开发<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>If you already cloned the repository and you know that you need to deep dive in the code, here are some guidelines to set up your environment.</p>
-<h3 id="virtual-environment-with-venv">Virtual environment with <code>venv</code><a class="headerlink" href="#virtual-environment-with-venv" title="Permanent link">&para;</a></h3>
+<h3 id="venv">用 <code>venv</code> 管理虚拟环境<a class="headerlink" href="#venv" title="Permanent link">&para;</a></h3>
 <p>You can create a virtual environment in a directory using Python's <code>venv</code> module:</p>
 <div class="termy">
 
@@ -2416,19 +2454,21 @@
 <p>That will create a directory <code>./env/</code> with the Python binaries and then you will be able to install packages for that isolated environment.</p>
 <h3 id="activate-the-environment">Activate the environment<a class="headerlink" href="#activate-the-environment" title="Permanent link">&para;</a></h3>
 <p>Activate the new environment with:</p>
-<div class="tabbed-set" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Linux, macOS</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Linux, macOS</label><label for="__tabbed_1_2">Windows PowerShell</label><label for="__tabbed_1_3">Windows Bash</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="termy">
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span><span class="nb">source</span> ./env/bin/activate
 </code></pre></div>
 </div>
 </div>
-<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Windows PowerShell</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="termy">
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>.<span class="se">\e</span>nv<span class="se">\S</span>cripts<span class="se">\A</span>ctivate.ps1
 </code></pre></div>
 </div>
 </div>
-<input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><label for="__tabbed_1_3">Windows Bash</label><div class="tabbed-content">
+<div class="tabbed-block">
 <p>Or if you use Bash for Windows (e.g. <a href="https://gitforwindows.org/" class="external-link" target="_blank">Git Bash</a>):</p>
 <div class="termy">
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span><span class="nb">source</span> ./env/Scripts/activate
@@ -2436,8 +2476,11 @@
 </div>
 </div>
 </div>
+</div>
 <p>To check it worked, use:</p>
-<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Linux, macOS, Windows Bash</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Linux, macOS, Windows Bash</label><label for="__tabbed_2_2">Windows PowerShell</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="termy">
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>which pip
 
@@ -2445,7 +2488,7 @@
 </code></pre></div>
 </div>
 </div>
-<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">Windows PowerShell</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="termy">
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>Get-Command pip
 
@@ -2454,48 +2497,38 @@
 </div>
 </div>
 </div>
+</div>
 <p>If it shows the <code>pip</code> binary at <code>env/bin/pip</code> then it worked. 🎉</p>
+<p>Make sure you have the latest pip version on your virtual environment to avoid errors on the next steps:</p>
+<div class="termy">
+
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>python -m pip install --upgrade pip
+
+<span class="go">---&gt; 100%</span>
+</code></pre></div>
+
+</div>
+
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Every time you install a new package with <code>pip</code> under that environment, activate the environment again.</p>
-<p>This makes sure that if you use a terminal program installed by that package (like <code>flit</code>), you use the one from your local environment and not any other that could be installed globally.</p>
+<p>This makes sure that if you use a terminal program installed by that package, you use the one from your local environment and not any other that could be installed globally.</p>
 </div>
-<h3 id="flit">Flit<a class="headerlink" href="#flit" title="Permanent link">&para;</a></h3>
-<p><strong>FastAPI</strong> uses <a href="https://flit.readthedocs.io/en/latest/index.html" class="external-link" target="_blank">Flit</a> to build, package and publish the project.</p>
-<p>After activating the environment as described above, install <code>flit</code>:</p>
+<h3 id="pip">pip<a class="headerlink" href="#pip" title="Permanent link">&para;</a></h3>
+<p>After activating the environment as described above:</p>
 <div class="termy">
 
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>pip install flit
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>pip install -e .<span class="s2">&quot;[dev,doc,test]&quot;</span>
 
 <span class="go">---&gt; 100%</span>
 </code></pre></div>
 
 </div>
 
-<p>Now re-activate the environment to make sure you are using the <code>flit</code> you just installed (and not a global one).</p>
-<p>And now use <code>flit</code> to install the development dependencies:</p>
-<div class="tabbed-set" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">Linux, macOS</label><div class="tabbed-content">
-<div class="termy">
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>flit install --deps develop --symlink
-
-<span class="go">---&gt; 100%</span>
-</code></pre></div>
-</div>
-</div>
-<input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">Windows</label><div class="tabbed-content">
-<p>If you are on Windows, use <code>--pth-file</code> instead of <code>--symlink</code>:</p>
-<div class="termy">
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>flit install --deps develop --pth-file
-
-<span class="go">---&gt; 100%</span>
-</code></pre></div>
-</div>
-</div>
-</div>
 <p>It will install all the dependencies and your local FastAPI in your local environment.</p>
 <h4 id="using-your-local-fastapi">Using your local FastAPI<a class="headerlink" href="#using-your-local-fastapi" title="Permanent link">&para;</a></h4>
 <p>If you create a Python file that imports and uses FastAPI, and run it with the Python from your local environment, it will use your local FastAPI source code.</p>
-<p>And if you update that local FastAPI source code, as it is installed with <code>--symlink</code> (or <code>--pth-file</code> on Windows), when you run that Python file again, it will use the fresh version of FastAPI you just edited.</p>
+<p>And if you update that local FastAPI source code, as it is installed with <code>-e</code>, when you run that Python file again, it will use the fresh version of FastAPI you just edited.</p>
 <p>That way, you don't have to "install" your local version to be able to test every change.</p>
 <h3 id="format">Format<a class="headerlink" href="#format" title="Permanent link">&para;</a></h3>
 <p>There is a script that you can run that will format and clean all your code:</p>
@@ -2507,17 +2540,7 @@
 </div>
 
 <p>It will also auto-sort all your imports.</p>
-<p>For it to sort them correctly, you need to have FastAPI installed locally in your environment, with the command in the section above using <code>--symlink</code> (or <code>--pth-file</code> on Windows).</p>
-<h3 id="format-imports">Format imports<a class="headerlink" href="#format-imports" title="Permanent link">&para;</a></h3>
-<p>There is another script that formats all the imports and makes sure you don't have unused imports:</p>
-<div class="termy">
-
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>bash scripts/format-imports.sh
-</code></pre></div>
-
-</div>
-
-<p>As it runs one command after the other and modifies and reverts many files, it takes a bit longer to run, so it might be easier to use <code>scripts/format.sh</code> frequently and <code>scripts/format-imports.sh</code> only before committing.</p>
+<p>For it to sort them correctly, you need to have FastAPI installed locally in your environment, with the command in the section above using <code>-e</code>.</p>
 <h2 id="docs">Docs<a class="headerlink" href="#docs" title="Permanent link">&para;</a></h2>
 <p>First, make sure you set up your environment as described above, that will install all the requirements.</p>
 <p>The documentation uses <a href="https://www.mkdocs.org/" class="external-link" target="_blank">MkDocs</a>.</p>
@@ -2655,7 +2678,7 @@
 <ul>
 <li>Now open the MkDocs config file for English at:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>docs/en/docs/mkdocs.yml
+<div class="highlight"><pre><span></span><code>docs/en/mkdocs.yml
 </code></pre></div>
 <ul>
 <li>Find the place where that <code>docs/features.md</code> is located in the config file. Somewhere like:</li>
@@ -2672,7 +2695,7 @@
 <ul>
 <li>Open the MkDocs config file for the language you are editing, e.g.:</li>
 </ul>
-<div class="highlight"><pre><span></span><code>docs/es/docs/mkdocs.yml
+<div class="highlight"><pre><span></span><code>docs/es/mkdocs.yml
 </code></pre></div>
 <ul>
 <li>Add it there at the exact same location it was for English, e.g.:</li>

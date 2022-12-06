@@ -47,6 +47,16 @@
     <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  
+  
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-133183413-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
 
     
     
@@ -122,7 +132,7 @@
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 10px 10px;
     text-decoration: none;
   }
 
@@ -170,7 +180,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -179,7 +189,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -1079,7 +1089,7 @@
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    其它中间件
+    其他中间件
   </a>
   
 </li>
@@ -1776,6 +1786,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/generate-clients/" class="md-nav__link">
+        Generate Clients
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1873,6 +1897,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../deployment/manually/" class="md-nav__link">
+        Run a Server Manually - Uvicorn
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/concepts/" class="md-nav__link">
+        Deployments Concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../deployment/deta/" class="md-nav__link">
         在 Deta 上部署 FastAPI
       </a>
@@ -1887,8 +1939,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../deployment/docker/" class="md-nav__link">
-        使用 Docker 部署
+      <a href="../../deployment/server-workers/" class="md-nav__link">
+        Server Workers - Gunicorn with Uvicorn
       </a>
     </li>
   
@@ -1901,8 +1953,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../deployment/manually/" class="md-nav__link">
-        手动部署
+      <a href="../../deployment/docker/" class="md-nav__link">
+        使用 Docker 部署
       </a>
     </li>
   
@@ -1939,7 +1991,7 @@
   
     <li class="md-nav__item">
       <a href="../../alternatives/" class="md-nav__link">
-        备选、灵感、比较
+        备选、灵感与比较
       </a>
     </li>
   
@@ -2113,7 +2165,7 @@
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    其它中间件
+    其他中间件
   </a>
   
 </li>
@@ -2134,12 +2186,12 @@
 
 <h1 id="_1">中间件<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p><strong>FastAPI</strong> 支持中间件。</p>
-<p><strong>中间件</strong>是在<em>路径操作</em>处理<strong>请求</strong>前及<strong>响应</strong>返回前执行的函数。</p>
+<p><strong>中间件</strong>是在<strong>路径操作</strong>处理<strong>请求</strong>前及<strong>响应</strong>返回前执行的函数。</p>
 <ul>
 <li>接收应用的每个<strong>请求</strong></li>
 <li>处理<strong>请求</strong></li>
-<li>（通过<em>路径操作</em>）把<strong>请求</strong>传递给应用的其它组件</li>
-<li>（通过<em>路径操作</em>）获取应用的<strong>响应</strong></li>
+<li>（通过<strong>路径操作</strong>）把<strong>请求</strong>传递给应用的其他组件</li>
+<li>（通过<strong>路径操作</strong>）获取应用的<strong>响应</strong></li>
 <li>处理<strong>响应</strong></li>
 <li>返回<strong>响应</strong></li>
 </ul>
@@ -2154,8 +2206,8 @@
 <ul>
 <li><code>request</code></li>
 <li>函数 <code>call_next</code> 接收参数 <code>request</code><ul>
-<li>函数把 <code>request</code> 传递给相应的<em>路径操作</em></li>
-<li>然后返回由相应的<em>路径操作</em>生成的 <code>response</code></li>
+<li>函数把 <code>request</code> 传递给相应的<strong>路径操作</strong></li>
+<li>然后返回由相应的<strong>路径操作</strong>生成的 <code>response</code></li>
 </ul>
 </li>
 <li>然后在返回 <code>response</code> 前进一步修改</li>
@@ -2186,7 +2238,7 @@
 <p><strong>FastAPI</strong> 为了开发者方便提供了该对象，但它直接继承自 Starlette。</p>
 </div>
 <h3 id="response"><code>response</code> 前后<a class="headerlink" href="#response" title="Permanent link">&para;</a></h3>
-<p>在<em>路径操作</em>接收 <code>request</code> 前，添加与请求一起运行的代码。</p>
+<p>在<strong>路径操作</strong>接收 <code>request</code> 前，添加与请求一起运行的代码。</p>
 <p>也可以在<em>响应</em>生成后，返回前添加代码。</p>
 <p>例如，添加自定义请求头 <code>X-Process-Time</code>，包含接收请求和生成响应的时间（秒）：</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">time</span>
@@ -2204,7 +2256,7 @@
 </span><span class="hll">    <span class="n">response</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s2">&quot;X-Process-Time&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">process_time</span><span class="p">)</span>
 </span>    <span class="k">return</span> <span class="n">response</span>
 </code></pre></div>
-<h2 id="_3">其它中间件<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_3">其他中间件<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p><a class="internal-link" href="../../advanced/middleware/" target="_blank">高级用户指南：高级中间件</a>一章中介绍了更多中间件。</p>
 <p>下一章，介绍如何使用中间件处理 <abbr title="Cross-Origin Resource Sharing">CORS</abbr>（跨域资源共享）。</p>
 

@@ -47,6 +47,16 @@
     <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  
+  
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-133183413-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
 
     
     
@@ -122,7 +132,7 @@
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 10px 10px;
     text-decoration: none;
   }
 
@@ -170,7 +180,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -179,7 +189,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -1887,6 +1897,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generate-clients/" class="md-nav__link">
+        Generate Clients
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1984,6 +2008,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../deployment/manually/" class="md-nav__link">
+        Run a Server Manually - Uvicorn
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/concepts/" class="md-nav__link">
+        Deployments Concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../deployment/deta/" class="md-nav__link">
         在 Deta 上部署 FastAPI
       </a>
@@ -1998,8 +2050,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../deployment/docker/" class="md-nav__link">
-        使用 Docker 部署
+      <a href="../../deployment/server-workers/" class="md-nav__link">
+        Server Workers - Gunicorn with Uvicorn
       </a>
     </li>
   
@@ -2012,8 +2064,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../deployment/manually/" class="md-nav__link">
-        手动部署
+      <a href="../../deployment/docker/" class="md-nav__link">
+        使用 Docker 部署
       </a>
     </li>
   
@@ -2050,7 +2102,7 @@
   
     <li class="md-nav__item">
       <a href="../../alternatives/" class="md-nav__link">
-        备选、灵感、比较
+        备选、灵感与比较
       </a>
     </li>
   
@@ -2366,7 +2418,7 @@
 <h2 id="_1">常规流程<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>常规（默认）流程如下。</p>
 <p><code>FastAPI</code> 应用（实例）提供了返回 OpenAPI 概图的 <code>.openapi()</code> 方法。</p>
-<p>作为应用对象创建的组成部分，要注册 <code>/openapi.json</code> （或其它为 <code>openapi_url</code> 设置的任意内容）<em>路径操作</em>。</p>
+<p>作为应用对象创建的组成部分，要注册 <code>/openapi.json</code> （或其他为 <code>openapi_url</code> 设置的任意内容）<strong>路径操作</strong>。</p>
 <p>它只返回包含应用的 <code>.openapi()</code> 方法操作结果的 JSON 响应。</p>
 <p>但默认情况下，<code>.openapi()</code> 只是检查 <code>.openapi_schema</code> 属性是否包含内容，并返回其中的内容。</p>
 <p>如果 <code>.openapi_schema</code> 属性没有内容，该方法就使用 <code>fastapi.openapi.utils.get_openapi</code> 工具函数生成内容。</p>
@@ -2376,7 +2428,7 @@
 <li><code>version</code>：API 的版本号，例如 <code>2.5.0</code></li>
 <li><code>openapi_version</code>： OpenAPI 规范的版本号，默认为最新版： <code>3.0.2</code></li>
 <li><code>description</code>：API 的描述说明</li>
-<li><code>routes</code>：路由列表，每个路由都是注册的<em>路径操作</em>。这些路由是从 <code>app.routes</code> 中提取的。</li>
+<li><code>routes</code>：路由列表，每个路由都是注册的<strong>路径操作</strong>。这些路由是从 <code>app.routes</code> 中提取的。</li>
 </ul>
 <h2 id="_2">覆盖默认值<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p><code>get_openapi()</code> 工具函数还可以用于生成 OpenAPI 概图，并利用上述信息参数覆盖指定的内容。</p>
@@ -2704,7 +2756,7 @@
     <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Hello </span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">}</span>
 </code></pre></div>
 <h3 id="_9">添加自定义文档<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
-<p>现在，创建自定义文档的<em>路径操作</em>。</p>
+<p>现在，创建自定义文档的<strong>路径操作</strong>。</p>
 <p>导入 FastAPI 内部函数为文档创建 HTML 页面，并把所需参数传递给这些函数：</p>
 <ul>
 <li><code>openapi_url</code>： API 文档获取 OpenAPI 概图的 HTML 页面，此处可使用 <code>app.openapi_url</code></li>
@@ -2758,12 +2810,12 @@
 </code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">提示</p>
-<p><code>swagger_ui_redirect</code> 的<em>路径操作</em>是 OAuth2 的辅助函数。</p>
+<p><code>swagger_ui_redirect</code> 的<strong>路径操作</strong>是 OAuth2 的辅助函数。</p>
 <p>集成 API 与 OAuth2 第三方应用时，您能进行身份验证，使用请求凭证返回 API 文档，并使用真正的 OAuth2 身份验证与 API 文档进行交互操作。</p>
 <p>Swagger UI 在后台进行处理，但它需要这个<strong>重定向</strong>辅助函数。</p>
 </div>
-<h3 id="_10">创建测试<em>路径操作</em><a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
-<p>现在，测试各项功能是否能顺利运行。创建<em>路径操作</em>：</p>
+<h3 id="_10">创建测试<strong>路径操作</strong><a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p>现在，测试各项功能是否能顺利运行。创建<strong>路径操作</strong>：</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
 <span class="kn">from</span> <span class="nn">fastapi.openapi.docs</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">get_redoc_html</span><span class="p">,</span>

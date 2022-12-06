@@ -10,21 +10,21 @@
       
       
       
-        <link rel="canonical" href="https://fastapi.tiangolo.com/zh/about/">
+        <link rel="canonical" href="https://fastapi.tiangolo.com/zh/deployment/server-workers/">
       
       <link rel="icon" href="https://fastapi.tiangolo.com/img/favicon.png">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.9">
     
     
       
-        <title>中文版说明 - FastAPI</title>
+        <title>Server Workers - Gunicorn with Uvicorn - FastAPI</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.1d29e8d0.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.1d29e8d0.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
         
       
       
@@ -40,11 +40,11 @@
       
     
     
-      <link rel="stylesheet" href="../css/termynal.css">
+      <link rel="stylesheet" href="../../css/termynal.css">
     
-      <link rel="stylesheet" href="../css/custom.css">
+      <link rel="stylesheet" href="../../css/custom.css">
     
-    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#server-workers-gunicorn-with-uvicorn" class="md-skip">
           跳转至
         </a>
       
@@ -151,7 +151,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href=".." title="FastAPI" class="md-header__button md-logo" aria-label="FastAPI" data-md-component="logo">
+    <a href="../.." title="FastAPI" class="md-header__button md-logo" aria-label="FastAPI" data-md-component="logo">
       
   <img src="https://fastapi.tiangolo.com/img/icon-white.svg" alt="logo">
 
@@ -169,7 +169,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              中文版说明
+              Server Workers - Gunicorn with Uvicorn
             
           </span>
         </div>
@@ -298,7 +298,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="FastAPI" class="md-nav__button md-logo" aria-label="FastAPI" data-md-component="logo">
+    <a href="../.." title="FastAPI" class="md-nav__button md-logo" aria-label="FastAPI" data-md-component="logo">
       
   <img src="https://fastapi.tiangolo.com/img/icon-white.svg" alt="logo">
 
@@ -328,7 +328,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         FastAPI
       </a>
     </li>
@@ -405,7 +405,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../features/" class="md-nav__link">
+      <a href="../../features/" class="md-nav__link">
         特性
       </a>
     </li>
@@ -420,7 +420,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../fastapi-people/" class="md-nav__link">
+      <a href="../../fastapi-people/" class="md-nav__link">
         FastAPI 社区
       </a>
     </li>
@@ -435,7 +435,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../python-types/" class="md-nav__link">
+      <a href="../../python-types/" class="md-nav__link">
         Python 类型提示
       </a>
     </li>
@@ -476,7 +476,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial/" class="md-nav__link">
+      <a href="../../tutorial/" class="md-nav__link">
         用户指南 - 简介
       </a>
     </li>
@@ -490,7 +490,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial/first-steps/" class="md-nav__link">
+      <a href="../../tutorial/first-steps/" class="md-nav__link">
         第一步
       </a>
     </li>
@@ -504,7 +504,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial/path-params/" class="md-nav__link">
+      <a href="../../tutorial/path-params/" class="md-nav__link">
         路径参数
       </a>
     </li>
@@ -518,7 +518,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial/query-params/" class="md-nav__link">
+      <a href="../../tutorial/query-params/" class="md-nav__link">
         查询参数
       </a>
     </li>
@@ -532,7 +532,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial/body/" class="md-nav__link">
+      <a href="../../tutorial/body/" class="md-nav__link">
         请求体
       </a>
     </li>
@@ -546,7 +546,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial/query-params-str-validations/" class="md-nav__link">
+      <a href="../../tutorial/query-params-str-validations/" class="md-nav__link">
         查询参数和字符串校验
       </a>
     </li>
@@ -560,7 +560,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial/path-params-numeric-validations/" class="md-nav__link">
+      <a href="../../tutorial/path-params-numeric-validations/" class="md-nav__link">
         路径参数和数值校验
       </a>
     </li>
@@ -574,7 +574,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial/body-multiple-params/" class="md-nav__link">
+      <a href="../../tutorial/body-multiple-params/" class="md-nav__link">
         请求体 - 多个参数
       </a>
     </li>
@@ -588,7 +588,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial/body-fields/" class="md-nav__link">
+      <a href="../../tutorial/body-fields/" class="md-nav__link">
         请求体 - 字段
       </a>
     </li>
@@ -602,7 +602,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial/body-nested-models/" class="md-nav__link">
+      <a href="../../tutorial/body-nested-models/" class="md-nav__link">
         请求体 - 嵌套模型
       </a>
     </li>
@@ -616,7 +616,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial/schema-extra-example/" class="md-nav__link">
+      <a href="../../tutorial/schema-extra-example/" class="md-nav__link">
         概图的更多信息 - 示例
       </a>
     </li>
@@ -630,7 +630,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial/extra-data-types/" class="md-nav__link">
+      <a href="../../tutorial/extra-data-types/" class="md-nav__link">
         更多数据类型
       </a>
     </li>
@@ -644,7 +644,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial/cookie-params/" class="md-nav__link">
+      <a href="../../tutorial/cookie-params/" class="md-nav__link">
         Cookie 参数
       </a>
     </li>
@@ -658,7 +658,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial/header-params/" class="md-nav__link">
+      <a href="../../tutorial/header-params/" class="md-nav__link">
         Header 参数
       </a>
     </li>
@@ -672,7 +672,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial/response-model/" class="md-nav__link">
+      <a href="../../tutorial/response-model/" class="md-nav__link">
         响应模型
       </a>
     </li>
@@ -686,7 +686,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial/extra-models/" class="md-nav__link">
+      <a href="../../tutorial/extra-models/" class="md-nav__link">
         更多模型
       </a>
     </li>
@@ -700,7 +700,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial/response-status-code/" class="md-nav__link">
+      <a href="../../tutorial/response-status-code/" class="md-nav__link">
         响应状态码
       </a>
     </li>
@@ -714,7 +714,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial/request-forms/" class="md-nav__link">
+      <a href="../../tutorial/request-forms/" class="md-nav__link">
         表单数据
       </a>
     </li>
@@ -728,7 +728,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial/request-files/" class="md-nav__link">
+      <a href="../../tutorial/request-files/" class="md-nav__link">
         请求文件
       </a>
     </li>
@@ -742,7 +742,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial/request-forms-and-files/" class="md-nav__link">
+      <a href="../../tutorial/request-forms-and-files/" class="md-nav__link">
         请求表单与文件
       </a>
     </li>
@@ -756,7 +756,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial/handling-errors/" class="md-nav__link">
+      <a href="../../tutorial/handling-errors/" class="md-nav__link">
         处理错误
       </a>
     </li>
@@ -770,7 +770,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial/path-operation-configuration/" class="md-nav__link">
+      <a href="../../tutorial/path-operation-configuration/" class="md-nav__link">
         路径操作配置
       </a>
     </li>
@@ -784,7 +784,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial/encoder/" class="md-nav__link">
+      <a href="../../tutorial/encoder/" class="md-nav__link">
         JSON 编码器
       </a>
     </li>
@@ -798,7 +798,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial/body-updates/" class="md-nav__link">
+      <a href="../../tutorial/body-updates/" class="md-nav__link">
         请求体 - 更新数据
       </a>
     </li>
@@ -838,7 +838,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial/dependencies/" class="md-nav__link">
+      <a href="../../tutorial/dependencies/" class="md-nav__link">
         依赖项 - 第一步
       </a>
     </li>
@@ -852,7 +852,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial/dependencies/classes-as-dependencies/" class="md-nav__link">
+      <a href="../../tutorial/dependencies/classes-as-dependencies/" class="md-nav__link">
         用类定义依赖项
       </a>
     </li>
@@ -866,7 +866,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial/dependencies/sub-dependencies/" class="md-nav__link">
+      <a href="../../tutorial/dependencies/sub-dependencies/" class="md-nav__link">
         子依赖项
       </a>
     </li>
@@ -880,7 +880,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial/dependencies/dependencies-in-path-operation-decorators/" class="md-nav__link">
+      <a href="../../tutorial/dependencies/dependencies-in-path-operation-decorators/" class="md-nav__link">
         路径操作装饰器依赖项
       </a>
     </li>
@@ -894,7 +894,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial/dependencies/global-dependencies/" class="md-nav__link">
+      <a href="../../tutorial/dependencies/global-dependencies/" class="md-nav__link">
         全局依赖项
       </a>
     </li>
@@ -908,7 +908,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial/dependencies/dependencies-with-yield/" class="md-nav__link">
+      <a href="../../tutorial/dependencies/dependencies-with-yield/" class="md-nav__link">
         生成器依赖项
       </a>
     </li>
@@ -955,7 +955,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial/security/" class="md-nav__link">
+      <a href="../../tutorial/security/" class="md-nav__link">
         安全 - 简介
       </a>
     </li>
@@ -969,7 +969,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial/security/first-steps/" class="md-nav__link">
+      <a href="../../tutorial/security/first-steps/" class="md-nav__link">
         安全 - 第一步
       </a>
     </li>
@@ -983,7 +983,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial/security/get-current-user/" class="md-nav__link">
+      <a href="../../tutorial/security/get-current-user/" class="md-nav__link">
         获取当前用户
       </a>
     </li>
@@ -997,7 +997,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial/security/simple-oauth2/" class="md-nav__link">
+      <a href="../../tutorial/security/simple-oauth2/" class="md-nav__link">
         OAuth2 实现简单的 Password 和 Bearer 验证
       </a>
     </li>
@@ -1011,7 +1011,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial/security/oauth2-jwt/" class="md-nav__link">
+      <a href="../../tutorial/security/oauth2-jwt/" class="md-nav__link">
         OAuth2 实现密码哈希与 Bearer + JWT Token 验证
       </a>
     </li>
@@ -1032,7 +1032,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial/middleware/" class="md-nav__link">
+      <a href="../../tutorial/middleware/" class="md-nav__link">
         中间件
       </a>
     </li>
@@ -1046,7 +1046,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial/cors/" class="md-nav__link">
+      <a href="../../tutorial/cors/" class="md-nav__link">
         CORS（跨域资源共享）
       </a>
     </li>
@@ -1060,7 +1060,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial/sql-databases/" class="md-nav__link">
+      <a href="../../tutorial/sql-databases/" class="md-nav__link">
         SQL 关系型数据库
       </a>
     </li>
@@ -1074,7 +1074,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial/bigger-applications/" class="md-nav__link">
+      <a href="../../tutorial/bigger-applications/" class="md-nav__link">
         大型应用 - 多个文件
       </a>
     </li>
@@ -1088,7 +1088,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial/background-tasks/" class="md-nav__link">
+      <a href="../../tutorial/background-tasks/" class="md-nav__link">
         后台任务
       </a>
     </li>
@@ -1102,7 +1102,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial/metadata/" class="md-nav__link">
+      <a href="../../tutorial/metadata/" class="md-nav__link">
         元数据和文档 URL
       </a>
     </li>
@@ -1116,7 +1116,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial/static-files/" class="md-nav__link">
+      <a href="../../tutorial/static-files/" class="md-nav__link">
         静态文件
       </a>
     </li>
@@ -1130,7 +1130,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial/testing/" class="md-nav__link">
+      <a href="../../tutorial/testing/" class="md-nav__link">
         测试
       </a>
     </li>
@@ -1144,7 +1144,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial/debugging/" class="md-nav__link">
+      <a href="../../tutorial/debugging/" class="md-nav__link">
         调试
       </a>
     </li>
@@ -1192,7 +1192,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../advanced/" class="md-nav__link">
+      <a href="../../advanced/" class="md-nav__link">
         高级用户指南 - 简介
       </a>
     </li>
@@ -1206,7 +1206,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../advanced/path-operation-advanced-configuration/" class="md-nav__link">
+      <a href="../../advanced/path-operation-advanced-configuration/" class="md-nav__link">
         路径操作高级配置
       </a>
     </li>
@@ -1220,7 +1220,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../advanced/additional-status-codes/" class="md-nav__link">
+      <a href="../../advanced/additional-status-codes/" class="md-nav__link">
         附加状态码
       </a>
     </li>
@@ -1234,7 +1234,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../advanced/response-directly/" class="md-nav__link">
+      <a href="../../advanced/response-directly/" class="md-nav__link">
         直接返回响应
       </a>
     </li>
@@ -1248,7 +1248,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../advanced/custom-response/" class="md-nav__link">
+      <a href="../../advanced/custom-response/" class="md-nav__link">
         自定义响应 - HTML、流、文件等
       </a>
     </li>
@@ -1262,7 +1262,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../advanced/additional-responses/" class="md-nav__link">
+      <a href="../../advanced/additional-responses/" class="md-nav__link">
         OpenAPI 中的附加响应
       </a>
     </li>
@@ -1276,7 +1276,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../advanced/response-cookies/" class="md-nav__link">
+      <a href="../../advanced/response-cookies/" class="md-nav__link">
         响应 - Cookie
       </a>
     </li>
@@ -1290,7 +1290,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../advanced/response-headers/" class="md-nav__link">
+      <a href="../../advanced/response-headers/" class="md-nav__link">
         响应头
       </a>
     </li>
@@ -1304,7 +1304,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../advanced/response-change-status-code/" class="md-nav__link">
+      <a href="../../advanced/response-change-status-code/" class="md-nav__link">
         响应 - 修改状态码
       </a>
     </li>
@@ -1318,7 +1318,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../advanced/advanced-dependencies/" class="md-nav__link">
+      <a href="../../advanced/advanced-dependencies/" class="md-nav__link">
         高级依赖项
       </a>
     </li>
@@ -1358,7 +1358,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../advanced/security/" class="md-nav__link">
+      <a href="../../advanced/security/" class="md-nav__link">
         高级安全 - 简介
       </a>
     </li>
@@ -1372,7 +1372,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../advanced/security/oauth2-scopes/" class="md-nav__link">
+      <a href="../../advanced/security/oauth2-scopes/" class="md-nav__link">
         OAuth2 作用域
       </a>
     </li>
@@ -1386,7 +1386,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../advanced/security/http-basic-auth/" class="md-nav__link">
+      <a href="../../advanced/security/http-basic-auth/" class="md-nav__link">
         HTTP 基础授权
       </a>
     </li>
@@ -1407,7 +1407,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../advanced/using-request-directly/" class="md-nav__link">
+      <a href="../../advanced/using-request-directly/" class="md-nav__link">
         直接使用请求
       </a>
     </li>
@@ -1421,7 +1421,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../advanced/dataclasses/" class="md-nav__link">
+      <a href="../../advanced/dataclasses/" class="md-nav__link">
         使用数据类
       </a>
     </li>
@@ -1435,7 +1435,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../advanced/middleware/" class="md-nav__link">
+      <a href="../../advanced/middleware/" class="md-nav__link">
         高级中间件
       </a>
     </li>
@@ -1449,7 +1449,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../advanced/sql-databases-peewee/" class="md-nav__link">
+      <a href="../../advanced/sql-databases-peewee/" class="md-nav__link">
         SQL 数据库与 Peewee
       </a>
     </li>
@@ -1463,7 +1463,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../advanced/async-sql-databases/" class="md-nav__link">
+      <a href="../../advanced/async-sql-databases/" class="md-nav__link">
         异步 SQL 关系型数据库
       </a>
     </li>
@@ -1477,7 +1477,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../advanced/nosql-databases/" class="md-nav__link">
+      <a href="../../advanced/nosql-databases/" class="md-nav__link">
         NoSQL（分布式/大数据）数据库
       </a>
     </li>
@@ -1491,7 +1491,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../advanced/sub-applications/" class="md-nav__link">
+      <a href="../../advanced/sub-applications/" class="md-nav__link">
         子应用 - 挂载
       </a>
     </li>
@@ -1505,7 +1505,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../advanced/behind-a-proxy/" class="md-nav__link">
+      <a href="../../advanced/behind-a-proxy/" class="md-nav__link">
         使用代理
       </a>
     </li>
@@ -1519,7 +1519,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../advanced/templates/" class="md-nav__link">
+      <a href="../../advanced/templates/" class="md-nav__link">
         模板
       </a>
     </li>
@@ -1533,7 +1533,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../advanced/graphql/" class="md-nav__link">
+      <a href="../../advanced/graphql/" class="md-nav__link">
         GraphQL
       </a>
     </li>
@@ -1547,7 +1547,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../advanced/websockets/" class="md-nav__link">
+      <a href="../../advanced/websockets/" class="md-nav__link">
         WebSockets 接口
       </a>
     </li>
@@ -1561,7 +1561,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../advanced/events/" class="md-nav__link">
+      <a href="../../advanced/events/" class="md-nav__link">
         事件：启动 - 关闭
       </a>
     </li>
@@ -1575,7 +1575,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../advanced/custom-request-and-route/" class="md-nav__link">
+      <a href="../../advanced/custom-request-and-route/" class="md-nav__link">
         自定义请求与 APIRoute 类
       </a>
     </li>
@@ -1589,7 +1589,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../advanced/testing-websockets/" class="md-nav__link">
+      <a href="../../advanced/testing-websockets/" class="md-nav__link">
         测试 WebSockets
       </a>
     </li>
@@ -1603,7 +1603,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../advanced/testing-events/" class="md-nav__link">
+      <a href="../../advanced/testing-events/" class="md-nav__link">
         测试事件：启动 - 关闭
       </a>
     </li>
@@ -1617,7 +1617,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../advanced/testing-dependencies/" class="md-nav__link">
+      <a href="../../advanced/testing-dependencies/" class="md-nav__link">
         测试依赖项
       </a>
     </li>
@@ -1631,7 +1631,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../advanced/testing-database/" class="md-nav__link">
+      <a href="../../advanced/testing-database/" class="md-nav__link">
         测试数据库
       </a>
     </li>
@@ -1645,7 +1645,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../advanced/async-tests/" class="md-nav__link">
+      <a href="../../advanced/async-tests/" class="md-nav__link">
         异步测试
       </a>
     </li>
@@ -1659,7 +1659,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../advanced/settings/" class="md-nav__link">
+      <a href="../../advanced/settings/" class="md-nav__link">
         设置与环境变量
       </a>
     </li>
@@ -1673,7 +1673,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../advanced/conditional-openapi/" class="md-nav__link">
+      <a href="../../advanced/conditional-openapi/" class="md-nav__link">
         配置 OpenAPI
       </a>
     </li>
@@ -1687,7 +1687,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../advanced/extending-openapi/" class="md-nav__link">
+      <a href="../../advanced/extending-openapi/" class="md-nav__link">
         扩展 OpenAPI
       </a>
     </li>
@@ -1701,7 +1701,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../advanced/openapi-callbacks/" class="md-nav__link">
+      <a href="../../advanced/openapi-callbacks/" class="md-nav__link">
         OpenAPI 回调
       </a>
     </li>
@@ -1715,7 +1715,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../advanced/wsgi/" class="md-nav__link">
+      <a href="../../advanced/wsgi/" class="md-nav__link">
         包含 WSGI - Flask、Django 等
       </a>
     </li>
@@ -1729,7 +1729,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../advanced/generate-clients/" class="md-nav__link">
+      <a href="../../advanced/generate-clients/" class="md-nav__link">
         Generate Clients
       </a>
     </li>
@@ -1751,7 +1751,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../async/" class="md-nav__link">
+      <a href="../../async/" class="md-nav__link">
         并发与异步
       </a>
     </li>
@@ -1764,12 +1764,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" checked>
       
       
       
@@ -1792,7 +1794,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../deployment/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         部署 - 简介
       </a>
     </li>
@@ -1806,7 +1808,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../deployment/versions/" class="md-nav__link">
+      <a href="../versions/" class="md-nav__link">
         FastAPI 版本
       </a>
     </li>
@@ -1820,7 +1822,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../deployment/https/" class="md-nav__link">
+      <a href="../https/" class="md-nav__link">
         关于 HTTPS
       </a>
     </li>
@@ -1834,7 +1836,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../deployment/manually/" class="md-nav__link">
+      <a href="../manually/" class="md-nav__link">
         Run a Server Manually - Uvicorn
       </a>
     </li>
@@ -1848,7 +1850,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../deployment/concepts/" class="md-nav__link">
+      <a href="../concepts/" class="md-nav__link">
         Deployments Concepts
       </a>
     </li>
@@ -1862,7 +1864,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../deployment/deta/" class="md-nav__link">
+      <a href="../deta/" class="md-nav__link">
         在 Deta 上部署 FastAPI
       </a>
     </li>
@@ -1874,11 +1876,94 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../deployment/server-workers/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Server Workers - Gunicorn with Uvicorn
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Server Workers - Gunicorn with Uvicorn
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#gunicorn-with-uvicorn-workers" class="md-nav__link">
+    Gunicorn with Uvicorn Workers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-gunicorn-and-uvicorn" class="md-nav__link">
+    Install Gunicorn and Uvicorn
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-gunicorn-with-uvicorn-workers" class="md-nav__link">
+    Run Gunicorn with Uvicorn Workers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uvicorn-with-workers" class="md-nav__link">
+    Uvicorn with Workers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment-concepts" class="md-nav__link">
+    Deployment Concepts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#containers-and-docker" class="md-nav__link">
+    Containers and Docker
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recap" class="md-nav__link">
+    Recap
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1890,7 +1975,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../deployment/docker/" class="md-nav__link">
+      <a href="../docker/" class="md-nav__link">
         使用 Docker 部署
       </a>
     </li>
@@ -1912,7 +1997,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../project-generation/" class="md-nav__link">
+      <a href="../../project-generation/" class="md-nav__link">
         项目生成 - 模板
       </a>
     </li>
@@ -1927,7 +2012,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../alternatives/" class="md-nav__link">
+      <a href="../../alternatives/" class="md-nav__link">
         备选、灵感与比较
       </a>
     </li>
@@ -1942,7 +2027,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../history-design-future/" class="md-nav__link">
+      <a href="../../history-design-future/" class="md-nav__link">
         历史、设计、未来
       </a>
     </li>
@@ -1957,7 +2042,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../external-links/" class="md-nav__link">
+      <a href="../../external-links/" class="md-nav__link">
         外部链接与文章
       </a>
     </li>
@@ -1972,7 +2057,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../benchmarks/" class="md-nav__link">
+      <a href="../../benchmarks/" class="md-nav__link">
         基准测试
       </a>
     </li>
@@ -1987,7 +2072,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../help-fastapi/" class="md-nav__link">
+      <a href="../../help-fastapi/" class="md-nav__link">
         帮助 FastAPI 与求助
       </a>
     </li>
@@ -2002,7 +2087,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../contributing/" class="md-nav__link">
+      <a href="../../contributing/" class="md-nav__link">
         开发 - 贡献
       </a>
     </li>
@@ -2017,7 +2102,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes/" class="md-nav__link">
+      <a href="../../release-notes/" class="md-nav__link">
         更新日志
       </a>
     </li>
@@ -2032,7 +2117,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../release-notes-cn/" class="md-nav__link">
+      <a href="../../release-notes-cn/" class="md-nav__link">
         中文官档 - 更新日志
       </a>
     </li>
@@ -2045,59 +2130,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          中文版说明
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
         中文版说明
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#pr" class="md-nav__link">
-    官网中文待审阅的 PR
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    译者
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2129,15 +2166,50 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#pr" class="md-nav__link">
-    官网中文待审阅的 PR
+  <a href="#gunicorn-with-uvicorn-workers" class="md-nav__link">
+    Gunicorn with Uvicorn Workers
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    译者
+  <a href="#install-gunicorn-and-uvicorn" class="md-nav__link">
+    Install Gunicorn and Uvicorn
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-gunicorn-with-uvicorn-workers" class="md-nav__link">
+    Run Gunicorn with Uvicorn Workers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uvicorn-with-workers" class="md-nav__link">
+    Uvicorn with Workers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment-concepts" class="md-nav__link">
+    Deployment Concepts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#containers-and-docker" class="md-nav__link">
+    Containers and Docker
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recap" class="md-nav__link">
+    Recap
   </a>
   
 </li>
@@ -2156,15 +2228,156 @@
                 
 
 
-<h1 id="_1">中文版说明<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<h2 id="pr">官网中文待审阅的 PR<a class="headerlink" href="#pr" title="Permanent link">&para;</a></h2>
-<h2 id="_2">译者<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h1 id="server-workers-gunicorn-with-uvicorn">Server Workers - Gunicorn with Uvicorn<a class="headerlink" href="#server-workers-gunicorn-with-uvicorn" title="Permanent link">&para;</a></h1>
+<p>Let's check back those deployment concepts from before:</p>
 <ul>
-<li>呆鸟</li>
-<li>Python 大咖谈</li>
-<li>敬请扫码关注</li>
-<li><img src="/img/pythoniao.jpg"></li>
+<li>Security - HTTPS</li>
+<li>Running on startup</li>
+<li>Restarts</li>
+<li><strong>Replication (the number of processes running)</strong></li>
+<li>Memory</li>
+<li>Previous steps before starting</li>
 </ul>
+<p>Up to this point, with all the tutorials in the docs, you have probably been running a <strong>server program</strong> like Uvicorn, running a <strong>single process</strong>.</p>
+<p>When deploying applications you will probably want to have some <strong>replication of processes</strong> to take advantage of <strong>multiple cores</strong> and to be able to handle more requests.</p>
+<p>As you saw in the previous chapter about <a class="internal-link" href="../concepts/" target="_blank">Deployment Concepts</a>, there are multiple strategies you can use.</p>
+<p>Here I'll show you how to use <a href="https://gunicorn.org/" class="external-link" target="_blank"><strong>Gunicorn</strong></a> with <strong>Uvicorn worker processes</strong>.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>If you are using containers, for example with Docker or Kubernetes, I'll tell you more about that in the next chapter: <a class="internal-link" href="../docker/" target="_blank">FastAPI in Containers - Docker</a>.</p>
+<p>In particular, when running on <strong>Kubernetes</strong> you will probably <strong>not</strong> want to use Gunicorn and instead run <strong>a single Uvicorn process per container</strong>, but I'll tell you about it later in that chapter.</p>
+</div>
+<h2 id="gunicorn-with-uvicorn-workers">Gunicorn with Uvicorn Workers<a class="headerlink" href="#gunicorn-with-uvicorn-workers" title="Permanent link">&para;</a></h2>
+<p><strong>Gunicorn</strong> is mainly an application server using the <strong>WSGI standard</strong>. That means that Gunicorn can serve applications like Flask and Django. Gunicorn by itself is not compatible with <strong>FastAPI</strong>, as FastAPI uses the newest <strong><a href="https://asgi.readthedocs.io/en/latest/" class="external-link" target="_blank">ASGI standard</a></strong>.</p>
+<p>But Gunicorn supports working as a <strong>process manager</strong> and allowing users to tell it which specific <strong>worker process class</strong> to use. Then Gunicorn would start one or more <strong>worker processes</strong> using that class.</p>
+<p>And <strong>Uvicorn</strong> has a <strong>Gunicorn-compatible worker class</strong>.</p>
+<p>Using that combination, Gunicorn would act as a <strong>process manager</strong>, listening on the <strong>port</strong> and the <strong>IP</strong>. And it would <strong>transmit</strong> the communication to the worker processes running the <strong>Uvicorn class</strong>.</p>
+<p>And then the Gunicorn-compatible <strong>Uvicorn worker</strong> class would be in charge of converting the data sent by Gunicorn to the ASGI standard for FastAPI to use it.</p>
+<h2 id="install-gunicorn-and-uvicorn">Install Gunicorn and Uvicorn<a class="headerlink" href="#install-gunicorn-and-uvicorn" title="Permanent link">&para;</a></h2>
+<div class="termy">
+
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>pip install <span class="s2">&quot;uvicorn[standard]&quot;</span> gunicorn
+
+<span class="go">---&gt; 100%</span>
+</code></pre></div>
+
+</div>
+
+<p>That will install both Uvicorn with the <code>standard</code> extra packages (to get high performance) and Gunicorn.</p>
+<h2 id="run-gunicorn-with-uvicorn-workers">Run Gunicorn with Uvicorn Workers<a class="headerlink" href="#run-gunicorn-with-uvicorn-workers" title="Permanent link">&para;</a></h2>
+<p>Then you can run Gunicorn with:</p>
+<div class="termy">
+
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>gunicorn main:app --workers <span class="m">4</span> --worker-class uvicorn.workers.UvicornWorker --bind <span class="m">0</span>.0.0.0:80
+
+<span class="go">[19499] [INFO] Starting gunicorn 20.1.0</span>
+<span class="go">[19499] [INFO] Listening at: http://0.0.0.0:80 (19499)</span>
+<span class="go">[19499] [INFO] Using worker: uvicorn.workers.UvicornWorker</span>
+<span class="go">[19511] [INFO] Booting worker with pid: 19511</span>
+<span class="go">[19513] [INFO] Booting worker with pid: 19513</span>
+<span class="go">[19514] [INFO] Booting worker with pid: 19514</span>
+<span class="go">[19515] [INFO] Booting worker with pid: 19515</span>
+<span class="go">[19511] [INFO] Started server process [19511]</span>
+<span class="go">[19511] [INFO] Waiting for application startup.</span>
+<span class="go">[19511] [INFO] Application startup complete.</span>
+<span class="go">[19513] [INFO] Started server process [19513]</span>
+<span class="go">[19513] [INFO] Waiting for application startup.</span>
+<span class="go">[19513] [INFO] Application startup complete.</span>
+<span class="go">[19514] [INFO] Started server process [19514]</span>
+<span class="go">[19514] [INFO] Waiting for application startup.</span>
+<span class="go">[19514] [INFO] Application startup complete.</span>
+<span class="go">[19515] [INFO] Started server process [19515]</span>
+<span class="go">[19515] [INFO] Waiting for application startup.</span>
+<span class="go">[19515] [INFO] Application startup complete.</span>
+</code></pre></div>
+
+</div>
+
+<p>Let's see what each of those options mean:</p>
+<ul>
+<li>
+<p><code>main:app</code>: This is the same syntax used by Uvicorn, <code>main</code> means the Python module named "<code>main</code>", so, a file <code>main.py</code>. And <code>app</code> is the name of the variable that is the <strong>FastAPI</strong> application.</p>
+<ul>
+<li>
+<p>You can imagine that <code>main:app</code> is equivalent to a Python <code>import</code> statement like:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">main</span> <span class="kn">import</span> <span class="n">app</span>
+</code></pre></div>
+</li>
+<li>
+<p>So, the colon in <code>main:app</code> would be equivalent to the Python <code>import</code> part in <code>from main import app</code>.</p>
+</li>
+<li><code>--workers</code>: The number of worker processes to use, each will run a Uvicorn worker, in this case, 4 workers.</li>
+<li><code>--worker-class</code>: The Gunicorn-compatible worker class to use in the worker processes.</li>
+<li>
+<p>Here we pass the class that Gunicorn can import and use with:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">uvicorn.workers.UvicornWorker</span>
+</code></pre></div>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--bind</code>: This tells Gunicorn the IP and the port to listen to, using a colon (<code>:</code>) to separate the IP and the port.</p>
+<ul>
+<li>If you were running Uvicorn directly, instead of <code>--bind 0.0.0.0:80</code> (the Gunicorn option) you would use <code>--host 0.0.0.0</code> and <code>--port 80</code>.</li>
+</ul>
+</li>
+</ul>
+<p>In the output, you can see that it shows the <strong>PID</strong> (process ID) of each process (it's just a number).</p>
+<p>You can see that:</p>
+<ul>
+<li>The Gunicorn <strong>process manager</strong> starts with PID <code>19499</code> (in your case it will be a different number).</li>
+<li>Then it starts <code>Listening at: http://0.0.0.0:80</code>.</li>
+<li>Then it detects that it has to use the worker class at <code>uvicorn.workers.UvicornWorker</code>.</li>
+<li>And then it starts <strong>4 workers</strong>, each with its own PID: <code>19511</code>, <code>19513</code>, <code>19514</code>, and <code>19515</code>.</li>
+</ul>
+<p>Gunicorn would also take care of managing <strong>dead processes</strong> and <strong>restarting</strong> new ones if needed to keep the number of workers. So that helps in part with the <strong>restart</strong> concept from the list above.</p>
+<p>Nevertheless, you would probably also want to have something outside making sure to <strong>restart Gunicorn</strong> if necessary, and also to <strong>run it on startup</strong>, etc.</p>
+<h2 id="uvicorn-with-workers">Uvicorn with Workers<a class="headerlink" href="#uvicorn-with-workers" title="Permanent link">&para;</a></h2>
+<p>Uvicorn also has an option to start and run several <strong>worker processes</strong>.</p>
+<p>Nevertheless, as of now, Uvicorn's capabilities for handling worker processes are more limited than Gunicorn's. So, if you want to have a process manager at this level (at the Python level), then it might be better to try with Gunicorn as the process manager.</p>
+<p>In any case, you would run it like this:</p>
+<div class="termy">
+
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>uvicorn main:app --host <span class="m">0</span>.0.0.0 --port <span class="m">8080</span> --workers <span class="m">4</span>
+<span class="go">&lt;font color=&quot;#A6E22E&quot;&gt;INFO&lt;/font&gt;:     Uvicorn running on &lt;b&gt;http://0.0.0.0:8080&lt;/b&gt; (Press CTRL+C to quit)</span>
+<span class="go">&lt;font color=&quot;#A6E22E&quot;&gt;INFO&lt;/font&gt;:     Started parent process [&lt;font color=&quot;#A1EFE4&quot;&gt;&lt;b&gt;27365&lt;/b&gt;&lt;/font&gt;]</span>
+<span class="go">&lt;font color=&quot;#A6E22E&quot;&gt;INFO&lt;/font&gt;:     Started server process [&lt;font color=&quot;#A1EFE4&quot;&gt;27368&lt;/font&gt;]</span>
+<span class="go">&lt;font color=&quot;#A6E22E&quot;&gt;INFO&lt;/font&gt;:     Waiting for application startup.</span>
+<span class="go">&lt;font color=&quot;#A6E22E&quot;&gt;INFO&lt;/font&gt;:     Application startup complete.</span>
+<span class="go">&lt;font color=&quot;#A6E22E&quot;&gt;INFO&lt;/font&gt;:     Started server process [&lt;font color=&quot;#A1EFE4&quot;&gt;27369&lt;/font&gt;]</span>
+<span class="go">&lt;font color=&quot;#A6E22E&quot;&gt;INFO&lt;/font&gt;:     Waiting for application startup.</span>
+<span class="go">&lt;font color=&quot;#A6E22E&quot;&gt;INFO&lt;/font&gt;:     Application startup complete.</span>
+<span class="go">&lt;font color=&quot;#A6E22E&quot;&gt;INFO&lt;/font&gt;:     Started server process [&lt;font color=&quot;#A1EFE4&quot;&gt;27370&lt;/font&gt;]</span>
+<span class="go">&lt;font color=&quot;#A6E22E&quot;&gt;INFO&lt;/font&gt;:     Waiting for application startup.</span>
+<span class="go">&lt;font color=&quot;#A6E22E&quot;&gt;INFO&lt;/font&gt;:     Application startup complete.</span>
+<span class="go">&lt;font color=&quot;#A6E22E&quot;&gt;INFO&lt;/font&gt;:     Started server process [&lt;font color=&quot;#A1EFE4&quot;&gt;27367&lt;/font&gt;]</span>
+<span class="go">&lt;font color=&quot;#A6E22E&quot;&gt;INFO&lt;/font&gt;:     Waiting for application startup.</span>
+<span class="go">&lt;font color=&quot;#A6E22E&quot;&gt;INFO&lt;/font&gt;:     Application startup complete.</span>
+</code></pre></div>
+
+</div>
+
+<p>The only new option here is <code>--workers</code> telling Uvicorn to start 4 worker processes.</p>
+<p>You can also see that it shows the <strong>PID</strong> of each process, <code>27365</code> for the parent process (this is the <strong>process manager</strong>) and one for each worker process: <code>27368</code>, <code>27369</code>, <code>27370</code>, and <code>27367</code>.</p>
+<h2 id="deployment-concepts">Deployment Concepts<a class="headerlink" href="#deployment-concepts" title="Permanent link">&para;</a></h2>
+<p>Here you saw how to use <strong>Gunicorn</strong> (or Uvicorn) managing <strong>Uvicorn worker processes</strong> to <strong>parallelize</strong> the execution of the application, take advantage of <strong>multiple cores</strong> in the CPU, and be able to serve <strong>more requests</strong>.</p>
+<p>From the list of deployment concepts from above, using workers would mainly help with the <strong>replication</strong> part, and a little bit with the <strong>restarts</strong>, but you still need to take care of the others:</p>
+<ul>
+<li><strong>Security - HTTPS</strong></li>
+<li><strong>Running on startup</strong></li>
+<li><strong><em>Restarts</em></strong></li>
+<li>Replication (the number of processes running)</li>
+<li><strong>Memory</strong></li>
+<li><strong>Previous steps before starting</strong></li>
+</ul>
+<h2 id="containers-and-docker">Containers and Docker<a class="headerlink" href="#containers-and-docker" title="Permanent link">&para;</a></h2>
+<p>In the next chapter about <a class="internal-link" href="../docker/" target="_blank">FastAPI in Containers - Docker</a> I'll tell some strategies you could use to handle the other <strong>deployment concepts</strong>.</p>
+<p>I'll also show you the <strong>official Docker image</strong> that includes <strong>Gunicorn with Uvicorn workers</strong> and some default configurations that can be useful for simple cases.</p>
+<p>There I'll also show you how to <strong>build your own image from scratch</strong> to run a single Uvicorn process (without Gunicorn). It is a simple process and is probably what you would want to do when using a distributed container management system like <strong>Kubernetes</strong>.</p>
+<h2 id="recap">Recap<a class="headerlink" href="#recap" title="Permanent link">&para;</a></h2>
+<p>You can use <strong>Gunicorn</strong> (or also Uvicorn) as a process manager with Uvicorn workers to take advantage of <strong>multi-core CPUs</strong>, to run <strong>multiple processes in parallel</strong>.</p>
+<p>You could use these tools and ideas if you are setting up <strong>your own deployment system</strong> while taking care of the other deployment concepts yourself.</p>
+<p>Check out the next chapter to learn about <strong>FastAPI</strong> with containers (e.g. Docker and Kubernetes). You will see that those tools have simple ways to solve the other <strong>deployment concepts</strong> as well. ✨</p>
 
               
             </article>
@@ -2182,7 +2395,7 @@
     <nav class="md-footer__inner md-grid" aria-label="页脚" >
       
         
-        <a href="../release-notes-cn/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 中文官档 - 更新日志" rel="prev">
+        <a href="../deta/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 在 Deta 上部署 FastAPI" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -2191,11 +2404,26 @@
               <span class="md-footer__direction">
                 上一页
               </span>
-              中文官档 - 更新日志
+              在 Deta 上部署 FastAPI
             </div>
           </div>
         </a>
       
+      
+        
+        <a href="../docker/" class="md-footer__link md-footer__link--next" aria-label="下一页: 使用 Docker 部署" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              使用 Docker 部署
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
       
     </nav>
   
@@ -2286,14 +2514,14 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["search.suggest", "search.highlight", "content.tabs.link"], "search": "../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["search.suggest", "search.highlight", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+      <script src="../../assets/javascripts/bundle.6c7ad80a.min.js"></script>
       
-        <script src="../js/termynal.js"></script>
+        <script src="../../js/termynal.js"></script>
       
-        <script src="../js/custom.js"></script>
+        <script src="../../js/custom.js"></script>
       
     
   </body>

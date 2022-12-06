@@ -17,7 +17,7 @@
     
     
       
-        <title>备选、灵感、比较 - FastAPI</title>
+        <title>备选、灵感与比较 - FastAPI</title>
       
     
     
@@ -47,6 +47,16 @@
     <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  
+  
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-133183413-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
 
     
     
@@ -122,7 +132,7 @@
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 10px 10px;
     text-decoration: none;
   }
 
@@ -159,7 +169,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              备选、灵感、比较
+              备选、灵感与比较
             
           </span>
         </div>
@@ -170,7 +180,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -179,7 +189,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -1713,6 +1723,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../advanced/generate-clients/" class="md-nav__link">
+        Generate Clients
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1810,6 +1834,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../deployment/manually/" class="md-nav__link">
+        Run a Server Manually - Uvicorn
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/concepts/" class="md-nav__link">
+        Deployments Concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../deployment/deta/" class="md-nav__link">
         在 Deta 上部署 FastAPI
       </a>
@@ -1824,8 +1876,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../deployment/docker/" class="md-nav__link">
-        使用 Docker 部署
+      <a href="../deployment/server-workers/" class="md-nav__link">
+        Server Workers - Gunicorn with Uvicorn
       </a>
     </li>
   
@@ -1838,8 +1890,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../deployment/manually/" class="md-nav__link">
-        手动部署
+      <a href="../deployment/docker/" class="md-nav__link">
+        使用 Docker 部署
       </a>
     </li>
   
@@ -1885,12 +1937,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          备选、灵感、比较
+          备选、灵感与比较
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        备选、灵感、比较
+        备选、灵感与比较
       </a>
       
         
@@ -1909,18 +1961,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#intro" class="md-nav__link">
-    Intro
+  <a href="#_2" class="md-nav__link">
+    简介
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#previous-tools" class="md-nav__link">
-    Previous tools
+  <a href="#_3" class="md-nav__link">
+    之前的工具
   </a>
   
-    <nav class="md-nav" aria-label="Previous tools">
+    <nav class="md-nav" aria-label="之前的工具">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2236,18 +2288,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#intro" class="md-nav__link">
-    Intro
+  <a href="#_2" class="md-nav__link">
+    简介
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#previous-tools" class="md-nav__link">
-    Previous tools
+  <a href="#_3" class="md-nav__link">
+    之前的工具
   </a>
   
-    <nav class="md-nav" aria-label="Previous tools">
+    <nav class="md-nav" aria-label="之前的工具">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2422,14 +2474,14 @@
                 
 
 
-<h1 id="_1">备选、灵感、比较<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>What inspired <strong>FastAPI</strong>, how it compares to other alternatives and what it learned from them.</p>
-<h2 id="intro">Intro<a class="headerlink" href="#intro" title="Permanent link">&para;</a></h2>
-<p><strong>FastAPI</strong> wouldn't exist if not for the previous work of others.</p>
-<p>There have been many tools created before that have helped inspire its creation.</p>
-<p>I have been avoiding the creation of a new framework for several years. First I tried to solve all the features covered by <strong>FastAPI</strong> using many different frameworks, plug-ins, and tools.</p>
-<p>But at some point, there was no other option than creating something that provided all these features, taking the best ideas from previous tools, and combining them in the best way possible, using language features that weren't even available before (Python 3.6+ type hints).</p>
-<h2 id="previous-tools">Previous tools<a class="headerlink" href="#previous-tools" title="Permanent link">&para;</a></h2>
+<h1 id="_1">备选、灵感与比较<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>是什么激发了 <strong>FastAPI</strong>，它与其他框架相比有什么异同，<strong>FastAPI</strong> 从它们身上学到了些什么。</p>
+<h2 id="_2">简介<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>没有前辈的诸多杰作，就不会有 <strong>FastAPI</strong>。</p>
+<p>在此之前，有很多工具激发了 <strong>FastAPI</strong> 的创意。</p>
+<p>多年来，我一直不想创建一个新的框架。首先，我尝试使用很多不同的框架、插件和工具解决 <strong>FastAPI</strong> 提供的所有功能。</p>
+<p>但到了一定时候，除了创建个什么东西，提供所有这些功能，我别无选择。吸取之前的工具的优点，使用 Python 3.6+ 提供的类型提示等前所未有的功能，用尽可能最好的方式把所有这些组合在一起。</p>
+<h2 id="_3">之前的工具<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <h3 id="django"><a href="https://www.djangoproject.com/" class="external-link" target="_blank">Django</a><a class="headerlink" href="#django" title="Permanent link">&para;</a></h3>
 <p>It's the most popular Python framework and is widely trusted. It is used to build systems like Instagram.</p>
 <p>It's relatively tightly coupled with relational databases (like MySQL or PostgreSQL), so, having a NoSQL database (like Couchbase, MongoDB, Cassandra, etc) as the main store engine is not very easy.</p>
@@ -2440,12 +2492,12 @@
 <p>It was one of the first examples of <strong>automatic API documentation</strong>, and this was specifically one of the first ideas that inspired "the search for" <strong>FastAPI</strong>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-</div>
 <p>Django REST Framework was created by Tom Christie. The same creator of Starlette and Uvicorn, on which <strong>FastAPI</strong> is based.</p>
+</div>
 <div class="admonition check">
 <p class="admonition-title">Inspired <strong>FastAPI</strong> to</p>
-</div>
 <p>Have an automatic API documentation web user interface.</p>
+</div>
 <h3 id="flask"><a href="https://flask.palletsprojects.com" class="external-link" target="_blank">Flask</a><a class="headerlink" href="#flask" title="Permanent link">&para;</a></h3>
 <p>Flask is a "microframework", it doesn't include database integrations nor many of the things that come by default in Django.</p>
 <p>This simplicity and flexibility allow doing things like using NoSQL databases as the main data storage system.</p>
@@ -2455,11 +2507,9 @@
 <p>Given the simplicity of Flask, it seemed like a good match for building APIs. The next thing to find was a "Django REST Framework" for Flask.</p>
 <div class="admonition check">
 <p class="admonition-title">Inspired <strong>FastAPI</strong> to</p>
-</div>
 <p>Be a micro-framework. Making it easy to mix and match the tools and parts needed.</p>
-<div class="codehilite"><pre><span></span><code>Have a simple and easy to use routing system.
-</code></pre></div>
-
+<p>Have a simple and easy to use routing system.</p>
+</div>
 <h3 id="requests"><a href="https://requests.readthedocs.io" class="external-link" target="_blank">Requests</a><a class="headerlink" href="#requests" title="Permanent link">&para;</a></h3>
 <p><strong>FastAPI</strong> is not actually an alternative to <strong>Requests</strong>. Their scope is very different.</p>
 <p>It would actually be common to use Requests <em>inside</em> of a FastAPI application.</p>
@@ -2482,9 +2532,12 @@
 <p>See the similarities in <code>requests.get(...)</code> and <code>@app.get(...)</code>.</p>
 <div class="admonition check">
 <p class="admonition-title">Inspired <strong>FastAPI</strong> to</p>
+<ul>
+<li>Have a simple and intuitive API.</li>
+<li>Use HTTP method names (operations) directly, in a straightforward and intuitive way.</li>
+<li>Have sensible defaults, but powerful customizations.</li>
+</ul>
 </div>
-<p>_ Have a simple and intuitive API.
-_ Use HTTP method names (operations) directly, in a straightforward and intuitive way. * Have sensible defaults, but powerful customizations.</p>
 <h3 id="swagger-openapi"><a href="https://swagger.io/" class="external-link" target="_blank">Swagger</a> / <a href="https://github.com/OAI/OpenAPI-Specification/" class="external-link" target="_blank">OpenAPI</a><a class="headerlink" href="#swagger-openapi" title="Permanent link">&para;</a></h3>
 <p>The main feature I wanted from Django REST Framework was the automatic API documentation.</p>
 <p>Then I found that there was a standard to document APIs, using JSON (or YAML, an extension of JSON) called Swagger.</p>
@@ -2493,19 +2546,17 @@ _ Use HTTP method names (operations) directly, in a straightforward and intuitiv
 <p>That's why when talking about version 2.0 it's common to say "Swagger", and for version 3+ "OpenAPI".</p>
 <div class="admonition check">
 <p class="admonition-title">Inspired <strong>FastAPI</strong> to</p>
-</div>
 <p>Adopt and use an open standard for API specifications, instead of a custom schema.</p>
-<div class="codehilite"><pre><span></span><code>And integrate standards-based user interface tools:
-
-* <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;https://github.com/swagger-api/swagger-ui&quot;</span> <span class="na">class=</span><span class="s">&quot;external-link&quot;</span> <span class="na">target=</span><span class="s">&quot;_blank&quot;</span><span class="nt">&gt;</span>Swagger UI<span class="nt">&lt;/a&gt;</span>
-* <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;https://github.com/Rebilly/ReDoc&quot;</span> <span class="na">class=</span><span class="s">&quot;external-link&quot;</span> <span class="na">target=</span><span class="s">&quot;_blank&quot;</span><span class="nt">&gt;</span>ReDoc<span class="nt">&lt;/a&gt;</span>
-
-These two were chosen for being fairly popular and stable, but doing a quick search, you could find dozens of additional alternative user interfaces for OpenAPI (that you can use with **FastAPI**).
-</code></pre></div>
-
+<p>And integrate standards-based user interface tools:</p>
+<ul>
+<li><a href="https://github.com/swagger-api/swagger-ui" class="external-link" target="_blank">Swagger UI</a></li>
+<li><a href="https://github.com/Rebilly/ReDoc" class="external-link" target="_blank">ReDoc</a></li>
+</ul>
+<p>These two were chosen for being fairly popular and stable, but doing a quick search, you could find dozens of additional alternative user interfaces for OpenAPI (that you can use with <strong>FastAPI</strong>).</p>
+</div>
 <h3 id="flask-rest-frameworks">Flask REST frameworks<a class="headerlink" href="#flask-rest-frameworks" title="Permanent link">&para;</a></h3>
 <p>There are several Flask REST frameworks, but after investing the time and work into investigating them, I found that many are discontinued or abandoned, with several standing issues that made them unfit.</p>
-<h3 id="marshmallow"><a href="https://marshmallow.readthedocs.io/en/3.0/" class="external-link" target="_blank">Marshmallow</a><a class="headerlink" href="#marshmallow" title="Permanent link">&para;</a></h3>
+<h3 id="marshmallow"><a href="https://marshmallow.readthedocs.io/en/stable/" class="external-link" target="_blank">Marshmallow</a><a class="headerlink" href="#marshmallow" title="Permanent link">&para;</a></h3>
 <p>One of the main features needed by API systems is data "<abbr title="also called marshalling, conversion">serialization</abbr>" which is taking data from the code (Python) and converting it into something that can be sent through the network. For example, converting an object containing data from a database into a JSON object. Converting <code>datetime</code> objects into strings, etc.</p>
 <p>Another big feature needed by APIs is data validation, making sure that the data is valid, given certain parameters. For example, that some field is an <code>int</code>, and not some random string. This is especially useful for incoming data.</p>
 <p>Without a data validation system, you would have to do all the checks by hand, in code.</p>
@@ -2513,8 +2564,8 @@ These two were chosen for being fairly popular and stable, but doing a quick sea
 <p>But it was created before there existed Python type hints. So, to define every <abbr title="the definition of how data should be formed">schema</abbr> you need to use specific utils and classes provided by Marshmallow.</p>
 <div class="admonition check">
 <p class="admonition-title">Inspired <strong>FastAPI</strong> to</p>
-</div>
 <p>Use code to define "schemas" that provide data types and validation, automatically.</p>
+</div>
 <h3 id="webargs"><a href="https://webargs.readthedocs.io/en/latest/" class="external-link" target="_blank">Webargs</a><a class="headerlink" href="#webargs" title="Permanent link">&para;</a></h3>
 <p>Another big feature required by APIs is <abbr title="reading and converting to Python data">parsing</abbr> data from incoming requests.</p>
 <p>Webargs is a tool that was made to provide that on top of several frameworks, including Flask.</p>
@@ -2522,12 +2573,12 @@ These two were chosen for being fairly popular and stable, but doing a quick sea
 <p>It's a great tool and I have used it a lot too, before having <strong>FastAPI</strong>.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-</div>
 <p>Webargs was created by the same Marshmallow developers.</p>
+</div>
 <div class="admonition check">
 <p class="admonition-title">Inspired <strong>FastAPI</strong> to</p>
-</div>
 <p>Have automatic validation of incoming request data.</p>
+</div>
 <h3 id="apispec"><a href="https://apispec.readthedocs.io/en/stable/" class="external-link" target="_blank">APISpec</a><a class="headerlink" href="#apispec" title="Permanent link">&para;</a></h3>
 <p>Marshmallow and Webargs provide validation, parsing and serialization as plug-ins.</p>
 <p>But documentation is still missing. Then APISpec was created.</p>
@@ -2539,12 +2590,12 @@ These two were chosen for being fairly popular and stable, but doing a quick sea
 <p>The editor can't help much with that. And if we modify parameters or Marshmallow schemas and forget to also modify that YAML docstring, the generated schema would be obsolete.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-</div>
 <p>APISpec was created by the same Marshmallow developers.</p>
+</div>
 <div class="admonition check">
 <p class="admonition-title">Inspired <strong>FastAPI</strong> to</p>
-</div>
 <p>Support the open standard for APIs, OpenAPI.</p>
+</div>
 <h3 id="flask-apispec"><a href="https://flask-apispec.readthedocs.io/en/latest/" class="external-link" target="_blank">Flask-apispec</a><a class="headerlink" href="#flask-apispec" title="Permanent link">&para;</a></h3>
 <p>It's a Flask plug-in, that ties together Webargs, Marshmallow and APISpec.</p>
 <p>It uses the information from Webargs and Marshmallow to automatically generate OpenAPI schemas, using APISpec.</p>
@@ -2560,12 +2611,12 @@ These two were chosen for being fairly popular and stable, but doing a quick sea
 <p>And these same full-stack generators were the base of the <a class="internal-link" href="../project-generation/" target="_blank"><strong>FastAPI</strong> Project Generators</a>.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-</div>
 <p>Flask-apispec was created by the same Marshmallow developers.</p>
+</div>
 <div class="admonition check">
 <p class="admonition-title">Inspired <strong>FastAPI</strong> to</p>
-</div>
 <p>Generate the OpenAPI schema automatically, from the same code that defines serialization and validation.</p>
+</div>
 <h3 id="nestjs-and-angular"><a href="https://nestjs.com/" class="external-link" target="_blank">NestJS</a> (and <a href="https://angular.io/" class="external-link" target="_blank">Angular</a>)<a class="headerlink" href="#nestjs-and-angular" title="Permanent link">&para;</a></h3>
 <p>This isn't even Python, NestJS is a JavaScript (TypeScript) NodeJS framework inspired by Angular.</p>
 <p>It achieves something somewhat similar to what can be done with Flask-apispec.</p>
@@ -2575,41 +2626,31 @@ These two were chosen for being fairly popular and stable, but doing a quick sea
 <p>It can't handle nested models very well. So, if the JSON body in the request is a JSON object that has inner fields that in turn are nested JSON objects, it cannot be properly documented and validated.</p>
 <div class="admonition check">
 <p class="admonition-title">Inspired <strong>FastAPI</strong> to</p>
-</div>
 <p>Use Python types to have great editor support.</p>
-<div class="codehilite"><pre><span></span><code>Have a powerful dependency injection system. Find a way to minimize code repetition.
-</code></pre></div>
-
+<p>Have a powerful dependency injection system. Find a way to minimize code repetition.</p>
+</div>
 <h3 id="sanic"><a href="https://sanic.readthedocs.io/en/latest/" class="external-link" target="_blank">Sanic</a><a class="headerlink" href="#sanic" title="Permanent link">&para;</a></h3>
 <p>It was one of the first extremely fast Python frameworks based on <code>asyncio</code>. It was made to be very similar to Flask.</p>
 <div class="admonition note">
 <p class="admonition-title">Technical Details</p>
-</div>
 <p>It used <a href="https://github.com/MagicStack/uvloop" class="external-link" target="_blank"><code>uvloop</code></a> instead of the default Python <code>asyncio</code> loop. That's what made it so fast.</p>
-<div class="codehilite"><pre><span></span><code>It clearly inspired Uvicorn and Starlette, that are currently faster than Sanic in open benchmarks.
-</code></pre></div>
-
+<p>It clearly inspired Uvicorn and Starlette, that are currently faster than Sanic in open benchmarks.</p>
+</div>
 <div class="admonition check">
 <p class="admonition-title">Inspired <strong>FastAPI</strong> to</p>
-</div>
 <p>Find a way to have a crazy performance.</p>
-<div class="codehilite"><pre><span></span><code>That&#39;s why **FastAPI** is based on Starlette, as it is the fastest framework available (tested by third-party benchmarks).
-</code></pre></div>
-
+<p>That's why <strong>FastAPI</strong> is based on Starlette, as it is the fastest framework available (tested by third-party benchmarks).</p>
+</div>
 <h3 id="falcon"><a href="https://falconframework.org/" class="external-link" target="_blank">Falcon</a><a class="headerlink" href="#falcon" title="Permanent link">&para;</a></h3>
 <p>Falcon is another high performance Python framework, it is designed to be minimal, and work as the foundation of other frameworks like Hug.</p>
-<p>It uses the previous standard for Python web frameworks (WSGI) which is synchronous, so it can't handle WebSockets and other use cases. Nevertheless, it also has a very good performance.</p>
 <p>It is designed to have functions that receive two parameters, one "request" and one "response". Then you "read" parts from the request, and "write" parts to the response. Because of this design, it is not possible to declare request parameters and bodies with standard Python type hints as function parameters.</p>
 <p>So, data validation, serialization, and documentation, have to be done in code, not automatically. Or they have to be implemented as a framework on top of Falcon, like Hug. This same distinction happens in other frameworks that are inspired by Falcon's design, of having one request object and one response object as parameters.</p>
 <div class="admonition check">
 <p class="admonition-title">Inspired <strong>FastAPI</strong> to</p>
-</div>
 <p>Find ways to get great performance.</p>
-<div class="codehilite"><pre><span></span><code><span class="n">Along</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">Hug</span><span class="w"> </span><span class="p">(</span><span class="k">as</span><span class="w"> </span><span class="n">Hug</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">based</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">Falcon</span><span class="p">)</span><span class="w"> </span><span class="n">inspired</span><span class="w"> </span><span class="o">**</span><span class="n">FastAPI</span><span class="o">**</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">declare</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n n-Quoted">`response`</span><span class="w"> </span><span class="n">parameter</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">functions</span><span class="p">.</span><span class="w"></span>
-
-<span class="n">Although</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">FastAPI</span><span class="w"> </span><span class="n">it</span><span class="s1">&#39;s optional, and is used mainly to set headers, cookies, and alternative status codes.</span>
-</code></pre></div>
-
+<p>Along with Hug (as Hug is based on Falcon) inspired <strong>FastAPI</strong> to declare a <code>response</code> parameter in functions.</p>
+<p>Although in FastAPI it's optional, and is used mainly to set headers, cookies, and alternative status codes.</p>
+</div>
 <h3 id="molten"><a href="https://moltenframework.com/" class="external-link" target="_blank">Molten</a><a class="headerlink" href="#molten" title="Permanent link">&para;</a></h3>
 <p>I discovered Molten in the first stages of building <strong>FastAPI</strong>. And it has quite similar ideas:</p>
 <ul>
@@ -2623,11 +2664,9 @@ These two were chosen for being fairly popular and stable, but doing a quick sea
 <p>Routes are declared in a single place, using functions declared in other places (instead of using decorators that can be placed right on top of the function that handles the endpoint). This is closer to how Django does it than to how Flask (and Starlette) does it. It separates in the code things that are relatively tightly coupled.</p>
 <div class="admonition check">
 <p class="admonition-title">Inspired <strong>FastAPI</strong> to</p>
-</div>
 <p>Define extra validations for data types using the "default" value of model attributes. This improves editor support, and it was not available in Pydantic before.</p>
-<div class="codehilite"><pre><span></span><code>This actually inspired updating parts of Pydantic, to support the same validation declaration style (all this functionality is now already available in Pydantic).
-</code></pre></div>
-
+<p>This actually inspired updating parts of Pydantic, to support the same validation declaration style (all this functionality is now already available in Pydantic).</p>
+</div>
 <h3 id="hug"><a href="https://www.hug.rest/" class="external-link" target="_blank">Hug</a><a class="headerlink" href="#hug" title="Permanent link">&para;</a></h3>
 <p>Hug was one of the first frameworks to implement the declaration of API parameter types using Python type hints. This was a great idea that inspired other tools to do the same.</p>
 <p>It used custom types in its declarations instead of standard Python types, but it was still a huge step forward.</p>
@@ -2637,17 +2676,14 @@ These two were chosen for being fairly popular and stable, but doing a quick sea
 <p>As it is based on the previous standard for synchronous Python web frameworks (WSGI), it can't handle Websockets and other things, although it still has high performance too.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-</div>
 <p>Hug was created by Timothy Crosley, the same creator of <a href="https://github.com/timothycrosley/isort" class="external-link" target="_blank"><code>isort</code></a>, a great tool to automatically sort imports in Python files.</p>
+</div>
 <div class="admonition check">
 <p class="admonition-title">Ideas inspired in <strong>FastAPI</strong></p>
-</div>
 <p>Hug inspired parts of APIStar, and was one of the tools I found most promising, alongside APIStar.</p>
-<div class="codehilite"><pre><span></span><code><span class="n">Hug</span><span class="w"> </span><span class="n">helped</span><span class="w"> </span><span class="n">inspiring</span><span class="w"> </span><span class="o">**</span><span class="n">FastAPI</span><span class="o">**</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">use</span><span class="w"> </span><span class="n">Python</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="n">hints</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">declare</span><span class="w"> </span><span class="n">parameters</span><span class="p">,</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">generate</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">schema</span><span class="w"> </span><span class="n">defining</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">API</span><span class="w"> </span><span class="n">automatically</span><span class="p">.</span><span class="w"></span>
-
-<span class="n">Hug</span><span class="w"> </span><span class="n">inspired</span><span class="w"> </span><span class="o">**</span><span class="n">FastAPI</span><span class="o">**</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">declare</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n n-Quoted">`response`</span><span class="w"> </span><span class="n">parameter</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">functions</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="n">headers</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">cookies</span><span class="p">.</span><span class="w"></span>
-</code></pre></div>
-
+<p>Hug helped inspiring <strong>FastAPI</strong> to use Python type hints to declare parameters, and to generate a schema defining the API automatically.</p>
+<p>Hug inspired <strong>FastAPI</strong> to declare a <code>response</code> parameter in functions to set headers and cookies.</p>
+</div>
 <h3 id="apistar-05"><a href="https://github.com/encode/apistar" class="external-link" target="_blank">APIStar</a> (&lt;= 0.5)<a class="headerlink" href="#apistar-05" title="Permanent link">&para;</a></h3>
 <p>Right before deciding to build <strong>FastAPI</strong> I found <strong>APIStar</strong> server. It had almost everything I was looking for and had a great design.</p>
 <p>It was one of the first implementations of a framework using Python type hints to declare parameters and requests that I ever saw (before NestJS and Molten). I found it more or less at the same time as Hug. But APIStar used the OpenAPI standard.</p>
@@ -2662,26 +2698,21 @@ These two were chosen for being fairly popular and stable, but doing a quick sea
 <p>Now APIStar is a set of tools to validate OpenAPI specifications, not a web framework.</p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-</div>
 <p>APIStar was created by Tom Christie. The same guy that created:</p>
-<div class="codehilite"><pre><span></span><code>* Django REST Framework
-* Starlette (in which **FastAPI** is based)
-* Uvicorn (used by Starlette and **FastAPI**)
-</code></pre></div>
-
+<ul>
+<li>Django REST Framework</li>
+<li>Starlette (in which <strong>FastAPI</strong> is based)</li>
+<li>Uvicorn (used by Starlette and <strong>FastAPI</strong>)</li>
+</ul>
+</div>
 <div class="admonition check">
 <p class="admonition-title">Inspired <strong>FastAPI</strong> to</p>
-</div>
 <p>Exist.</p>
-<div class="codehilite"><pre><span></span><code><span class="n">The</span><span class="w"> </span><span class="n">idea</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">declaring</span><span class="w"> </span><span class="n">multiple</span><span class="w"> </span><span class="n">things</span><span class="w"> </span><span class="p">(</span><span class="n">data</span><span class="w"> </span><span class="n">validation</span><span class="p">,</span><span class="w"> </span><span class="n">serialization</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">documentation</span><span class="p">)</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">same</span><span class="w"> </span><span class="n">Python</span><span class="w"> </span><span class="n">types</span><span class="p">,</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">same</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="n">provided</span><span class="w"> </span><span class="n">great</span><span class="w"> </span><span class="n">editor</span><span class="w"> </span><span class="n">support</span><span class="p">,</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">something</span><span class="w"> </span><span class="n">I</span><span class="w"> </span><span class="n">considered</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">brilliant</span><span class="w"> </span><span class="n">idea</span><span class="o">.</span><span class="w"></span>
-
-<span class="n">And</span><span class="w"> </span><span class="n">after</span><span class="w"> </span><span class="n">searching</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">long</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">similar</span><span class="w"> </span><span class="n">framework</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">testing</span><span class="w"> </span><span class="n">many</span><span class="w"> </span><span class="n">different</span><span class="w"> </span><span class="n">alternatives</span><span class="p">,</span><span class="w"> </span><span class="n">APIStar</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">best</span><span class="w"> </span><span class="n">option</span><span class="w"> </span><span class="n">available</span><span class="o">.</span><span class="w"></span>
-
-<span class="n">Then</span><span class="w"> </span><span class="n">APIStar</span><span class="w"> </span><span class="n">stopped</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">exist</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">Starlette</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">created</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">better</span><span class="w"> </span><span class="n">foundation</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">such</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">system</span><span class="o">.</span><span class="w"> </span><span class="n">That</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">final</span><span class="w"> </span><span class="n">inspiration</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">build</span><span class="w"> </span><span class="o">**</span><span class="n">FastAPI</span><span class="o">**.</span><span class="w"></span>
-
-<span class="n">I</span><span class="w"> </span><span class="n">consider</span><span class="w"> </span><span class="o">**</span><span class="n">FastAPI</span><span class="o">**</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="s2">&quot;spiritual successor&quot;</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">APIStar</span><span class="p">,</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="n">improving</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">increasing</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">features</span><span class="p">,</span><span class="w"> </span><span class="n">typing</span><span class="w"> </span><span class="n">system</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">parts</span><span class="p">,</span><span class="w"> </span><span class="n">based</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">learnings</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">these</span><span class="w"> </span><span class="n">previous</span><span class="w"> </span><span class="n">tools</span><span class="o">.</span><span class="w"></span>
-</code></pre></div>
-
+<p>The idea of declaring multiple things (data validation, serialization and documentation) with the same Python types, that at the same time provided great editor support, was something I considered a brilliant idea.</p>
+<p>And after searching for a long time for a similar framework and testing many different alternatives, APIStar was the best option available.</p>
+<p>Then APIStar stopped to exist as a server and Starlette was created, and was a new better foundation for such a system. That was the final inspiration to build <strong>FastAPI</strong>.</p>
+<p>I consider <strong>FastAPI</strong> a "spiritual successor" to APIStar, while improving and increasing the features, typing system, and other parts, based on the learnings from all these previous tools.</p>
+</div>
 <h2 id="used-by-fastapi">Used by <strong>FastAPI</strong><a class="headerlink" href="#used-by-fastapi" title="Permanent link">&para;</a></h2>
 <h3 id="pydantic"><a href="https://pydantic-docs.helpmanual.io/" class="external-link" target="_blank">Pydantic</a><a class="headerlink" href="#pydantic" title="Permanent link">&para;</a></h3>
 <p>Pydantic is a library to define data validation, serialization and documentation (using JSON Schema) based on Python type hints.</p>
@@ -2689,11 +2720,9 @@ These two were chosen for being fairly popular and stable, but doing a quick sea
 <p>It is comparable to Marshmallow. Although it's faster than Marshmallow in benchmarks. And as it is based on the same Python type hints, the editor support is great.</p>
 <div class="admonition check">
 <p class="admonition-title"><strong>FastAPI</strong> uses it to</p>
-</div>
 <p>Handle all the data validation, data serialization and automatic model documentation (based on JSON Schema).</p>
-<div class="codehilite"><pre><span></span><code><span class="o">**</span><span class="nv">FastAPI</span><span class="o">**</span> <span class="k">then</span> <span class="nv">takes</span> <span class="nv">that</span> <span class="nv">JSON</span> <span class="nv">Schema</span> <span class="nv">data</span> <span class="nv">and</span> <span class="nv">puts</span> <span class="nv">it</span> <span class="nv">in</span> <span class="nv">OpenAPI</span>, <span class="nv">apart</span> <span class="nv">from</span> <span class="nv">all</span> <span class="nv">the</span> <span class="nv">other</span> <span class="nv">things</span> <span class="nv">it</span> <span class="nv">does</span>.
-</code></pre></div>
-
+<p><strong>FastAPI</strong> then takes that JSON Schema data and puts it in OpenAPI, apart from all the other things it does.</p>
+</div>
 <h3 id="starlette"><a href="https://www.starlette.io/" class="external-link" target="_blank">Starlette</a><a class="headerlink" href="#starlette" title="Permanent link">&para;</a></h3>
 <p>Starlette is a lightweight <abbr title="The new standard for building asynchronous Python web">ASGI</abbr> framework/toolkit, which is ideal for building high-performance asyncio services.</p>
 <p>It is very simple and intuitive. It's designed to be easily extensible, and have modular components.</p>
@@ -2701,15 +2730,14 @@ These two were chosen for being fairly popular and stable, but doing a quick sea
 <ul>
 <li>Seriously impressive performance.</li>
 <li>WebSocket support.</li>
-<li>GraphQL support.</li>
 <li>In-process background tasks.</li>
 <li>Startup and shutdown events.</li>
-<li>Test client built on requests.</li>
+<li>Test client built on HTTPX.</li>
 <li>CORS, GZip, Static Files, Streaming responses.</li>
 <li>Session and Cookie support.</li>
 <li>100% test coverage.</li>
 <li>100% type annotated codebase.</li>
-<li>Zero hard dependencies.</li>
+<li>Few hard dependencies.</li>
 </ul>
 <p>Starlette is currently the fastest Python framework tested. Only surpassed by Uvicorn, which is not a framework, but a server.</p>
 <p>Starlette provides all the basic web microframework functionality.</p>
@@ -2717,33 +2745,25 @@ These two were chosen for being fairly popular and stable, but doing a quick sea
 <p>That's one of the main things that <strong>FastAPI</strong> adds on top, all based on Python type hints (using Pydantic). That, plus the dependency injection system, security utilities, OpenAPI schema generation, etc.</p>
 <div class="admonition note">
 <p class="admonition-title">Technical Details</p>
-</div>
 <p>ASGI is a new "standard" being developed by Django core team members. It is still not a "Python standard" (a PEP), although they are in the process of doing that.</p>
-<div class="codehilite"><pre><span></span><code><span class="n">Nevertheless</span><span class="p">,</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">already</span><span class="w"> </span><span class="n">being</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="s2">&quot;standard&quot;</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">several</span><span class="w"> </span><span class="n">tools</span><span class="o">.</span><span class="w"> </span><span class="n">This</span><span class="w"> </span><span class="n">greatly</span><span class="w"> </span><span class="n">improves</span><span class="w"> </span><span class="n">interoperability</span><span class="p">,</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">could</span><span class="w"> </span><span class="n">switch</span><span class="w"> </span><span class="n">Uvicorn</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">ASGI</span><span class="w"> </span><span class="n">server</span><span class="w"> </span><span class="p">(</span><span class="n">like</span><span class="w"> </span><span class="n">Daphne</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">Hypercorn</span><span class="p">),</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">could</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="n">ASGI</span><span class="w"> </span><span class="n">compatible</span><span class="w"> </span><span class="n">tools</span><span class="p">,</span><span class="w"> </span><span class="n">like</span><span class="w"> </span><span class="err">`</span><span class="n">python</span><span class="o">-</span><span class="n">socketio</span><span class="err">`</span><span class="o">.</span><span class="w"></span>
-</code></pre></div>
-
+<p>Nevertheless, it is already being used as a "standard" by several tools. This greatly improves interoperability, as you could switch Uvicorn for any other ASGI server (like Daphne or Hypercorn), or you could add ASGI compatible tools, like <code>python-socketio</code>.</p>
+</div>
 <div class="admonition check">
 <p class="admonition-title"><strong>FastAPI</strong> uses it to</p>
-</div>
 <p>Handle all the core web parts. Adding features on top.</p>
-<div class="codehilite"><pre><span></span><code><span class="n">The</span><span class="w"> </span><span class="n">class</span><span class="w"> </span><span class="n n-Quoted">`FastAPI`</span><span class="w"> </span><span class="n">itself</span><span class="w"> </span><span class="n">inherits</span><span class="w"> </span><span class="n">directly</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">class</span><span class="w"> </span><span class="n n-Quoted">`Starlette`</span><span class="p">.</span><span class="w"></span>
-
-<span class="n">So</span><span class="p">,</span><span class="w"> </span><span class="n">anything</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">Starlette</span><span class="p">,</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">directly</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="o">**</span><span class="n">FastAPI</span><span class="o">**</span><span class="p">,</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">basically</span><span class="w"> </span><span class="n">Starlette</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">steroids</span><span class="p">.</span><span class="w"></span>
-</code></pre></div>
-
+<p>The class <code>FastAPI</code> itself inherits directly from the class <code>Starlette</code>.</p>
+<p>So, anything that you can do with Starlette, you can do it directly with <strong>FastAPI</strong>, as it is basically Starlette on steroids.</p>
+</div>
 <h3 id="uvicorn"><a href="https://www.uvicorn.org/" class="external-link" target="_blank">Uvicorn</a><a class="headerlink" href="#uvicorn" title="Permanent link">&para;</a></h3>
 <p>Uvicorn is a lightning-fast ASGI server, built on uvloop and httptools.</p>
 <p>It is not a web framework, but a server. For example, it doesn't provide tools for routing by paths. That's something that a framework like Starlette (or <strong>FastAPI</strong>) would provide on top.</p>
 <p>It is the recommended server for Starlette and <strong>FastAPI</strong>.</p>
 <div class="admonition check">
 <p class="admonition-title"><strong>FastAPI</strong> recommends it as</p>
-</div>
 <p>The main web server to run <strong>FastAPI</strong> applications.</p>
-<div class="codehilite"><pre><span></span><code><span class="n">You</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">combine</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">Gunicorn</span><span class="p">,</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">asynchronous</span><span class="w"> </span><span class="n">multi</span><span class="o">-</span><span class="n">process</span><span class="w"> </span><span class="n">server</span><span class="p">.</span><span class="w"></span>
-
-<span class="k">Check</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">details</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="o">[</span><span class="n">Deployment</span><span class="o">]</span><span class="p">(</span><span class="n">deployment</span><span class="o">/</span><span class="k">index</span><span class="p">.</span><span class="n">md</span><span class="p">)</span><span class="err">{</span><span class="p">.</span><span class="n">internal</span><span class="o">-</span><span class="n">link</span><span class="w"> </span><span class="n">target</span><span class="o">=</span><span class="n">_blank</span><span class="err">}</span><span class="w"> </span><span class="k">section</span><span class="p">.</span><span class="w"></span>
-</code></pre></div>
-
+<p>You can combine it with Gunicorn, to have an asynchronous multi-process server.</p>
+<p>Check more details in the <a class="internal-link" href="../deployment/" target="_blank">Deployment</a> section.</p>
+</div>
 <h2 id="benchmarks-and-speed">Benchmarks and speed<a class="headerlink" href="#benchmarks-and-speed" title="Permanent link">&para;</a></h2>
 <p>To understand, compare, and see the difference between Uvicorn, Starlette and FastAPI, check the section about <a class="internal-link" href="../benchmarks/" target="_blank">Benchmarks</a>.</p>
 

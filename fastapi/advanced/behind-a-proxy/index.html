@@ -47,6 +47,16 @@
     <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  
+  
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-133183413-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
 
     
     
@@ -122,7 +132,7 @@
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 10px 10px;
     text-decoration: none;
   }
 
@@ -170,7 +180,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -179,7 +189,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -1851,6 +1861,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generate-clients/" class="md-nav__link">
+        Generate Clients
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1948,6 +1972,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../deployment/manually/" class="md-nav__link">
+        Run a Server Manually - Uvicorn
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/concepts/" class="md-nav__link">
+        Deployments Concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../deployment/deta/" class="md-nav__link">
         在 Deta 上部署 FastAPI
       </a>
@@ -1962,8 +2014,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../deployment/docker/" class="md-nav__link">
-        使用 Docker 部署
+      <a href="../../deployment/server-workers/" class="md-nav__link">
+        Server Workers - Gunicorn with Uvicorn
       </a>
     </li>
   
@@ -1976,8 +2028,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../deployment/manually/" class="md-nav__link">
-        手动部署
+      <a href="../../deployment/docker/" class="md-nav__link">
+        使用 Docker 部署
       </a>
     </li>
   
@@ -2014,7 +2066,7 @@
   
     <li class="md-nav__item">
       <a href="../../alternatives/" class="md-nav__link">
-        备选、灵感、比较
+        备选、灵感与比较
       </a>
     </li>
   
@@ -2481,10 +2533,10 @@ proxy --&gt; server</code></pre>
 <p>这才是有趣的地方 ✨</p>
 <p>访问应用的<strong>官方</strong>方式是通过含路径前缀的代理。因此，不出所料，如果没有在 URL 中添加路径前缀，就不能直接访问通过 Uvicorn 运行的 API 文档，需要通过代理才能访问。</p>
 <p>输入 <a href="http://127.0.0.1:8000/docs" class="external-link" target="_blank">http://127.0.0.1:8000/docs</a>  查看 API 文档：</p>
-<p><img src="/img/tutorial/behind-a-proxy/image01.png"></p>
+<p><img src="https://fastapi.tiangolo.com/img/tutorial/behind-a-proxy/image01.png"></p>
 <p>但输入<strong>官方</strong>链接 <code>/api/v1/docs</code>，并使用端口 <code>9999</code> 访问 API 文档，就能正常运行了！🎉</p>
 <p>输入 <a href="http://127.0.0.1:9999/api/v1/docs" class="external-link" target="_blank">http://127.0.0.1:9999/api/v1/docs</a>  查看文档：</p>
-<p><img src="/img/tutorial/behind-a-proxy/image02.png"></p>
+<p><img src="https://fastapi.tiangolo.com/img/tutorial/behind-a-proxy/image02.png"></p>
 <p>一切正常。 ✔️</p>
 <p>这是因为 FastAPI 在 OpenAPI 里使用 <code>root_path</code> 的 URL 创建默认 <code>server</code>。</p>
 <h2 id="_6">附加的服务器<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
@@ -2493,7 +2545,7 @@ proxy --&gt; server</code></pre>
 <p>此用例较难，可以跳过。</p>
 </div>
 <p>默认情况下，<strong>FastAPI</strong> 使用 <code>root_path</code> 的链接在 OpenAPI 概图中创建 <code>server</code>。</p>
-<p>但也可以使用其它备选 <code>servers</code>，例如，需要同一个 API 文档与开发和生产环境交互。</p>
+<p>但也可以使用其他备选 <code>servers</code>，例如，需要同一个 API 文档与开发和生产环境交互。</p>
 <p>如果传递自定义 <code>servers</code> 列表，并有 <code>root_path</code>（ 因为 API 使用了代理），<strong>FastAPI</strong> 会在列表开头使用这个 <code>root_path</code> 插入<strong>服务器</strong>。</p>
 <p>例如：</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">Request</span>
@@ -2538,7 +2590,7 @@ proxy --&gt; server</code></pre>
 <p>注意，自动生成服务器时，<code>url</code> 的值 <code>/api/v1</code> 提取自 <code>root_path</code>。</p>
 </div>
 <p><a href="http://127.0.0.1:9999/api/v1/docs" class="external-link" target="_blank">http://127.0.0.1:9999/api/v1/docs</a>  的 API 文档所示如下：</p>
-<p><img src="/img/tutorial/behind-a-proxy/image03.png"></p>
+<p><img src="https://fastapi.tiangolo.com/img/tutorial/behind-a-proxy/image03.png"></p>
 <div class="admonition tip">
 <p class="admonition-title">提示</p>
 <p>API 文档与所选的服务器进行交互。</p>

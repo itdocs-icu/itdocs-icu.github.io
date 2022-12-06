@@ -47,6 +47,16 @@
     <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  
+  
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-133183413-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
 
     
     
@@ -122,7 +132,7 @@
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 10px 10px;
     text-decoration: none;
   }
 
@@ -170,7 +180,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -179,7 +189,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -1786,6 +1796,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../advanced/generate-clients/" class="md-nav__link">
+        Generate Clients
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1883,6 +1907,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../deployment/manually/" class="md-nav__link">
+        Run a Server Manually - Uvicorn
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../deployment/concepts/" class="md-nav__link">
+        Deployments Concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../deployment/deta/" class="md-nav__link">
         在 Deta 上部署 FastAPI
       </a>
@@ -1897,8 +1949,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../deployment/docker/" class="md-nav__link">
-        使用 Docker 部署
+      <a href="../../../deployment/server-workers/" class="md-nav__link">
+        Server Workers - Gunicorn with Uvicorn
       </a>
     </li>
   
@@ -1911,8 +1963,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../deployment/manually/" class="md-nav__link">
-        手动部署
+      <a href="../../../deployment/docker/" class="md-nav__link">
+        使用 Docker 部署
       </a>
     </li>
   
@@ -1949,7 +2001,7 @@
   
     <li class="md-nav__item">
       <a href="../../../alternatives/" class="md-nav__link">
-        备选、灵感、比较
+        备选、灵感与比较
       </a>
     </li>
   
@@ -2156,19 +2208,20 @@
 <p><strong>FastAPI</strong> 负责处理解析不同深度的子依赖项。</p>
 <h3 id="_2">第一层依赖项<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>下列代码创建了第一层依赖项：</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Cookie</span><span class="p">,</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span>
 
 <span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
 
 
-<span class="hll"><span class="k">def</span> <span class="nf">query_extractor</span><span class="p">(</span><span class="n">q</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="hll"><span class="k">def</span> <span class="nf">query_extractor</span><span class="p">(</span><span class="n">q</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
 </span><span class="hll">    <span class="k">return</span> <span class="n">q</span>
 </span>
 
 <span class="k">def</span> <span class="nf">query_or_cookie_extractor</span><span class="p">(</span>
-    <span class="n">q</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">query_extractor</span><span class="p">),</span> <span class="n">last_query</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Cookie</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+    <span class="n">q</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">query_extractor</span><span class="p">),</span>
+    <span class="n">last_query</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="n">Cookie</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">),</span>
 <span class="p">):</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">q</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">last_query</span>
@@ -2183,20 +2236,21 @@
 <p>这个函数很简单（不过也没什么用），但却有助于让我们专注于了解子依赖项的工作方式。</p>
 <h3 id="_3">第二层依赖项<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>接下来，创建另一个依赖项函数，并同时用该依赖项自身声明再一个依赖项（所以这也是一个<strong>依赖项</strong>）：</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Cookie</span><span class="p">,</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span>
 
 <span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
 
 
-<span class="k">def</span> <span class="nf">query_extractor</span><span class="p">(</span><span class="n">q</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">query_extractor</span><span class="p">(</span><span class="n">q</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">q</span>
 
 
 <span class="k">def</span> <span class="nf">query_or_cookie_extractor</span><span class="p">(</span>
-<span class="hll">    <span class="n">q</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">query_extractor</span><span class="p">),</span> <span class="n">last_query</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Cookie</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
-</span><span class="p">):</span>
+<span class="hll">    <span class="n">q</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">query_extractor</span><span class="p">),</span>
+</span>    <span class="n">last_query</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="n">Cookie</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">),</span>
+<span class="p">):</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">q</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">last_query</span>
     <span class="k">return</span> <span class="n">q</span>
@@ -2208,7 +2262,7 @@
 </code></pre></div>
 <p>这里重点说明一下声明的参数：</p>
 <ul>
-<li>尽管该函数自身是依赖项，但还声明了另一个依赖项（它<strong>依赖</strong>于其它对象）<ul>
+<li>尽管该函数自身是依赖项，但还声明了另一个依赖项（它<strong>依赖</strong>于其他对象）<ul>
 <li>该函数依赖 <code>query_extractor</code>, 并把 <code>query_extractor</code> 的返回值赋给参数 <code>q</code></li>
 </ul>
 </li>
@@ -2219,32 +2273,33 @@
 </ul>
 <h3 id="_4">使用依赖项<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>接下来，就可以使用依赖项：</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Cookie</span><span class="p">,</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span>
 
 <span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
 
 
-<span class="k">def</span> <span class="nf">query_extractor</span><span class="p">(</span><span class="n">q</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">query_extractor</span><span class="p">(</span><span class="n">q</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">q</span>
 
 
 <span class="k">def</span> <span class="nf">query_or_cookie_extractor</span><span class="p">(</span>
-    <span class="n">q</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">query_extractor</span><span class="p">),</span> <span class="n">last_query</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Cookie</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+    <span class="n">q</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">query_extractor</span><span class="p">),</span>
+    <span class="n">last_query</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="n">Cookie</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">),</span>
 <span class="p">):</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">q</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">last_query</span>
     <span class="k">return</span> <span class="n">q</span>
 
 
-<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/&quot;</span><span class="p">)</span>
-<span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">read_query</span><span class="p">(</span><span class="n">query_or_default</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">query_or_cookie_extractor</span><span class="p">)):</span>
-</span>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;q_or_cookie&quot;</span><span class="p">:</span> <span class="n">query_or_default</span><span class="p">}</span>
+<span class="hll"><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/&quot;</span><span class="p">)</span>
+</span><span class="k">async</span> <span class="k">def</span> <span class="nf">read_query</span><span class="p">(</span><span class="n">query_or_default</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">query_or_cookie_extractor</span><span class="p">)):</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;q_or_cookie&quot;</span><span class="p">:</span> <span class="n">query_or_default</span><span class="p">}</span>
 </code></pre></div>
 <div class="admonition info">
 <p class="admonition-title">信息</p>
-<p>注意，这里在<em>路径操作函数</em>中只声明了一个依赖项，即 <code>query_or_cookie_extractor</code> 。</p>
+<p>注意，这里在<strong>路径操作函数</strong>中只声明了一个依赖项，即 <code>query_or_cookie_extractor</code> 。</p>
 <p>但 <strong>FastAPI</strong> 必须先处理 <code>query_extractor</code>，以便在调用 <code>query_or_cookie_extractor</code> 时使用 <code>query_extractor</code> 返回的结果。</p>
 </div>
 <pre class="mermaid"><code>graph TB
@@ -2256,7 +2311,7 @@ read_query["/items/"]
 
 query_extractor --&gt; query_or_cookie_extractor --&gt; read_query</code></pre>
 <h2 id="_5">多次使用同一个依赖项<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<p>如果在同一个<em>路径操作</em> 多次声明了同一个依赖项，例如，多个依赖项共用一个子依赖项，<strong>FastAPI</strong> 在处理同一请求时，只调用一次该子依赖项。</p>
+<p>如果在同一个<strong>路径操作</strong> 多次声明了同一个依赖项，例如，多个依赖项共用一个子依赖项，<strong>FastAPI</strong> 在处理同一请求时，只调用一次该子依赖项。</p>
 <p>FastAPI 不会为同一个请求多次调用同一个依赖项，而是<abbr title="一个实用程序/系统来存储计算/生成的值，以便重用它们，而不是再次计算它们。"><strong>缓存</strong></abbr>依赖项的返回值，并把它传递给同一请求中所有使用该返回值的<strong>依赖项</strong>。</p>
 <p>在高级使用场景中，如果不想使用<strong>缓存</strong>值，而是要为在同一请求的每一步操作（多次）中都实际调用依赖项，可以把 <code>Depends</code> 的参数 <code>use_cache</code> 的值设置为 <code>False</code> :</p>
 <div class="highlight"><pre><span></span><code><span class="hll"><span class="k">async</span> <span class="k">def</span> <span class="nf">needy_dependency</span><span class="p">(</span><span class="n">fresh_value</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_value</span><span class="p">,</span> <span class="n">use_cache</span><span class="o">=</span><span class="kc">False</span><span class="p">)):</span>
@@ -2264,7 +2319,7 @@ query_extractor --&gt; query_or_cookie_extractor --&gt; read_query</code></pre>
 </code></pre></div>
 <h2 id="_6">小结<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <p>千万别被本章里这些花里胡哨的词藻吓倒了，<strong>依赖注入</strong>系统其实非常简单。</p>
-<p>依赖注入就是与<em>路径操作函数</em>一样的函数。</p>
+<p>依赖注入就是与<strong>路径操作函数</strong>一样的函数。</p>
 <p>但它依然非常强大，能够声明任意嵌套深度的<strong>图</strong>或树状的依赖结构。</p>
 <div class="admonition tip">
 <p class="admonition-title">提示</p>

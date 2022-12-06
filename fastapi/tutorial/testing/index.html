@@ -47,6 +47,16 @@
     <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+  
+
+
+  
+  
+
+
+  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-133183413-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+  <script async src="https://www.google-analytics.com/analytics.js"></script>
+
 
     
     
@@ -122,7 +132,7 @@
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 10px 10px;
     text-decoration: none;
   }
 
@@ -170,7 +180,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
           
             <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
@@ -179,7 +189,7 @@
         
           
           
-          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
           
             <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
@@ -1198,8 +1208,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#fastapi-app_1" class="md-nav__link">
-    扩展 FastAPI app 文件
+  <a href="#fastapi" class="md-nav__link">
+    扩展 FastAPI 应用文件
   </a>
   
 </li>
@@ -1817,6 +1827,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced/generate-clients/" class="md-nav__link">
+        Generate Clients
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1914,6 +1938,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../deployment/manually/" class="md-nav__link">
+        Run a Server Manually - Uvicorn
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deployment/concepts/" class="md-nav__link">
+        Deployments Concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../deployment/deta/" class="md-nav__link">
         在 Deta 上部署 FastAPI
       </a>
@@ -1928,8 +1980,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../deployment/docker/" class="md-nav__link">
-        使用 Docker 部署
+      <a href="../../deployment/server-workers/" class="md-nav__link">
+        Server Workers - Gunicorn with Uvicorn
       </a>
     </li>
   
@@ -1942,8 +1994,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../deployment/manually/" class="md-nav__link">
-        手动部署
+      <a href="../../deployment/docker/" class="md-nav__link">
+        使用 Docker 部署
       </a>
     </li>
   
@@ -1980,7 +2032,7 @@
   
     <li class="md-nav__item">
       <a href="../../alternatives/" class="md-nav__link">
-        备选、灵感、比较
+        备选、灵感与比较
       </a>
     </li>
   
@@ -2175,8 +2227,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#fastapi-app_1" class="md-nav__link">
-    扩展 FastAPI app 文件
+  <a href="#fastapi" class="md-nav__link">
+    扩展 FastAPI 应用文件
   </a>
   
 </li>
@@ -2215,15 +2267,20 @@
 
 
 <h1 id="_1">测试<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>借助 <a href="https://www.starlette.io/testclient/" class="external-link" target="_blank">Starlette</a>，测试 <strong>FastAPI</strong> 应用这件事变得简单又愉悦。</p>
-<p>因为 Starlette 基于 <a href="https://requests.readthedocs.io" class="external-link" target="_blank">Requests</a>，所以测试操作也是非常熟悉和直观。</p>
+<p>借助 <a href="https://www.starlette.io/testclient/" class="external-link" target="_blank">Starlette</a>，可以轻松、简单地测试 <strong>FastAPI</strong> 应用。</p>
+<p>Starlette 基于 <a href="https://requests.readthedocs.io" class="external-link" target="_blank">Requests</a>，所以，大家应该对测试 FastAPI 应用并不陌生。</p>
 <p>借助 Starlette，还可以直接使用 <a href="https://docs.pytest.org/" class="external-link" target="_blank">pytest</a> 测试 <strong>FastAPI</strong> 应用。</p>
 <h2 id="testclient">使用 <code>TestClient</code><a class="headerlink" href="#testclient" title="Permanent link">&para;</a></h2>
+<div class="admonition info">
+<p class="admonition-title">说明</p>
+<p>使用 <code>TestClient</code>，首先要安装 <a href="https://www.python-httpx.org" class="external-link" target="_blank"><code>httpx</code></a>。</p>
+<p>例如， <code>pip install httpx</code>。</p>
+</div>
 <p>导入 <code>TestClient</code>。</p>
 <p>创建 <code>TestClient</code>，并把它传递给 <strong>FastAPI</strong> 应用。</p>
 <p>创建以 <code>test_</code> 开头的函数，这是 <code>pytest</code> 的标准惯例。</p>
-<p>使用 <code>TestClient</code> 对象的方式与执行 <code>requests</code> 的方式一样。</p>
-<p>使用 python 标准表达式编写简单的，用于校验的 <code>assert</code> 语句，这也是 <code>pytest</code> 的标准惯例。</p>
+<p>使用 <code>TestClient</code> 对象的方式与 <code>requests</code> 的方式一样。</p>
+<p>使用 Python 标准表达式编写简单的 <code>assert</code> 语句进行检测，这也是 <code>pytest</code> 的标准惯例。</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
 <span class="hll"><span class="kn">from</span> <span class="nn">fastapi.testclient</span> <span class="kn">import</span> <span class="n">TestClient</span>
 </span>
@@ -2246,7 +2303,7 @@
 <div class="admonition tip">
 <p class="admonition-title">提示</p>
 <p>注意，测试函数是普通函数（<code>def</code>），不是异步函数（<code>async def</code>）。</p>
-<p>并且，对 <code>client</code> 也要使用普通调用，不要使用 <code>await</code>。</p>
+<p>并且，调用 <code>client</code> 也要使用普通方式，不要使用 <code>await</code>。</p>
 <p>这样，直接使用 <code>pytest</code> 就不会变得复杂。</p>
 </div>
 <div class="admonition note">
@@ -2260,9 +2317,15 @@
 </div>
 <h2 id="_2">分拆测试<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>实际应用中，测试会分为多个不同文件。</p>
-<p>而且，<strong>FastAPI</strong> 应用可能也是由多个文件/模块组成的。</p>
+<p>而且，<strong>FastAPI</strong> 应用也很有可能是由多个文件/模块组成的。</p>
 <h3 id="fastapi-app"><strong>FastAPI</strong> 的 app 文件<a class="headerlink" href="#fastapi-app" title="Permanent link">&para;</a></h3>
-<p>假设 <strong>FastAPI</strong> 应用中包含 <code>app</code> 的 <code>main.py</code> 如下所示：</p>
+<p>假设要测试的项目使用与<a class="internal-link" href="../bigger-applications/" target="_blank">大型应用</a>一节中相同的文件架构：</p>
+<div class="highlight"><pre><span></span><code>.
+├── app
+│   ├── __init__.py
+│   └── main.py
+</code></pre></div>
+<p><strong>FastAPI</strong> 应用中的 <code>main.py</code> 如下所示：</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
 
 <span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
@@ -2273,11 +2336,18 @@
     <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;msg&quot;</span><span class="p">:</span> <span class="s2">&quot;Hello World&quot;</span><span class="p">}</span>
 </code></pre></div>
 <h3 id="_3">测试文件<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<p>然后，创建测试文件 <code>test_main.py</code>，并从 <code>main</code> 模块（<code>main.py</code>）中导入 <code>app</code>：</p>
+<p>创建测试文件 <code>test_main.py</code>。该文件可以与 <code>main.py</code> 在同一个 Python 包里（即包含 <code>__init__.py</code> 的同一个目录内）。</p>
+<div class="highlight"><pre><span></span><code>.
+├── app
+│   ├── __init__.py
+│   ├── main.py
+<span class="hll">│   └── test_main.py
+</span></code></pre></div>
+<p>因为该文件与 <code>main.py</code> 在同一个包里，此处可以使用相对导入，即从 <code>main</code> 模块（<code>main.py</code>）中导入 <code>app</code> 对象：</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi.testclient</span> <span class="kn">import</span> <span class="n">TestClient</span>
 
-<span class="kn">from</span> <span class="nn">.main</span> <span class="kn">import</span> <span class="n">app</span>
-
+<span class="hll"><span class="kn">from</span> <span class="nn">.main</span> <span class="kn">import</span> <span class="n">app</span>
+</span>
 <span class="n">client</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
 
 
@@ -2286,14 +2356,25 @@
     <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
     <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span> <span class="o">==</span> <span class="p">{</span><span class="s2">&quot;msg&quot;</span><span class="p">:</span> <span class="s2">&quot;Hello World&quot;</span><span class="p">}</span>
 </code></pre></div>
+<p>这样，就可以编写测试代码了。</p>
 <h2 id="_4">测试：扩展示例<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<p>接下来，扩展上述示例，添加更多细节，以介绍如何测试不同组件。</p>
-<h3 id="fastapi-app_1">扩展 <strong>FastAPI</strong> app 文件<a class="headerlink" href="#fastapi-app_1" title="Permanent link">&para;</a></h3>
-<p>假设 <strong>FastAPI</strong> 应用中包含 <code>app</code> 的 <code>main_b.py</code> 如下所示：</p>
-<p>此应用的 <code>GET</code> 操作会返回错误。</p>
-<p><code>POST</code> 操作会返回多个错误。</p>
-<p>两个<strong>路径操作</strong>都需要 <code>X-Token</code> 请求头。</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<p>扩展上述示例，添加更多细节，了解如何测试不同组件。</p>
+<h3 id="fastapi">扩展 <strong>FastAPI</strong> 应用文件<a class="headerlink" href="#fastapi" title="Permanent link">&para;</a></h3>
+<p>继续使用与上文相同的文件架构：</p>
+<div class="highlight"><pre><span></span><code>.
+├── app
+│   ├── __init__.py
+│   ├── main.py
+│   └── test_main.py
+</code></pre></div>
+<p>假设 <strong>FastAPI</strong> 应用的 <code>main.py</code> 中还有一些其他<strong><em>路径操作</em></strong>。</p>
+<p>其中，<code>GET</code> 操作返回一个错误。</p>
+<p>而 <code>POST</code> 操作返回多个错误。</p>
+<p>两个<strong><em>路径操作</em></strong>都需要 <code>X-Token</code> 请求头。</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python 3.6 and above</label><label for="__tabbed_1_2">Python 3.10 and above</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">Header</span><span class="p">,</span> <span class="n">HTTPException</span>
 <span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
@@ -2311,11 +2392,11 @@
 <span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
     <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span>
     <span class="n">title</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="n">description</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">description</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/</span><span class="si">{item_id}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">Item</span><span class="p">)</span>
-<span class="k">async</span> <span class="k">def</span> <span class="nf">read_main</span><span class="p">(</span><span class="n">item_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">x_token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Header</span><span class="p">(</span><span class="o">...</span><span class="p">)):</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">read_main</span><span class="p">(</span><span class="n">item_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">x_token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Header</span><span class="p">()):</span>
     <span class="k">if</span> <span class="n">x_token</span> <span class="o">!=</span> <span class="n">fake_secret_token</span><span class="p">:</span>
         <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;Invalid X-Token header&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">item_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">fake_db</span><span class="p">:</span>
@@ -2324,7 +2405,7 @@
 
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/items/&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">Item</span><span class="p">)</span>
-<span class="k">async</span> <span class="k">def</span> <span class="nf">create_item</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">,</span> <span class="n">x_token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Header</span><span class="p">(</span><span class="o">...</span><span class="p">)):</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">create_item</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">,</span> <span class="n">x_token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Header</span><span class="p">()):</span>
     <span class="k">if</span> <span class="n">x_token</span> <span class="o">!=</span> <span class="n">fake_secret_token</span><span class="p">:</span>
         <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;Invalid X-Token header&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">id</span> <span class="ow">in</span> <span class="n">fake_db</span><span class="p">:</span>
@@ -2332,11 +2413,53 @@
     <span class="n">fake_db</span><span class="p">[</span><span class="n">item</span><span class="o">.</span><span class="n">id</span><span class="p">]</span> <span class="o">=</span> <span class="n">item</span>
     <span class="k">return</span> <span class="n">item</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">Header</span><span class="p">,</span> <span class="n">HTTPException</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+
+<span class="n">fake_secret_token</span> <span class="o">=</span> <span class="s2">&quot;coneofsilence&quot;</span>
+
+<span class="n">fake_db</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;foo&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Foo&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;There goes my hero&quot;</span><span class="p">},</span>
+    <span class="s2">&quot;bar&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;bar&quot;</span><span class="p">,</span> <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Bar&quot;</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;The bartenders&quot;</span><span class="p">},</span>
+<span class="p">}</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">title</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/items/</span><span class="si">{item_id}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">Item</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">read_main</span><span class="p">(</span><span class="n">item_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">x_token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Header</span><span class="p">()):</span>
+    <span class="k">if</span> <span class="n">x_token</span> <span class="o">!=</span> <span class="n">fake_secret_token</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;Invalid X-Token header&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">item_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">fake_db</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">404</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;Item not found&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">fake_db</span><span class="p">[</span><span class="n">item_id</span><span class="p">]</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/items/&quot;</span><span class="p">,</span> <span class="n">response_model</span><span class="o">=</span><span class="n">Item</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">create_item</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="n">Item</span><span class="p">,</span> <span class="n">x_token</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Header</span><span class="p">()):</span>
+    <span class="k">if</span> <span class="n">x_token</span> <span class="o">!=</span> <span class="n">fake_secret_token</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;Invalid X-Token header&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">id</span> <span class="ow">in</span> <span class="n">fake_db</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;Item already exists&quot;</span><span class="p">)</span>
+    <span class="n">fake_db</span><span class="p">[</span><span class="n">item</span><span class="o">.</span><span class="n">id</span><span class="p">]</span> <span class="o">=</span> <span class="n">item</span>
+    <span class="k">return</span> <span class="n">item</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 <h3 id="_5">扩展测试文件<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<p>同上，测试文件 <code>test_main_b.py</code>也添加了扩展测试：</p>
+<p>同样，也可以扩展测试文件，<code>test_main.py</code> 更新如下所示：</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastapi.testclient</span> <span class="kn">import</span> <span class="n">TestClient</span>
 
-<span class="kn">from</span> <span class="nn">.main_b</span> <span class="kn">import</span> <span class="n">app</span>
+<span class="kn">from</span> <span class="nn">.main</span> <span class="kn">import</span> <span class="n">app</span>
 
 <span class="n">client</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
 
@@ -2400,24 +2523,24 @@
     <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">400</span>
     <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span> <span class="o">==</span> <span class="p">{</span><span class="s2">&quot;detail&quot;</span><span class="p">:</span> <span class="s2">&quot;Item already exists&quot;</span><span class="p">}</span>
 </code></pre></div>
-<p>在客户端的请求中传递信息，如果您不知道怎么操作，请（在谷歌）搜索如何在 <code>requests</code> 中执行这一操作。</p>
-<p>接下来执行同样的测试操作。</p>
+<p>如果您不知道该如何使用客户端在请求中传递信息，请去谷歌搜索如何在 <code>httpx</code> 或 <code>requests</code> 中执行这一操作。注意，HTTPX 是基于 Request 设计的。</p>
+<p>执行同样的测试操作。</p>
 <p>例如：</p>
 <ul>
-<li>传递<em>路径或查询</em>参数，把它添加至 URL</li>
-<li>传递 JSON 请求体时，需要把 <code>dict</code> 等 Python 对象传递给参数 <code>json</code></li>
-<li>如果发送的是<em>表单数据</em>，不是 JSON，则要使用参数 <code>data</code></li>
-<li>传递<em>请求头</em>时，在参数 <code>headers</code> 中使用 <code>dict</code></li>
-<li>传递 <code>cookies</code> 时，在参数 <code>cookies</code> 中使用 <code>dict</code></li>
+<li>传递<strong>路径</strong>或<strong>查询</strong>参数，把它添加至 URL。</li>
+<li>传递 JSON 请求体时，需要把 <code>dict</code> 等 Python 对象传递给 <code>json</code> 参数。</li>
+<li>如需发送的不是 JSON，而是<strong>表单数据</strong>，则要使用 <code>data</code> 参数。</li>
+<li>传递<strong>请求头</strong>时，可在 <code>headers</code> 参数中使用 <code>dict</code>。</li>
+<li>传递 <code>cookies</code> 时，可在 <code>cookies</code> 参数中使用 <code>dict</code>。</li>
 </ul>
-<p>关于如何（使用 <code>request</code> 或 <code>TestClient</code>）把数据传递给后端的说明，详见 <a href="https://requests.readthedocs.io" class="external-link" target="_blank">Requests 文档</a>。</p>
+<p>关于如何使用 <code>httpx</code> 或 <code>TestClient</code> 把数据传递给后端的说明，详见 <a href="https://www.python-httpx.org" class="external-link" target="_blank">HTTPX 文档</a>。</p>
 <div class="admonition info">
 <p class="admonition-title">说明</p>
 <p>注意，<code>TestClient</code> 接收的是可以转换为 JSON 的数据，不是 Pydantic 模型。</p>
 <p>如果在测试中使用 Pydantic 模型，并希望在测试中把模型的数据发送给 FastAPI 应用，可以使用 <a class="internal-link" href="../encoder/" target="_blank">JSON 编码器</a> 中的 <code>jsonable_encoder</code>。</p>
 </div>
 <h2 id="_6">运行测试<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
-<p>接下来，安装 <code>pytest</code>：</p>
+<p>接下来，需要安装 <code>pytest</code>：</p>
 <div class="termy">
 
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>pip install pytest
@@ -2427,7 +2550,7 @@
 
 </div>
 
-<p><code>pytest</code> 会自动检测文件，并进行测试。执行测试文件，生成测试报告。</p>
+<p><code>pytest</code> 会自动检测文件，并进行测试。执行测试文件，就能生成测试报告。</p>
 <p>运行测试：</p>
 <div class="termy">
 
