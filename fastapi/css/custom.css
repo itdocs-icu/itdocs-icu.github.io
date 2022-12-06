@@ -104,3 +104,8 @@ a.announce-link:hover {
 .twitter {
   color: #00acee;
 }
+
+html,
+body {
+  overflow-x: hidden;
+}
