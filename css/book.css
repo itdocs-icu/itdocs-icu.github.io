@@ -6,8 +6,7 @@
 html {
   margin: 0;
   height: 100%;
-  font-size: 20px;
-  -webkit-filter: grayscale(100%); }
+  font-size: 20px; }
 
 body {
   font-size: 0.8rem; }

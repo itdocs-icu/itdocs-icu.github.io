@@ -225,15 +225,6 @@ document.addEventListener('DOMContentLoaded', function () {
     
         <ul>
             <li class="file">
-                <a href="/posts/da4bfcc1.html">
-                    Screen说明
-                </a>
-            </li>
-            <div class="article-toc" style="display: none;"></div>
-        </ul>
-    
-        <ul>
-            <li class="file">
                 <a href="/posts/b2579617.html">
                     SocketTimeout完美解决方案
                 </a>
@@ -1402,14 +1393,18 @@ function sidebar_toggle() {
         </div>
         <div class="book-content">
           <div class="book-post">
-  <h2 id="Screen">Screen</h2>
+  <blockquote>
+<p>Only those who dare to fail greatly can ever achieve greatly.<br>
+— <cite>Robert F. Kennedy</cite></p>
+</blockquote>
+<h2 id="Screen">Screen</h2>
 <p>官方站点:<a target="_blank" rel="noopener" href="http://www.gnu.org/software/screen/">http://www.gnu.org/software/screen/</a></p>
 <h3 id="常用参数">常用参数</h3>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">screen</span> -S yourname -<span class="token operator">></span> 新建一个叫yourname的session
-<span class="token function">screen</span> -ls         -<span class="token operator">></span> 列出当前所有的session
-<span class="token function">screen</span> -r yourname -<span class="token operator">></span> 回到yourname这个session
-<span class="token function">screen</span> -d yourname -<span class="token operator">></span> 远程detach某个session
-<span class="token function">screen</span> -d -r yourname -<span class="token operator">></span> 结束当前session并回到yourname这个session
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">screen -S yourname -&gt; 新建一个叫yourname的session
+screen -ls         -&gt; 列出当前所有的session
+screen -r yourname -&gt; 回到yourname这个session
+screen -d yourname -&gt; 远程detach某个session
+screen -d -r yourname -&gt; 结束当前session并回到yourname这个session
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="简介">简介</h3>
 <blockquote>
@@ -1417,7 +1412,7 @@ function sidebar_toggle() {
 <p>在Screen环境下，所有的会话都独立的运行，并拥有各自的编号、输入、输出和窗口缓存。用户可以通过快捷键在不同的窗口下切换，并可以自由的重定向各个窗口的输入和输出。</p>
 </blockquote>
 <h3 id="基本语法">基本语法</h3>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">screen</span> <span class="token punctuation">[</span>-AmRvx -ls -wipe<span class="token punctuation">]</span><span class="token punctuation">[</span>-d <span class="token operator">&lt;</span>作业名称<span class="token operator">></span><span class="token punctuation">]</span><span class="token punctuation">[</span>-h <span class="token operator">&lt;</span>行数<span class="token operator">></span><span class="token punctuation">]</span><span class="token punctuation">[</span>-r <span class="token operator">&lt;</span>作业名称<span class="token operator">></span><span class="token punctuation">]</span><span class="token punctuation">[</span>-s <span class="token punctuation">]</span><span class="token punctuation">[</span>-S <span class="token operator">&lt;</span>作业名称<span class="token operator">></span><span class="token punctuation">]</span>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">screen [-AmRvx -ls -wipe][-d &lt;作业名称&gt;][-h &lt;行数&gt;][-r &lt;作业名称&gt;][-s ][-S &lt;作业名称&gt;]
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ul>
 <li>
@@ -1726,16 +1721,6 @@ Ctrl + A + D
 
             
 
-          
-            
-            
-
-
-            
-
-          
-          
-        
           
           
         
