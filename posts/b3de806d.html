@@ -1,0 +1,167 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><link rel="icon" href="/favicon.png"><title>Python使用信号量动态更新配置文件 - Docs`Blog</title><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.5.9/spectre.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.5.9/spectre-exp.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.5.9/spectre-icons.min.css"><link rel="stylesheet" href="/css/book.css"><link rel="stylesheet" href="/css/mdicon.css"><script src="/js/book.js"></script><script src="/js/jquery.min.js"></script><link rel="stylesheet" href="/css/prism.css"><script src="/js/prism.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML" async></script><script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery-pjax@2.0.1/jquery.pjax.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css"><script>!function(e,a,t,n,g,c){e.GoogleAnalyticsObject=n,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=+new Date,g=a.createElement(t),c=a.getElementsByTagName(t)[0],g.async=1,g.src="https://www.google-analytics.com/analytics.js",c.parentNode.insertBefore(g,c)}(window,document,"script","ga"),ga("create","G-3FTL9QWCS6","auto"),ga("send","pageview")</script><script src="https://cdnjs.cloudflare.com/ajax/libs/zooming/2.1.1/zooming.min.js"></script><script>document.addEventListener('DOMContentLoaded', function () {
+    const zooming = new Zooming()
+    zooming.listen('.book-content img')
+})</script><meta name="generator" content="Hexo 5.4.2"></head><body><div class="book-container"><div class="book-sidebar"><div class="book-brand"><a href="/"><img src="/favicon.png"> <span>DOCS`BLOG</span></a></div><div class="tree" id="tree"><input id="search-input" class="search-input" type="text" placeholder="search..."><ul><li class="directory"><a class="directory"><i class="material-icons">keyboard_arrow_right</i> Python</a><ul><li class="directory"><a class="directory"><i class="material-icons">keyboard_arrow_right</i> Py3</a><ul><li class="directory"><a class="directory"><i class="material-icons">keyboard_arrow_right</i> 第一章：数据结构和算法</a><ul><li class="file"><a href="/posts/0.html">1.1 将序列分解为单独的变量</a></li><div class="article-toc" style="display:none"></div></ul></li></ul></li></ul><ul><li class="directory"><a class="directory"><i class="material-icons">keyboard_arrow_right</i> FastAPI</a><ul><li class="file active"><a href="/posts/b3de806d.html">Python使用信号量动态更新配置文件</a></li><div class="article-toc" style="display:none"></div></ul></li></ul></li></ul><ul><li class="directory"><a class="directory"><i class="material-icons">keyboard_arrow_right</i> Feel</a><ul><li class="file"><a href="/posts/7c10e373.html">微信助手破解方式</a></li><div class="article-toc" style="display:none"></div></ul><ul><li class="file"><a href="/posts/48120bab.html">Tensorflow联邦学习平台搭建</a></li><div class="article-toc" style="display:none"></div></ul><ul><li class="file"><a href="/posts/f41c51aa.html">工作方式</a></li><div class="article-toc" style="display:none"></div></ul></li></ul><ul><li class="directory"><a class="directory"><i class="material-icons">keyboard_arrow_right</i> Linux</a><ul><li class="file"><a href="/posts/fc209c86.html">linux_nvm安装</a></li><div class="article-toc" style="display:none"></div></ul></li></ul><ul><li class="directory"><a class="directory"><i class="material-icons">keyboard_arrow_right</i> 商业化</a><ul><li class="file"><a href="/posts/8ae47aa6.html">广告链路分析路径</a></li><div class="article-toc" style="display:none"></div></ul><ul><li class="file"><a href="/posts/fca0e48c.html">互联网的半壁江山</a></li><div class="article-toc" style="display:none"></div></ul><ul><li class="file"><a href="/posts/b4bce7a2.html">互联网广告专业术语</a></li><div class="article-toc" style="display:none"></div></ul></li></ul></div><script src="/js/book-menu.js"></script></div><div class="sidebar-toggle" onclick="sidebar_toggle()" onmouseover="add_inner()" onmouseleave="remove_inner()"><div class="sidebar-toggle-inner"></div></div><script>function add_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.add('show')
+}
+
+function remove_inner() {
+  let inner = document.querySelector('.sidebar-toggle-inner')
+  inner.classList.remove('show')
+}
+
+function sidebar_toggle() {
+    let sidebar_toggle = document.querySelector('.sidebar-toggle')
+    let sidebar = document.querySelector('.book-sidebar')
+    let content = document.querySelector('.off-canvas-content')
+    if (sidebar_toggle.classList.contains('extend')) { // show
+        sidebar_toggle.classList.remove('extend')
+        sidebar.classList.remove('hide')
+        content.classList.remove('extend')
+    }
+    else { // hide
+        sidebar_toggle.classList.add('extend')
+        sidebar.classList.add('hide')
+        content.classList.add('extend')
+    }
+}</script><div class="off-canvas-content"><div class="columns"><div class="column col-10 col-lg-12"><div class="book-navbar"><header class="navbar"><section class="navbar-section"><a onclick="open_sidebar()"><i class="icon icon-menu"></i></a></section></header></div><div class="book-content"><div class="book-post"><h2 id="现状">现状</h2><p>因为Python没有像 SpringBoot 那样成熟的框架体系。 也没现成的 动态参数启动之类的。<br>（也许有，但我不知道。）</p><p><strong>目的：</strong></p><blockquote><p>希望可以通过配置文件,统一管理封装,比如数据库账号密码,测试环境。等等。<br>而改了之后呢，又不想重启服务。</p></blockquote><h2 id="解决方案">解决方案</h2><p>可以让<code>python捕获</code>信号量<code>HUP</code> 然后当使用<code>kill 发起HUP信号量的时候</code> 捕获到进行处理，可以处理为<code>重新读取配置文件并重新赋值</code>，这样不需要重启服务也可以让程序重新读取配置文件的内容。</p><p>推荐使用 <code>ConfigParser</code> 来获取配置文件好一些。</p><h2 id="Linux几种中断信号区别">Linux几种中断信号区别</h2><p>Linux的<code>HUP，INT，KILL，TERM</code>，TSTP中断信号区别为：<code>键入不同、对应操作不同、启用不同</code>。</p><h3 id="键入不同">键入不同</h3><ol><li><p>HUP中断信号：HUP中断信号是当用户键入&lt;Ctrl+X&gt;时由终端驱动程序发送的信号。</p></li><li><p>INT中断信号：INT中断信号是当用户键入&lt;Ctrl+I&gt;时由终端驱动程序发送的信号。</p></li><li><p>KILL中断信号：KILL中断信号是当用户键入&lt;Ctrl+Z&gt;时由终端驱动程序发送的信号。</p></li><li><p>TERM中断信号：TERM中断信号是当用户键入&lt;Ctrl+ &gt;时由终端驱动程序发送的信号。</p></li><li><p>TSTP中断信号：TSTP中断信号是当用户键入&lt;Ctrl+T&gt;时由终端驱动程序发送的信号</p></li></ol><h3 id="对应操作不同">对应操作不同</h3><ol><li><p>HUP中断信号：HUP中断信号的对应操作为让进程挂起，睡眠。</p></li><li><p>INT中断信号：INT中断信号的对应操作为正常关闭所有进程。</p></li><li><p>KILL中断信号：KILL中断信号的对应操作为强制关闭所有进程。</p></li><li><p>TERM中断信号：TERM中断信号的对应操作为正常的退出进程。</p></li><li><p>TSTP中断信号：TSTP中断信号的对应操作为暂时停用进程。</p></li></ol><h3 id="启用不同">启用不同</h3><ol><li><p>HUP中断信号：HUP中断信号发送后，可以重新被用户再次输入恢复启用进程。</p></li><li><p>INT中断信号：INT中断信号发送后，不可以重新被用户再次输入恢复启用进程。</p></li><li><p>KILL中断信号：KILL中断信号发送后，不可以重新被用户再次输入恢复启用进程。</p></li><li><p>TERM中断信号：TERM中断信号发送后，可以重新被用户再次输入启用进程。</p></li><li><p>TSTP中断信号：TSTP中断信号发送后，可以重新被用户再次输入继续使用进程。</p></li></ol><h3 id="HUP–解释">HUP–解释.</h3><ul><li class="checkbox-item"><input type="checkbox" id="checkbox0" checked><label for="checkbox0">他被许多守护进程理解为一个重新设置的请求.如果</label><code>一个进程不用重新启动就能重新读取它的配置文件</code>并调整自给以适应变化的话,那么HUP通常来<code>触发这种行为</code>.</li><li class="checkbox-item"><input type="checkbox" id="checkbox1"><label for="checkbox1">HUP信号有时候又终端驱动程序生成,试图来&quot;清除&quot;(“终止”)跟某个特定终端相连的那些进程.例如:某个终端会话结束时,或者当调制解调器被挂断时,shell后台不接受HUP的信号的影响.有的的用户可以使用nohup来模仿这种行为.</label></li></ul><h2 id="捕获信号量">捕获信号量</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#!/usr/bin/env python3</span>
+<span class="token comment"># -*-coding:utf-8 -*</span>
+<span class="token triple-quoted-string string">"""
+-------------------------------------------------
+# @File :config_test
+# @Date :2021/12/3 18:06
+# @Author :Jack
+# @Email :itdocs@163.com
+# @Source：
+# @Desc：
+-------------------------------------------------
+"""</span>
+
+
+<span class="token keyword">import</span> signal
+<span class="token keyword">import</span> configparser
+
+
+<span class="token keyword">def</span> <span class="token function">get_config</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    conf <span class="token operator">=</span> configparser<span class="token punctuation">.</span>ConfigParser<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    conf<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token string">'./db.conf'</span><span class="token punctuation">)</span>
+    dev <span class="token operator">=</span> conf<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"Section_Dev"</span><span class="token punctuation">,</span> <span class="token string">"env"</span><span class="token punctuation">)</span>
+    port <span class="token operator">=</span> conf<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"Section_Dev"</span><span class="token punctuation">,</span> <span class="token string">"port"</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>dev<span class="token punctuation">)</span>
+
+
+<span class="token keyword">def</span> <span class="token function">update_config</span><span class="token punctuation">(</span>signum<span class="token punctuation">,</span> frame<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"update config"</span><span class="token punctuation">)</span>
+    get_config<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword">def</span> <span class="token function">ctrl_c</span><span class="token punctuation">(</span>signum<span class="token punctuation">,</span> frame<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"input ctrl c"</span><span class="token punctuation">)</span>
+    exit<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+
+
+<span class="token comment"># 捕获HUP</span>
+signal<span class="token punctuation">.</span>signal<span class="token punctuation">(</span>signal<span class="token punctuation">.</span>SIGHUP<span class="token punctuation">,</span> update_config<span class="token punctuation">)</span>
+<span class="token comment"># 捕获ctrl+c</span>
+signal<span class="token punctuation">.</span>signal<span class="token punctuation">(</span>signal<span class="token punctuation">.</span>SIGINT<span class="token punctuation">,</span> ctrl_c<span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"test signal"</span><span class="token punctuation">)</span>
+get_config<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"----"</span><span class="token punctuation">)</span>
+
+<span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+    <span class="token comment"># get_config()</span>
+    <span class="token comment"># print("test ---")</span>
+    <span class="token comment"># time.sleep(10)</span>
+    <span class="token keyword">pass</span>
+
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="配置文件">配置文件</h2><pre class="line-numbers language-conf" data-language="conf"><code class="language-conf">db.conf
+
+[Section_Dev]
+host&#x3D;&#39;127.0.0.1&#39;
+port&#x3D;8000
+env&#x3D;dev
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="执行程序">执行程序</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">python config_test<span class="token punctuation">.</span>py<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p><img src="https://cdn.jsdelivr.net/gh/itdocs-icu/img/img/20211203181249.png" alt=""></p><h2 id="修改配置文件">修改配置文件</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token assign-left variable">env</span><span class="token operator">=</span>pro
+<span class="token assign-left variable">port</span><span class="token operator">=</span><span class="token number">8888</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><h2 id="发起HUP信号">发起HUP信号</h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">ps</span> -ef  <span class="token operator">|</span> <span class="token function">grep</span> config_test.py
+
+<span class="token function">ps</span> -aux <span class="token operator">|</span> <span class="token function">grep</span> config_test
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p><img src="https://cdn.jsdelivr.net/gh/itdocs-icu/img/img/20211203181347.png" alt=""></p><p>切到捕获的信号量看到重新更新了配置文件</p><p><img src="https://cdn.jsdelivr.net/gh/itdocs-icu/img/img/20211203181446.png" alt=""></p></div><div class="paginator"><div class="prev"><a href="/posts/48120bab.html">Tensorflow联邦学习平台搭建 → </a><span class="material-icons right"></span></div></div><div class="book-comments"><script src="https://giscus.app/client.js" data-repo="A2Data/itdocs_giscus" data-repo-id="R_kgDOHPLRRw" data-category="Announcements" data-category-id="DIC_kwDOHPLRR84COyJ5" data-mapping="pathname" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous" async></script></div><script src="/js/book-post.js"></script><div class="book-footer"><div class="pure"><script src="https://pv.sohu.com/cityjson?ie=utf-8"></script><script>var getOSAndBrowser=function(){var e=navigator.platform,n=navigator.userAgent,i="",d="";-1<e.indexOf("Win")?-1<n.indexOf("Windows NT 5.0")?i+="Win2000":-1<n.indexOf("Windows NT 5.1")?i+="WinXP":-1<n.indexOf("Windows NT 5.2")?i+="Win2003":-1<n.indexOf("Windows NT 6.0")?i+="WindowsVista":-1<n.indexOf("Windows NT 6.1")||-1<n.indexOf("Windows 7")?i+="Win7":-1<n.indexOf("Windows NT 6.2")||-1<n.indexOf("Windows 8")?i+="Win8":-1<n.indexOf("Windows NT 6.3")||-1<n.indexOf("Windows 8.1")?i+="Win8.1":-1<n.indexOf("Windows NT 10.0")||-1<n.indexOf("Windows 10")?i+="Win10":i+="Other":-1<e.indexOf("Mac")?i+="Mac":-1<e.indexOf("X11")?i+="Unix":-1<e.indexOf("Linux")?i+="Linux":i+="Other",i+="/";var r,o=-1<n.indexOf("Opera"),t=-1<n.indexOf("compatible")&&-1<n.indexOf("MSIE")&&!o,x=-1<n.toLowerCase().indexOf("edge")&&!t,s=-1<n.toLowerCase().indexOf("trident")&&-1<n.indexOf("rv");return/[Ff]irefox(\/\d+\.\d+)/.test(n)?i+=(d=/([Ff]irefox)\/(\d+\.\d+)/.exec(n))[1]+d[2]:t?(new RegExp("MSIE (\\d+\\.\\d+);").test(n),i+=7==(r=parseFloat(RegExp.$1))?"IE7":8==r?"IE8":9==r?"IE9":10==r?"IE10":"0"):x?i+="Edge":s?i+="IE11":/[Cc]hrome\/\d+/.test(n)?i+=(d=/([Cc]hrome)\/(\d+)/.exec(n))[1]+d[2]:/[Vv]ersion\/\d+\.\d+\.\d+(\.\d)* *[Ss]afari/.test(n)?i+=(d=/[Vv]ersion\/(\d+\.\d+\.\d+)(\.\d)* *([Ss]afari)/.exec(n))[3]+d[1]:/[Oo]pera.+[Vv]ersion\/\d+\.\d+/.test(n)?i+=(d=/([Oo]pera).+[Vv]ersion\/(\d+)\.\d+/.exec(n))[1]+d[2]:i+="unknown",i};document.write("欢迎来自"+returnCitySN.cname+"的朋友"),document.write(" <br> 您的 IP 是:"+returnCitySN.cip),document.write(",您使用的是:"+getOSAndBrowser())</script></div><div><span id="timeDate"></span> <i class="fa fa-heartbeat" aria-hidden="true" style="color:rgba(255,0,0,.9)"></i> <span id="times"></span> <i class="fa fa-heartbeat" aria-hidden="true" style="color:rgba(255,0,0,.9)"></i><script>var now=new Date;function createtime(){var n=new Date("07/21/2021 00:00:00");now.setTime(now.getTime()+250),days=(now-n)/1e3/60/60/24,dnum=Math.floor(days),hours=(now-n)/1e3/60/60-24*dnum,hnum=Math.floor(hours),1==String(hnum).length&&(hnum="0"+hnum),minutes=(now-n)/1e3/60-1440*dnum-60*hnum,mnum=Math.floor(minutes),1==String(mnum).length&&(mnum="0"+mnum),seconds=(now-n)/1e3-86400*dnum-3600*hnum-60*mnum,snum=Math.round(seconds),1==String(snum).length&&(snum="0"+snum),document.getElementById("times").innerHTML="本站已运行 "+dnum+" 天 "+hnum+" 小时 "+mnum+" 分 "+snum+" 秒"}setInterval("createtime()",250)</script></div><div class="github-badge"><a style="color:#fff" rel="license" href="https://www.a2data.cn/" target="_blank" title="DataScience提供内容创作"><span class="badge-subject">Copyright©2021</span><span class="badge-value bg-blueviolet">DataBricks</span></a></div><div class="github-badge"><a style="color:#fff" rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="本站点采用知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议进行许可"><span class="badge-subject"><i class="fa fa-copyright"></i></span><span class="badge-value bg-lightgrey">BY-NC-SA 4.0</span></a></div><div class="github-badge"><a style="color:#fff" rel="license" href="https://beian.miit.gov.cn/" target="_blank" title="[互联网文档]"><span class="badge-subject">京ICP</span><span class="badge-value bg-red">备20010978号-3</span></a></div></div><script>function listennSidebarTOC() {
+    const navItems = document.querySelectorAll(".toc li");
+    if (!navItems.length) return;
+    const sections = [...navItems].map((element) => {
+      const link = element.querySelector(".toc-link");
+      const target = document.getElementById(
+              decodeURI(link.getAttribute("href")).replace("#", "")
+      );
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        window.scrollTo({
+          top: target.offsetTop,
+          behavior: "smooth"
+        });
+      });
+      return target;
+    });
+
+    function activateNavByIndex(target) {
+      if (target.classList.contains("active-current")) return;
+
+      document.querySelectorAll(".toc .active").forEach((element) => {
+        element.classList.remove("active", "active-current");
+      });
+      target.classList.add("active", "active-current");
+      $('.toc-link').removeClass('active_b');
+      let parent = target.parentNode;
+      while (!parent.matches(".toc")) {
+        if (parent.matches("li")) parent.classList.add("active");
+        parent = parent.parentNode;
+      }
+    }
+
+    function findIndex(entries) {
+      let index = 0;
+      let entry = entries[index];
+      if (entry.boundingClientRect.top > 0) {
+        index = sections.indexOf(entry.target);
+        return index === 0 ? 0 : index - 1;
+      }
+      for (; index < entries.length; index++) {
+        if (entries[index].boundingClientRect.top <= 0) {
+          entry = entries[index];
+        } else {
+          return sections.indexOf(entry.target);
+        }
+      }
+      return sections.indexOf(entry.target);
+    }
+
+    function createIntersectionObserver(marginTop) {
+      marginTop = Math.floor(marginTop + 10000);
+      let intersectionObserver = new IntersectionObserver(
+              (entries, observe) => {
+                let scrollHeight = document.documentElement.scrollHeight;
+                if (scrollHeight > marginTop) {
+                  observe.disconnect();
+                  createIntersectionObserver(scrollHeight);
+                  return;
+                }
+                let index = findIndex(entries);
+                activateNavByIndex(navItems[index]);
+              },
+              {
+                rootMargin: marginTop + "px 0px -100% 0px",
+                threshold: 0,
+              }
+      );
+      sections.forEach((element) => {
+        element && intersectionObserver.observe(element);
+      });
+    }
+    createIntersectionObserver(document.documentElement.scrollHeight);
+  }
+
+  document.addEventListener("DOMContentLoaded", listennSidebarTOC);
+  document.addEventListener("pjax:success", listennSidebarTOC);</script><style>.github-badge{display:inline-block;border-radius:4px;text-shadow:none;font-size:13px;color:#fff;line-height:15px;background-color:#abbac3;margin-bottom:5px}.github-badge .badge-subject{display:inline-block;background-color:#4d4d4d;padding:4px 4px 4px 6px;border-top-left-radius:4px;border-bottom-left-radius:4px}.github-badge .badge-value{display:inline-block;padding:4px 6px 4px 4px;border-top-right-radius:4px;border-bottom-right-radius:4px}.github-badge .bg-brightgreen{background-color:#4dc820!important}.github-badge .bg-orange{background-color:orange!important}.github-badge .bg-yellow{background-color:#d8b024!important}.github-badge .bg-blueviolet{background-color:#8833d7!important}.github-badge .bg-pink{background-color:#f26bae!important}.github-badge .bg-red{background-color:#e05d44!important}.github-badge .bg-blue{background-color:#007ec6!important}.github-badge .bg-lightgrey{background-color:#9f9f9f!important}.github-badge .bg-gray,.github-badge .bg-grey{background-color:#555!important}.github-badge .bg-lightgray,.github-badge .bg-lightgrey{background-color:#9f9f9f!important}</style></div></div><div class="column col-2 hide-lg"><div class="book-post-info"><div class="book-post-meta"><div class="author"><div class="author-img"><figure class="avatar avatar-lg"><img src="/jack.png" alt="..."></figure></div><div class="author-title"><div>JackFeng</div><div>2021-12-03</div></div></div><div class="divider"></div><div class="link"><a class="category-link" href="/categories/Python/">Python</a></div><div class="divider"></div></div><div class="book-tocbot"></div><div class="book-tocbot-menu"><a class="book-toc-expand" onclick="expand_toc()">Expand all</a> <a onclick="go_top()">Back to top</a> <a onclick="go_bottom()">Go to bottom</a></div><script src="/js/book-toc.js"></script></div></div></div></div><a class="off-canvas-overlay" onclick="hide_canvas()"></a></div><script>(function (w, d, s, id) {
+            if (typeof (w.webpushr) !== 'undefined') return; w.webpushr = w.webpushr || function () { (w.webpushr.q = w.webpushr.q || []).push(arguments) }; var js, fjs = d.getElementsByTagName(s)[0]; js = d.createElement(s); js.id = id; js.async = 1; js.src = "https://cdn.webpushr.com/app.min.js";fjs.parentNode.appendChild(js);}(window, document, 'script', 'webpushr-jssdk'));webpushr('setup', { 'key': 'BFx7WHz0rVpOVN8atT9J94hKkLItiL6wLbP5k5sJJtdQyWv9pryOWtscXADG3vfDUZzp89H1H3q34GSQXcr23Gw' });</script></body></html><script src="/js/book.js"></script><link rel="stylesheet" href="/css/prism.css"><script src="/js/prism.js"></script>
